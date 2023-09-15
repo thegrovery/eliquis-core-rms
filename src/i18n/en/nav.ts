@@ -11,14 +11,13 @@ export default [
 
 	//LEARN TAB
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
-		{ text: 'Getting Started', slug: 'getting-started', key: 'getting-started' },
-		{ text: 'How To Use The Toolkit', slug: 'how-to-use-the-toolkit', key: 'how-to-use-the-toolkit' },
+		{ text: 'How To Use The Toolkit', slug: 'introduction/how-to-use-the-toolkit', key: 'introduction/how-to-use-the-toolkit' },
 		{ text: 'About ELIQUIS 360 Support', slug: 'about-eliquis-360', key: 'about-eliquis-360' },
 
 	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
 		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },
 		{ text: 'How 1-855-ELIQUIS Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },
-		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
+		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
 		{ text: 'Provider Expresses That Patient Unable To Get Prescription Filled', slug: 'program-in-practice/provider-expresses-that-patient-unable-to-get-prescription-filled', key: 'provider-expresses-that-patient-unable-to-get-prescription-filled' },
 		{ text: 'Pharmacist Says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) And CHAMPUS Patients Are Not Eligible For Copay Assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance', key: 'pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance' },
 		{ text: 'Co-Pay Backdate Request', slug: 'program-in-practice/co-pay-backdate-request', key: 'co-pay-backdate-request' },
