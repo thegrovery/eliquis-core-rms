@@ -41,30 +41,28 @@ export default [
 		{ text: 'Tutorial Page Template', slug: 'page-templates/tutorial-page-template/1-step-1', key: 'page-templates/tutorial-page-template/1-step-1' },
 		{ text: 'Tutorial Page Template - New', slug: 'page-templates/tutorial-alt/step-1', key: 'page-templates/tutorial-alt/step-1' },*/
 
-	{ text: 'Misc.', header: true, type: 'learn', key: 'tutorials' },
+	/*{ text: 'Misc.', header: true, type: 'learn', key: 'tutorials' },
 		{ text: 'Our Brand Partners', slug: 'our-brand-partners', key: 'our-brand-partners' },
 		{ text: 'Recent Achievements', slug: 'recent-achievements', key: 'recent-achievements' },
-		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },
+		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },*/
 
 
 	//RESOURCES TAB
-	{ text: 'Brand Resources', header: true, type: 'api', key: 'brand-resources' },
-		{ text: 'View All', slug: 'brand-resources/view-all', key: 'brand-resources/view-all' },
-		{ text: 'Style Guide', slug: 'brand-resources/style-guide', key: 'brand-resources/style-guide' },
-		{ text: 'Icon Library', slug: 'brand-resources/icon-library', key: 'brand-resources/icon-library' },
-		{ text: 'Infographics', slug: 'brand-resources/infographics', key: 'brand-resources/infographics' },
-		{ text: 'Customer Personas', slug: 'brand-resources/customer-personas', key: 'brand-resources/customer-personas' },
-		{ text: 'Print Collateral', slug: 'brand-resources/print-collateral', key: 'brand-resources/print-collateral' },
-		{ text: 'Decks', slug: 'brand-resources/decks', key: 'brand-resources/decks' },
-		{ text: 'Product Training', slug: 'brand-resources/product-training-module1', key: 'brand-resources/product-training-module1' },
+	{ text: 'Online Resources', header: true, type: 'api', key: 'online-resources' },
+		{ text: 'Online Resources Overview', slug: 'online-resources/online-resources-overview', key: 'online-resources/online-resources-overview' },
+		{ text: 'Websites', slug: 'online-resources/websites', key: 'online-resources/websites' },
+		{ text: 'Downloads', slug: 'brand-resources/downloads', key: 'online-resources/downloads' },
+		{ text: 'Forms', slug: 'online-resources/forms', key: 'online-resources/forms' },
+		{ text: 'Other/Additional Support', slug: 'online-resources/additional-support', key: 'online-resources/additional-support' },
 
-	{ text: 'Program Resources', header: true, type: 'api', key: 'program-resources' },
-		{ text: 'Online Support', slug: 'program-resources/online-support', key: 'program-resources/online-support' },
-		{ text: 'User Assistance', slug: 'program-resources/user-assistance', key: 'program-resources/user-assistance' },
-		{ text: 'Order Forms', slug: 'program-resources/order-forms', key: 'program-resources/order-forms' },
-		{ text: 'Rate Cards', slug: 'program-resources/rate-cards', key: 'program-resources/rate-cards' },
+	{ text: 'Rep Resources', header: true, type: 'api', key: 'rep-resources' },
+		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook', key: 'rep-resources/how-to-use-e360-playbook' },
+		{ text: 'About ELIQUIS 360 Support', slug: 'rep-resources/about-eliquis-360-support', key: 'rep-resources/about-eliquis-360-support' },
+		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook-alt', key: 'rep-resources/how-to-use-e360-playbook-alt' },
+		{ text: 'Eliquis 360 Patient Support Services', slug: 'rep-resources/eliquis-360-patient-support-services', key: 'rep-resources/eliquis-360-patient-support-services' },
+		{ text: 'Track II Training Deck', slug: 'rep-resources/track-ii-training-deck', key: 'rep-resources/track-ii-training-deck' },
 
-	{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
+	/*{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
 		{ text: 'Forms', slug: 'misc-resources/forms', key: 'misc-resources/forms' },
-		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },
+		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },*/
 ] as const;
