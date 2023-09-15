@@ -1,0 +1,43 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import QrCode from '~/components/QrCode.astro'
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+
+---
+
+<div class='QrCodeModal'>
+  <ModalWrapper>
+    <div class="inner">
+      <h2>Share this page via QR Code</h2>
+      <div class="main">
+        <QrCode link={Astro.url}/>
+      </div>
+      <a class="textLink" href={Astro.url}>{Astro.url}</a>
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .QrCodeModal {
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        color: var(--theme-text);
+      }
+      .main{
+        margin: 2rem 0;
+      }
+      .textLink{
+        
+      }
+  }
+
+</style>
+

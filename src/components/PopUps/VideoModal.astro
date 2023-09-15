@@ -1,0 +1,43 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+import FeedbackForm from '~/components/Forms/FeedbackForm.astro';
+
+
+---
+
+<div class='VideoModal'>
+  <ModalWrapper modalType="video">
+    <div class="inner">
+      <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .VideoModal {
+      p{
+        margin-bottom: 1rem;
+      }
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem;
+        color: var(--theme-text);
+      }
+      iframe{
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto
+      }
+      
+  }
+
+</style>
+

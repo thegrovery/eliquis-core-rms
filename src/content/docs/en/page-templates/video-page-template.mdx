@@ -1,0 +1,56 @@
+---
+title: Video Page Template
+description: A basic intro to Astro.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import YouTubeEmbed from '~/components/YouTubeEmbed.astro'
+import VideoButton from '~/components/Buttons/VideoButton.astro'
+
+
+
+:::tip[ANNOUNCEMENTS]
+**Block Quote Element** - Use this element for calling out specific things.  
+:::
+
+
+When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
+
+To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+
+To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+
+## Video Modal/Popup/Lightbox
+
+These button components are set up to accept the props 'text' to control the button's text, and 'videoLink' to control what video opens in the modal.  Videos are set via these buttons, making it easy to assign when writing content.  The videos are set up to stop/deactivate when you close the modal.
+
+<VideoButton
+	text="Video Button Example"
+	videoLink="https://www.youtube.com/embed/kuZbgM8yxtY"
+/>
+
+<VideoButton
+	text="Another Video Button Example"
+	videoLink="https://www.youtube.com/embed/TbV7loKp69s"
+/>
+
+<VideoButton
+	text="Even Another Video Button Example"
+	videoLink="https://www.youtube.com/embed/Ac7G7xOG2Ag"
+/>
+
+
+## Youtube Embed Section
+
+Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+
+Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+
+
+
+---
+
+<YouTubeEmbed videoId="ZmYm-4esDgA" />

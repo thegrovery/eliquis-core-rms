@@ -1,0 +1,42 @@
+---
+// ResourceDetails.astro
+import { Icon } from 'astro-icon'
+---
+
+<div class="resource-info-container">
+    <div class="icon-container">
+        <Icon name={Astro.props.icon} />
+    </div>
+    <div class="resource-info">
+        <div class="author"> <span>Author:</span> {Astro.props.author || 'The Grovery'} </div>
+        <div class="modified"> <span>Last modified:</span> {Astro.props.lastModified || 'Not available'} </div>
+        <div class="tags"><span>Tags:</span> {Astro.props.tags || "no tags"}</div>
+    </div>
+</div>
+
+<style lang="scss">
+    .resource-info-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        .resource-info {
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+    .icon-container {
+        /* background-color: var(--theme-bg-gradient); */
+        background-color: var(--theme-dim-lighter);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        width: 80px;
+        border-radius: 28px;
+    }
+    .icon-container [astro-icon] {
+        font-size: 3em;
+        color: var(--theme-accent);
+    }
+</style>

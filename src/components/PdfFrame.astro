@@ -1,0 +1,49 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import QrCode from '~/components/QrCode.astro'
+const { link } = Astro.props as Props;
+---
+
+
+
+
+<div class='PdfFrame'>
+  <div class="meta">
+    <p>Link to file: {Astro.site}{link}</p>
+    <p>QR Code: 
+      <QrCode link={link}/>
+    </p>
+  </div>
+  <iframe src={link}></iframe>
+
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $borderColor: #000;
+  $color: #454257;
+
+  $border: solid $borderSize $borderColor;
+  .PdfFrame{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  iframe{
+    /*width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    display: inline-block;*/
+  }
+ #qrcode{
+  width: 250px;
+  height: 250px;
+  img{
+    width: 100%;
+    height: auto;
+  }
+ }
+
+</style>

@@ -1,0 +1,42 @@
+---
+import announcements from '~/data/announcements.json';
+
+const text = Astro.props.text;
+
+const processText = (text) => {
+  let segments = [text];
+  for (const [announcementType, announcementContent] of Object.entries(announcements)) {
+    segments = segments.flatMap((segment) => {
+      if (typeof segment === 'string') {
+        const parts = segment.split(new RegExp(`\\b${announcementType}\\b`));
+        const newSegments = [];
+        for (let i = 0; i < parts.length - 1; i++) {
+          newSegments.push(parts[i], { announcementType, announcementContent });
+        }
+        newSegments.push(parts[parts.length - 1]);
+        return newSegments;
+      }
+      return segment;
+    });
+  }
+  return segments;
+};
+
+
+const processedSegments = processText(text);
+---
+
+<div class="AnnouncementsContent">
+    {processedSegments.map((segment, index) => {
+      if (typeof segment === 'string') {
+        return segment;
+      }
+      return (
+        <span key={index} set:html={segment.announcementContent} />
+      );
+    })}
+</div>
+
+<style>
+
+</style>

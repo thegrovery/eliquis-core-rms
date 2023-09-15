@@ -1,0 +1,70 @@
+---
+import Footer from '../components/Footer/Footer.astro';
+import HeadCommon from '../components/HeadCommon.astro';
+import Header from '../components/Header/Header.astro';
+import { normalizeLangTag } from '../i18n/bcp-normalize';
+import { rtlLanguages } from '../i18n/languages';
+import { useTranslations } from '../i18n/util';
+import { getLanguageFromURL } from '../util';
+import SplashAnimation from '../components/SplashAnimation.astro';
+import SessionManager from '~/components/DynamicContent/SessionManager.astro';
+
+/* Popups/Modals/Lightboxes/Dialogs/etc */
+import ReloadPrompt from '~/components/ReloadPrompt.astro';
+import QRCodeModal from '~/components/PopUps/QRCodeModal.astro';
+import OptionsModal from '~/components/PopUps/OptionsModal.astro';
+import FeedbackModal from '~/components/PopUps/FeedbackModal.astro';
+import VideoModal from '~/components/PopUps/VideoModal.astro';
+import AnnouncementModal from '~/components/PopUps/AnnouncementModal.astro';
+import SearchModal from '~/components/PopUps/SearchModal.astro';
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const lang = getLanguageFromURL(new URL(Astro.request.url).pathname);
+const bcpLang = normalizeLangTag(lang);
+const dir = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
+const t = useTranslations(Astro);
+---
+
+<html dir={dir} lang={bcpLang} class="initial">
+	<head>
+		<HeadCommon />
+		<SessionManager />
+		<title>{`${title} 🚀 ${t('site.title')}`}</title>
+		<style>
+			html,
+			body,
+			main {
+				height: 100%;
+			}
+			main {
+				display: grid;
+				place-items: center;
+				padding-inline: var(--min-spacing-inline);
+			}
+			:global(#menu-toggle) {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<SplashAnimation/>
+		<Header />
+		<main class="layout splash-layout">
+			<article>
+				<slot />
+			</article>
+		</main>
+		<Footer />
+		<QRCodeModal/>
+		<OptionsModal/> 
+		<FeedbackModal/>
+		<VideoModal/>
+		<AnnouncementModal/>
+		<SearchModal />
+	</body>
+</html>

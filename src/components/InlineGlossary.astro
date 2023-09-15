@@ -1,0 +1,91 @@
+---
+import glossary from '~/data/glossary.json';
+
+const text = Astro.props.text;
+
+const processText = (text) => {
+  let segments = [text];
+  for (const [phrase, definition] of Object.entries(glossary)) {
+    segments = segments.flatMap((segment) => {
+      if (typeof segment === 'string') {
+        const parts = segment.split(new RegExp(`\\b${phrase}\\b`));
+        const newSegments = [];
+        for (let i = 0; i < parts.length - 1; i++) {
+          newSegments.push(parts[i], { phrase, definition });
+        }
+        newSegments.push(parts[parts.length - 1]);
+        return newSegments;
+      }
+      return segment;
+    });
+  }
+  return segments;
+};
+
+
+const processedSegments = processText(text);
+---
+
+<span>
+    {processedSegments.map((segment, index) => {
+      if (typeof segment === 'string') {
+        return segment;
+      }
+      return (
+        <span key={index}>
+          <span class="glossary-term">
+            {segment.phrase}
+            <span class="tooltip">{segment.definition}</span>
+          </span>
+          {' '}
+        </span>
+      );
+    })}
+  </span>
+
+<style>
+.glossary-term {
+  position: relative;
+  border-bottom: 2px dotted var(--custom-dark-blue); 
+  color: var(--custom-dark-blue);
+  font-weight: 600;
+  /* text-decoration: underline; */
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: var(--custom-dark-blue);
+  border: 1px solid var(--custom-accent-1-50);
+  padding: 5px;
+  color: var(--custom-white);
+  line-height: 1.2rem;
+  border-radius: 4px;
+  top: -3.5em; /* Position above the word */
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 0.8em; /* Smaller font size */
+  z-index: 1;
+  min-width: 240px;
+
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Position below the tooltip */
+  left: 50%;
+  transform: translateX(-50%); /* Center the triangle */
+  border-right: solid 5px transparent;
+  border-left: solid 5px transparent;
+  border-top: solid 5px var(--custom-dark-blue);
+  
+}
+
+
+.glossary-term:hover .tooltip {
+  display: block;
+  
+}
+
+</style>

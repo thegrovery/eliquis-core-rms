@@ -1,0 +1,85 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+import FeedbackForm from '~/components/Forms/FeedbackForm.astro';
+
+
+---
+
+<div class='FeedbackModal'>
+  <ModalWrapper modalType="feedback">
+    <div class="inner">
+      <h2>What’s on your mind?</h2>
+      <p>Have an issue or an idea?  Share it with us, and we'll check it out!</p>
+      <FeedbackForm/>
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .FeedbackModal {
+      p{
+        margin-bottom: 1rem;
+      }
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        color: var(--theme-text);
+      }
+      .main{
+        margin: 2rem 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: space-evenly;
+      }
+      .optionCell{
+        aspect-ratio: 1;
+        font-size: 1.5rem;
+        width: 8rem;
+        height: 8rem;
+        border: 3px solid var(--theme-divider);
+        border-radius: 0.5rem;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.15s;
+        svg{
+          width: 4rem;
+          height: auto;
+        }
+        &:hover{
+          background-color: var(--theme-text);
+          color: var(--theme-bg);
+          svg{
+            fill: var(--theme-bg);
+          }
+        }
+      }
+  }
+
+</style>
+
+<script>
+  
+  function modalClose(){
+    var elements = document.querySelectorAll('.ModalWrapper');
+    
+    elements.forEach(element => {
+      //target all instances of ModalWrapper
+      element.classList.remove("active"); 
+    });
+  }
+
+</script>

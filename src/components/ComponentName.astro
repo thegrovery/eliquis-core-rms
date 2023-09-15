@@ -1,0 +1,39 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+const { name } = Astro.props as Props;
+---
+
+<span class='ComponentName'>
+  {name}
+</span>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257;
+
+  .ComponentName {
+      /*display: inline-flex;
+      justify-content: center;
+      align-items: center;*/
+      background-color: var(--custom-teal-25);
+      padding: 5px;
+      height: 3ch;
+      &::before{
+        content:"<";
+        font-size: 1.5em;
+        position: relative;
+        //left: 5px;
+        top: 2px;
+      }
+      &::after{
+        content:"/>";
+        font-size: 1.5em;
+        position: relative;
+        //right: 5px;
+        top: 2px;
+      }      
+  }
+
+</style>

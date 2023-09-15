@@ -1,0 +1,67 @@
+:root {
+	/* =============================== */
+	/* ===== PRIMARY THEME COLORS ===== */
+	/* =============================== */
+	--custom-black: 			#17161D;
+	--custom-white: 			#fdfeff;
+	--custom-teal: 				#00DFC3;
+	--custom-dark-blue: 	#054C62;
+	--custom-green: 			#81C051;
+	--custom-light-blue:		#e7f0f4;
+
+	/* ===== SHADE VARIANTS ===== */
+	/*add opacity percent as last 2 digits*/
+		/*90% opacity*/
+		--custom-teal-90: 				#00DFC390;
+		--custom-dark-blue-90: 	#054c62e9;
+		--custom-green-90: 				#81C05190;
+		--custom-white-90: 				#fdfeff90;
+		--custom-light-blue-90: 		#e7f0f4e8;
+		
+		/*50% opacity*/
+		--custom-teal-50: 				#00DFC350;
+		--custom-dark-blue-50: 	#054C6250;
+		--custom-green-50: 				#81C05150;
+		--custom-white-50: 				#fdfeff50;
+
+		/*25% opacity*/
+		--custom-teal-25: 				#00DFC325;
+		--custom-dark-blue-25: 	#054C6225;
+		--custom-green-25: 				#81C05125;
+
+		/*10% opacity*/
+		--custom-teal-10: 				#00DFC310;
+		--custom-dark-blue-10: 	#054C6210;
+		--custom-green-10: 				#81C05110;
+		
+		/*05% opacity*/
+		--custom-teal-05: 				#00DFC305;
+		--custom-dark-blue-05: 	#054c6205;
+		--custom-green-05: 				#81C05105;
+
+	/* ================ */
+	/* ===== GREYS ===== */
+	/* ================ */
+		--custom-grey-1: 			#808080;
+		--custom-grey-1-50: 	#80808050;
+		--custom-grey-1-20: 	#80808020;
+		--custom-grey-1-10: 	#80808010;
+		--custom-grey-1-05: 	#80808005;
+
+
+	/* ======================== */
+	/* ===== NAMED COLORS ===== */
+	/* ======================== */
+		--custom-accent-1: 	var(--custom-dark-blue);
+		--custom-accent-1-50: 	var(--custom-dark-blue-50);
+		--custom-accent-1-25: 	var(--custom-dark-blue-25);
+		--custom-accent-1-10: 	var(--custom-dark-blue-10);
+		--custom-accent-1-05: 	var(--custom-dark-blue-05);
+
+		--custom-accent-2: 	var(--custom-teal);
+		--custom-accent-2-50: 	var(--custom-teal-50);
+		--custom-accent-2-25: 	var(--custom-teal-25);
+		--custom-accent-2-10: 	var(--custom-teal-10);
+		--custom-accent-2-05: 	var(--custom-teal-05);
+}
+

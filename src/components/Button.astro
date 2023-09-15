@@ -1,0 +1,118 @@
+---
+import { Icon } from 'astro-icon'
+// Component Script (JavaScript)
+export let variant = 'primary'; // default to primary if no variant is provided
+export let href; // optional href prop
+---
+
+<!-- Component Template (HTML + JS Expressions) -->
+<a 
+  class={`button ${Astro.props.variant} ${Astro.props.className ?? ''}`} 
+  href={Astro.props.href}
+  data-tag={Astro.props['data-tag']}
+  {...(Astro.props.href && Astro.props.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+  {...Astro.props}
+>
+  <slot></slot>
+  {Astro.props.icon && <Icon name={Astro.props.icon} />}
+</a>
+
+
+<!-- Styles for the primary and secondary buttons -->
+<style lang="scss">
+
+:root {
+  --blue: #007B98;
+  --teal: #00DFC3;
+}
+  
+/* Global Btn Style */
+  .button {
+    display: inline-flex;
+    cursor: pointer;
+	  margin: 8px 0;
+    margin-right: 4px;
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+	  font-weight: 500;
+	  transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      // transform: translateY(-2px);
+    }
+  }
+  .button [astro-icon] {
+    font-size: 1.45rem;
+    width: 1.45rem;
+    margin-top: -2px;
+  }
+  .button.mini {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  .button.small {
+    padding: 12px 28px;
+    
+  }
+  .button:hover {
+    text-decoration: none;
+  }
+  /* Primary Button */
+  .primary {
+    background-color: var(--custom-dark-blue);
+    color: white;
+    border: none;
+    // box-shadow: -2px 2px 0px var(--custom-dark-blue-50);
+  }
+  .primary:hover,.primary:focus {
+   
+	  /* background-color: #005e73; */
+	  background-color: var(--custom-dark-blue-90);
+    
+  }
+
+  /* Secondary Btn */
+  .secondary {
+    /* background-color: var(--teal); */
+    background-color: var(--custom-green);
+    color: white;
+    border: none;
+    // box-shadow: -2px 2px 0px var(--custom-green-90);
+  }
+  .secondary:hover,.secondary:focus {
+	background-color: var(--custom-green-90);
+  // box-shadow: -2px 2px 0px var(--custom-green);
+  }
+
+  /* Tertiary Btn */
+  .tertiary {
+    border-color: var(--custom-green);
+	border-style: solid;
+	border-width: 1px;
+  // box-shadow: -2px 2px 0px var(--custom-green);
+    color: var(--custom-green);
+    background-color: transparent;
+  }
+  .tertiary:hover,.tertiary:focus {
+	background-color:var(--custom-green);
+	color: #fff;
+    // box-shadow: -2px 2px 0px var(--custom-green-90);
+  }
+  
+  /* outline */
+  .outline {
+    border-color: var(--custom-teal);
+	border-style: solid;
+	border-width: 1px;
+    color: var(--custom-teal);
+    background-color: transparent;
+    // box-shadow: -2px 2px 0px var(--custom-teal);
+  }
+  .outline:hover,.outline:focus, .button.outline.active {
+    background-color:var(--custom-teal);
+    // box-shadow: -2px 2px 0px var(--custom-teal-90);
+	color: #fff;
+  }
+</style>

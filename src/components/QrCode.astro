@@ -1,0 +1,59 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+const { link } = Astro.props as Props;
+---
+
+
+
+
+<div class='QrCode'>
+    <div 
+      class="qrcodeMain" 
+      data-link={ link }
+    ></div>
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 10px;
+  $borderColor: #000;
+  $color: #454257;
+
+  $border: solid $borderSize $borderColor;
+  .QrCode{
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    border: $border;
+    padding: $borderSize;
+    background-color: #FFF;
+  }
+ .qrcodeMain{
+  width: 250px;
+  height: 250px;
+  img{
+    width: 100%;
+    height: auto;
+  }
+ }
+
+</style>
+
+
+<script type="text/javascript">
+
+  //var currentUrl = "{Astro.site.slice(0, -1)}{link}";
+  var targetElement = document.querySelector(".qrcodeMain");
+  var qrcode = new QRCode(targetElement, {
+    text: targetElement.dataset.link,
+    width: 500,
+    height: 500,
+    colorDark : "#000",
+    colorLight : "#FFF",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+  });
+  qrcode.makeCode();
+
+</script>

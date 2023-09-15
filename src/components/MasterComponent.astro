@@ -1,0 +1,61 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import Button from '~/components/Button.astro'
+
+const { heading, body } = Astro.props as Props;
+---
+
+<div class='MasterComponent'>
+  <div class='inner'>
+
+    <div class='heading'>
+      [MasterComponent Heading]
+
+      {heading ? 
+          <h2>{heading}</h2>
+        :
+          <h2>MasterComponent</h2>
+      }
+    </div>
+    <hr/>
+    <div class='body'>
+      <p>
+          [MasterComponent Body]
+      </p>
+      {body && 
+        <p>{body}</p>
+      }
+    </div>
+
+    <div class="slot">
+      <slot />
+    </div>
+
+  </div>
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257;
+  .MasterComponent {
+      width: 100%;
+      font-size: 1rem;
+      padding: 2rem;
+      border: dashed $borderSize $color;
+
+      hr{
+        border: 0;
+        width: 100%;
+        height: $borderSize;
+        background-color: $color;
+        margin: 1rem 0;
+      }
+
+      .heading{}
+      .body{}
+      .slot{}
+  }
+
+</style>

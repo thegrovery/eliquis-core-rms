@@ -1,0 +1,132 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import Button from '~/components/Button.astro'
+
+const { modalType } = Astro.props as Props;
+---
+
+<div class='ModalWrapper' data-modal={modalType}>
+  
+  <div class="modalBackdrop" onclick="modalClose()"></div>
+ 
+  <div class="modalInner">
+    <div class="modalCloseButton" onclick="modalClose()">
+      <span>&#10005;</span>
+    </div>
+    <slot />
+  </div>
+
+</div>
+
+<style lang="scss">
+  $transition: 0.15s linear;
+  .ModalWrapper {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 10000;
+      transition: $transition;
+      //inactive state
+      opacity: 0;
+      pointer-events: none;
+      //active state
+      &.active{
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modalBackdrop{
+        background-color: var(--theme-backdrop-overlay);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;   //z-index uses nesting, no need to make higher than parent element.
+      }
+      .modalCloseButton{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 3;
+        font-size: 2rem;
+        font-weight: 800;
+        width: 3rem;
+        height: 3rem;
+        border: 3px solid var(--theme-divider);
+        border-radius: 0.5rem;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.15s;
+        span{
+          position: relative;
+          top: -0.1rem;
+          color: var(--theme-text);
+          transition: 0.15s;
+        }
+        &:hover{
+          background-color: var(--theme-text);
+          span{
+            color: var(--theme-bg);
+          }
+        }
+      }
+      .modalInner{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, calc(-50% + 50px) );
+        max-height: 100%;
+        width: 100%;
+        max-width: 800px;
+        aspect-ratio: 16/9;
+        z-index: 2;   
+
+        font-size: var(--theme-text-base);
+        //margin: 1.5rem auto auto;
+        border: 1px solid var(--theme-divider);
+        border-radius: 0.5rem;
+        background-color: var(--theme-bg);
+        box-shadow: 0 0.75rem 1rem var(--theme-backdrop-overlay);
+        transition: $transition;
+      }
+      &.active{
+        .modalInner{
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+  }
+
+</style>
+
+
+<script type="text/javascript">
+  function modalClose(){
+    var elements = document.querySelectorAll('.ModalWrapper');
+    modalVideoRemove()
+    elements.forEach(element => {
+      //target all instances of ModalWrapper
+      element.classList.remove("active"); 
+    });
+  }
+
+  function modalVideoRemove(){
+    var videoElement = document.querySelector(".ModalWrapper[data-modal='video'] iframe");
+    videoElement.setAttribute('src', '');
+  }
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      modalClose();
+    }
+  });
+</script>

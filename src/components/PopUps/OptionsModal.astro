@@ -1,0 +1,130 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+import UserInfo from '~/components/DynamicContent/UserInfo.astro';
+
+---
+
+<div class='OptionsModal'>
+  <ModalWrapper modalType="options">
+    <div class="inner">
+      <h2>CORE Options</h2>
+      <p>Currently logged in as: <UserInfo info="email"/></p>
+      
+
+      <div class="main">
+        
+        <div class="optionCell" onClick="netlifyIdentity.open(); modalClose();">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+          </div>
+          <div class="text">
+            Log In
+          </div>
+        </div>
+
+        <div class="optionCell">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7l7-7Z"/></svg>
+          </div>
+          <div class="text">
+            Install
+          </div>
+        </div>
+
+        <div class="optionCell" onClick="SessionManager.clearAll(); localStorage.clear(); location.reload();">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.413-.588T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.588 1.413T17 21H7Zm2-4h2V8H9v9Zm4 0h2V8h-2v9Z"/></svg>
+          </div>
+          <div class="text">
+            Clear Data
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .OptionsModal {
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        color: var(--theme-text);
+      }
+      .main{
+        margin: 2rem 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: space-evenly;
+      }
+      .optionCell{
+        aspect-ratio: 1;
+        font-size: 1.5rem;
+        width: 8rem;
+        height: 8rem;
+        border: 3px solid var(--theme-divider);
+        border-radius: 0.5rem;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.15s;
+        svg{
+          width: 4rem;
+          height: auto;
+        }
+        &:hover{
+          background-color: var(--theme-text);
+          color: var(--theme-bg);
+          svg{
+            fill: var(--theme-bg);
+          }
+        }
+      }
+  }
+
+</style>
+
+<script>
+  
+
+
+  function delayedFunction() {
+    const user = netlifyIdentity.currentUser();
+    var elements = document.querySelectorAll('#userEmail');
+    elements.forEach(element => {
+      //target all instances of ModalWrapper
+      element.innerHTML = user.email; 
+    });
+  }
+
+  function waitForDelay(seconds, callback) {
+    setTimeout(callback, seconds * 1000);
+  }
+
+  const delayInSeconds = 5; // Change this to the desired delay in seconds
+  waitForDelay(delayInSeconds, delayedFunction);
+
+  function modalClose(){
+    var elements = document.querySelectorAll('.ModalWrapper');
+    
+    elements.forEach(element => {
+      //target all instances of ModalWrapper
+      element.classList.remove("active"); 
+    });
+  }
+
+</script>

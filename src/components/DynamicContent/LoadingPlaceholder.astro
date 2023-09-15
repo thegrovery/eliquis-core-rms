@@ -1,0 +1,130 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+const { text } = Astro.props as Props;
+
+
+
+---
+
+<div class="LoadingPlaceholder">
+  <!-- <button id="simulateLogin">Simulate Login</button>
+  <button id="simulateInit">Simulate Init</button> -->
+
+  
+  <div class="loading-bar-container">
+    <span class="text">
+      {text ? text : "Loading"}
+    </span>
+    <div class="loading-bar">
+      
+    </div>
+  </div>
+</div>
+
+<script>
+
+const loadingBarContainer = document.querySelector(".loading-bar-container");
+const loadingBar = document.querySelector(".loading-bar");
+
+// Logic to handle the loading bar animation
+function handleLogin() {
+    console.log("Simulated Login event triggered");
+    loadingBarContainer.style.display = "block";  // Show the loading bar
+    loadingBar.style.width = "50%"; // Set it to 50% to indicate it's in progress
+}
+
+function handleInit() {
+    console.log("Simulated Init event triggered");
+    loadingBar.style.width = "100%"; // Fully loaded
+
+    // Hide the loading bar after a delay
+    setTimeout(() => {
+        loadingBarContainer.style.display = "none";
+    }, 1000);
+}
+
+// Start loading when login initiates
+netlifyIdentity.on("login", handleLogin);
+
+netlifyIdentity.on("init", handleInit);
+
+// Add event listeners for the simulation buttons
+// document.getElementById("simulateLogin").addEventListener("click", handleLogin);
+// document.getElementById("simulateInit").addEventListener("click", handleInit);
+
+
+</script>
+
+<style lang="scss">
+  .LoadingPlaceholder {
+  position: relative;
+
+  .text {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: .85rem;
+    // margin-bottom: 10px; // Add some space between the text and the bar
+  }
+
+  .text:after {
+    content: ' .';
+    color: var(--custom-dark-grey);
+    // font-size: 2em;
+    animation: dots 1.5s steps(5, end) infinite;
+  }
+
+  .loading-bar-container {
+    width: 80%;
+    height: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--custom-teal-90);
+    background-color: var(--custom-grey);
+    position: relative;
+  }
+
+  .loading-bar {
+    height: 100%;
+    width: 0%; // Initially, the bar will be hidden
+    background-color: var(--custom-teal);
+    position: relative;
+    border-radius: 20px;
+    transition: width 0.3s;
+  }
+
+  @keyframes dots {
+    0%, 15% {
+      color: transparent;
+      text-shadow:
+        0.35em 0 0 transparent,
+        0.7em 0 0 transparent;
+    }
+    30% {
+      color: black;
+      text-shadow:
+        0.35em 0 0 transparent,
+        0.7em 0 0 transparent;
+    }
+    45% {
+      text-shadow:
+        0.35em 0 0 black,
+        0.7em 0 0 transparent;
+    }
+    60%, 100% {
+      text-shadow:
+        0.35em 0 0 black,
+        0.7em 0 0 black;
+    }
+  }
+}
+
+</style>
+

@@ -1,0 +1,56 @@
+---
+title: Resource Directory Template
+description: A basic intro to Astro.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import ResourceCard from '~/components/ResourceCard.astro';
+
+Use this page template when you need to display a list of resources - they can either be other pages in the toolkit, or third-party resources hosted offsite.  Click "View Details" to navigate to the resource, or click "Share" to open a popup with a sharable link and a QR code
+
+<div class="block-wrapper" style="display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin: 0 auto;">
+  
+	<ResourceCard
+		icon="clipboard"  
+		title="Troubleshooting Guide: Solutions for Common Issues" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Tag1', 'Tag2', 'Tag3']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+	/>
+
+	<ResourceCard 
+		icon="globe" 
+		title="Online Support Provider Portal" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Tag1', 'Tag2', 'Tag3']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+	/>
+	
+	<ResourceCard 
+		icon="graduation-cap" 
+		title="Product Training Module: Part 1" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Tag1', 'Tag2', 'Tag3']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+	/>
+	
+	<ResourceCard 
+		icon="pills" 
+		title="Customer Success Stories: Inspire Trust and Confidence" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Tag1', 'Tag2', 'Tag3']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+	/>
+
+
+</div>

@@ -1,0 +1,25 @@
+---
+title: Component Page Template
+description: Page template featuring a mix of Markdown, HTML, and Astro components.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import MasterComponent from '~/components/MasterComponent.astro'
+import { Icon } from 'astro-icon'
+
+This pages features examples of <strong>components</strong>, which are the building blocks of modern websites.  No need to write out each element every time you use it - simply create a component, give it some options and settings (called Props), and reuse the component as many times as you need.
+
+
+
+
+
+<MasterComponent
+ body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+>
+	<br/>
+	<p>Component Slot/Child Content - <strong>accepts HTML and components</strong></p>
+	<br/>
+	<Icon pack="mdi" name="account" />
+</MasterComponent>
+

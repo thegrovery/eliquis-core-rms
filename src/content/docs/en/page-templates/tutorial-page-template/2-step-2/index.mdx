@@ -1,0 +1,118 @@
+---
+type: tutorial
+unitTitle: 'Tutorial Page Template'
+title: Tutorial Page Template
+description: >-
+  Learn the basics of Astro with a project-based tutorial. All the background
+  knowledge you need to get started!
+i18nReady: true
+---
+import Badge from '~/components/Badge.astro';
+import Checklist from '~/components/Checklist.astro';
+import Box from '~/components/tutorial/Box.astro';
+import Lede from '~/components/tutorial/Lede.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import PreCheck from '~/components/tutorial/PreCheck.astro';
+
+
+
+<Lede> In this tutorial, you'll learn Astro's key features by building a fully-functioning blog, from zero to full launch! 🚀 </Lede>
+
+<PreCheck>
+  - Create sub-pages by making a folder and index file.  This will be the first level page.
+  - Make additional pages within the folder as normal.
+  - You can nest additional sub-pages by repeating this pattern.
+</PreCheck>
+
+
+Along the way, you'll: 
+- Set up your development environment 
+- Create pages and blog posts for your website
+- Build with Astro components
+- Query and work with local files
+- Add interactivity to your site 
+- Deploy your site to the web
+
+Want a preview of what you're going to build? You can view the final project on [GitHub](https://github.com/withastro/blog-tutorial-demo) or [StackBlitz](https://stackblitz.com/github/withastro/blog-tutorial-demo/tree/complete?file=src%2Fpages%2Findex.astro).
+
+:::note
+If you would rather start exploring Astro with a pre-built Astro site, you can visit https://astro.new and choose a starter template to open and edit in an online editor.
+::: 
+
+<Box icon="puzzle-piece">
+
+	## Try it yourself - Build a new Header component
+	
+	1. Create a new Header component. Import and use your existing `Navigation.astro` component inside a `<nav>` element which is inside a `<header>` element.
+
+    <details>
+    	<summary>Show me the code!</summary>
+	
+    	Create a file named `Header.astro` in `src/components/`
+     	```astro title="src/components/Header.astro"
+    	---
+    	import Navigation from './Navigation.astro';
+    	---
+    	<header>
+      	<nav>
+        	<Navigation />
+      	</nav>
+    	</header>
+    	```
+    </details>
+
+</Box>
+
+<Box icon="check-list">
+
+	### Test your knowledge
+
+	1. Multiple choice questions can be created using the MultipleChoice component
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+	</MultipleChoice>
+
+	2. Answers use the Option component, and correct answers are set using the 'isCorrect' prop
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+	</MultipleChoice>
+
+	3. Astro components will automatically create a new page on your site when you...
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+	</MultipleChoice>
+</Box>
+
+
+<Box icon="check-list">
+## Checklist
+
+<Checklist>
+- [ ] Looks great! I'm ready to get started!
+</Checklist>
+</Box>

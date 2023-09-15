@@ -1,0 +1,54 @@
+---
+import { Astro } from 'astro';
+import Button from '~/components/Button.astro';
+
+---
+
+<div>
+    <Button variant="small outline active" data-tag="all">All</Button>
+    {Astro.props.tags.map((tag) => (
+      <Button variant="small outline" data-tag={tag}>{tag}</Button>
+    ))}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.tag-filter-container .button');
+      const cards = document.querySelectorAll('.resource-card-container .resource-card');
+  
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tag = button.dataset.tag.toLowerCase();
+  
+          // Remove the "active" class from all buttons
+          buttons.forEach(button => {
+            button.classList.remove('active');
+          });
+  
+          // Add the "active" class to the selected button
+          button.classList.add('active');
+  
+          if (tag === 'all') {
+            cards.forEach(card => {
+              card.style.display = 'block';
+            });
+          } else {
+            cards.forEach(card => {
+              const cardTags = card.dataset.tags.split(',').map(tag => tag.toLowerCase());
+  
+              if (cardTags.includes(tag)) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+  
+  
+  
+  
+  

@@ -1,0 +1,150 @@
+---
+/*
+NOTE: The following code used to be included in a script tag on the page.
+However, our english translations are now far more developed than any other language.
+We are going to start a process of updating our translations, and can begin to opt-in
+to different language automatic redirects once they hit a certain quality threshold.
+Until then, we'll just only redirect to english for now, with the meta tag below
+
+// WIP: trigger a client-side redirect based on the browser language.
+// A vercel.json redirect is enforced in production, so no user should ever see this page.
+// Remove the vercel.json redirect when this is ready.
+const KNOWN_LANGUAGES = ['bg', 'de', 'en', 'es', 'fi', 'nl', 'pt-br', 'zh-cn', 'zh-tw', 'fr', 'kr', 'da', 'ja', 'pl', 'hu'];
+let newLangWithRegion = (window.navigator.userLanguage || window.navigator.language || 'en-US').substr(0, 5);
+let newLang = newLangWithRegion.substr(0, 2);
+if (KNOWN_LANGUAGES.includes(newLangWithRegion)) {
+	window.location.pathname = '/' + newLangWithRegion + '/getting-started';
+} else if (KNOWN_LANGUAGES.includes(newLang)) {
+	window.location.pathname = '/' + newLang + '/getting-started';
+} else {
+	window.location.pathname = '/en/getting-started';
+}
+
+*/
+
+
+import SplashLayout from '../layouts/SplashLayout.astro';
+import Logo from '~/components/SVGs/Logo.astro';
+import NavBlock from '~/components/NavBlock.astro';
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import UserInfo from '~/components/DynamicContent/UserInfo.astro';
+import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
+import SimpleButton from '~/components/Buttons/SimpleButton.astro';
+import Button from '~/components/Button.astro';
+
+---
+
+<!-- <meta http-equiv="refresh" content="0;url=/en/getting-started" /> -->
+
+<SplashLayout title="CORE RMS">
+	<div class="content-wrapper">
+		
+		<div class="content">
+			<h1>Welcome to CORE RMS</h1>
+			
+			<div class="cell border">
+				
+				<p class="welcome-intro">The Grovery’s CORE RMS (Resource Management System) is a software product that provides the framework to organize, manage and train Sales and Marketing teams. This Web App platform provides the environment for teams to work more efficiently, share information and provides easy access to relevant program materials.
+				</p>
+				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
+				
+				<div class="loading-wrapper"><LoadingPlaceholder/></div>
+				
+				<IfLoggedIn>
+					
+					<div slot="loggedIn">
+						<p class="small">You're logged in.  Currently logged in as: <UserInfo info="email"/></p>
+						<div class="button-wrap">
+							<Button style="min-width: 300px; justify-content: center" variant="secondary" onClick="netlifyIdentity.logout();">Log out</Button>
+							<Button variant="primary" href="/en/getting-started">Get Started Now</Button>
+						</div>
+					</div>
+
+					<div slot="loggedOut">
+						<p class="small">You're logged out</p>
+						<div class="button-wrap">
+							<Button variant="secondary" onClick="netlifyIdentity.open('login');">Login</Button>
+							<Button variant="outline" onClick="netlifyIdentity.open('signup');">Sign up</Button>
+							<Button variant="primary" href="/en/getting-started">Get Started Now</Button>
+
+						</div>
+					</div>
+					
+					
+
+				</IfLoggedIn>
+
+				
+			</div>
+			
+			<!-- <div class="cell">
+				<NavBlock
+					icon="gala:brochure"  
+					title="Getting Started" 
+					description="Learn how to use CORE and where to find the information you need." 
+					viewDetailsButtonText="Explore Resources" 
+					width="half" 
+					resourceDetailsLink="/en/getting-started/" 
+				/>
+			</div> -->
+
+		</div>
+	</div>
+</SplashLayout>
+
+<style lang="scss">
+	article {
+		width: 100%;
+	}
+	.content-wrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		
+		.content {
+			position: relative;
+			z-index: 1;
+			padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+			padding-bottom: var(--doc-padding-block);
+			padding-inline: var(--min-spacing-inline);
+			width: 100%;
+			height: 100%;
+			margin-inline: auto;
+			display: flex;
+			flex-direction: column;
+			overflow-x: hidden;
+			// max-width: 80vw;
+			@media (min-width: 50em) {
+				max-width: 50vw;
+			}
+			margin-right: auto;
+			.loading-wrapper {
+				margin-bottom: 1.5rem;
+			}
+			h1 {
+				// font-size: 3.5rem;
+			}
+			.welcome-intro {
+				margin-bottom: 1.5em;
+				padding-right: 10%;
+				@media (min-width: 50em) {
+					padding-right: 20%;
+				}	
+			}
+			.small {
+				font-size: .9rem;
+				margin-bottom: 1.5em;
+			}
+			.button-wrap {
+				// display: flex;
+				// flex-direction: column;
+			}
+			.button {
+				// width: 300px;
+				justify-content: center;
+			}
+		}
+	}
+	
+</style>

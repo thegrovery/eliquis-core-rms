@@ -1,0 +1,81 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+
+// const { videoLink, text } = Astro.props as Props;
+---
+
+<button class='SearchButton' onclick="modalOpenSearch();">
+<div class="SearchButton_inner">
+  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true" role="img" class="astro-F4DDINW2">
+    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(-1)" class="astro-F4DDINW2"></path>
+  </svg> 
+  <span>Search</span>
+</div> 
+</button>
+
+<style lang="scss">
+  
+  .SearchButton {
+      position: relative;
+      border: 1px solid var(--custom-accent-1-50);
+      border-radius: 1.5rem;
+      // background-color: transparent;
+      background-color: var(--theme-code-inline-bg);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.25em .75em 0.25em 0.75em;
+      line-height: calc(1 / var(--theme-text-xs));
+      min-height: 36px;
+      [astro-icon] {
+        color: var(--theme-text);
+      }
+      span {
+        display: none;
+        // color: var(--theme-text-lighter);
+      }
+      @media (min-width: 800px) {
+        padding: 0.25em 1.5em 0.25em 0.75em;
+        span {
+          display: block;
+        }
+        svg {
+          margin: 0 10px 0 0;
+        }
+      }
+      &:hover{
+        background-color: var(--custom-accent-2-10);
+        span {
+          // color: var(--theme-text);
+        }
+      }
+      .SearchButton_inner {
+        display: flex;
+        align-items: center;
+        color: var(--theme-text);
+      }
+      svg{
+        position: relative;
+        // top: 4px;
+        
+
+      }
+  }
+
+</style>
+
+<script type="text/javascript">
+  function modalOpenSearch(){
+  // Open search modal
+  var targetElement = document.querySelector(".ModalWrapper[data-modal='Search']");
+  targetElement.classList.add("active");
+
+  // Focus on the input
+  setTimeout(() => {
+    var inputElement = document.querySelector("#searchInput");
+    if (inputElement) {
+      inputElement.focus();
+    }
+  }, 0);
+}
+</script>

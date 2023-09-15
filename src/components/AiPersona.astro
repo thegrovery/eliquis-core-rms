@@ -1,0 +1,107 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+const { name, type, ai, image, notes} = Astro.props as Props;
+---
+
+<div class='AiPersona'>
+  
+  <div class="personaMeta">
+    
+    <div class="text">
+      <h3 class="name">
+        <span>Persona Name:</span>
+        {name ? <span>{name}</span>:<span>AI Persona Name</span>}
+      </h3>
+      <ul>
+        <li class="ai">
+          <span>AI Used:</span>
+          {ai ? <span>{ai}</span>:<span>(ChatGPT/Bard/MidJourney/etc.)</span>}
+        </li>
+        <li class="type">
+          <span>Persona Type:</span>
+          {type ? <span>{type}</span>:<span>(writer/coder/etc.)</span>}
+        </li>  
+        <li class="notes">
+          <span>Notes:</span>
+          {notes ? <span>{notes}</span>:<span>Enter notes to help others use this AI persona.</span>}
+        </li>  
+      </ul>
+    </div>
+
+    <div class="image">
+      {image ? 
+        <img src={image} />
+      :
+        <span>IMAGE</span>
+      }
+    </div>
+
+  </div>
+
+  <div class="slot">
+    <p class="promptIntro">Prompt:</p>
+    <div class="promptInner">
+      <slot />
+    </div>
+    <p class="promptOutro">
+      Copy and paste this prompt into the cooresponding AI model to generate the desired AI persona.
+    </p>
+  </div>
+
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $borderColor: #000;
+  $color: #454257;
+
+  $border: solid $borderSize $borderColor;
+
+
+  .personaMeta{
+    display: flex;
+    border: $border;
+    
+    .text{
+      width: 50%;
+      border-right: $border;
+      padding: 1rem;
+    }
+    .image{
+      width: 50%;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
+
+  .slot{
+    border: $border;
+    border-top: none;
+
+    .promptIntro{
+      font-weight: 800;
+      font-size: 1.5rem;
+      padding: 1rem;
+      border-bottom: $border;
+    }
+    .promptInner{
+      font-size: 1em;
+      padding: 2.5rem 1rem;
+    }
+    .promptOutro{
+      font-weight: 100;
+      font-size: 0.75rem;
+      padding: 1em 1rem;
+      border-top: $border;
+    }
+  }
+
+</style>

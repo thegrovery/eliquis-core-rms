@@ -1,0 +1,21 @@
+{
+    "tutorial-1": {
+    "step-1": "incomplete",
+    "step-2": "incomplete",
+    "step-3": "incomplete"
+    },
+    "tutorial-2": {
+        "step-1": "incomplete",
+        "step-2": "incomplete",
+        "step-3": "incomplete",
+        "step-4": "incomplete",
+        "step-5": "incomplete"
+    },
+    "tutorial-3": {
+        "part-1": "incomplete",
+        "part-2": "incomplete",
+        "part-3": "incomplete",
+        "part-4": "incomplete",
+        "part-5": "incomplete"
+    }  
+}

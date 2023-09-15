@@ -1,0 +1,53 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+import AnnouncementsContent from '~/components/AnnouncementsContent.astro';
+
+
+---
+
+<div class='AnnouncementModal'>
+  <ModalWrapper modalType="announcement">
+    <div class="inner">
+      <h2>ANNOUNCEMENTS</h2>
+      <p>Check here for the latest site-wide announcements</p>
+      
+      <div class="announcementText">
+        <AnnouncementsContent text="main" />
+      </div>
+      
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .AnnouncementModal {
+      p{
+        margin-bottom: 1rem;
+      }
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4rem;
+        color: var(--theme-text);
+      }
+      .announcementText{
+        width: 100%;
+        height: 30ch;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: $borderSize solid var(--theme-divider);
+        overflow-y: scroll;
+      }
+      
+  }
+
+</style>
+

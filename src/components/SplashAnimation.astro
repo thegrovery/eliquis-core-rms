@@ -1,0 +1,108 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import Button from '~/components/Button.astro'
+
+const { heading, body } = Astro.props as Props;
+
+
+---
+
+<div class='SplashAnimation' id='SplashAnimation'>
+  <img class="desktop" src="/images/core-splash.gif">
+  <img class="mobile" src="/images/core-splash-mobile.gif">
+</div>
+
+<style lang="scss">
+  .SplashAnimation {
+      position: fixed;
+      display: none;
+      top:0px;
+      left: 0px;
+      width: 100%;
+      height:100%;
+      z-index: 100000;
+      background-color: #054C62;
+      opacity: 1;
+      pointer-events: auto;
+      transition: 0.35s linear;
+      &.hidden{
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      img{
+        animation-iteration-count: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .desktop{
+        display: block;
+      }
+      .mobile{
+        display: none;
+      }
+
+      @media (max-width: 600px) {
+        .desktop{
+          display: none;
+        }
+        .mobile{
+          display: block;
+        }
+      }
+  }
+
+</style>
+
+<script>
+  //Hide Timer function
+  function hideTimer(){
+    // Get a reference to the element
+    const elementToHide = document.getElementById("SplashAnimation");
+
+    // Set the time (in milliseconds) after which the element should be hidden
+    const hideTimeout = 4500; // 4.5 seconds
+
+    // Function to hide the element
+    function hideElement() {
+        //elementToHide.style.opacity = "0";
+        elementToHide.classList.add("hidden")
+    }
+
+    // Set a timeout to call the hideElement function after the specified time
+    setTimeout(hideElement, hideTimeout);
+  }
+  
+  //Show Once Per Session function
+  function showOnce(){
+    // Get a reference to the element
+    const elementToShow = document.getElementById("SplashAnimation");
+
+    // Check if the element should be shown
+    const shouldShow = !sessionStorage.getItem("shownOnce");
+
+    if (shouldShow) {
+        console.log("");
+        elementToShow.style.display = "block";
+        // Mark the element as shown
+        sessionStorage.setItem("shownOnce", "true");
+    }
+  }
+
+  //Run Functions
+  var searchParams = new URLSearchParams(window.location.search); 
+  if(searchParams.has("splash")){
+    //allow animation to run
+    console.log("param exists");
+    const elementToShow = document.getElementById("SplashAnimation");
+    elementToShow.style.display = "block";
+  } else {
+    showOnce();
+  }
+  
+  hideTimer();
+
+</script>

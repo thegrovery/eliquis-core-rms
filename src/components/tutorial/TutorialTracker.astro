@@ -1,0 +1,70 @@
+---
+import tutorials from '~/data/tutorials.json';
+
+const { tutorial } = Astro.props as Props;
+
+---
+
+<div class="TutorialTracker">
+    <div class="tutorialTrackerContent" data-tutorial-id={tutorial}></div>
+</div>
+
+<script>
+  // Parse the JSON string into an object
+  //const jsonObject = JSON.parse({tutorialsFull});
+
+  const response = await fetch("/data/tutorials.json");
+  const tutorials = await response.json();
+  console.log(tutorials);
+  const jsonObject = tutorials;
+  var outputDiv = document.querySelectorAll(".tutorialTrackerContent");
+  
+
+  outputDiv.forEach(element => {
+    var dataAttrVar = element.getAttribute("data-tutorial-id");
+    
+    // Display specific top-level entries
+    const displaySpecificEntries = (jsonObject, keysToDisplay) => {
+    
+      keysToDisplay.forEach((key) => {
+        if (jsonObject.hasOwnProperty(key)) {
+          const value = jsonObject[key];
+
+          let displayValue = "";
+
+          if (Array.isArray(value)) {
+            displayValue = `<ul>${value.map(v => `<li>${v}</li>`).join('')}</ul>`;
+          } else if (typeof value === "object") {
+            displayValue = `
+              <ul class="tutorialGroup">
+                ${Object.entries(value).map(([k, v]) => `
+                <li 
+                  class="tutorialUnit"
+                  data-complete="${v}"
+                  data-tutorial-id="${key}-${k}"
+                >
+                  <div class="checkbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#FFFFFF" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"/></svg>
+                  </div>
+                  <span class="sectionName">${k}: </span>
+                  <span class="sectionValue">Loading...</span>
+                </li>`).join('')}
+              </ul>`;
+          } else {
+            displayValue = value;
+          }
+
+          element.innerHTML += `<p><strong>${key}:</strong> ${displayValue}</p>`;
+        }
+      });
+    };
+
+    // Call the function and specify the top-level keys you want to display
+    //displaySpecificEntries(jsonObject, ["tutorial-1", "tutorial-2", "tutorial-3"]);
+    displaySpecificEntries(jsonObject, [dataAttrVar]);
+  });
+
+
+  
+
+</script>

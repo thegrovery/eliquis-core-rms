@@ -1,0 +1,231 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import SimpleSearchAlt from '~/components/Header/SimpleSearchAlt'
+import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
+
+---
+
+<div class='SearchModal'>
+  <ModalWrapper modalType="Search">
+    <div class="inner">
+      <h2>Search</h2>
+      <div class="main">
+        <SimpleSearchAlt client:load />
+      </div>
+     
+    </div>
+  </ModalWrapper>  
+</div>
+
+<style lang="scss" is:global>
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257; 
+  .SearchModal {
+      .inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        color: var(--theme-text);
+      }
+      .main{
+        margin: 2rem 0;
+      }
+      .textLink{
+        
+      }
+  }
+  
+
+  
+  .simpleSearch {
+    width: 300px;
+    overflow: auto;
+    max-height: 600px;
+    @media (min-width: 50em) {
+        width: 600px;
+    }
+    // background-color: var(--custom-white);
+    // border-radius: 6px;
+    // border-top-left-radius: 6px;
+    // border-top-right-radius: 6px;
+    // padding: 10px;
+    .noResultsMessage {
+      text-align: center;
+    }
+    .inputWrapper {
+    position: relative;
+    width: 100%;
+      input {
+          transition: all .2s ease-out;
+          background-color: transparent;
+          color: var(--theme-text-lighter);
+          text-decoration: none;
+          font-family: inherit;
+          font-size: 1rem;
+          unicode-bidi: plaintext;
+          cursor: pointer;
+          width: 100%;
+          min-height: 50px;
+          border-radius: 3px;
+          padding: 5px 12px;
+          border: 2px solid var(--custom-grey-1);
+          &:focus, &:hover {
+              border-color: var(--custom-teal);
+              outline: var(--custom-teal);
+          }
+      }
+      .clearButton {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        color: var(--theme-text-lighter);
+        &:hover {
+          color: var(--theme-text);
+        }
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    & ul.simpleSearch_ul {
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--theme-text-lighter);
+        }
+    //   position: absolute;
+      // max-height: 380px;
+      // overflow: auto;
+      &::-webkit-scrollbar {
+        transition: all .2s ease-out;
+        width: 12px;  /* for vertical scrollbars */
+        height: 12px; /* for horizontal scrollbars */
+      }
+      &::-webkit-scrollbar-track {
+        background: var(--custom-grey-1-25);
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: var(--custom-grey-1-50);
+      }
+      
+      /* Add a hover effect for the thumb */
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--custom-green);
+      }
+      z-index: 1;
+    //   top: 100%;
+      padding: 10px 0 10px 0;
+      list-style-type: none;
+    //   left: 0;
+    //   right: 0;
+    //   border: 1px solid #ccc;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      // background-color: var(--custom-white);
+    //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    & .simpleSearch_item {
+        line-height: 1.1;
+        position: relative;
+        .full-link {
+            position: absolute;
+            width: 80%;
+            height: 100%;
+            top: 0;
+            left: 50px;
+            display: flex;
+            // z-index: 1;
+        }
+        transition: all 0.3s ease-in-out;
+        &.animate {
+            // Your animation styles here
+            // For example, to scale the item:
+            transform: scale(1.1);
+            // Or to change the background color:
+            // background-color: lightgrey;
+        }
+       svg {
+        &:hover {
+           path {
+            stroke: var(--custom-green) !important;
+           }
+        }
+       }
+        list-style-type: none;
+        border: 1px solid var(--custom-grey-1-50);
+        box-shadow: 1px 1px 0px var(--custom-grey-1-50);
+        transition: all .1s ease-out;
+        &:hover {
+            border-color: var(--custom-teal);
+            box-shadow: 1px 1px 0px var(--custom-teal);
+        }
+        border-radius: 6px;
+        padding: 10px 20px 10px 12px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      a {
+        font-weight: 500;
+        color: var(--theme-text-lighter);
+        text-decoration: none;
+        transition: all .1s ease-out;
+        &:hover, &:focus {
+          color: var(--theme-text);
+            text-decoration: none;
+            // color: var(--custom-teal);
+        }
+      }
+    }
+    
+    & .simpleSearch_item.recent {
+      // Add any specific styles for recent items if needed
+      .remove {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        border-radius: 6px;
+        color: var(--theme-text-lighter);
+        &:hover {
+          color: var(--theme-text);
+        }
+      }
+    }
+  
+    & button.simpleSearch_close {
+      position: absolute;
+      top: -40px;
+      right: 0px;
+      background: var(--custom-teal-25);
+      &:hover, &:focus {
+        background: var(--custom-teal-50);
+      }
+      color: var(--custom-white);
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+  
+  .favoriteToggle {
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+</style>
+

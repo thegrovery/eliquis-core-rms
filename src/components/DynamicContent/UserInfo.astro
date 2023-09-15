@@ -1,0 +1,37 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
+
+const { info } = Astro.props as Props;
+---
+
+<span class='UserInfo' data-info={info}>
+  Loading...
+</span>
+
+
+<script>
+  function delayedFunction() {
+    
+    //grab all user info
+    const user = netlifyIdentity.currentUser();
+    
+    //user email
+    var elements = document.querySelectorAll('.UserInfo[data-info="email"]');
+    elements.forEach(element => {
+      element.innerHTML = user.email; 
+    });
+
+  }
+
+  function waitForDelay(seconds, callback) {
+    setTimeout(callback, seconds * 1000);
+  }
+
+  const delayInSeconds = 5; // Change this to the desired delay in seconds
+  waitForDelay(delayInSeconds, delayedFunction);
+
+</script>

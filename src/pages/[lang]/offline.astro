@@ -1,0 +1,23 @@
+---
+import languages from '../../i18n/languages';
+import { useTranslations } from '../../i18n/util';
+import SplashLayout from '../../layouts/SplashLayout.astro';
+
+export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
+const { lang = 'en' } = Astro.params;
+const t = useTranslations(Astro);
+---
+
+<SplashLayout title="Offline Notice">
+	<h1>Offline Notice</h1>
+	<p>
+		Looks like you're offline and don't have this page pre-downloaded.  
+		<br/><br/>
+		Try visiting this page again when you're back online.
+	</p>
+	<a href="/en/getting-started">Go Back Home</a>
+</SplashLayout>
+
+<!-- <script>
+	window.addEventListener('load', () => (window as any).fathom.trackGoal('4KN9VI2W', 0));
+</script> -->

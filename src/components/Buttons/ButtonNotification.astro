@@ -1,0 +1,23 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+const { icon } = Astro.props as Props;
+---
+
+<div class='ButtonNotification'></div>
+
+<style lang="scss">
+  $size: 0.75rem;
+  $offset: -0.35rem;
+  .ButtonNotification {
+    width: $size;
+    height: $size;
+    border-radius: 100%;
+    background-color: red;
+    position: absolute;
+    top: $offset;
+    right:$offset;
+  }
+
+</style>
+

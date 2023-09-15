@@ -1,0 +1,44 @@
+// Override variables
+
+$hamburger-padding-x           : 6px;
+$hamburger-padding-y           : 5px;
+
+$hamburger-layer-width         : 16px;
+$hamburger-layer-height        : 2px;
+$hamburger-layer-spacing       : 4px;
+$hamburger-layer-color         : var(--theme-text);
+
+$hamburger-hover-opacity       : 1;
+
+// Import hamburgers after the overrides
+@import "hamburgers/_sass/hamburgers/hamburgers";
+
+
+#menu-toggle {
+    // display: flex;
+    min-height: 36px;
+    align-items: center;
+    border-radius: .5rem;
+    border: 1px solid var(--custom-accent-1-50);
+    &:hover, &:focus {
+        background-color: var(--custom-accent-2-10);
+    }
+}
+
+/* #menu-toggle {
+	--border-color-default: var(--custom-accent-1-50);
+	margin-inline-end: -0.25rem;
+	transition-property: border-color, background-color, color;
+}
+
+.mobile-sidebar-toggle #menu-toggle {
+	--background-color-default: var(--theme-dim-lighter);
+	--text-color-default: var(--text-color-hocus);
+	--border-color-default: var(--border-color-focus);
+}
+ */
+@media (min-width: 50em) {
+	#menu-toggle {
+		display: none;
+	}
+}

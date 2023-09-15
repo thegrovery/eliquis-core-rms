@@ -1,0 +1,81 @@
+---
+type: tutorial
+unitTitle: 'Tutorial Alt Test'
+title: New Tutorial Tracker - pt1
+description: >-
+  Learn the basics of Astro with a project-based tutorial. All the background
+  knowledge you need to get started!
+i18nReady: true
+---
+import TutorialTrackerWrapper from '~/components/tutorial/TutorialTrackerWrapper.astro';
+import TutorialConfirmButton from '~/components/Buttons/TutorialConfirmButton.astro';
+import Box from '~/components/tutorial/Box.astro';
+import MultipleChoice from '~/components/tutorial/MultipleChoice.astro';
+import Option from '~/components/tutorial/Option.astro';
+import ComponentName from '~/components/ComponentName.astro';
+
+<br/><br/>
+<hr/>
+<br/><br/>
+<TutorialTrackerWrapper text="tutorial-1"/>
+
+This is a test page for the new tutorial tracker system that is both more simple and more usable.
+
+The new tutorials use the components <ComponentName name="TutorialTracker" /> and <ComponentName name="TutorialTrackerWrapper" />
+
+{/*<Box icon="check-list">
+
+	### Test your knowledge
+
+	1. Multiple choice questions can be created using the MultipleChoice component
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+	</MultipleChoice>
+
+	2. Answers use the Option component, and correct answers are set using the 'isCorrect' prop
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+	</MultipleChoice>
+
+	3. Astro components will automatically create a new page on your site when you...
+	<MultipleChoice>
+		<Option>
+			Option Component
+		</Option>
+		<Option>
+			Option Component
+		</Option>
+		<Option isCorrect>
+			Option Component - Correct Answer
+		</Option>
+	</MultipleChoice>
+</Box>*/}
+
+<TutorialConfirmButton 
+	tutorialUnit="tutorial-1-step-1"
+	text="tutorial-1-step-1 complete"
+/>
+<TutorialConfirmButton 
+	tutorialUnit="tutorial-1-step-2"
+	text="tutorial-1-step-2 complete"
+/>
+<TutorialConfirmButton 
+	tutorialUnit="tutorial-1-step-3"
+	text="tutorial-1-step-3 complete"
+/>

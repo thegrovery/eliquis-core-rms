@@ -1,0 +1,175 @@
+---
+import { normalizeLangTag } from '../../i18n/bcp-normalize';
+import { rtlLanguages } from '../../i18n/languages';
+import { getLanguageFromURL } from '../../util';
+import FallbackNotice from '../FallbackNotice.astro';
+import ArticleNavigationButton from './ArticleNavigationButton.astro';
+import { Breadcrumbs } from "astro-breadcrumbs";
+import 'astro-breadcrumbs/breadcrumbs.css';
+
+export interface Props {
+	content: { title: string };
+	previous?: { text: string; link: string };
+	next?: { text: string; link: string };
+}
+
+const { content, previous, next } = Astro.props;
+// We wrap `@astrojs/` in a span to style it separately on integration pages.
+const title = content.title
+	.replace('@astrojs/', '<span class="scope">@astrojs/</span><wbr>')
+	.replaceAll('-', '&#8288;-&#8288;');
+const isFallback = !!Astro.params.fallback || undefined;
+const lang = getLanguageFromURL(Astro.url.pathname);
+const bcpLang = normalizeLangTag(lang);
+const direction = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
+---
+
+<div dir={isFallback ? 'ltr' : direction} lang={isFallback && 'en'}>
+	{
+		// For best cross-browser support of sticky or fixed elements, they must not be nested
+		// inside elements that hide any overflow axis. The article hides `overflow-x`,
+		// so we must place fixed UI elements like the mobile TOC here.
+		Astro.slots.has('before-article') && (
+			<>
+				<div class="fixed-mobile-bar" dir={direction}>
+					<slot name="before-article" />
+				</div>
+				<div class="spacer" />
+			</>
+		)
+	}
+	<article id="article" class="content">
+		<section class="main-section">
+			<header>
+				<Breadcrumbs indexText="Home">
+				
+					<svg
+						slot="separator"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><polyline points="9 18 15 12 9 6"></polyline>
+					</svg>
+				
+				</Breadcrumbs>
+				<slot name="before-title" />
+				<h1 class="content-title" id="overview" set:html={title} />
+				<slot name="after-title" />
+			</header>
+			{
+				isFallback && (
+					<div lang={bcpLang} dir={direction}>
+						<FallbackNotice />
+					</div>
+				)
+			}
+			<slot />
+		</section>
+		{
+			(previous || next) && (
+				<aside class="next-previous-nav">
+					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
+					{next && <ArticleNavigationButton rel="next" item={next} />}
+				</aside>
+			)
+		}
+	</article>
+</div>
+
+<style lang="scss" is:global>
+	.c-breadcrumbs {
+		margin-bottom: 1.2rem;
+		li {
+			&:nth-of-type(2) {
+				display: none;
+			}
+		}
+		a {
+			font-size: .9rem;
+			
+		}
+	}
+	.next-previous-nav {
+		justify-content: flex-end;
+		a {
+			@media (min-width: 50em) {
+				max-width: 50%;
+			}
+			text-decoration: none; 
+			color: var(--custom-teal-90);
+			border-color: var(--custom-teal-50);
+			box-shadow: 0px 1px 2px var(--custom-dark-blue-50);
+			&:hover {
+				color: var(--custom-teal);
+				border-color: var(--custom-teal-90);
+				box-shadow: 0px 1px 2px var(--custom-dark-blue-90);
+			}
+		}
+	}
+</style>
+
+<style>
+
+	.fixed-mobile-bar {
+		display: block;
+		position: fixed;
+		inset-inline: 0;
+		top: calc(var(--theme-navbar-height));
+		z-index: 2;
+	}
+
+	.spacer {
+		height: var(--theme-mobile-toc-height);
+	}
+
+	@media (min-width: 50em) {
+		.fixed-mobile-bar {
+			inset-inline-start: var(--theme-left-sidebar-width);
+			margin-top: 0;
+		}
+	}
+
+	@media (min-width: 72em) {
+		.fixed-mobile-bar {
+			display: none;
+		}
+		.spacer {
+			height: 0;
+		}
+	}
+
+	.content-title :global(.scope) {
+		font-weight: 300;
+		color: var(--theme-text-lighter);
+	}
+	.content {
+		padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+		padding-bottom: var(--doc-padding-block);
+		padding-inline: var(--min-spacing-inline);
+		width: 100%;
+		height: 100%;
+		/* max-width: 100ch; */
+		/* max-width: 90%; */
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
+	.content > section {
+		margin-bottom: 4rem;
+	}
+	.next-previous-nav {
+		display: flex;
+		flex-wrap: wrap;
+		width: auto;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+	
+</style>

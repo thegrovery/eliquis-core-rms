@@ -1,0 +1,72 @@
+---
+title: Resource Page Template
+description: UUse this page for things like embedded tools like forms and login portals
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import PlaceholderContent from '~/components/PlaceholderContent.astro'
+import { Icon } from 'astro-icon'
+import ResourceDetails from '~/components/ResourceDetails.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+
+<ResourceDetails 
+    author="Jane Smith" 
+    lastModified="02/02/2023" 
+    tags="Training" 
+    icon="akar-icons:clipboard"
+/>
+
+
+
+### Heading 3 Content
+Use iframes and our pre-made resource components.  Any service that gets commonly used can be set up with a premade component where we can plug in any config options.  
+#### Heading 2 Content
+Use iframes and our pre-made resource components.  Any service that gets commonly used can be set up with a premade component where we can plug in any config options.  
+* first point
+* second point
+* third point
+* top level bullet one
+  * sub-bullet  
+  * sub-bullet 2 
+
+
+:::note[SUPPORTING DOCUMENTS]
+
+**[Supporting Document 1](https://astro.build/blog/astro-1/)**
+
+Description of supporting document one. Lorem ipsum dolar set amit. 
+
+**[Supporting Document 2](https://astro.build/blog/astro-2/)**
+
+Description of supporting document two. Lorem ipsum dolar set amit. 
+
+**[Supporting Document 3](https://astro.build/blog/astro-3/ "external")**
+
+Description of supporting document two. Lorem ipsum dolar set amit. 
+
+:::  
+
+## Related Resources
+
+<div class="resource-card-container">
+
+<ResourceCard 
+		icon="ph:globe" 
+		title="Online Support Provider Portal" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Support', 'Training']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		 width="third" 
+		resourceDetailsLink="https://thegrovery.com" 
+
+	/>
+
+
+</div>
+
+{/* <PlaceholderContent/> */}
+

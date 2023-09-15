@@ -1,0 +1,60 @@
+---
+import UIString from '../UIString.astro';
+
+const currentYear = new Date().getFullYear();
+
+---
+
+<footer>
+	
+	<ul class="footer-links">
+		<li class="first">
+			© {currentYear} Grovery CORE RMS
+		</li>
+		<li>
+			<a href=/cookies/">
+				Cookie Policy
+			</a>
+		</li>
+		<li>
+			<a href="https://astro.build/privacy/">
+				<UIString key="footer.privacyPolicy" />
+			</a>
+		</li>
+	</ul>
+</footer>
+
+<style type="scss">
+	footer {
+		padding: 6rem 0 2rem;
+		text-align: center;
+		color: var(--theme-text-lighter);
+		font-size: var(--theme-text-xs);
+	}
+
+	.footer-links {
+		border-top: 2px solid var(--custom-grey-1-50);
+		display: flex;
+		gap: 1.5em;
+		justify-content: center;
+		list-style: none;
+		margin: 0 2.5%;
+		padding: 10px;
+		text-align: left;
+		.first {
+			margin-right: auto;
+		}
+	}
+
+	.footer-links a {
+		color: var(--theme-text-lighter);
+		text-decoration: none;
+		
+	}
+
+	.footer-links a:focus,
+	.footer-links a:hover {
+		color: var(--theme-text);
+		text-decoration: underline;
+	}
+</style>

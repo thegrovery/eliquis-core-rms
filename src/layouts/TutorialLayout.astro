@@ -1,0 +1,96 @@
+---
+import { tutorialPages as pages } from '~/content';
+import PageContent from '../components/PageContent/PageContent.astro';
+import MobileTutorialNav from '../components/tutorial/MobileTutorialNav.astro';
+import RightSidebar from '../components/tutorial/RightSidebar.astro';
+import { getLanguageFromURL, stripLangFromSlug } from '../util';
+import { getPreviousAndNext } from '../util/getNavLinks';
+import { getTutorialPages, getTutorialUnits } from '../util/getTutorialPages';
+import BaseLayout from './BaseLayout.astro';
+import type { TutorialEntry } from '~/content/config';
+import TutorialNav from '~/components/tutorial/TutorialNav.astro';
+
+
+
+
+export interface Props {
+	content: TutorialEntry['data'];
+}
+
+const currentUrl = Astro.url.pathname.replace(/\/$/, '');
+const lang = getLanguageFromURL(Astro.url.pathname);
+
+const tutorialPages = getTutorialPages(pages, lang);
+const units = getTutorialUnits(tutorialPages);
+const currentUnitIndex = units.findIndex((unit) =>
+	unit.lessons.some((lesson) => currentUrl.endsWith(stripLangFromSlug(lesson.slug)))
+);
+const currentUnit = units[currentUnitIndex];
+
+const { next } = getPreviousAndNext(
+	tutorialPages.map((page) => ({ text: page.data.title, slug: stripLangFromSlug(page.slug) })),
+	Astro
+);
+---
+
+<BaseLayout {...Astro.props}>
+	<RightSidebar slot="secondary-sidebar" />
+	<PageContent content={Astro.props.content} {...{ next }}>
+		<nav>
+			<TutorialNav id="mainsection" />
+			
+		</nav>
+		<MobileTutorialNav slot="before-article" />
+		<p class="unit" slot="before-title">
+			Section {currentUnitIndex + 1} • {currentUnit.title}
+		</p>
+		<slot />
+	</PageContent>
+</BaseLayout>
+
+<style>
+	.unit {
+		display: inline-block;
+ 		font-size: var(--theme-text-sm);
+		color: var(--theme-text-lighter);
+		color: var(--theme-text);
+		background-color: var(--custom-teal-25);
+		padding: 2px 16px;
+		border-radius: 30px;
+	}
+</style>
+
+<script type="text/javascript">
+	function TutorialTrackerUpdate(){
+		console.log("TutorialTrackerUpdate function started");
+		var elements = document.querySelectorAll('.tutorialUnit');
+		elements.forEach(element => {
+			console.log("TutorialTrackerUpdate forEach section");
+			//get tutorial id attr of current element
+			var tutorialId = element.getAttribute("data-tutorial-id");
+			var storageEntry = SessionManager.getItem(tutorialId)
+
+			//if tutorial id in session data is complete, update tracker display
+			console.log(tutorialId);
+			console.log(SessionManager.getItem(tutorialId));
+			if(storageEntry == "complete"){
+				console.log("TutorialTrackerUpdate session data section");
+				//do the thing
+			    element.setAttribute("data-complete","complete");
+			    //update text inside tracker
+			    var subElement = element.querySelector(".sectionValue");
+			    subElement.innerHTML = "Complete";
+			} else {
+				//update text inside tracker
+				var subElement = element.querySelector(".sectionValue");
+				subElement.innerHTML = "Incomplete";
+			}
+
+		});
+	}
+
+	setTimeout(() => {
+	  TutorialTrackerUpdate();
+	}, 3000);
+
+</script>

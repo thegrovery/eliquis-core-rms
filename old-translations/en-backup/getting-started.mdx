@@ -1,0 +1,109 @@
+---
+title: How to use the Toolkit
+description: A basic intro to Astro.
+i18nReady: true
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import ResourceCard from '~/components/ResourceCard.astro';
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+
+:::tip[ANNOUNCEMENTS]
+**What’s new in the Grovery’s V1 Toolkit** [Find out in the announcement blog post](https://astro.build/blog/astro-2/).  
+**Ready to for your own Toolkit?** [Take our quiz to find what features are right for you?](/en/guides/upgrade-to/v2/).
+:::
+
+<h2>What is a brand toolkit?</h2>
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+
+Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+
+<div class="block-wrapper" style="display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin: 0 auto;">
+  
+  <ResourceCard
+  icon="clipboard"  
+  title="Troubleshooting Guide: Solutions for Common Issues" 
+  description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+  tags={['Tag1', 'Tag2', 'Tag3']} 
+  viewDetailsButtonText="View Details" 
+  shareButtonText="Share" 
+/>
+
+  <ResourceCard 
+  icon="globe" 
+  title="Online Support Provider Portal" 
+  description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+  tags={['Tag1', 'Tag2', 'Tag3']} 
+  viewDetailsButtonText="View Details" 
+  shareButtonText="Share" 
+/>
+
+  <ResourceCard 
+  icon="graduation-cap" 
+  title="Product Training Module: Part 1" 
+  description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+  tags={['Tag1', 'Tag2', 'Tag3']} 
+  viewDetailsButtonText="View Details" 
+  shareButtonText="Share" 
+/>
+
+  <ResourceCard 
+  icon="pills" 
+  title="Customer Success Stories: Inspire Trust and Confidence" 
+  description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+  tags={['Tag1', 'Tag2', 'Tag3']} 
+  viewDetailsButtonText="View Details" 
+  shareButtonText="Share" 
+/>
+        
+
+</div>
+
+
+## Announcements
+
+Visit [astro.new](https://astro.new/) and choose from a variety of templates to get started. Play around with a full, working version of Astro right in your browser!
+
+<div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+  <Button href="https://astro.new/basics?on=stackblitz">Launch basic template</Button>
+  <Button variant="outline" href="https://astro.new/">View all templates →</Button>
+</div>
+
+## What is a Brand Toolkit
+
+Get a new Astro project up and running locally with our helpful `create astro` CLI wizard!
+
+<PackageManagerTabs>
+  <Fragment slot="npm">
+  ```shell
+  # create a new project with npm
+  npm create astro@latest
+  ```
+  </Fragment>
+  <Fragment slot="pnpm">
+  ```shell
+  # create a new project with pnpm
+  pnpm create astro@latest
+  ```
+  </Fragment>
+  <Fragment slot="yarn">
+  ```shell
+  # create a new project with yarn
+  yarn create astro
+  ```
+  </Fragment>
+</PackageManagerTabs>
+
+Our [Installation Guide](/en/install/auto/) has full, step-by-step instructions for installing Astro using our CLI wizard, creating a new project from an existing Astro GitHub repository, and for installing Astro manually.
+
+
+
+
