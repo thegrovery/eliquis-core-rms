@@ -11,63 +11,57 @@ export default [
 
 	//LEARN TAB
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
-		{ text: 'Getting Started', slug: 'getting-started', key: 'getting-started' },
-		{ text: 'How To Use The Toolkit', slug: 'how-to-use-the-toolkit', key: 'how-to-use-the-toolkit' },
-		{ text: 'Announcements', slug: 'announcements', key: 'announcements' },
-		{ text: 'What Is A Brand Toolkit?', slug: 'what-is-a-brand-toolkit', key: 'what-is-a-brand-toolkit' },
-		{ text: 'Playbook In Practice', slug: 'playbook-in-practice', key: 'playbook-in-practice' },
-		{ text: 'Test Your Knowledge', slug: 'test-your-knowledge', key: 'test-your-knowledge' },
+		{ text: 'How To Use The Toolkit', slug: 'introduction/how-to-use-the-toolkit', key: 'introduction/how-to-use-the-toolkit' },
+		{ text: 'About ELIQUIS 360 Support', slug: 'about-eliquis-360', key: 'about-eliquis-360' },
 
-	{ text: 'Onboarding', header: true, type: 'learn', key: 'onboarding' },
-		{ text: 'About our team', slug: 'onboarding/about-our-team', key: 'about-our-team' },
-		{ text: 'What we use', slug: 'onboarding/what-we-use', key: 'what-we-use' },
-		{ text: 'Introduction video', slug: 'onboarding/introduction-video', key: 'introduction-video' },
+	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
+		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },
+		{ text: 'How 1-855-ELIQUIS Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },
+		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
+		{ text: 'Provider Expresses That Patient Unable To Get Prescription Filled', slug: 'program-in-practice/provider-expresses-that-patient-unable-to-get-prescription-filled', key: 'provider-expresses-that-patient-unable-to-get-prescription-filled' },
+		{ text: 'Pharmacist Says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) And CHAMPUS Patients Are Not Eligible For Copay Assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance', key: 'pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance' },
+		{ text: 'Co-Pay Backdate Request', slug: 'program-in-practice/co-pay-backdate-request', key: 'co-pay-backdate-request' },
+		{ text: 'Provider Expresses That Patient Unaware Of Co-pay Program And/or Hasn’t Been Using Co-pay Card', slug: 'program-in-practice/provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card', key: 'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card' },
+		{ text: 'Mail-Order Pharmacy', slug: 'program-in-practice/mail-order-pharmacy', key: 'mail-order-pharmacy' },
+		{ text: 'E-Sign', slug: 'program-in-practice/e-sign', key: 'e-sign' },
+		{ text: 'Digital Assistant', slug: 'program-in-practice/digital-assistant', key: 'digital-assistant' },
 
-	{ text: 'Page Templates', header: true, type: 'learn', key: 'pageTemplates' },
+	{ text: 'Terms & Conditions', header: true, type: 'learn', key: 'terms-and-conditions' },
+		{ text: 'Co-Pay Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/co-pay-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'co-pay-terms-and-conditions-and-eligibility-requirements-for-patients' },
+		{ text: 'FTO Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/fto-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'fto-terms-and-conditions-and-eligibility-requirements-for-patients' },
+		{ text: 'Master T&Cs', slug: 'terms-and-conditions/master-terms-and-conditions', key: 'master-terms-and-conditions' },
+
+	/*{ text: 'Page Templates', header: true, type: 'learn', key: 'pageTemplates' },
 		{ text: 'Basic Page Template', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
 		{ text: 'Component Page Template', slug: 'page-templates/component-page-template', key: 'page-templates/component-page-template' },
 		{ text: 'Video Page Template', slug: 'page-templates/video-page-template', key: 'page-templates/video-page-template' },
 		{ text: 'Directory Page Template', slug: 'page-templates/directory-page-template', key: 'page-templates/directory-page-template' },
 		{ text: 'Resource Page Template', slug: 'page-templates/resource-page-template', key: 'page-templates/resource-page-template' },
 		{ text: 'Tutorial Page Template', slug: 'page-templates/tutorial-page-template/1-step-1', key: 'page-templates/tutorial-page-template/1-step-1' },
-		{ text: 'Tutorial Page Template - New', slug: 'page-templates/tutorial-alt/step-1', key: 'page-templates/tutorial-alt/step-1' },
+		{ text: 'Tutorial Page Template - New', slug: 'page-templates/tutorial-alt/step-1', key: 'page-templates/tutorial-alt/step-1' },*/
 
-		{ text: 'Integrations', header: true, type: 'learn', key: 'integrations' },
-			{ text: 'Salesforce', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-			{ text: 'Hubspot', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-			{ text: 'Sharepoint', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-			{ text: 'Servlet', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-			{ text: 'Veeva', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-			/*{ text: 'CMSs &amp; CMRs', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },*/
-
-	/*{ text: 'Tutorials', header: true, type: 'learn', key: 'tutorials' },
-		{ text: 'Build a Blog', slug: 'tutorial/0-introduction', key: 'blog-tutorial' },*/
-		// { text: 'Thinking with Islands', slug: 'tutorial/0-introduction', key: 'island-tutorial' },
-
-	{ text: 'Misc.', header: true, type: 'learn', key: 'tutorials' },
+	/*{ text: 'Misc.', header: true, type: 'learn', key: 'tutorials' },
 		{ text: 'Our Brand Partners', slug: 'our-brand-partners', key: 'our-brand-partners' },
 		{ text: 'Recent Achievements', slug: 'recent-achievements', key: 'recent-achievements' },
-		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },
+		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },*/
 
 
 	//RESOURCES TAB
-	{ text: 'Brand Resources', header: true, type: 'api', key: 'brand-resources' },
-		{ text: 'View All', slug: 'brand-resources/view-all', key: 'brand-resources/view-all' },
-		{ text: 'Style Guide', slug: 'brand-resources/style-guide', key: 'brand-resources/style-guide' },
-		{ text: 'Icon Library', slug: 'brand-resources/icon-library', key: 'brand-resources/icon-library' },
-		{ text: 'Infographics', slug: 'brand-resources/infographics', key: 'brand-resources/infographics' },
-		{ text: 'Customer Personas', slug: 'brand-resources/customer-personas', key: 'brand-resources/customer-personas' },
-		{ text: 'Print Collateral', slug: 'brand-resources/print-collateral', key: 'brand-resources/print-collateral' },
-		{ text: 'Decks', slug: 'brand-resources/decks', key: 'brand-resources/decks' },
-		{ text: 'Product Training', slug: 'brand-resources/product-training-module1', key: 'brand-resources/product-training-module1' },
+	{ text: 'Online Resources', header: true, type: 'api', key: 'online-resources' },
+		{ text: 'Online Resources Overview', slug: 'online-resources/online-resources-overview', key: 'online-resources/online-resources-overview' },
+		{ text: 'Websites', slug: 'online-resources/websites', key: 'online-resources/websites' },
+		{ text: 'Downloads', slug: 'brand-resources/downloads', key: 'online-resources/downloads' },
+		{ text: 'Forms', slug: 'online-resources/forms', key: 'online-resources/forms' },
+		{ text: 'Other/Additional Support', slug: 'online-resources/additional-support', key: 'online-resources/additional-support' },
 
-	{ text: 'Program Resources', header: true, type: 'api', key: 'program-resources' },
-		{ text: 'Online Support', slug: 'program-resources/online-support', key: 'program-resources/online-support' },
-		{ text: 'User Assistance', slug: 'program-resources/user-assistance', key: 'program-resources/user-assistance' },
-		{ text: 'Order Forms', slug: 'program-resources/order-forms', key: 'program-resources/order-forms' },
-		{ text: 'Rate Cards', slug: 'program-resources/rate-cards', key: 'program-resources/rate-cards' },
+	{ text: 'Rep Resources', header: true, type: 'api', key: 'rep-resources' },
+		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook', key: 'rep-resources/how-to-use-e360-playbook' },
+		{ text: 'About ELIQUIS 360 Support', slug: 'rep-resources/about-eliquis-360-support', key: 'rep-resources/about-eliquis-360-support' },
+		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook-alt', key: 'rep-resources/how-to-use-e360-playbook-alt' },
+		{ text: 'Eliquis 360 Patient Support Services', slug: 'rep-resources/eliquis-360-patient-support-services', key: 'rep-resources/eliquis-360-patient-support-services' },
+		{ text: 'Track II Training Deck', slug: 'rep-resources/track-ii-training-deck', key: 'rep-resources/track-ii-training-deck' },
 
-	{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
+	/*{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
 		{ text: 'Forms', slug: 'misc-resources/forms', key: 'misc-resources/forms' },
-		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },
+		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },*/
 ] as const;
