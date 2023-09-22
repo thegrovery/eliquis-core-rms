@@ -67,28 +67,16 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-c79d4ed8'], (function (workbox) { 'use strict';
-
-  /**
-  * Welcome to your Workbox-powered service worker!
-  *
-  * You'll need to register this file in your web app.
-  * See https://goo.gl/nhQhGp
-  *
-  * The rest of the code is auto-generated. Please don't update this file
-  * directly; instead, make changes to your Workbox build configuration
-  * and re-run your build process.
-  * See https://goo.gl/2aRDsh
-  */
+define(['./workbox-01d9f47c'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
+
   /**
    * The precacheAndRoute() method efficiently caches and responds to
    * requests for URLs in the manifest.
    * See https://goo.gl/S9QRab
    */
-
   workbox.precacheAndRoute([{
     "revision": null,
     "url": "/offline"
