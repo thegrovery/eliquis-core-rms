@@ -1,0 +1,71 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+export interface Props {
+  icon?: 'puzzle-piece' | 'question-mark' | 'check-list';
+}
+
+const { term, icon, definition } = Astro.props as Props;
+---
+
+<div class='GlossaryEntry' style={`--box-icon-url: url('/tutorial/${icon}.svg');`}>
+  <div class='inner'>
+
+    <div class='term'>
+      
+      {term ? 
+          <h2>{term}</h2>
+        :
+          <h2>[ ===GlossaryEntry Question Placeholder=== ]</h2>
+      }
+    </div>
+    
+    <div class="definition">
+      <slot />
+    </div>
+
+  </div>
+</div>
+
+<style lang="scss">
+  $fontSize: 1rem;
+  $borderSize: 2px;
+  $color: #454257;
+  .GlossaryEntry {
+     position: relative;
+     margin-bottom: 4rem;
+     padding-block: 2rem;
+     padding-inline-start: 2rem;
+     padding-inline-end: 4rem;
+     border: 1px solid var(--theme-shade-subtle);
+     box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
+       -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle);
+     background-color: var(--theme-bg);
+
+      .question{
+        h2{
+          max-width: 100%;
+        }
+        .number{
+          display: inline;
+        }
+      }
+      .answer{}
+  }
+
+  @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
+    (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
+    .GlossaryEntry::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      inset-inline-end: 0.5rem;
+      width: 5rem;
+      height: 5rem;
+      background-color: var(--theme-divider);
+      -webkit-mask: var(--box-icon-url) no-repeat center center / 100%;
+      mask: var(--box-icon-url) no-repeat center center / 100%;
+    }
+  }
+
+</style>
