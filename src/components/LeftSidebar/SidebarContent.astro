@@ -25,7 +25,8 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 				<summary class="nav-group-title">
 					<h2>
 						{section.text}
-						<svg
+					</h2>
+					<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 1 16 16"
 							width="16"
@@ -37,7 +38,6 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 								d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"
 							/>
 						</svg>
-					</h2>
 				</summary>
 				<ul>
 					{section.children.map(({ slug, text, isFallback }) => (
@@ -83,10 +83,18 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 	}
 	.nav-group-title {
 		font-size: 1em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		font-weight: 600;
 		padding: 0.3rem 2rem;
 		background-color: var(--custom-dark-blue);
 		border-radius: 1em 0 0 1em;
+		svg {
+			path {
+				fill: var(--custom-white);
+			}
+		}
 		h2{
 			background: none;
 			color: var(--custom-white)
@@ -96,7 +104,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 	.nav-link a {
 		margin: 1px;
 		padding: 0.3rem 2rem;
-		font: inherit;
+		// font: inherit;
 		color: var(--theme-text-lighter);
 		text-decoration: none;
 		display: block;
@@ -170,7 +178,8 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 	}
 
 	summary h2 {
-		all: inherit;
+		/* all: inherit; */
+		font-size: inherit;
 		margin: 0;
 		padding: 0;
 	}
