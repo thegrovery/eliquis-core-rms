@@ -12,6 +12,24 @@ const path = require("path");
 const matter = require("gray-matter");
 const removeMd = require("remove-markdown");
 
+// Function to get the size of an object in bytes
+const sizeof = obj => {
+  return Buffer.from(JSON.stringify(obj)).length;
+};
+
+// Algolia's maximum record size (in bytes)
+const ALGOLIA_MAX_SIZE = 10000; // 10KB
+
+// Function to truncate the content of a record to fit Algolia's size limit
+const truncateToFit = record => {
+  let truncatedRecord = { ...record };
+  while (sizeof(truncatedRecord) > ALGOLIA_MAX_SIZE) {
+    truncatedRecord.content = truncatedRecord.content.slice(0, -100); // Remove the last 100 characters
+    if (!truncatedRecord.content) break; // Stop if content is empty
+  }
+  return truncatedRecord;
+};
+
 const readFilesRecursively = (directory) => {
   const entries = fs.readdirSync(directory, { withFileTypes: true });
   const files = entries.filter(file => !file.isDirectory()).map(file => path.join(directory, file.name));
@@ -62,9 +80,12 @@ const data = filenames.map(filename => {
       ...levels  // spread the levels into the object
     };
 
-    console.log('Object:', object);
+    // Truncate the content of the object if it exceeds Algolia's size limit
+    const truncatedObject = truncateToFit(object);
 
-    return object;
+    console.log('Truncated Object:', truncatedObject);
+
+    return truncatedObject;
   } catch (e) {
     console.log('Error reading file:', filename, e.message);
   }
@@ -74,7 +95,7 @@ console.log('Data:', data); // Log the data
 
 // Send the dataset in JSON format
 client
-  .initIndex("core_rms")
+  .initIndex(process.env.ALGOLIA_INDEX_NAME)
   .saveObjects(data, { autoGenerateObjectIDIfNotExist: true })
   .then(res => console.log(res))
   .catch(err => console.error(err));
