@@ -100,6 +100,20 @@ This project uses a vars file to control the general style of the site.  Colors,
 
 You can take this a step further by using "theme variables".  Instead of naming a variable something direct like `$black`, create a variable named something like `$primaryColor` and then set that equal to another variable like `$black`.  This cascading method will give you the best experience with modifying the project's theme, and you should try your best to always use variables instead of directly referencing these styles.
 
+## Search Indexing
+Includes the following variables in .env locally, as well as in the [Netlify Environment Variables](https://app.netlify.com/sites/eliquis-field-force-navigator/configuration/env)
+* ALGOLIA_APP_ID="XXXXXXXX"
+* ALGOLIA_SEARCH_ONLY_API_KEY="XXXXXXXXXXXXXXXXXXXXXXX"
+* ALGOLIA_WRITE_API_KEY="XXXXXXXXXXXXXXXXXXXXXXX"
+* ALGOLIA_INDEX_NAME=core-eliquis
+
+Recommended to delete / clear out index before running command or else you will get duplicates  
+
+Run the following command from root:
+```
+	node src/lib/algolia.js
+```
+
 
 ### Articles / Documentation for later
 - [Custom PWA Install Experience ](https://web.dev/customize-install/)
