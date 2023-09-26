@@ -10,7 +10,7 @@ import AnnouncementButton from '~/components/Buttons/AnnouncementButton.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 
 // import SimpleSearch from './SimpleSearch';
-import SearchButton from './../Buttons/SearchButton.astro';
+import SearchButton from '../Buttons/SearchButton.astro';
 
 import { getLanguageFromURL } from '../../util';
 import { getDocSearchStrings, useTranslations } from '../../i18n/util';
@@ -28,14 +28,13 @@ const t = useTranslations(Astro);
 			<ul>
 				<li>
 					<a class="logo" href="/">
-						<!-- <Logo/> -->					  
-						<span style="color: #000; font-size: 2.5rem;">E360 Field Force Navigator</span>
+						<Logo/>					  
 					</a>
 				</li>
 			</ul>
 		</div>
 
-		<!-- <AnnouncementButton/> -->
+		<AnnouncementButton/>
 
 		{import.meta.env.PUBLIC_FEATURE_FEEDBACK=="true" &&
 			<FeedbackButton/>
@@ -119,7 +118,7 @@ const t = useTranslations(Astro);
 		font-weight: 600;
 		line-height: 1;
 		color: hsla(var(--color-base-white), 100%, 1);
-		text-decoration: none;
+		text-decoration: none !important;
 		gap: 0.5em;
 	}
 
