@@ -1,0 +1,21 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+import AnnouncementsContent from '~/components/DynamicContent/AnnouncementsContent.astro';
+import Aside from '~/components/Aside.astro';
+
+export interface Props {
+  icon?: 'puzzle-piece' | 'question-mark' | 'check-list';
+}
+
+const { announcement, icon } = Astro.props as Props;
+---
+
+<div class='AnnouncementBlock'>
+  <Aside title="Announcement" type="tip">
+    <AnnouncementsContent text={announcement}/>
+  </Aside>
+</div>
+
+<style lang="scss">
+  
+</style>
