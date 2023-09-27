@@ -108,17 +108,21 @@ if (isReference) {
 	.nav-groups {
 		padding-top: 1rem;
 		padding-left: 1rem;
+		padding-right: 1rem;
 		max-height: 100%;
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-image: linear-gradient(to bottom, var(--custom-accent-2-05), var(--theme-bg-gradient-bottom) );
-		background-color:var(--custom-grey-1-20);
+		/* background-image: linear-gradient(to bottom, var(--custom-accent-2-05), var(--theme-bg-gradient-bottom) );
+		background-color:var(--custom-grey-1-20); */
 	}
 
 	@media (min-width: 50em) {
 		.nav-groups {
+			padding-top: 0.5rem;
+			padding-left: .5rem;
+			padding-right: 0rem;
 			position: fixed;
-			top: calc(var(--theme-navbar-height) + 3rem);
+			top: calc(var(--theme-navbar-height) + 3.4rem);
 			bottom: 0;
 			width: calc(var(--theme-left-sidebar-width) - var(--min-spacing-inline) * 1.6);
 		}
