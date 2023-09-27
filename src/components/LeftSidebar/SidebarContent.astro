@@ -87,9 +87,9 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		align-items: center;
 		justify-content: space-between;
 		font-weight: 600;
-		padding: 0.3rem 2rem;
-		background-color: var(--custom-dark-blue);
-		border-radius: 1em 0 0 1em;
+		padding: 0.5rem 2rem;
+		background-color: var(--custom-maroon);
+		/* border-radius: 1em 0 0 1em; */
 		svg {
 			path {
 				fill: var(--custom-white);
@@ -103,7 +103,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 
 	.nav-link a {
 		margin: 1px;
-		padding: 0.3rem 2rem;
+		padding: 0.5rem 2rem;
 		// font: inherit;
 		color: var(--theme-text-lighter);
 		text-decoration: none;
@@ -112,17 +112,17 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		width: calc(100% - #{$indent});
 		position: relative;
 		left: $indent;
-		border-radius: 1em 0 0 1em;
+		/* border-radius: 1em 0 0 1em; */
 
 		&:hover,
 		&:focus {
-			background-color: var(--custom-teal-25);
+			background-color: var(--custom-tan-50);
 		}
 
 		&[aria-current='page'],
 		&[data-current-parent='true'] {
 			color: var(--theme-text);
-			background-color: var(--custom-teal-25);
+			background-color: var(--custom-tan-90);
 			
 			font-weight: 500;
 			/* Indicates the current page for forced colors users in older browsers */
@@ -144,7 +144,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 	@media (min-width: 50em) {
 		.nav-group-title,
 		.nav-link a {
-			padding: 0.3rem 1rem;
+			padding: 0.5rem 1rem;
 		}
 	}
 

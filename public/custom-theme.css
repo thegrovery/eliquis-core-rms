@@ -10,6 +10,7 @@
 	--custom-light-blue:		#e7f0f4;
 	--custom-maroon:		#76004B;
 	--custom-orange:		#F26937;
+	--custom-tan:		#EEE7E7;
 
 	/* ===== SHADE VARIANTS ===== */
 	/*add opacity percent as last 2 digits*/
@@ -20,6 +21,8 @@
 		--custom-white-90: 				#fdfeff90;
 		--custom-light-blue-90: 		#e7f0f4e8;
 		--custom-maroon-90: 			#76004Be8;
+		--custom-orange-90: 			#F26937e8;
+		--custom-tan-90: 			#EEE7E7e8;
 		
 		/*50% opacity*/
 		--custom-teal-50: 				#00DFC350;
@@ -27,24 +30,32 @@
 		--custom-green-50: 				#81C05150;
 		--custom-white-50: 				#fdfeff50;
 		--custom-maroon-50: 			#76004B50;
+		--custom-orange-50: 			#F2693750;
+		--custom-tan-50: 			#EEE7E750;
 
 		/*25% opacity*/
 		--custom-teal-25: 				#00DFC325;
 		--custom-dark-blue-25: 			#293E6B25;
 		--custom-green-25: 				#81C05125;
 		--custom-maroon-25: 			#76004B25;
+		--custom-orange-25: 			#F2693725;
+		--custom-tan-25: 			#EEE7E725;
 
 		/*10% opacity*/
 		--custom-teal-10: 				#00DFC310;
 		--custom-dark-blue-10: 			#293E6B10;
 		--custom-green-10: 				#81C05110;
 		--custom-maroon-10: 			#76004B10;
+		--custom-orange-10: 			#F2693710;
+		--custom-tan-10: 			#EEE7E710;
 		
 		/*05% opacity*/
 		--custom-teal-05: 				#00DFC305;
 		--custom-dark-blue-05: 			#293E6B05;
 		--custom-green-05: 				#81C05105;
 		--custom-maroon-05: 			#76004B05;
+		--custom-orange-05: 			#F2693705;
+		--custom-tan-05: 			#EEE7E705;
 
 	/* ================ */
 	/* ===== GREYS ===== */
