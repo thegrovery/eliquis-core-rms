@@ -1,0 +1,64 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+const { text } = Astro.props as Props;
+
+
+
+---
+
+<div class="LoadingText">
+  <span class="text">
+    {text ? text : "Loading"}
+  </span>
+</div>
+
+
+
+<style lang="scss">
+  .LoadingText {
+  position: relative;
+
+  .text {
+    
+    font-size: 1rem;
+    // margin-bottom: 10px; // Add some space between the text and the bar
+  }
+
+  .text:after {
+    content: '.';
+    color: var(--custom-dark-grey);
+    // font-size: 2em;
+    animation: dots 2s steps(5, end) infinite;
+  }
+
+  @keyframes dots {
+    0%, 15% {
+      color: transparent;
+      text-shadow:
+        0.35em 0 0 transparent,
+        0.7em 0 0 transparent;
+    }
+    30% {
+      color: black;
+      text-shadow:
+        0.35em 0 0 transparent,
+        0.7em 0 0 transparent;
+    }
+    45% {
+      text-shadow:
+        0.35em 0 0 black,
+        0.7em 0 0 transparent;
+    }
+    60%, 100% {
+      text-shadow:
+        0.35em 0 0 black,
+        0.7em 0 0 black;
+    }
+  }
+}
+
+</style>
+

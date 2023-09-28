@@ -1,0 +1,52 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+const { text } = Astro.props as Props;
+
+---
+
+<div class="LoadingBlock">
+  <div class="animation"></div>
+</div>
+  
+
+
+<style lang="scss">
+  .LoadingBlock {
+    --height: 50vh;
+
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  min-height: var(--height);
+  aspect-ratio: 1/1;
+  margin: 0 auto;
+
+  .animation {
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: placeHolderShimmer;
+      animation-timing-function: linear;
+      background: darkgray;
+      background: linear-gradient(
+        to right, 
+        var(--custom-grey-1-20) 10%, 
+        var(--custom-grey-1-50) 18%, 
+        var(--custom-grey-1-20) 33%
+      );
+      background-size: 1000px 104px;
+      height: 65vh;
+      position: relative;
+      //border-radius: 2rem;
+  }
+
+  @keyframes placeHolderShimmer{
+      0%{background-position: -950px 0;}
+      100%{background-position: 950px 0;}
+  }
+}
+
+</style>
+

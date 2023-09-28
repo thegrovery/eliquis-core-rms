@@ -3,30 +3,35 @@
 
 //DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
 
-import LoadingText from '~/components/DynamicContent/LoadingText.astro';
+import LoadingBlock from '~/components/DynamicContent/LoadingBlock.astro';
 
 const { info } = Astro.props as Props;
 ---
 
-<div class="IfLoggedIn">
+<div class="LogInWrapper">
 
   <div class="placeholder">
-    <LoadingText/> 
+    <LoadingBlock/>
   </div>
   
   <div class="loggedIn">
-    <slot name="loggedIn"/>
+    <slot/>
   </div>
 
   <div class="loggedOut">
-    <slot name="loggedOut"/>
+    <h1>You are currently logged out.</h1>
+    <p>
+      To view this content, please log in or request an account from your manager.
+      <br/>
+      Redirecting you to the home page in 10 seconds. 
+    </p>
   </div>
 
 </div>
 
 <style lang="scss">
-  .IfLoggedIn{
-    .placeholder{display: block;}
+  .LogInWrapper{
+    .placeholder{display: flex;}
     .loggedIn{display: none;}
     .loggedOut{display: none;}
 
@@ -38,19 +43,33 @@ const { info } = Astro.props as Props;
     &.currentlyLoggedOut{
       .placeholder{display: none;}
       .loggedIn{display: none;}
-      .loggedOut{display: block;}
+      .loggedOut{display: flex;}
+    }
+
+    .placeholder{
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+      padding: 15vh 2rem 0;
+    }
+    &.currentlyLoggedOut .loggedOut{
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
     }
   }
 </style>
 
 <script>
   function delayedFunction() {
-    console.log("IfLoggedIn functions executed.");
+    console.log("LogInWrapper functions executed.");
 
     //grab all user info
     var user = netlifyIdentity.currentUser();
     console.log("Netlify User Info: ",user);
-    var elements = document.querySelectorAll('.IfLoggedIn');
+    var elements = document.querySelectorAll('.LogInWrapper');
 
     if( user === null){
       //logged out
@@ -58,6 +77,9 @@ const { info } = Astro.props as Props;
       elements.forEach(element => {
         //target all instances of ModalWrapper
         element.classList.add("currentlyLoggedOut"); 
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 10000); //time in ms
       });
     }else{
       //logged in

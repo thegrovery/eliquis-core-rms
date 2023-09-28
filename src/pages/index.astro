@@ -48,8 +48,6 @@ import Button from '~/components/Button.astro';
 				</p>
 				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
 				
-				<div class="loading-wrapper"><LoadingPlaceholder/></div>
-				
 				<IfLoggedIn>
 					
 					<div slot="loggedIn">
@@ -64,7 +62,7 @@ import Button from '~/components/Button.astro';
 						<p class="small">You're logged out</p>
 						<div class="button-wrap">
 							<Button variant="secondary" onClick="netlifyIdentity.open('login');">Login</Button>
-							<Button variant="outline" onClick="netlifyIdentity.open('signup');">Sign up</Button>
+							<Button variant="secondary" onClick="netlifyIdentity.open('signup');">Sign up</Button>
 							<Button variant="primary" href="/en/getting-started">Get Started Now</Button>
 
 						</div>
