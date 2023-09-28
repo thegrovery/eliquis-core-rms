@@ -3,8 +3,8 @@
 	Define common sizes and spacings
 */
 :root {
-	--theme-navbar-height: 7rem;
-	--theme-mobile-toc-height: 4rem;
+	--theme-navbar-height: 10rem;
+	--theme-mobile-toc-height: 5rem;
 	--theme-left-sidebar-width: 18rem;
 	--theme-right-sidebar-width: 16rem;
 	/*
@@ -157,8 +157,8 @@ h1, h2, h3, h4, h5 {
 	--theme-code-tabs: hsla(257, 38%, 32%, 1);
 	--theme-code-text: hsla(var(--color-gray-95), 1);
 	--theme-navbar-bg: var(--theme-bg);
-	--theme-selection-color: hsla(var(--color-purple), 1);
-	--theme-selection-bg: hsla(var(--color-purple), var(--theme-accent-opacity));
+	--theme-selection-color: hsla(var(--custom-white), 1);
+	--theme-selection-bg: hsla(var(--custom-orange), var(--theme-accent-opacity));
 	--theme-code-selection-bg: hsla(var(--color-purple), 0.4);
 	--theme-code-mark-bg: hsl(226, 50%, 33%);
 	--theme-code-mark-border: hsl(224, 50%, 54%);
@@ -225,6 +225,6 @@ h1, h2, h3, h4, h5 {
 }
 
 ::selection {
-	color: var(--custom-accent-1);
-	background-color: var(--custom-accent-2-25);
+	color: var(--theme-text);
+	background-color: var(--custom-orange-50);
 }

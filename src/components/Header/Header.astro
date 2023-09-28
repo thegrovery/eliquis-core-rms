@@ -9,6 +9,9 @@ import OptionsButton from './OptionsButton.astro';
 import AnnouncementButton from '~/components/Buttons/AnnouncementButton.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 
+//disclaimer
+import TopBarDisclaimer from './TopBarDisclaimer.astro';
+
 // import SimpleSearch from './SimpleSearch';
 import SearchButton from '../Buttons/SearchButton.astro';
 
@@ -22,42 +25,45 @@ const t = useTranslations(Astro);
 ---
 
 <header>
+	<TopBarDisclaimer />
+	<div class="header-content">
 	<SkipToContent />
-	<nav class="nav-wrapper" aria-label={t('navbar.a11yTitle')}>
-		<div dir="ltr" lang="en" class="logo flex">
-			<ul>
-				<li>
-					<a class="logo" href="/">
-						<Logo/>					  
-					</a>
-				</li>
-			</ul>
-		</div>
+		<nav class="nav-wrapper" aria-label={t('navbar.a11yTitle')}>
+			<div dir="ltr" lang="en" class="logo flex">
+				<ul>
+					<li>
+						<a class="logo" href="/">
+							<Logo/>					  
+						</a>
+					</li>
+				</ul>
+			</div>
 
-		<AnnouncementButton/>
+			<AnnouncementButton/>
 
-		{import.meta.env.PUBLIC_FEATURE_FEEDBACK=="true" &&
-			<FeedbackButton/>
-		}
+			{import.meta.env.PUBLIC_FEATURE_FEEDBACK=="true" &&
+				<FeedbackButton/>
+			}
 
-		{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
-			<ThemeToggleButton
-				client:visible
-				labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-				isInsideHeader={true}
-			/>
-		}
-		
-		<!-- {import.meta.env.PUBLIC_FEATURE_SEARCH=="true" &&
-			<Search {lang} labels={docsearchStrings} />
-		} -->
-		<!-- <SimpleSearch client:idle /> -->
-		
-		<SearchButton />
-		<OptionsButton/>
-		
-		<SidebarToggle client:idle />
-	</nav>
+			{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+				<ThemeToggleButton
+					client:visible
+					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+					isInsideHeader={true}
+				/>
+			}
+			
+			<!-- {import.meta.env.PUBLIC_FEATURE_SEARCH=="true" &&
+				<Search {lang} labels={docsearchStrings} />
+			} -->
+			<!-- <SimpleSearch client:idle /> -->
+			
+			<SearchButton />
+			<OptionsButton/>
+			
+			<SidebarToggle client:idle />
+		</nav>
+	</div>
 </header>
 
 <style type="scss">
@@ -68,7 +74,7 @@ const t = useTranslations(Astro);
 		right: 0;
 		height: var(--theme-navbar-height);
 		z-index: 11;
-		padding: 1.2rem 0;
+		padding: 0 0 1.2rem 0;
 		backdrop-filter: blur(10px);
 		&:before {
 			content:'';
@@ -81,10 +87,12 @@ const t = useTranslations(Astro);
 			background-color: var(--theme-navbar-bg);
 			
 		}
-		display: flex;
-		align-items: center;
-		justify-content: left;
-		overflow: visible;
+		.header-content {
+			display: flex;
+			align-items: center;
+			justify-content: left;
+			overflow: visible;
+		}
 	}
 
 	ul,
@@ -198,7 +206,7 @@ const t = useTranslations(Astro);
 
 	@media (min-width: 50em) {
 		header {
-			padding: 1.5rem 0 1.5rem 0;
+			padding: 0 0 1.5rem 0;
 		}
 		.astro {
 			width: auto;
