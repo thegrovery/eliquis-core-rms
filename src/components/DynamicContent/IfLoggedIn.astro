@@ -3,7 +3,7 @@
 
 //DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
 
-import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
+import LoadingText from '~/components/DynamicContent/LoadingText.astro';
 
 const { info } = Astro.props as Props;
 ---
@@ -11,7 +11,7 @@ const { info } = Astro.props as Props;
 <div class="IfLoggedIn">
 
   <div class="placeholder">
-    <!-- <LoadingPlaceholder/> -->
+    <LoadingText/> 
   </div>
   
   <div class="loggedIn">
@@ -76,7 +76,7 @@ const { info } = Astro.props as Props;
     setTimeout(callback, seconds * 1000);
   }
 
-  const delayInSeconds = 5; // Change this to the desired delay in seconds
+  const delayInSeconds = 3; // Change this to the desired delay in seconds
   waitForDelay(delayInSeconds, delayedFunction);
 
 

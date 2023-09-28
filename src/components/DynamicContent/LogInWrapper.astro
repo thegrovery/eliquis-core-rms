@@ -23,7 +23,7 @@ const { info } = Astro.props as Props;
     <p>
       To view this content, please log in or request an account from your manager.
       <br/>
-      Redirecting you to the home page to log in. 
+      Redirecting you to the home page in 10 seconds. 
     </p>
   </div>
 
@@ -77,6 +77,9 @@ const { info } = Astro.props as Props;
       elements.forEach(element => {
         //target all instances of ModalWrapper
         element.classList.add("currentlyLoggedOut"); 
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 10000); //time in ms
       });
     }else{
       //logged in
