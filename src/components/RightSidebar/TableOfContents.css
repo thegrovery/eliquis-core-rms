@@ -46,7 +46,7 @@
 	height: var(--theme-mobile-toc-height);
 	max-width: 80ch;
 	margin-inline: auto;
-	padding-bottom: var(--header-bottom-padding);
+	/* padding-bottom: var(--header-bottom-padding); */
 	padding-inline: var(--min-spacing-inline);
 }
 

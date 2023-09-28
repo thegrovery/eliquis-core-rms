@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer/Footer.astro';
 import HeadCommon from '../components/HeadCommon.astro';
-import Header from '../components/Header/Header.astro';
+import Header from '../components/Header/Header__SJ.astro';
 import { normalizeLangTag } from '../i18n/bcp-normalize';
 import { rtlLanguages } from '../i18n/languages';
 import { useTranslations } from '../i18n/util';
@@ -33,7 +33,7 @@ const t = useTranslations(Astro);
 	<head>
 		<HeadCommon />
 		<SessionManager />
-		<title>{`${title} | ${t('site.title')}`}</title>
+		<title>{`${title} 🚀 ${t('site.title')}`}</title>
 		<style>
 			html,
 			body,
