@@ -1,0 +1,33 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import SimpleButton from '~/components/Buttons/SimpleButton.astro';
+
+const { message } = Astro.props as Props;
+---
+<div class="LoginWrapper">
+  <IfLoggedIn>
+    <div slot="loggedIn">
+      <slot />
+    </div>
+    <div slot="loggedOut">
+      <p class="loggedOutMessage">
+        {message ? message :
+          "This content is only available to logged in users.  Please log in or sign up for an account."
+        }
+      </p>
+      <div class="buttonWrapper">
+        <SimpleButton text="Log In" onClick="netlifyIdentity.open('login'); "/>
+        <SimpleButton text="Sign Up" onClick="netlifyIdentity.open('signup');"/>
+      </div>
+    </div>
+  </IfLoggedIn>
+</div>
+
+
+<style lang="scss">
+  .buttonWrapper{
+    margin-top: 1rem;
+  }
+</style>

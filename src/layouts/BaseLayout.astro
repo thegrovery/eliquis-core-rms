@@ -15,6 +15,7 @@ import { pwaInfo } from 'virtual:pwa-info';
 
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
+import LogInWrapper from '~/components/DynamicContent/LogInWrapper.astro';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
 import ReloadPrompt from '~/components/ReloadPrompt.astro';
@@ -154,22 +155,24 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<SplashAnimation/>
 		<Header currentPage={currentPage} />
 		<main class="layout">
-			
-			<aside id="left-sidebar" class="sidebar">
-				<slot name="primary-sidebar">
-					<LeftSidebar currentPage={currentPage} />
-				</slot>
-			</aside>
+			<LogInWrapper>
+				<aside id="left-sidebar" class="sidebar">
+					<slot name="primary-sidebar">
+						<LeftSidebar currentPage={currentPage} />
+					</slot>
+				</aside>
 
-			<aside id="right-sidebar" class="sidebar">
-				<slot name="secondary-sidebar" />
-			</aside>
+				<aside id="right-sidebar" class="sidebar">
+					<slot name="secondary-sidebar" />
+				</aside>
 
-			<div id="main-content" class="main-column">
-				<slot />
-				<span id="docsearch-lvl0" hidden>{getPageCategory(url)}</span>
-			</div>
-			
+				<div id="main-content" class="main-column">
+					
+						<slot />
+						<span id="docsearch-lvl0" hidden>{getPageCategory(url)}</span>
+					
+				</div>
+			</LogInWrapper>
 		</main>
 		<div class="main-column">
 			<slot name="footer">

@@ -1,0 +1,105 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+import LoadingBlock from '~/components/DynamicContent/LoadingBlock.astro';
+
+const { info } = Astro.props as Props;
+---
+
+<div class="LogInWrapper">
+
+  <div class="placeholder">
+    <LoadingBlock/>
+  </div>
+  
+  <div class="loggedIn">
+    <slot/>
+  </div>
+
+  <div class="loggedOut">
+    <h1>You are currently logged out.</h1>
+    <p>
+      To view this content, please log in or request an account from your manager.
+      <br/>
+      Redirecting you to the home page to log in. 
+    </p>
+  </div>
+
+</div>
+
+<style lang="scss">
+  .LogInWrapper{
+    .placeholder{display: flex;}
+    .loggedIn{display: none;}
+    .loggedOut{display: none;}
+
+    &.currentlyLoggedIn{
+      .placeholder{display: none;}
+      .loggedIn{display: block;}
+      .loggedOut{display: none;}
+    }
+    &.currentlyLoggedOut{
+      .placeholder{display: none;}
+      .loggedIn{display: none;}
+      .loggedOut{display: flex;}
+    }
+
+    .placeholder{
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+      padding: 15vh 2rem 0;
+    }
+    &.currentlyLoggedOut .loggedOut{
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+    }
+  }
+</style>
+
+<script>
+  function delayedFunction() {
+    console.log("LogInWrapper functions executed.");
+
+    //grab all user info
+    var user = netlifyIdentity.currentUser();
+    console.log("Netlify User Info: ",user);
+    var elements = document.querySelectorAll('.LogInWrapper');
+
+    if( user === null){
+      //logged out
+      console.log("Logged Out");
+      elements.forEach(element => {
+        //target all instances of ModalWrapper
+        element.classList.add("currentlyLoggedOut"); 
+      });
+    }else{
+      //logged in
+      console.log("Logged In");
+      elements.forEach(element => {
+        //target all instances of ModalWrapper
+        element.classList.add("currentlyLoggedIn"); 
+      });
+    }
+
+    
+
+  }
+
+  function waitForDelay(seconds, callback) {
+    setTimeout(callback, seconds * 1000);
+  }
+
+  const delayInSeconds = 3; // Change this to the desired delay in seconds
+  waitForDelay(delayInSeconds, delayedFunction);
+
+
+  
+
+
+</script>
