@@ -27,7 +27,8 @@
     "lint:eslint": "eslint .",
     "netlify:build": "pnpm ${NETLIFY_BUILD_SCRIPT:-build}",
     "translation-status": "tsm --require=./scripts/lib/filter-warnings.cjs ./scripts/translation-status.ts",
-    "generate-pwa-assets": "pwa-assets-generator"
+    "generate-pwa-assets": "pwa-assets-generator",
+    "search-index": "node src/lib/algolia.js"
   },
   "devDependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
