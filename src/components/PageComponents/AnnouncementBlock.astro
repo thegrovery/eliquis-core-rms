@@ -1,7 +1,7 @@
 ---
 // This is the frontmatter section where you can import other components or scripts if needed
 import AnnouncementsContent from '~/components/DynamicContent/AnnouncementsContent.astro';
-import Aside from '~/components/Aside.astro';
+import { Icon } from 'astro-icon'
 
 export interface Props {
   icon?: 'puzzle-piece' | 'question-mark' | 'check-list';
@@ -10,12 +10,72 @@ export interface Props {
 const { announcement, icon } = Astro.props as Props;
 ---
 
-<div class='AnnouncementBlock'>
-  <Aside title="Announcement" type="tip">
+<div class='AnnouncementBlock' style={`--box-icon-url: url('/tutorial/${icon?icon:"check-list"}.svg');`}>
+  <div class="header">
+    <div class="icon">
+      <Icon name="simple-line-icons:speech" />
+    </div>
+    <h2>Announcements</h2>
+  </div>
+  <div class="content">
     <AnnouncementsContent text={announcement}/>
-  </Aside>
+  </div>  
 </div>
 
 <style lang="scss">
-  
+  .AnnouncementBlock {
+     position: relative;
+     margin-bottom: 4rem;
+     padding-block: 2rem;
+     padding-inline-start: 2rem;
+     padding-inline-end: 2rem;
+     border: 1px solid var(--custom-maroon);
+     box-shadow: -0.5rem 0.5rem 0 -1px var(--custom-maroon);
+     background-color: var(--theme-bg);
+
+      .header{
+        //padding-inline-start: 4rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .icon{
+          width: 4rem;
+          height: 4rem;
+          border-radius:100%;
+          background-color: var(--custom-dark-blue);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 1rem;
+          [astro-icon] {
+            color: #fff;
+            width: 50%;
+            height: auto;
+          }
+        }
+
+        h2{
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
+      }
+      .content{
+        
+      }
+  }
+
+  @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
+    (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
+    .AnnouncementBlock::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      inset-inline-start: 0.5rem;
+      
+     /* -webkit-mask: var(--box-icon-url) no-repeat center center / 100%;
+      mask: var(--box-icon-url) no-repeat center center / 100%;*/
+    }
+  }
 </style>
