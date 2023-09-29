@@ -10,7 +10,7 @@
     transition-property: all;
     -webkit-font-smoothing: antialiased;
     &:hover {
-        border-color: var(--custom-teal);
+        border-color: var(--custom-orange);
         button {
             color: var(--theme-text);
         }
@@ -68,9 +68,9 @@
         min-height: 50px;
         border-radius: 3px;
         padding: 5px 12px;
-        border: 2px solid var(--custom-teal-90);
+        border: 2px solid var(--custom-orange-90);
         &:focus, &:hover {
-            border-color: var(--custom-teal);
+            border-color: var(--custom-orange);
         }
     }
     
@@ -99,7 +99,7 @@
       
       /* Add a hover effect for the thumb */
       &::-webkit-scrollbar-thumb:hover {
-        background: var(--custom-green);
+        background: var(--custom-maroon);
       }
       z-index: 1;
       top: 100%;
@@ -130,7 +130,7 @@
        svg {
         &:hover {
            path {
-            stroke: var(--custom-green) !important;
+            stroke: var(--custom-maroon) !important;
            }
         }
        }
@@ -152,7 +152,7 @@
         text-decoration: none;
         &:hover, &:focus {
             text-decoration: none;
-            color: var(--custom-green);
+            color: var(--custom-maroon);
         }
       }
     }
@@ -164,7 +164,7 @@
         right: 10px;
         color: var(--custom-grey-1);
         &:hover {
-            color: var(--custom-green);
+            color: var(--custom-maroon);
         }
       }
     }
@@ -173,9 +173,9 @@
       position: absolute;
       top: -40px;
       right: 0px;
-      background: var(--custom-teal-25);
+      background: var(--custom-orange-25);
       &:hover, &:focus {
-        background: var(--custom-teal-50);
+        background: var(--custom-orange-50);
       }
       color: var(--custom-white);
       border: none;

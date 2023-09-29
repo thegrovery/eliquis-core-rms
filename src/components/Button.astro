@@ -20,11 +20,6 @@ export let href; // optional href prop
 
 <!-- Styles for the primary and secondary buttons -->
 <style lang="scss">
-
-:root {
-  --blue: #007B98;
-  --teal: #00DFC3;
-}
   
 /* Global Btn Style */
   .button {
@@ -76,42 +71,42 @@ export let href; // optional href prop
   /* Secondary Btn */
   .secondary {
     /* background-color: var(--teal); */
-    background-color: var(--custom-green);
+    background-color: var(--custom-maroon);
     color: white;
     border: none;
     // box-shadow: -2px 2px 0px var(--custom-green-90);
   }
   .secondary:hover,.secondary:focus {
-	background-color: var(--custom-green-90);
+	background-color: var(--custom-maroon-90);
   // box-shadow: -2px 2px 0px var(--custom-green);
   }
 
   /* Tertiary Btn */
   .tertiary {
-    border-color: var(--custom-green);
+    border-color: var(--custom-maroon);
 	border-style: solid;
 	border-width: 1px;
   // box-shadow: -2px 2px 0px var(--custom-green);
-    color: var(--custom-green);
+    color: var(--custom-maroon);
     background-color: transparent;
   }
   .tertiary:hover,.tertiary:focus {
-	background-color:var(--custom-green);
+	background-color:var(--custom-maroon);
 	color: #fff;
     // box-shadow: -2px 2px 0px var(--custom-green-90);
   }
   
   /* outline */
   .outline {
-    border-color: var(--custom-teal);
+    border-color: var(--custom-orange);
 	border-style: solid;
 	border-width: 1px;
-    color: var(--custom-teal);
+    color: var(--custom-orange);
     background-color: transparent;
     // box-shadow: -2px 2px 0px var(--custom-teal);
   }
   .outline:hover,.outline:focus, .button.outline.active {
-    background-color:var(--custom-teal);
+    background-color:var(--custom-orange);
     // box-shadow: -2px 2px 0px var(--custom-teal-90);
 	color: #fff;
   }
