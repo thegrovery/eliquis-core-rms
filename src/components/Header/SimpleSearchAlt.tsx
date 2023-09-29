@@ -39,7 +39,7 @@ const Search = () => {
                 {parts.map((part, i) =>
                 i % 2 === 0
                     ? part
-                    : <span style={{ textDecoration: 'underline', backgroundColor: 'var(--custom-teal-90)' }}>{part}</span>
+                    : <span style={{ textDecoration: 'underline', backgroundColor: 'var(--custom-orange-50)' }}>{part}</span>
                 )}
             </span>
         );
@@ -47,13 +47,13 @@ const Search = () => {
     
     const unselectedStar = (
         <svg xmlns="http://www.w3.org/2000/svg" width="20.728" height="19.786" viewBox="0 0 20.728 19.786">
-            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="none" stroke="#adadad" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="none" stroke="var(--custom-maroon-50)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
         </svg>
     );
     
     const selectedStar = (
         <svg xmlns="http://www.w3.org/2000/svg" width="20.728" height="19.786" viewBox="0 0 20.728 19.786">
-            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="#81c051" stroke="#81c051" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="var(--custom-maroon)" stroke="var(--custom-maroon)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
         </svg>
     );
 

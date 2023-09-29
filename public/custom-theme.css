@@ -3,7 +3,7 @@
 	/* ===== PRIMARY THEME COLORS ===== */
 	/* =============================== */
 	--custom-black: 			#1A1A1A;
-	--custom-white: 			#fdfeff;
+	
 	--custom-teal: 				#00DFC3;
 	--custom-dark-blue: 	#293E6B;
 	--custom-green: 			#81C051;
@@ -23,6 +23,11 @@
 		--custom-maroon-90: 			#76004Be8;
 		--custom-orange-90: 			#F26937e8;
 		--custom-tan-90: 			#EEE7E7e8;
+		--custom-black-90: 			#1A1A1Ae8;
+
+		/* 75% opacity */
+		--custom-maroon-75: 			#76004bb8;
+		--custom-black-75: 			#1a1a1ab8;
 		
 		/*50% opacity*/
 		--custom-teal-50: 				#00DFC350;
@@ -32,6 +37,7 @@
 		--custom-maroon-50: 			#76004B50;
 		--custom-orange-50: 			#F2693750;
 		--custom-tan-50: 			#EEE7E750;
+		--custom-black-50: 			#1A1A1A50;
 
 		/*25% opacity*/
 		--custom-teal-25: 				#00DFC325;
@@ -40,6 +46,8 @@
 		--custom-maroon-25: 			#76004B25;
 		--custom-orange-25: 			#F2693725;
 		--custom-tan-25: 			#EEE7E725;
+		--custom-white-25: 			#fdfeff25;
+		--custom-black-25: 			#1A1A1A25;
 
 		/*10% opacity*/
 		--custom-teal-10: 				#00DFC310;
@@ -48,6 +56,8 @@
 		--custom-maroon-10: 			#76004B10;
 		--custom-orange-10: 			#F2693710;
 		--custom-tan-10: 			#EEE7E710;
+		--custom-white-10: 			#fdfeff10;
+		--custom-black-10: 			#1A1A1A10;
 		
 		/*05% opacity*/
 		--custom-teal-05: 				#00DFC305;
@@ -56,6 +66,7 @@
 		--custom-maroon-05: 			#76004B05;
 		--custom-orange-05: 			#F2693705;
 		--custom-tan-05: 			#EEE7E705;
+		--custom-white-05: 			#fdfeff05;
 
 	/* ================ */
 	/* ===== GREYS ===== */
@@ -83,3 +94,15 @@
 		--custom-accent-2-05: 	var(--custom-tan-05);
 }
 
+:root,
+::backdrop {
+    --custom-white: #fdfeff; /* White color in light mode */
+    /* ... other variables ... */
+}
+
+:root.theme-dark,
+.theme-dark ::backdrop {
+    /* --custom-white: var(--custom-accent-1-50); 
+    --custom-tan: var(--custom-accent-1-10);  */
+    /* ... other variables ... */
+}

@@ -1,6 +1,9 @@
 
 .toc-root{
-	background-color: var(--custom-grey-1-10);
+	background-color: var(--theme-code-inline-bg);
+	border-top: 1px solid var(--custom-grey-1);
+	border-right: 1px solid var(--custom-grey-1);
+	border-bottom: 1px solid var(--custom-grey-1);
 }
 
 /* The mobile container is a <details> element wrapping the mobile TOC */
@@ -36,7 +39,10 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	background: var(--theme-bg-gradient-top);
+	background: var(--custom-white);
+	
+	backdrop-filter: blur(3px);
+	/* background: var(--theme-bg-gradient-top); */
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -44,9 +50,9 @@
 	display: flex;
 	align-items: center;
 	height: var(--theme-mobile-toc-height);
-	max-width: 80ch;
+	max-width: 100ch;
 	margin-inline: auto;
-	/* padding-bottom: var(--header-bottom-padding); */
+	padding-bottom: var(--header-bottom-padding);
 	padding-inline: var(--min-spacing-inline);
 }
 
