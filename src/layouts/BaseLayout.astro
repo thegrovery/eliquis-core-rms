@@ -155,7 +155,9 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<SplashAnimation/>
 		<Header currentPage={currentPage} />
 		<main class="layout">
-			<LogInWrapper>
+			
+				<LogInWrapper>
+			
 				<aside id="left-sidebar" class="sidebar">
 					<slot name="primary-sidebar">
 						<LeftSidebar currentPage={currentPage} />
@@ -172,7 +174,9 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 						<span id="docsearch-lvl0" hidden>{getPageCategory(url)}</span>
 					
 				</div>
-			</LogInWrapper>
+			
+				</LogInWrapper>
+			
 		</main>
 		<div class="main-column">
 			<slot name="footer">
@@ -188,18 +192,21 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<SearchModal/>
 		<!-- <ReloadPrompt /> -->
 		
-		<!--Start of Tawk.to Script-->
-		<!-- <script type="text/javascript">
-			var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-			(function(){
-			var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-			s1.async=true;
-			s1.src='https://embed.tawk.to/64d29c33cc26a871b02e17b8/1h7bb4alq';
-			s1.charset='UTF-8';
-			s1.setAttribute('crossorigin','*');
-			s0.parentNode.insertBefore(s1,s0);
-			})();
-		</script> -->
-		<!--End of Tawk.to Script-->
+		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
+			<!--Start of Tawk.to Script-->
+			<script type="text/javascript">
+				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+				(function(){
+				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+				s1.async=true;
+				s1.src='https://embed.tawk.to/64d29c33cc26a871b02e17b8/1h7bb4alq';
+				s1.charset='UTF-8';
+				s1.setAttribute('crossorigin','*');
+				s0.parentNode.insertBefore(s1,s0);
+				})();
+			</script>
+			<!--End of Tawk.to Script-->
+		}
+		
 	</body>
 </html>

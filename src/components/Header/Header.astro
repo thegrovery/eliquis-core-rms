@@ -39,7 +39,9 @@ const t = useTranslations(Astro);
 				</ul>
 			</div>
 
-			<!-- <AnnouncementButton/> -->
+			{import.meta.env.PUBLIC_FEATURE_GLOBAL_ANNOUNCEMENTS=="true" &&
+				<AnnouncementButton/>
+			}
 
 			{import.meta.env.PUBLIC_FEATURE_FEEDBACK=="true" &&
 				<FeedbackButton/>
