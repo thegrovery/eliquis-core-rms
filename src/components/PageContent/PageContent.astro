@@ -22,6 +22,7 @@ const isFallback = !!Astro.params.fallback || undefined;
 const lang = getLanguageFromURL(Astro.url.pathname);
 const bcpLang = normalizeLangTag(lang);
 const direction = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
+const manualTitle = content.manualTitle;
 ---
 
 <div dir={isFallback ? 'ltr' : direction} lang={isFallback && 'en'}>
@@ -59,7 +60,10 @@ const direction = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
 				
 				</Breadcrumbs>
 				<slot name="before-title" />
-				<h1 class="content-title" id="overview" set:html={title} />
+				{!manualTitle &&
+					<h1 class="content-title" id="overview" set:html={title} />
+				}
+				
 				<slot name="after-title" />
 			</header>
 			{
