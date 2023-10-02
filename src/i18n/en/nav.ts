@@ -11,8 +11,11 @@ export default [
 
 	//LEARN TAB
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
+		{ text: 'Introduction | Main', slug: 'introduction', key: 'introduction' },
 		{ text: 'How To Use The Toolkit', slug: 'introduction/how-to-use-the-toolkit', key: 'introduction/how-to-use-the-toolkit' },
 		{ text: 'About ELIQUIS 360 Support', slug: 'about-eliquis-360', key: 'about-eliquis-360' },
+		{ text: 'Frequently Asked Questions', slug: 'faqs', key: 'faqs' },
+		{ text: 'Glossary of Terms', slug: 'glossary', key: 'glossary' },
 
 	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
 		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },

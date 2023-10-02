@@ -6,6 +6,7 @@ export const baseSchema = z
 		title: z.string(),
 		subtitle: z.string().optional(),
 		description: z.string().optional(),
+		manualTitle: z.boolean().default(false),
 		i18nReady: z.boolean().default(false),
 		githubURL: z.string().url().optional(),
 		hasREADME: z.boolean().optional(),
