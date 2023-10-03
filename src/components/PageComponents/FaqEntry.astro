@@ -1,5 +1,6 @@
 ---
 // This is the frontmatter section where you can import other components or scripts if needed
+import { Icon } from 'astro-icon'
 
 export interface Props {
   icon?: 'puzzle-piece' | 'question-mark' | 'check-list';
@@ -8,16 +9,21 @@ export interface Props {
 const { question, number, icon, answer } = Astro.props as Props;
 ---
 
-<div class='FaqEntry' style={`--box-icon-url: url('/tutorial/${icon}.svg');`}>
+<div class='FaqEntry' 
+  style={`--box-icon-url: url('/tutorial/${icon}.svg');`}
+>
   <div class='inner'>
 
-    <div class='question'>
-      
+    <div class='question' onclick="toggleAccordion()">
       {question ? 
-          <h2><span class="number">{number}.&nbsp;</span>{question}</h2>
+          <h3><span class="number">{number}.&nbsp;</span>{question}</h3>
         :
-          <h2>[ ===FaqEntry Question Placeholder=== ]</h2>
+          <h3>[ ===FaqEntry Question Placeholder=== ]</h3>
       }
+      <div class="accordianButton" >
+        <span class="plus"><Icon name="ic:baseline-plus"/></span>
+        <span class="minus"><Icon name="ic:baseline-minus"/></span>
+      </div>
     </div>
     
     <div class="answer">
@@ -36,26 +42,78 @@ const { question, number, icon, answer } = Astro.props as Props;
      margin-bottom: 4rem;
      padding-block: 2rem;
      padding-inline-start: 2rem;
-     padding-inline-end: 4rem;
+     padding-inline-end: 6rem;
      border: 1px solid var(--theme-shade-subtle);
      box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
        -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle);
      background-color: var(--theme-bg);
 
       .question{
-        h2{
+        cursor: pointer;
+        h3{
           max-width: 100%;
         }
         .number{
           display: inline;
         }
+        .accordianButton{
+          width: 3rem;
+          height: 3rem;
+          border-radius: 100%;
+          background-color: var(--custom-maroon);
+          color: var(--custom-white);
+          position: absolute;
+          top: 1.25rem;
+          inset-inline-end: 1.25rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .plus{
+            display: block;
+          }
+          .minus{
+            display: none;
+          }
+          [astro-icon] {
+              color: white;
+              /* OR */
+              fill: white;
+              width: 2rem;
+              height: auto;
+              position: relative;
+              top: 0.2rem;
+          }
+        }
+        &:hover{
+          h3{
+            text-decoration: underline;
+          }
+        }
       }
-      .answer{}
+      .answer{
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.15s linear;
+      }
+
+      &.active{
+        .answer{
+          max-height: 400px;
+        }
+        .accordianButton{
+          .plus{
+            display: none;
+          }
+          .minus{
+            display: block;
+          }
+        }
+      }
   }
 
   @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
     (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
-    .FaqEntry::before {
+    /*.FaqEntry::before {
       content: '';
       position: absolute;
       top: 0.5rem;
@@ -65,7 +123,28 @@ const { question, number, icon, answer } = Astro.props as Props;
       background-color: var(--theme-divider);
       -webkit-mask: var(--box-icon-url) no-repeat center center / 100%;
       mask: var(--box-icon-url) no-repeat center center / 100%;
-    }
+    }*/
   }
 
 </style>
+
+<script type="text/javascript">
+    function toggleAccordion(buttonElement) {
+        /*const contentElement = buttonElement.nextElementSibling;
+        contentElement.classList.toggle('active');*/
+        var onClickThis = event.currentTarget;
+        var parentElement = onClickThis.closest(".FaqEntry");
+        var contentElement = parentElement.querySelector(".answer");
+
+        parentElement.classList.toggle('active');
+        if (contentElement.style.maxHeight) {
+            contentElement.style.maxHeight = null;
+        } else {
+            contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+        }
+    }
+
+    function accordionCloseAll() {
+
+    }
+</script>

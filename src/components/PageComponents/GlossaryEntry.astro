@@ -14,9 +14,9 @@ const { term, icon, definition } = Astro.props as Props;
     <div class='term'>
       
       {term ? 
-          <h2>{term}</h2>
+          <h3>{term}</h3>
         :
-          <h2>[ ===GlossaryEntry Question Placeholder=== ]</h2>
+          <h3>[ ===GlossaryEntry Question Placeholder=== ]</h3>
       }
     </div>
     
@@ -28,22 +28,20 @@ const { term, icon, definition } = Astro.props as Props;
 </div>
 
 <style lang="scss">
-  $fontSize: 1rem;
-  $borderSize: 2px;
-  $color: #454257;
+  
   .GlossaryEntry {
      position: relative;
      margin-bottom: 4rem;
-     padding-block: 2rem;
+    /* padding-block: 2rem;
      padding-inline-start: 2rem;
      padding-inline-end: 4rem;
      border: 1px solid var(--theme-shade-subtle);
      box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
        -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle);
-     background-color: var(--theme-bg);
+     background-color: var(--theme-bg);*/
 
       .question{
-        h2{
+        h3{
           max-width: 100%;
         }
         .number{
@@ -53,7 +51,7 @@ const { term, icon, definition } = Astro.props as Props;
       .answer{}
   }
 
-  @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
+  /*@supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
     (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
     .GlossaryEntry::before {
       content: '';
@@ -66,6 +64,6 @@ const { term, icon, definition } = Astro.props as Props;
       -webkit-mask: var(--box-icon-url) no-repeat center center / 100%;
       mask: var(--box-icon-url) no-repeat center center / 100%;
     }
-  }
+  }*/
 
 </style>
