@@ -7,8 +7,8 @@ const Search = () => {
     const [hits, setHits] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
 
-    const searchClient = algoliasearch('7CDE1498H2', '559f06160d974e0a17e99a6f8de4f5c0');
-    const index = searchClient.initIndex('core_rms');
+    const searchClient = algoliasearch('2GVEXS0MRV', '8fea0ba951ba77e336ffa5ab144f0ecd');
+    const index = searchClient.initIndex('core-eliquis');
 
     // Function to clear the query
     const clearQuery = () => {
