@@ -5,41 +5,102 @@ i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+import TagFilter from '~/components/TagFilter.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
+View our internal resources below. These materials can only be shared internally.
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+## Filter Internal Materials
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<div class="tag-filter-container">
+	<TagFilter tags={['Websites', 'Downloads', 'Forms', 'Other']} />
+</div>
 
-## Toolkit pages are powered by Markdown
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+<div class="resource-card-container">
+	
+    <ResourceCard 
+        resourceType="internal"
+        imageSrc="https://via.placeholder.com/150"
+		icon="fluent:style-guide-24-regular" 
+		title="Grovery 2.0 Brand Websites" 
+		description="The Grovery Brand Guide: A comprehensive resource for anyone working to bring The Grovery brand to life." 
+		tags={['Websites']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		resourceDetailsLink="/brand-resources/style-guide" 
+	/>
+    
+	<ResourceCard 
+        resourceType="internal"
+		icon="mdi:school-outline" 
+		title="Product Downloads Module: Part One" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Downloads']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		resourceDetailsLink="/brand-resources/product-Downloads-module1/" 
+	/>
+    
+    <ResourceCard
+        resourceType="internal"
+		icon="akar-icons:clipboard"  
+		title="Troubleshooting Guide: Solutions for Common Issues" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Downloads']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		width="third" 
+		resourceDetailsLink="/brand-resources/product-Downloads-module1/" 
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+	/>
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
+	<ResourceCard 
+        resourceType="internal"
+        imageSrc="https://via.placeholder.com/150"
+		icon="ph:globe" 
+		title="Online Forms Provider Portal" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Forms', 'Downloads']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		 width="third" 
+		resourceDetailsLink="/page-templates/resource-page-template/" 
 
-## Basic Heading
+	/>
+	
+	
+	
+	<ResourceCard 
+        resourceType="internal"
+		icon="ph:pill-bold" 
+		title="Customer Success Stories: Inspire Trust and Confidence" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Other']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		resourceDetailsLink="/page-templates/resource-page-template/" 
+	/>
+	<ResourceCard 
+        resourceType="internal"
+		icon="ps:chat" 
+		title="Best Practices for Effective Communication" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Forms']} 
+		viewDetailsButtonText="Visit Website" 
+		shareButtonText="Share" 
+		resourceDetailsLink="https://thegrovery.com" 
+	/>
+	<ResourceCard 
+        resourceType="internal"
+		icon="icomoon-free:price-tags" 
+		title="Pricing and Discount Strategies: Maximize Revenue" 
+		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
+		tags={['Pricing']} 
+		viewDetailsButtonText="View Details" 
+		shareButtonText="Share" 
+		resourceDetailsLink="/page-templates/resource-page-template/" 
+	/>
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-
-## What is a Brand Toolkit?
-
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
-
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
-
+</div>
