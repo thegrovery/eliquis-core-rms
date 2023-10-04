@@ -4,6 +4,6 @@ export default defineConfig({
   preset,
   images: [
     'public/favicon.png',
-    'public/logos/grovery-logo.svg'
+    'public/favicon.svg'
   ]
 })

@@ -36,8 +36,8 @@ export default defineConfig({
         includeAssets: ['favicon.svg'],
         registerType: 'autoUpdate',
         manifest: {
-          name: 'Grovery CORE RMS',
-          short_name: 'CORE',
+          name: 'Eliqus Field Force Navigator',
+          short_name: 'FFN',
           theme_color: '#ffffff',
           icons: [
             {
