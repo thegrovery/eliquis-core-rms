@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon'
 <a href={Astro.props.resourceDetailsLink} class={`nav-block ${Astro.props.width ?? 'third'}`}>
   <div class="header-wrap">
     <div class="icon-container">
-      <Icon name={Astro.props.icon} />
+      { Astro.props.SvgComponent ? <Astro.props.SvgComponent /> : <Icon name={Astro.props.icon} /> }
     </div>
     <h3>{Astro.props.title}</h3>
   </div>
@@ -68,25 +68,22 @@ import { Icon } from 'astro-icon'
   }
   </style>
   <style>
-    :root {
-    --blue: #007B98;
-    --teal: #00DFC3;
-    }
+
     .header-wrap {
       display: flex;
-      gap: 20px;
+      gap: 10px;
       margin-bottom: 20px;
       align-items: center;
     }
     .icon-container {
         /* background-color: var(--theme-bg-gradient); */
-        background-color: var(--theme-dim-lighter);
+        background-color: var(--custom-dark-blue);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 80px;
-        width: 80px;
-        border-radius: 28px;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 100%;
     }
     .icon-container [astro-icon] {
         font-size: 3em;
@@ -95,13 +92,13 @@ import { Icon } from 'astro-icon'
     .nav-block {
       /* styles for the card container */
       /* background-color: var(--theme-code-inline-bg); */
-      background-color: var(--theme-bg-gradient);
+      background-color: var(--theme-bg-gradient-top);
       box-sizing: border-box;
       text-decoration: none;
       color: inherit;
       /* margin: 0rem 2% 2% 0rem; */
       /* max-width: 31%; */
-      padding: 1.5rem;
+      padding: 1.25rem;
       /* border-radius: 12px; */
       display: flex;
       flex-direction: column;
@@ -118,7 +115,7 @@ import { Icon } from 'astro-icon'
         text-decoration: none;
     }
     .nav-block h3 {
-        margin-top: 1.5rem;
+        margin-top: 1.25rem;
     }
     .nav-block .tags {
       /* styles for the tags container */
