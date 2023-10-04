@@ -13,6 +13,9 @@ import NavBlock from '~/components/NavBlock.astro';
 import InlineGlossary from '~/components/InlineGlossary.astro';
 import AnnouncementBlock from '~/components/PageComponents/AnnouncementBlock.astro';
 import SearchButton from '~/components/Buttons/SearchButton.astro';
+import ProgramInPracticeIcon from '~/components/SVGs/ProgramInPracticeIcon.astro';
+import InternalResourcesIcon from '~/components/SVGs/InternalResourcesIcon.astro';
+import ExternalResourcesIcon from '~/components/SVGs/ExternalResourcesIcon.astro';
 
 <div class="flex-row">
 	<div class="width-50">
@@ -34,32 +37,35 @@ The Grovery’s CORE RMS (Resource Management System) is a software product that
 <div class="nav-block-container">
   
 	<NavBlock
+	 	SvgComponent={ProgramInPracticeIcon}
 		icon="gala:brochure"  
 		title="Program In Practice" 
 		description="Check out our latest brand resources to get you started on your journey" 
-		viewDetailsButtonText="Explore Resources" 
+		viewDetailsButtonText="Common Scenarios" 
 		width="full" 
-		resourceDetailsLink="/brand-resources/view-all" 
+		resourceDetailsLink="/program-in-practice/about-program-in-practice/" 
 
 	/>
 
 	<NavBlock
+		SvgComponent={InternalResourcesIcon}
 		icon="gala:brochure"  
-		title="Brand Resources" 
+		title="Internal Resources" 
 		description="Check out our latest brand resources to get you started on your journey" 
 		viewDetailsButtonText="Explore Resources" 
 		width="full" 
-		resourceDetailsLink="/brand-resources/view-all" 
+		resourceDetailsLink="/online-resources/online-resources-overview/" 
 
 	/>
 
 	<NavBlock
+		SvgComponent={ExternalResourcesIcon}
 		icon="ic:outline-quiz"  
-		title="Test Your Knowledge" 
+		title="External Resources" 
 		description="Check out our multiple choice quiz component with progress tracker" 
-		viewDetailsButtonText="Quiz Component" 
+		viewDetailsButtonText="Explore Resources" 
 		width="full" 
-		resourceDetailsLink="/page-templates/tutorial-page-template/1-step-1" 
+		resourceDetailsLink="/rep-resources/how-to-use-e360-playbook/" 
 
 	/>
 	

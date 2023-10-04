@@ -8,17 +8,17 @@ import { Icon } from 'astro-icon'
 <a href={Astro.props.resourceDetailsLink} class={`nav-block ${Astro.props.width ?? 'third'}`}>
   <div class="header-wrap">
     <div class="icon-container">
-      <Icon name={Astro.props.icon} />
+      { Astro.props.SvgComponent ? <Astro.props.SvgComponent /> : <Icon name={Astro.props.icon} /> }
     </div>
     <h3>{Astro.props.title}</h3>
   </div>
 
   <p>{Astro.props.description}</p>
   
-  <!-- <Button variant="primary" className="details-btn">{Astro.props.viewDetailsButtonText}</Button> -->
+  <button className="details-btn">{Astro.props.viewDetailsButtonText} <Icon name="mdi:arrow-right"></Icon></button>
 </a>
 
-<style is:global>
+<style type="scss" is:global>
   .nav-block-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* change 3 to the number of columns you want by default */
@@ -67,58 +67,83 @@ import { Icon } from 'astro-icon'
     }
   }
   </style>
-  <style>
-    :root {
-    --blue: #007B98;
-    --teal: #00DFC3;
+  <style type="scss">
+    .nav-block {
+    transition: all .1s ease-in-out;
+    &:hover button, &:focus button {
+      background-color: var(--custom-dark-blue);
     }
+    &:hover [astro-icon], &:focus [astro-icon] {
+      color: var(--custom-orange);
+    }
+  }
+  button {
+    margin-top: .5rem;
+    background-color: var(--custom-maroon);
+    border-radius: 4rem;
+    border: 1px solid var(--custom-grey-1-50);
+    padding: 1rem 2rem;
+    color: var(--custom-white);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    [astro-icon] {
+      color: var(--custom-white);
+      font-size: 1.4rem;
+    }
+    
+  }
     .header-wrap {
       display: flex;
-      gap: 20px;
+      gap: 10px;
       margin-bottom: 20px;
       align-items: center;
     }
     .icon-container {
         /* background-color: var(--theme-bg-gradient); */
-        background-color: var(--theme-dim-lighter);
+        background-color: var(--custom-dark-blue);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        height: 80px;
-        width: 80px;
-        border-radius: 28px;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 100%;
     }
     .icon-container [astro-icon] {
-        font-size: 3em;
-        color: var(--theme-accent);
+        font-size: 2.5rem;
+        color: var(--custom-white);
     }
     .nav-block {
       /* styles for the card container */
       /* background-color: var(--theme-code-inline-bg); */
-      background-color: var(--theme-bg-gradient);
+      background-color: var(--theme-bg-gradient-top);
       box-sizing: border-box;
       text-decoration: none;
       color: inherit;
       /* margin: 0rem 2% 2% 0rem; */
       /* max-width: 31%; */
-      padding: 1.5rem;
+      padding: 1.25rem;
       /* border-radius: 12px; */
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      border: 1px solid var(--theme-dim);
-      box-shadow: -2px 2px 0px var(--theme-dim-light);
+      border: 1px solid var(--custom-maroon-50);
+      box-shadow: -2px 2px 0px var(--custom-maroon-50);
       transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
       animation: fadeInUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     .nav-block:hover,.nav-block:focus {
-        border-color: var(--theme-accent);
-        box-shadow: -2px 2px 0px var(--theme-accent);
+        border-color: var(--custom-maroon-90);
+        box-shadow: -2px 2px 0px var(--custom-maroon-90);
         text-decoration: none;
+       
+      
     }
     .nav-block h3 {
-        margin-top: 1.5rem;
+        margin-top: 1.25rem;
     }
     .nav-block .tags {
       /* styles for the tags container */
