@@ -8,6 +8,7 @@ import { useTranslations } from '../i18n/util';
 import { getLanguageFromURL } from '../util';
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
+import { pwaInfo } from 'virtual:pwa-info';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
 import ReloadPrompt from '~/components/ReloadPrompt.astro';
@@ -49,6 +50,14 @@ const t = useTranslations(Astro);
 				display: none;
 			}
 		</style>
+
+		<script src="/src/pwa.ts"></script>
+		{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+		<link rel="icon" href="/favicon.png" type="image/png" />
+    	<link rel="apple-touch-icon" href="/favicon.png" />
+    	<link rel="mask-icon" href="/favicon.png" color="#76004B" />
+    	<meta name="msapplication-TileColor" content="#76004B" />
+    	<meta name="theme-color" content="#76004B" />
 	</head>
 
 	<body>
