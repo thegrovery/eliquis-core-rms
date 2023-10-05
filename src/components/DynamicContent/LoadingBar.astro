@@ -1,0 +1,40 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+const { info } = Astro.props as Props;
+---
+
+<div class="LoadingBar">
+  <div class="inner"></div>
+</div>
+
+<style lang="scss">
+  .LoadingBar{
+    width: 100%;
+    max-width: 300px;
+    height: 1rem;
+    border: 1px solid var(--custom-accent-1-50);
+    border-radius: 0.5rem;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+
+    .inner{
+      width: 5rem;
+      height: 100%;
+      border-radius: 0.5rem;
+      background-color: var(--custom-maroon);
+      animation: LoadingBar 2s linear infinite;
+      position: absolute;
+      left: -5rem;
+    }
+
+    @keyframes LoadingBar {
+      0%    {left: -5rem; }
+      100%  { left: 100%; }
+    }
+  }
+</style>
+
