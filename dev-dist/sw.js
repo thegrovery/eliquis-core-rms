@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-deae36ee'], (function (workbox) { 'use strict';
+define(['./workbox-f859f53c'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -89,7 +89,7 @@ define(['./workbox-deae36ee'], (function (workbox) { 'use strict';
     url
   }) => {
     return url.pathname.startsWith("/en");
-  }, new workbox.CacheFirst({
+  }, new workbox.NetworkFirst({
     "cacheName": "page-cache",
     plugins: [new workbox.CacheableResponsePlugin({
       statuses: [0, 200]
