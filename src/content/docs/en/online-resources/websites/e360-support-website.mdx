@@ -1,0 +1,60 @@
+---
+title: Eliquis 360 Support Website
+description: Use this page for things like embedded tools like forms and login portals
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import PlaceholderContent from '~/components/PlaceholderContent.astro'
+import { Icon } from 'astro-icon'
+import ResourceDetails from '~/components/ResourceDetails.astro'
+import ResourceThumb from '~/components/ResourceThumb.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+
+{/* Pull Resource Data and Related Resources Script */}
+import resources from '~/data/resources.json';
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+<div class="details_wrapper">
+
+	<div class="left-col">
+		### Preview Resource
+		<ResourceThumb 
+			imgSrc="/images/resources/e360support-website_thumb.png" 
+		
+		/>
+	</div>
+
+	<div class="right-col">
+		
+		### Version Details
+		<ResourceDetails 
+			author="E360 Support" 
+			lastModified="03/2023" 
+			tags="Websites" 
+			icon="mdi:web"
+		/>
+
+		### Description
+		The Grovery Brand Guide: A comprehensive resource for anyone working to bring The Grovery brand to life.
+
+		### BMS Resource Link
+		<Button variant="primary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		
+		### Pfizer Resource Link
+		<Button variant="secondary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+
+	</div>
+	
+</div>
+
+## Related Resources
+{/* use tag name or resource title below */}
+<div class="resource-card-container">
+  {getRelatedResources(['Websites'], ['nothing']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
+</div>
+
