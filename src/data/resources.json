@@ -1,0 +1,70 @@
+{
+    "resources": [
+      {
+        "resourceType": "internal",
+        "imageSrc": "/images/resources/e360support-website_thumb.png",
+        "icon": "fluent:style-guide-24-regular",
+        "title": "Eliquis 360 Support Website",
+        "description": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
+        "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
+        "tags": ["Websites"],
+        "viewDetailsButtonText": "View Details",
+        "shareButtonText": "Share",
+        "resourceDetailsLink": "/online-resources/websites/e360-support-website",
+        "author": "E360 Support",
+        "lastModified": "03/2023",
+        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
+      },
+      {
+        "resourceType": "internal",
+        "imageSrc": "/images/resources/fingertip-formulary_thumb.png",
+        "icon": "fluent:style-guide-24-regular",
+        "title": "Fingertip Formulary Website",
+        "description": "Find ELIQUIS coverage information in your area",
+        "longDescription": "Find ELIQUIS coverage information in your area​​",
+        "tags": ["Websites"],
+        "viewDetailsButtonText": "View Details",
+        "shareButtonText": "Share",
+        "resourceDetailsLink": "/online-resources/websites/fingetip-formulary",
+        "author": "E360 Support",
+        "lastModified": "03/2023",
+        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
+      },
+      {
+        "resourceType": "internal",
+        "imageSrc": "/images/resources/e360support-website_thumb.png",
+        "icon": "fluent:style-guide-24-regular",
+        "title": "Test Website",
+        "description": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
+        "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
+        "tags": ["Downloads"],
+        "viewDetailsButtonText": "View Details",
+        "shareButtonText": "Share",
+        "resourceDetailsLink": "/online-resources/websites/test",
+        "author": "E360 Support",
+        "lastModified": "03/2023",
+        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp"
+      },
+      {
+        "resourceType": "internal",
+        "imageSrc": "/images/resources/e360support-website_thumb.png",
+        "icon": "fluent:style-guide-24-regular",
+        "title": "Test Website 2",
+        "description": "The Asdf Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
+        "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
+        "tags": ["Downloads"],
+        "viewDetailsButtonText": "View Details",
+        "shareButtonText": "Share",
+        "resourceDetailsLink": "/online-resources/websites/test2",
+        "author": "E360 Support",
+        "lastModified": "03/2023",
+        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp"
+      }
+      
+    ]
+  }
+  

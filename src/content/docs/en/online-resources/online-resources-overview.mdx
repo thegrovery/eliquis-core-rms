@@ -8,6 +8,10 @@ import Button from '~/components/Button.astro'
 import ResourceCard from '~/components/ResourceCard.astro'
 import TagFilter from '~/components/TagFilter.astro'
 
+
+import resources from '~/data/resources.json'
+
+
 View our internal resources below. These materials can only be shared internally.
 
 ## Filter Internal Materials
@@ -19,88 +23,8 @@ View our internal resources below. These materials can only be shared internally
 
 <div class="resource-card-container">
 	
-    <ResourceCard 
-        resourceType="internal"
-        imageSrc="https://via.placeholder.com/150"
-		icon="fluent:style-guide-24-regular" 
-		title="Grovery 2.0 Brand Websites" 
-		description="The Grovery Brand Guide: A comprehensive resource for anyone working to bring The Grovery brand to life." 
-		tags={['Websites']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		resourceDetailsLink="/brand-resources/style-guide" 
-	/>
-    
-	<ResourceCard 
-        resourceType="internal"
-		icon="mdi:school-outline" 
-		title="Product Downloads Module: Part One" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Downloads']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		resourceDetailsLink="/brand-resources/product-Downloads-module1/" 
-	/>
-    
-    <ResourceCard
-        resourceType="internal"
-		icon="akar-icons:clipboard"  
-		title="Troubleshooting Guide: Solutions for Common Issues" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Downloads']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		width="third" 
-		resourceDetailsLink="/brand-resources/product-Downloads-module1/" 
-
-	/>
-
-	<ResourceCard 
-        resourceType="internal"
-        imageSrc="https://via.placeholder.com/150"
-		icon="ph:globe" 
-		title="Online Forms Provider Portal" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Forms', 'Downloads']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		 width="third" 
-		resourceDetailsLink="/page-templates/resource-page-template/" 
-
-	/>
-	
-	
-	
-	<ResourceCard 
-        resourceType="internal"
-		icon="ph:pill-bold" 
-		title="Customer Success Stories: Inspire Trust and Confidence" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Other']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		resourceDetailsLink="/page-templates/resource-page-template/" 
-	/>
-	<ResourceCard 
-        resourceType="internal"
-		icon="ps:chat" 
-		title="Best Practices for Effective Communication" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Forms']} 
-		viewDetailsButtonText="Visit Website" 
-		shareButtonText="Share" 
-		resourceDetailsLink="https://thegrovery.com" 
-	/>
-	<ResourceCard 
-        resourceType="internal"
-		icon="icomoon-free:price-tags" 
-		title="Pricing and Discount Strategies: Maximize Revenue" 
-		description="Leaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas." 
-		tags={['Pricing']} 
-		viewDetailsButtonText="View Details" 
-		shareButtonText="Share" 
-		resourceDetailsLink="/page-templates/resource-page-template/" 
-	/>
-
+    {resources.resources.map(resource => (
+        <ResourceCard {...resource} />
+    ))}
 
 </div>

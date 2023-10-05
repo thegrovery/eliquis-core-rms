@@ -17,12 +17,33 @@ import { Icon } from 'astro-icon'
         </div>
     </div>
 </div>
-
+<style type="scss" is:global>
+    .details_wrapper {
+        .heading-wrapper > * {
+            margin-bottom: 1rem;
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        .left-col, .right-col {
+            width: 100%;
+        }
+    }
+    @media (min-width: 52em) {  /* Adjust breakpoint as needed */
+        .details_wrapper {
+            flex-direction: row;
+            .left-col, .right-col {
+                width: 50%;
+            }
+        }
+    }
+    </style>
+    
 <style lang="scss">
     .thumbnail-wrapper {
         .thumbnail {
-            height: 400px;
-            max-width: 33%;
+            // height: 400px;
+            max-width: 90%;
             // width: 320px;
            
         }
