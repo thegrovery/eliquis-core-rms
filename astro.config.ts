@@ -38,7 +38,7 @@ export default defineConfig({
         manifest: {
           name: 'Eliqus Field Force Navigator',
           short_name: 'FFN',
-          theme_color: '#ffffff',
+          theme_color: '#76004B',
           icons: [
             {
               src: 'pwa-192x192.png',
