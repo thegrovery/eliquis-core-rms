@@ -61,9 +61,23 @@ export default defineConfig({
         workbox: {
           navigateFallback: '/offline',
           globDirectory: 'dist',
-  		globPatterns: [
-  			'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
-  		],
+      		globPatterns: [
+      			'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
+      		],
+          runtimeCaching: [
+            {
+              urlPattern: ({ url }) => {
+                return url.pathname.startsWith("/en");
+              },
+              handler: "CacheFirst" as const,
+              options: {
+                cacheName: "page-cache",
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
+              },
+            },
+          ],
         },
         devOptions: {
           enabled: true,
