@@ -4,6 +4,7 @@
 //DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
 
 import LoadingBlock from '~/components/DynamicContent/LoadingBlock.astro';
+import LoadingBar from '~/components/DynamicContent/LoadingBar.astro';
 
 const { info } = Astro.props as Props;
 ---
@@ -11,7 +12,9 @@ const { info } = Astro.props as Props;
 <div class="LogInWrapper">
 
   <div class="placeholder">
-    <LoadingBlock/>
+    <!-- <LoadingBlock/> -->
+    <p>Checking Permissions...</p>
+    <LoadingBar/>
   </div>
   
   <div class="loggedIn">
@@ -23,8 +26,9 @@ const { info } = Astro.props as Props;
     <p>
       To view this content, please log in or request an account from your manager.
       <br/>
-      Redirecting you to the home page in 10 seconds. 
+      Redirecting you to the home page in 5 seconds. 
     </p>
+    
   </div>
 
 </div>
@@ -49,6 +53,7 @@ const { info } = Astro.props as Props;
     .placeholder{
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 85vh;
       padding: 15vh 2rem 0;
     }
@@ -79,7 +84,7 @@ const { info } = Astro.props as Props;
         element.classList.add("currentlyLoggedOut"); 
         setTimeout(() => {
           window.location.href = "/";
-        }, 10000); //time in ms
+        }, 5000); //time in ms
       });
     }else{
       //logged in
@@ -98,7 +103,7 @@ const { info } = Astro.props as Props;
     setTimeout(callback, seconds * 1000);
   }
 
-  const delayInSeconds = 3; // Change this to the desired delay in seconds
+  const delayInSeconds = 2; // Change this to the desired delay in seconds
   waitForDelay(delayInSeconds, delayedFunction);
 
 
