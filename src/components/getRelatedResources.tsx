@@ -1,3 +1,4 @@
+// src/utils/getRelatedResources.ts
 import resources from '~/data/resources.json';
 
 interface Resource {
@@ -6,10 +7,15 @@ interface Resource {
   // ...other properties of a resource
 }
 
-function getRelatedResources(currentTags: string[], relatedTitles: string[] = []): Resource[] {
+function getRelatedResources(tags: string[] = ['all'], titles: string[] = ['all']): Resource[] {
+  if (tags.includes('all') && titles.includes('all')) {
+    // If 'all' is included in tags or titles, return all resources
+    return resources.resources;
+  }
+
   return resources.resources.filter(resource =>
-    resource.tags.some(tag => currentTags.includes(tag)) ||
-    relatedTitles.includes(resource.title)
+    tags.some(tag => resource.tags.includes(tag)) ||
+    titles.includes(resource.title)
   );
 }
 

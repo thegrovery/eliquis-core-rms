@@ -1,6 +1,6 @@
 ---
-title: Online Resources Overview
-description: A basic intro to Astro.
+title: Internal Resources Overview
+description: These materials can only be shared internally.
 i18nReady: true
 type: base
 ---
@@ -10,6 +10,7 @@ import TagFilter from '~/components/TagFilter.astro'
 
 
 import resources from '~/data/resources.json'
+import getRelatedResources from '~/components/getRelatedResources.tsx';
 
 
 View our internal resources below. These materials can only be shared internally.
@@ -22,9 +23,7 @@ View our internal resources below. These materials can only be shared internally
 
 
 <div class="resource-card-container">
-	
-    {resources.resources.map(resource => (
-        <ResourceCard {...resource} />
-    ))}
-
+  {getRelatedResources(['all']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
 </div>
