@@ -30,63 +30,63 @@ export default defineConfig({
   astroCodeSnippets(), 
   mdx(), 
   AstroPWA({
-        mode: 'development',
-        base: '/',
-        scope: '/',
-        includeAssets: ['favicon.svg'],
-        registerType: 'autoUpdate',
-        manifest: {
-          name: 'Eliqus Field Force Navigator',
-          short_name: 'FFN',
-          theme_color: '#76004B',
-          icons: [
-            {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any maskable',
-            },
-          ],
+    mode: 'development',
+    base: '/',
+    scope: '/',
+    includeAssets: ['favicon.svg'],
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Eliqus Field Force Navigator',
+      short_name: 'FFN',
+      theme_color: '#76004B',
+      icons: [
+        {
+          src: 'pwa-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
         },
-        workbox: {
-          navigateFallback: '/offline',
-          globDirectory: 'dist',
-      		globPatterns: [
-      			'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
-      		],
-          runtimeCaching: [
-            {
-              urlPattern: ({ url }) => {
-                return url.pathname.startsWith("/en");
-              },
-              handler: "CacheFirst" as const,
-              options: {
-                cacheName: "page-cache",
-                cacheableResponse: {
-                  statuses: [0, 200],
-                },
-              },
+        {
+          src: 'pwa-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+        {
+          src: 'pwa-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable',
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: '/offline',
+      globDirectory: 'dist',
+  		globPatterns: [
+  			'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
+  		],
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => {
+            return url.pathname.startsWith("/en");
+          },
+          handler: "NetworkFirst" as const,
+          options: {
+            cacheName: "page-cache",
+            cacheableResponse: {
+              statuses: [0, 200],
             },
-          ],
+          },
         },
-        devOptions: {
-          enabled: true,
-          navigateFallbackAllowlist: [/^\/offline/],
-        },
-      }),
-  	prefetch({
+      ],
+    },
+    devOptions: {
+      enabled: true,
+      navigateFallbackAllowlist: [/^\/offline/],
+    },
+  }),
+    prefetch({
   	      //prefetch options
-	}),
+    }),
   ],
   markdown: {
     syntaxHighlight: 'shiki',
