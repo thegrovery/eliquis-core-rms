@@ -1,0 +1,32 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+
+const { info } = Astro.props as Props;
+---
+
+<div></div>
+
+<script>
+  //delay functions so there's no refresh loop 
+  //on initial login event on page load.
+    function delayedFunction() {
+      
+      netlifyIdentity.on('login', user => 
+        location.reload()
+      );
+      netlifyIdentity.on('logout', () => 
+        location.reload()
+      );
+
+    }
+
+    function waitForDelay(seconds, callback) {
+      setTimeout(callback, seconds * 1000);
+    }
+
+    const delayInSeconds = 2; // Change this to the desired delay in seconds
+    waitForDelay(delayInSeconds, delayedFunction);
+</script>

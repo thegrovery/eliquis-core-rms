@@ -8,6 +8,7 @@ import { useTranslations } from '../i18n/util';
 import { getLanguageFromURL } from '../util';
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
+import LogInFunctions from '~/components/DynamicContent/LogInFunctions.astro';
 import { pwaInfo } from 'virtual:pwa-info';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
@@ -75,5 +76,6 @@ const t = useTranslations(Astro);
 		<VideoModal/>
 		<AnnouncementModal/>
 		<SearchModal />
+		<LogInFunctions/>
 	</body>
 </html>
