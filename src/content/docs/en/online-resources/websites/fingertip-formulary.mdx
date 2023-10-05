@@ -22,7 +22,7 @@ import getRelatedResources from '~/components/getRelatedResources.tsx';
 	<div class="left-col">
 		### Preview Resource
 		<ResourceThumb 
-			imgSrc="/images/resources/e360support-website_thumb.png" 
+			imgSrc="/images/resources/fingertip-formulary_thumb.png" 
 		
 		/>
 	</div>
@@ -37,14 +37,14 @@ import getRelatedResources from '~/components/getRelatedResources.tsx';
 			icon="mdi:web"
 		/>
 
-		### Description & Supporting Docs
-		The Grovery Brand Guide: A comprehensive resource for anyone working to bring The Grovery brand to life.
+		### Description
+		Use this resource to find ELIQUIS coverage information in your area.
 
 		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button variant="primary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp/formulary-lookup" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
 		
 		### Pfizer Resource Link
-		<Button variant="secondary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button variant="secondary" className="details-btn" href="https://www.eliquis.com/eliquis/hcp/formulary-lookup" target="_blank" icon="ri:external-link-fill">Download From Source</Button>
 
 	</div>
 	
@@ -53,7 +53,7 @@ import getRelatedResources from '~/components/getRelatedResources.tsx';
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['websites'], ['placeholder']).map(relatedResource => (
+  {getRelatedResources(['Websites'], ['placeholder']).map(relatedResource => (
     <ResourceCard {...relatedResource} />
   ))}
 </div>

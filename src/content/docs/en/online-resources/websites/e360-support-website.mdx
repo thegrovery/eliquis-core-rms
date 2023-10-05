@@ -37,7 +37,7 @@ import getRelatedResources from '~/components/getRelatedResources.tsx';
 			icon="mdi:web"
 		/>
 
-		### Description & Supporting Docs
+		### Description
 		The Grovery Brand Guide: A comprehensive resource for anyone working to bring The Grovery brand to life.
 
 		### BMS Resource Link
@@ -53,7 +53,7 @@ import getRelatedResources from '~/components/getRelatedResources.tsx';
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['Websites'], ['Test Website']).map(relatedResource => (
+  {getRelatedResources(['Websites'], ['nothing']).map(relatedResource => (
     <ResourceCard {...relatedResource} />
   ))}
 </div>
