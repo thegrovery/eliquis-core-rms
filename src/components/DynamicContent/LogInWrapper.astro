@@ -36,18 +36,42 @@ const { info } = Astro.props as Props;
 <style lang="scss">
   .LogInWrapper{
     .placeholder{display: flex;}
-    .loggedIn{display: none;}
-    .loggedOut{display: none;}
+    .loggedIn{
+      display: none;
+      /*transform: translate3D(0, 3rem, 0);
+      transition: 0.25s;
+      transition-delay: 1s;
+      transition-property: transform;*/
+    }
+    .loggedOut{
+      display: none;
+      /*transform: translate3D(0, 3rem, 0);
+      transition: 0.25s;
+      transition-delay: 1s;
+      transition-property: transform;*/
+    }
 
     &.currentlyLoggedIn{
       .placeholder{display: none;}
-      .loggedIn{display: block;}
-      .loggedOut{display: none;}
+      .loggedIn{
+        display: block; 
+       /*transform: translate3D(0, 0rem, 0);*/
+      }
+      .loggedOut{
+        display: none; 
+       /*transform: translate3D(0, 0rem, 0);*/
+      }
     }
     &.currentlyLoggedOut{
       .placeholder{display: none;}
-      .loggedIn{display: none;}
-      .loggedOut{display: flex;}
+      .loggedIn{
+        display: none;
+        /*transform: translate3D(0, 0rem, 0);*/
+      }
+      .loggedOut{
+        display: flex;
+        /*transform: translate3D(0, 0rem, 0);*/
+      }
     }
 
     .placeholder{
