@@ -26,14 +26,18 @@ const currentYear = new Date().getFullYear();
 
 <style type="scss">
 	footer {
+		background-image: url(/images/footer-wave.svg);
+		background-repeat: no-repeat;
+    	background-size: cover;
 		padding: 6rem 0 2rem;
 		text-align: center;
-		color: var(--theme-text-lighter);
+		color: var(--custom-white);
 		font-size: var(--theme-text-xs);
+		
 	}
 
 	.footer-links {
-		border-top: 2px solid var(--custom-grey-1-50);
+		/* border-top: 2px solid var(--custom-white); */
 		display: flex;
 		gap: 1.5em;
 		justify-content: center;
@@ -43,18 +47,19 @@ const currentYear = new Date().getFullYear();
 		text-align: left;
 		.first {
 			margin-right: auto;
+			text-transform: uppercase;
 		}
 	}
 
 	.footer-links a {
-		color: var(--theme-text-lighter);
+		color: var(--custom-white);
 		text-decoration: none;
 		
 	}
 
 	.footer-links a:focus,
 	.footer-links a:hover {
-		color: var(--theme-text);
+		color: var(--custom-white-90);
 		text-decoration: underline;
 	}
 </style>
