@@ -69,7 +69,7 @@ export default defineConfig({
           urlPattern: ({ url }) => {
             return url.pathname.startsWith("/en");
           },
-          handler: "CacheFirst" as const,
+          handler: "NetworkFirst" as const,
           options: {
             cacheName: "page-cache",
             cacheableResponse: {
