@@ -55,14 +55,14 @@ const cacheName = 'ManualPreCache_v1';
 
 // Assets to precache
 const precachedAssets = [
-  '/introduction',
-  '/introduction/how-to-use-the-toolkit',
-  '/introduction/about-eliquis-360',
-  '/introduction/faq',
-  '/introduction/glossary'
+  '/en/introduction',
+  '/en/introduction/how-to-use-the-toolkit',
+  '/en/introduction/about-eliquis-360',
+  '/en/introduction/faq',
+  '/en/introduction/glossary'
 ];
 
-self.addEventListener('install', (event) => {
+window.addEventListener('install', (event) => {
   // Precache assets on install
   event.waitUntil(caches.open(cacheName).then((cache) => {
     console.log("precache function started");
@@ -70,7 +70,7 @@ self.addEventListener('install', (event) => {
   }));
 });
 
-self.addEventListener('fetch', (event) => {
+window.addEventListener('fetch', (event) => {
   // Is this one of our precached assets?
   const url = new URL(event.request.url);
   const isPrecachedRequest = precachedAssets.includes(url.pathname);
