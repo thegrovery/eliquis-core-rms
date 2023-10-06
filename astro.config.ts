@@ -60,10 +60,13 @@ export default defineConfig({
     },
     workbox: {
       navigateFallback: '/offline',
-      globDirectory: 'dist',
+      globDirectory: '/',
   		globPatterns: [
-  			'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+  			globPatterns: ["**/*"],
   		],
+      includeAssets: [
+                "**/*",
+            ],
       runtimeCaching: [
         {
           urlPattern: ({ url }) => {

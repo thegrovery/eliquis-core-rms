@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
   })
 })
 
-// Establish a cache name
+/*// Establish a cache name
 const cacheName = 'ManualPreCache_v1';
 
 // Assets to precache
@@ -84,4 +84,4 @@ window.addEventListener('fetch', (event) => {
     // Go to the network
     return;
   }
-});
+});*/
