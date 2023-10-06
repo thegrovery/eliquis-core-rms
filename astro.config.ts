@@ -71,7 +71,7 @@ export default defineConfig({
           options: {
             cacheName: "page-cache",
             cacheableResponse: {
-              statuses: [*],
+              statuses: [0, 200],
             },
           },
         },
