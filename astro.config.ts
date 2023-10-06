@@ -61,12 +61,7 @@ export default defineConfig({
     workbox: {
       navigateFallback: '/offline',
       globDirectory: '/',
-  		globPatterns: [
-  			globPatterns: ["**/*"],
-  		],
-      includeAssets: [
-                "**/*",
-            ],
+  		globPatterns: ["**/*"],
       runtimeCaching: [
         {
           urlPattern: ({ url }) => {
