@@ -65,6 +65,7 @@ const precachedAssets = [
 self.addEventListener('install', (event) => {
   // Precache assets on install
   event.waitUntil(caches.open(cacheName).then((cache) => {
+    console.log("precache function started");
     return cache.addAll(precachedAssets);
   }));
 });
