@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
   })
 })
 
-/*// Establish a cache name
+// Establish a cache name
 const cacheName = 'ManualPreCache_v1';
 
 // Assets to precache
@@ -62,7 +62,7 @@ const precachedAssets = [
   '/en/introduction/glossary'
 ];
 
-window.addEventListener('install', (event) => {
+self.addEventListener('install', (event) => {
   // Precache assets on install
   event.waitUntil(caches.open(cacheName).then((cache) => {
     console.log("precache function started");
@@ -70,7 +70,7 @@ window.addEventListener('install', (event) => {
   }));
 });
 
-window.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
   // Is this one of our precached assets?
   const url = new URL(event.request.url);
   const isPrecachedRequest = precachedAssets.includes(url.pathname);
@@ -84,4 +84,4 @@ window.addEventListener('fetch', (event) => {
     // Go to the network
     return;
   }
-});*/
+});
