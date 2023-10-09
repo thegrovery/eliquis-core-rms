@@ -12,8 +12,8 @@ export default [
 	//LEARN TAB
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
 		{ text: 'Introduction | Main', slug: 'introduction', key: 'introduction' },
-		{ text: 'How To Use The Toolkit', slug: 'introduction/how-to-use-the-toolkit', key: 'introduction/how-to-use-the-toolkit' },
-		{ text: 'About ELIQUIS 360 Support', slug: 'about-eliquis-360', key: 'about-eliquis-360' },
+		{ text: 'How to use E360 Field Force Navigator', slug: 'introduction/how-to-use-e360-ffn', key: 'how-to-use-e360-ffn' },
+		{ text: 'About ELIQUIS 360 Support', slug: 'introduction/about-eliquis-360', key: 'about-eliquis-360' },
 		{ text: 'Frequently Asked Questions', slug: 'faqs', key: 'faqs' },
 		{ text: 'Glossary of Terms', slug: 'glossary', key: 'glossary' },
 
@@ -50,12 +50,12 @@ export default [
 
 
 	//RESOURCES TAB
-	{ text: 'Online Resources', header: true, type: 'api', key: 'online-resources' },
-		{ text: 'Online Resources Overview', slug: 'online-resources/online-resources-overview', key: 'online-resources/online-resources-overview' },
-		{ text: 'Websites', slug: 'online-resources/websites', key: 'online-resources/websites' },
-		{ text: 'Downloads', slug: 'brand-resources/downloads', key: 'online-resources/downloads' },
-		{ text: 'Forms', slug: 'online-resources/forms', key: 'online-resources/forms' },
-		{ text: 'Other/Additional Support', slug: 'online-resources/additional-support', key: 'online-resources/additional-support' },
+	{ text: 'External Resources', header: true, type: 'api', key: 'external-resources' },
+		{ text: 'External Resources Overview', slug: 'external-resources/external-resources-overview', key: 'external-resources/external-resources-overview' },
+		{ text: 'Websites', slug: 'external-resources/websites', key: 'external-resources/websites' },
+		{ text: 'Downloads', slug: 'external-resources/downloads', key: 'external-resources/downloads' },
+		{ text: 'Forms', slug: 'external-resources/forms', key: 'external-resources/forms' },
+		{ text: 'Other/Additional Support', slug: 'external-resources/additional-support', key: 'external-resources/additional-support' },
 
 	{ text: 'Rep Resources', header: true, type: 'api', key: 'rep-resources' },
 		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook', key: 'rep-resources/how-to-use-e360-playbook' },

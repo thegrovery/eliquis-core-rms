@@ -1,0 +1,20 @@
+---
+// Import the resources data
+import resources from '../../../../data/resources.json';
+
+// Define a load function to fetch the data for this page
+export async function load({ params }) {
+  const resource = resources.resources.find(r => r.title.toLowerCase().replace(/ /g, '-') === params.resource);
+  return {
+    props: { resource }
+  };
+}
+---
+
+<!-- Render the page content based on the resource data -->
+<section>
+  <h1>{resource.title}</h1>  <!-- Fixed here -->
+  <img src={resource.imageSrc} alt={resource.title} />  <!-- And here -->
+  <p>{resource.description}</p>  <!-- And here -->
+  <!-- ...other HTML and Astro components rendering resource properties... -->
+</section>
