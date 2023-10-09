@@ -22,7 +22,7 @@ import { Icon } from 'astro-icon'
   .nav-block-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* change 3 to the number of columns you want by default */
-    gap: 20px; /* adjust for desired space between cards */
+    gap: 1em; /* adjust for desired space between cards */
   }
   
   .nav-block-container .third {
@@ -126,7 +126,7 @@ import { Icon } from 'astro-icon'
       justify-content: space-between;
       border: 1px solid var(--custom-maroon-50);
       box-shadow: -2px 2px 0px var(--custom-maroon-50);
-      transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all .1s ease-in;
       animation: fadeInUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     .nav-block:hover,.nav-block:focus {
