@@ -118,25 +118,6 @@ import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
 </style>
 
 <script>
-  
-
-
-  function delayedFunction() {
-    const user = netlifyIdentity.currentUser();
-    var elements = document.querySelectorAll('#userEmail');
-    elements.forEach(element => {
-      //target all instances of ModalWrapper
-      element.innerHTML = user.email; 
-    });
-  }
-
-  function waitForDelay(seconds, callback) {
-    setTimeout(callback, seconds * 1000);
-  }
-
-  const delayInSeconds = 5; // Change this to the desired delay in seconds
-  waitForDelay(delayInSeconds, delayedFunction);
-
   function modalClose(){
     var elements = document.querySelectorAll('.ModalWrapper');
     
@@ -145,5 +126,4 @@ import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
       element.classList.remove("active"); 
     });
   }
-
 </script>
