@@ -36,18 +36,42 @@ const { info } = Astro.props as Props;
 <style lang="scss">
   .LogInWrapper{
     .placeholder{display: flex;}
-    .loggedIn{display: none;}
-    .loggedOut{display: none;}
+    .loggedIn{
+      display: none;
+      /*transform: translate3D(0, 3rem, 0);
+      transition: 0.25s;
+      transition-delay: 1s;
+      transition-property: transform;*/
+    }
+    .loggedOut{
+      display: none;
+      /*transform: translate3D(0, 3rem, 0);
+      transition: 0.25s;
+      transition-delay: 1s;
+      transition-property: transform;*/
+    }
 
     &.currentlyLoggedIn{
       .placeholder{display: none;}
-      .loggedIn{display: block;}
-      .loggedOut{display: none;}
+      .loggedIn{
+        display: block; 
+       /*transform: translate3D(0, 0rem, 0);*/
+      }
+      .loggedOut{
+        display: none; 
+       /*transform: translate3D(0, 0rem, 0);*/
+      }
     }
     &.currentlyLoggedOut{
       .placeholder{display: none;}
-      .loggedIn{display: none;}
-      .loggedOut{display: flex;}
+      .loggedIn{
+        display: none;
+        /*transform: translate3D(0, 0rem, 0);*/
+      }
+      .loggedOut{
+        display: flex;
+        /*transform: translate3D(0, 0rem, 0);*/
+      }
     }
 
     .placeholder{
@@ -72,11 +96,11 @@ const { info } = Astro.props as Props;
     console.log("LogInWrapper functions executed.");
 
     //grab all user info
-    var user = netlifyIdentity.currentUser();
-    console.log("Netlify User Info: ",user);
+    var loggedIn = SessionManager.getItem('loggedIn');
+    console.log("Netlify Login Status: ",loggedIn);
     var elements = document.querySelectorAll('.LogInWrapper');
 
-    if( user === null){
+    if( loggedIn == 'true'){
       //logged out
       console.log("Logged Out");
       elements.forEach(element => {

@@ -3,6 +3,7 @@
 
 import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
 import UserInfo from '~/components/DynamicContent/UserInfo.astro';
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
 
 ---
 
@@ -15,14 +16,32 @@ import UserInfo from '~/components/DynamicContent/UserInfo.astro';
 
       <div class="main">
         
-        <div class="optionCell" onClick="netlifyIdentity.open(); modalClose();">
-          <div class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+        <IfLoggedIn>
+                  
+          <div slot="loggedIn">
+            <div class="optionCell" onClick="netlifyIdentity.logout();">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+              </div>
+              <div class="text">
+                Log Out
+              </div>
+            </div>
           </div>
-          <div class="text">
-            Log In
+
+          <div slot="loggedOut">
+           <div class="optionCell" onClick="netlifyIdentity.open(); modalClose();">
+             <div class="icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
+             </div>
+             <div class="text">
+               Log In
+             </div>
+           </div>
           </div>
-        </div>
+          
+        </IfLoggedIn>
+        
 
         <div class="optionCell">
           <div class="icon">
