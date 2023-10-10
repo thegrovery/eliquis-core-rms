@@ -62,20 +62,7 @@ export default defineConfig({
           navigateFallback: '/offline',
           globDirectory: 'dist',
   		    globPatterns: ['**/*'],
-          runtimeCaching: [
-            {
-              urlPattern: ({ url }) => {
-                return url.pathname.startsWith("/en");
-              },
-              handler: "CacheFirst" as const,
-              options: {
-                cacheName: "api-cache",
-                cacheableResponse: {
-                  statuses: [0, 200],
-                },
-              },
-            },
-          ],
+          
         },
         devOptions: {
           enabled: true,
@@ -83,8 +70,9 @@ export default defineConfig({
         },
       }),
   	prefetch({
-  	      //prefetch options
-	}),
+  	    //prefetch options
+        throttle: 4,
+	   }),
   ],
   markdown: {
     syntaxHighlight: 'shiki',
