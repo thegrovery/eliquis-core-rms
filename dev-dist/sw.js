@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-01d9f47c'], (function (workbox) { 'use strict';
+define(['./workbox-f859f53c'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -85,5 +85,15 @@ define(['./workbox-01d9f47c'], (function (workbox) { 'use strict';
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("/offline"), {
     allowlist: [/^\/offline/]
   }));
+  workbox.registerRoute(({
+    url
+  }) => {
+    return url.pathname.startsWith("/");
+  }, new workbox.NetworkFirst({
+    "cacheName": "page-cache",
+    plugins: [new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
+  }), 'GET');
 
 }));

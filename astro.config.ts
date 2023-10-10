@@ -30,45 +30,58 @@ export default defineConfig({
   astroCodeSnippets(), 
   mdx(), 
   AstroPWA({
-        mode: 'development',
-        base: '/',
-        scope: '/',
-        includeAssets: ['favicon.svg'],
-        registerType: 'autoUpdate',
-        manifest: {
-          name: 'Eliqus Field Force Navigator',
-          short_name: 'FFN',
-          theme_color: '#76004B',
-          icons: [
-            {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
+      mode: 'development',
+      base: '/',
+      scope: '/',
+      includeAssets: ['favicon.svg'],
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Eliqus Field Force Navigator',
+        short_name: 'FFN',
+        theme_color: '#76004B',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
+          },
+        ],
+      },
+      workbox: {
+        navigateFallback: '/offline',
+        globDirectory: 'dist',
+		    globPatterns: ['**/*'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => {
+              return url.pathname.startsWith("/");
             },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
+            handler: "NetworkFirst" as const,
+            options: {
+              cacheName: "page-cache",
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
             },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any maskable',
-            },
-          ],
-        },
-        workbox: {
-          navigateFallback: '/offline',
-          globDirectory: 'dist',
-  		    globPatterns: ['**/*'],
-          
-        },
-        devOptions: {
-          enabled: true,
-          navigateFallbackAllowlist: [/^\/offline/],
-        },
-      }),
+          },
+        ],
+      },
+      devOptions: {
+        enabled: true,
+        navigateFallbackAllowlist: [/^\/offline/],
+      },
+    }),
   	prefetch({
   	    //prefetch options
         throttle: 4,
