@@ -30,3 +30,13 @@ const { info } = Astro.props as Props;
     const delayInSeconds = 2; // Change this to the desired delay in seconds
     waitForDelay(delayInSeconds, delayedFunction);
 </script>
+
+<script type="text/javascript">
+  /***** cookie-based login status *****/
+  netlifyIdentity.on('login', user => 
+    SessionManager.setItem('loggedIn', 'true')
+  );
+  netlifyIdentity.on('logout', () => 
+    SessionManager.setItem('loggedIn', 'false')
+  );
+</script>

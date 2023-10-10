@@ -96,11 +96,11 @@ const { info } = Astro.props as Props;
     console.log("LogInWrapper functions executed.");
 
     //grab all user info
-    var user = netlifyIdentity.currentUser();
-    console.log("Netlify User Info: ",user);
+    var loggedIn = SessionManager.getItem('loggedIn');
+    console.log("Netlify Login Status: ",loggedIn);
     var elements = document.querySelectorAll('.LogInWrapper');
 
-    if( user === null){
+    if( loggedIn == 'true'){
       //logged out
       console.log("Logged Out");
       elements.forEach(element => {
