@@ -1,6 +1,6 @@
 ---
-title: Websites
-description: Below are website resources you can use internally.
+title: External Resources Overview
+description: These materials can only be shared externally.
 i18nReady: true
 type: base
 ---
@@ -8,14 +8,22 @@ import Button from '~/components/Button.astro'
 import ResourceCard from '~/components/ResourceCard.astro'
 import TagFilter from '~/components/TagFilter.astro'
 
+
 import resources from '~/data/resources.json'
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-View our internal website resources below. These materials can only be shared internally.
+
+View our external resources below. These materials can only be shared externally.
+
+## Filter External Materials
+
+<div class="tag-filter-container">
+	<TagFilter tags={['Websites', 'Downloads', 'Forms', 'Other']} />
+</div>
+
 
 <div class="resource-card-container">
-  {getRelatedResources(['Websites']).map(relatedResource => (
+  {getRelatedResources(['all']).map(relatedResource => (
     <ResourceCard {...relatedResource} />
   ))}
 </div>
-
