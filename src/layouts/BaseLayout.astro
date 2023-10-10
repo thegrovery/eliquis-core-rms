@@ -25,6 +25,7 @@ import FeedbackModal from '~/components/PopUps/FeedbackModal.astro';
 import SearchModal from '~/components/PopUps/SearchModal.astro';
 import VideoModal from '~/components/PopUps/VideoModal.astro';
 import AnnouncementModal from '~/components/PopUps/AnnouncementModal.astro';
+import ChatWidget from '~/components/Widgets/ChatWidget.astro';
 
 export interface Props {
 	content: CollectionEntry<'docs'>['data'];
@@ -190,22 +191,11 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<VideoModal/>
 		<AnnouncementModal/>
 		<SearchModal/>
+		
 		<!-- <ReloadPrompt /> -->
 		
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
-			<!--Start of Tawk.to Script-->
-			<script type="text/javascript">
-				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-				(function(){
-				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-				s1.async=true;
-				s1.src='https://embed.tawk.to/64d29c33cc26a871b02e17b8/1h7bb4alq';
-				s1.charset='UTF-8';
-				s1.setAttribute('crossorigin','*');
-				s0.parentNode.insertBefore(s1,s0);
-				})();
-			</script>
-			<!--End of Tawk.to Script-->
+			<ChatWidget/>
 		}
 		
 	</body>
