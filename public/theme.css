@@ -3,7 +3,7 @@
 	Define common sizes and spacings
 */
 :root {
-	--theme-navbar-height: 10rem;
+	--theme-navbar-height: 8.8rem;
 	--theme-mobile-toc-height: 3.5rem;
 	--theme-left-sidebar-width: 18rem;
 	--theme-right-sidebar-width: 16rem;
