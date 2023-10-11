@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer.astro';
 import HeadCommon from '../components/HeadCommon.astro';
 import Header from '../components/Header/Header.astro';
 import HeadSEO from '../components/HeadSEO.astro';
-import HeadAnalytics from '../components/HeadAnalytics.astro';
+import HeadAnalytics from '~/components/HeadAnalytics.astro';
 import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro';
 import { normalizeLangTag } from '../i18n/bcp-normalize';
 import { rtlLanguages } from '../i18n/languages';
@@ -51,7 +51,10 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 	<head>
 		<HeadCommon />
 		<HeadSEO content={content} canonicalURL={canonicalURL} />
-		<HeadAnalytics/>
+		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
+			<HeadAnalytics/>
+		}
+		
 		<SessionManager/>
 		<title set:html={formatTitle(content)} />
 		<style>
@@ -191,7 +194,6 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<VideoModal/>
 		<AnnouncementModal/>
 		<SearchModal/>
-		
 		<!-- <ReloadPrompt /> -->
 		
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
