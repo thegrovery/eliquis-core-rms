@@ -156,7 +156,6 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 	</head>
 
 	<body>
-		<SplashAnimation/>
 		<Header currentPage={currentPage} />
 		<main class="layout">
 			
@@ -198,6 +197,9 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
 			<ChatWidget/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
+			<SplashAnimation/>
 		}
 		
 	</body>
