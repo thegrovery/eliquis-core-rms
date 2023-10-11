@@ -5,8 +5,17 @@ i18nReady: true
 type: base
 ---
 import FaqEntry from '~/components/PageComponents/FaqEntry.astro'
+import ReminderIcon from '~/components/SVGs/ReminderIcon.astro'
+import NoticeBlock from '~/components/NoticeBlock.astro'
+
+## Co-Pay and Patient Support Program FAQs
+
+This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits. The FAQ should be used as a reference tool only and must not be used during detailing or shared with customers.
+
+This resource is internal only and must only be used as an additional training resource.
 
 ## Free Trial Offer (FTO) Card 
+
 <FaqEntry 
 	number="1"
 	question="Who is eligible for the Free 30-Day Trial Offer (FTO)?"
@@ -138,6 +147,9 @@ import FaqEntry from '~/components/PageComponents/FaqEntry.astro'
 </FaqEntry>
 
 ## $10 Co-Pay Card
+
+<NoticeBlock IconComponent={ReminderIcon} heading="Reminder" description="An FTO card must be used prior to a patient beginning use of a $10 co-pay card. Once the $10 co-pay card is utilized, a patient cannot make use of an FTO retroactively or for a future prescription." />
+
 
 <FaqEntry 
 	number="1"
@@ -398,6 +410,7 @@ com/bmspharmacyportal/#" target="_blank">www.activatethecard.com/bmspharmacyport
 	
 >
 	The time frame of Open Enrollment is decided by CMS and is typically mid-October through early December. We offer the Healthcare Assist (HCA) Program to our patients during Open Enrollment. The Call Center can help explain which plans patients may qualify for as well as how to enroll. Healthcare Assist provides a dedicated phone line (1-844-220-5936). The line is staffed by counselors, available Monday - Friday, 8 AM to 8 PM EST. The HCA Program can also be reached through the 1-855-ELIQUIS and selecting Option 4. HCA gets patients started with the Medicare Part D prescription enrollment process by:
+	
 	- Answering questions about coverage eligibility and alternate plan options
 	- Offering side-by-side comparisons of plans including coverage and co-pay information for all of their prescribed medications (not just ELIQUIS). This information will be mailed to the patient within 2 weeks.
 	- Researching alternative coverage options as needed

@@ -11,10 +11,11 @@ const { question, number, icon, answer } = Astro.props as Props;
 
 <div class='FaqEntry' 
   style={`--box-icon-url: url('/tutorial/${icon}.svg');`}
+  onclick="toggleAccordion()"  
 >
   <div class='inner'>
 
-    <div class='question' onclick="toggleAccordion()">
+    <div class='question'>
       {question ? 
           <h3><span class="number">{number}.&nbsp;</span>{question}</h3>
         :
@@ -34,24 +35,30 @@ const { question, number, icon, answer } = Astro.props as Props;
 </div>
 
 <style lang="scss">
-  $fontSize: 1rem;
-  $borderSize: 2px;
-  $color: #454257;
+
   .FaqEntry {
      position: relative;
-     margin-bottom: 4rem;
+     transition: all .1s ease-in;
+     margin-bottom: 2rem;
      padding-block: 2rem;
      padding-inline-start: 2rem;
      padding-inline-end: 6rem;
-     border: 1px solid var(--theme-shade-subtle);
-     box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
-       -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle);
-     background-color: var(--theme-bg);
+     &:hover, &:active {
+      border: 1px solid var(--custom-maroon-90);
+      box-shadow: -2px 2px 0px var(--custom-maroon-90);
+     }
+     border: 1px solid var(--custom-maroon-50);
+     box-shadow: -2px 2px 0px var(--custom-maroon-50);
+     /* box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
+       -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle); */
+     background-color: var(--theme-bg-gradient-top);
 
       .question{
         cursor: pointer;
         h3{
+          font-size: 1.2rem;
           max-width: 100%;
+          margin: 0;
         }
         .number{
           display: inline;
@@ -86,7 +93,7 @@ const { question, number, icon, answer } = Astro.props as Props;
         }
         &:hover{
           h3{
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
       }
@@ -94,13 +101,23 @@ const { question, number, icon, answer } = Astro.props as Props;
         max-height: 0px;
         overflow: hidden;
         transition: 0.15s linear;
+        
       }
-
+      .answer ul {
+        margin-bottom: 1rem;
+      }
       &.active{
+        border: 1px solid var(--custom-maroon);
+        box-shadow: -2px 2px 0px var(--custom-maroon);
         .answer{
+          margin-top: 1rem;
           max-height: 400px;
+          ul {
+            margin-bottom: 1.5rem;
+          }
         }
         .accordianButton{
+          background-color: var(--custom-dark-blue);
           .plus{
             display: none;
           }
@@ -110,7 +127,10 @@ const { question, number, icon, answer } = Astro.props as Props;
         }
       }
   }
+  .answer ul {
+    margin: 1rem 0;
 
+  }
   @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
     (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
     /*.FaqEntry::before {
@@ -130,6 +150,10 @@ const { question, number, icon, answer } = Astro.props as Props;
 
 <script type="text/javascript">
     function toggleAccordion(buttonElement) {
+        if (window.getSelection().toString() !== '') {
+          // Text is being selected, do not toggle accordion
+          return;
+        }
         /*const contentElement = buttonElement.nextElementSibling;
         contentElement.classList.toggle('active');*/
         var onClickThis = event.currentTarget;
