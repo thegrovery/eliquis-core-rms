@@ -1,0 +1,53 @@
+---
+import { Astro } from '@astro/types';
+
+interface NoticeBlockProps {
+  IconComponent: Astro.Component;
+  heading: string;
+  description: string;
+}
+
+const { IconComponent, heading, description } = Astro.props as NoticeBlockProps;
+---
+
+<div id="Notice" class="NoticeBlock">
+	<div class="notice-wrapper">
+		<div class="notice-header">
+      <IconComponent />
+      <h2>{heading}</h2>
+    </div>
+		<div class="notice-body">{description}</div>
+	</div>
+</div>
+
+<style type="scss">
+.NoticeBlock {
+    background-color: var(--theme-bg-gradient-bottom);
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    /* margin: 0rem 2% 2% 0rem; */
+    /* max-width: 31%; */
+    padding: 1.25rem;
+    /* border-radius: 12px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid var(--custom-maroon-50);
+    /* box-shadow: -2px 2px 0px var(--custom-maroon-50); */
+    transition: all .1s ease-in;
+    .notice-header {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .notice-header h2 {
+        font-size: 1.4rem;
+        
+        margin: 0;
+    }
+}
+    
+</style>
