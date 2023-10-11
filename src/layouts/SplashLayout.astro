@@ -8,6 +8,7 @@ import { useTranslations } from '../i18n/util';
 import { getLanguageFromURL } from '../util';
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
+import HeadAnalytics from '~/components/HeadAnalytics.astro';
 import LogInFunctions from '~/components/DynamicContent/LogInFunctions.astro';
 import { pwaInfo } from 'virtual:pwa-info';
 
@@ -19,6 +20,7 @@ import FeedbackModal from '~/components/PopUps/FeedbackModal.astro';
 import VideoModal from '~/components/PopUps/VideoModal.astro';
 import AnnouncementModal from '~/components/PopUps/AnnouncementModal.astro';
 import SearchModal from '~/components/PopUps/SearchModal.astro';
+import ChatWidget from '~/components/Widgets/ChatWidget.astro';
 
 export interface Props {
 	title: string;
@@ -34,6 +36,9 @@ const t = useTranslations(Astro);
 <html dir={dir} lang={bcpLang} class="initial">
 	<head>
 		<HeadCommon />
+		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
+			<HeadAnalytics/>
+		}
 		<SessionManager />
 		<title>{`${title} | ${t('site.title')}`}</title>
 		<style>
@@ -62,7 +67,6 @@ const t = useTranslations(Astro);
 	</head>
 
 	<body>
-		<SplashAnimation/>
 		<Header />
 		<main class="layout splash-layout">
 			<article>
@@ -77,5 +81,11 @@ const t = useTranslations(Astro);
 		<AnnouncementModal/>
 		<SearchModal />
 		<LogInFunctions/>
+		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
+			<ChatWidget/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
+			<SplashAnimation/>
+		}
 	</body>
 </html>
