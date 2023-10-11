@@ -67,7 +67,6 @@ const t = useTranslations(Astro);
 	</head>
 
 	<body>
-		<SplashAnimation/>
 		<Header />
 		<main class="layout splash-layout">
 			<article>
@@ -84,6 +83,9 @@ const t = useTranslations(Astro);
 		<LogInFunctions/>
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
 			<ChatWidget/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
+			<SplashAnimation/>
 		}
 	</body>
 </html>
