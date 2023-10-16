@@ -90,39 +90,48 @@ const { info } = Astro.props as Props;
     }
   }
 </style>
-
-<script>
+<script type="text/javascript">
   console.log("LogInWrapper functions started.");
   function LogInWrapperFunctions() {
-    console.log("LogInWrapper functions executed.");
+    setTimeout(() => {
+      console.log("LogInWrapper functions triggered.");
+      console.log("LogInWrapper functions executed.");
 
-    //grab all user info
-    var loggedIn = SessionManager.getItem('loggedIn');
-    console.log("Netlify Login Status: ",loggedIn);
-    console.log(loggedIn);
-    var elements = document.querySelectorAll('.LogInWrapper');
+      //grab all user info
+      var loggedIn = SessionManager.getItem('loggedIn');
+      var user = netlifyIdentity.currentUser();
+      console.log("Netlify Login Status: ",loggedIn);
+      console.log(loggedIn);
+      var elements = document.querySelectorAll('.LogInWrapper');
 
-    if( loggedIn == true){
-      //logged in
-      console.log("Logged In");
-      elements.forEach(element => {
-        element.classList.add("currentlyLoggedIn"); 
-      });
-    }else{
-      //logged out
-      console.log("Logged Out");
-      elements.forEach(element => {
-        element.classList.add("currentlyLoggedOut"); 
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 5000); //time in ms
-      });
-    }
-    //end
+      if( loggedIn == true){
+        //logged in
+        console.log("Logged In");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedIn"); 
+        });
+      }else if(user != null){
+        //logged in
+        console.log("Logged In");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedIn"); 
+        });
+      } else {
+        //logged out
+        console.log("Logged Out");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedOut"); 
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 5000); //time in ms
+        });
+      }
+      //end
+    }, 2000); //time in ms
+    
   }
 
-  setTimeout(() => {
-    console.log("LogInWrapper functions triggered.");
-    LogInWrapperFunctions();
-  }, 2000); //time in ms
+  
+
+  LogInWrapperFunctions();
 </script>
