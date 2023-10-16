@@ -98,9 +98,17 @@ const { info } = Astro.props as Props;
     //grab all user info
     var loggedIn = SessionManager.getItem('loggedIn');
     console.log("Netlify Login Status: ",loggedIn);
+    console.log(loggedIn);
     var elements = document.querySelectorAll('.LogInWrapper');
 
-    if( loggedIn == 'true'){
+    if( loggedIn == true){
+      //logged in
+      console.log("Logged In");
+      elements.forEach(element => {
+        //target all instances of ModalWrapper
+        element.classList.add("currentlyLoggedIn"); 
+      });
+    }else{
       //logged out
       console.log("Logged Out");
       elements.forEach(element => {
@@ -109,13 +117,6 @@ const { info } = Astro.props as Props;
         setTimeout(() => {
           window.location.href = "/";
         }, 5000); //time in ms
-      });
-    }else{
-      //logged in
-      console.log("Logged In");
-      elements.forEach(element => {
-        //target all instances of ModalWrapper
-        element.classList.add("currentlyLoggedIn"); 
       });
     }
 
