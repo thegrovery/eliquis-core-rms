@@ -92,6 +92,7 @@ const { info } = Astro.props as Props;
 </style>
 
 <script>
+  console.log("LogInWrapper functions started.");
   function LogInWrapperFunctions() {
     console.log("LogInWrapper functions executed.");
 
@@ -121,7 +122,7 @@ const { info } = Astro.props as Props;
   }
 
   setTimeout(() => {
-    console.log("LogInWrapper functions started.");
+    console.log("LogInWrapper functions triggered.");
     LogInWrapperFunctions();
   }, 2000); //time in ms
 </script>
