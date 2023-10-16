@@ -61,7 +61,9 @@ import '@fontsource/ibm-plex-mono/400-italic.css';
 </script>
 
 <!-- Netlify Identity - simple logins -->
-<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+{import.meta.env.PUBLIC_FEATURE_LOGIN=="true" &&
+	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+}
 
 <!-- External Scripts -->
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -69,13 +71,16 @@ import '@fontsource/ibm-plex-mono/400-italic.css';
 <script defer src="https://feedback.fish/ff.js?pid=dd364817a29ffd"></script>
 
 <!-- Push Notifications -->
-<script src="/OneSignalSDKWorker.js" content-type="application/javascript; charset=utf-8" defer></script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(function(OneSignal) {
-    OneSignal.init({
-      appId: "1679c107-b0b9-4c87-bbc4-695717b35739",
-    });
-  });
-</script>
+
+{import.meta.env.PUBLIC_FEATURE_PUSH_NOTIFICATIONS=="true" &&
+	<script src="/OneSignalSDKWorker.js" content-type="application/javascript; charset=utf-8" defer></script>
+	<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+	<script>
+	  window.OneSignalDeferred = window.OneSignalDeferred || [];
+	  OneSignalDeferred.push(function(OneSignal) {
+	    OneSignal.init({
+	      appId: "1679c107-b0b9-4c87-bbc4-695717b35739",
+	    });
+	  });
+	</script>
+}
