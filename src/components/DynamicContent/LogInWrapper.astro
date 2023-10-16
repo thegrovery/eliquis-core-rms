@@ -92,7 +92,7 @@ const { info } = Astro.props as Props;
 </style>
 
 <script>
-  function delayedFunction() {
+  function delayedFunction2() {
     console.log("LogInWrapper functions executed.");
 
     //grab all user info
@@ -124,12 +124,12 @@ const { info } = Astro.props as Props;
 
   }
 
-  function waitForDelay(seconds, callback) {
+  function waitForDelay2(seconds, callback) {
     setTimeout(callback, seconds * 1000);
   }
 
   const delayInSeconds = 2; // Change this to the desired delay in seconds
-  waitForDelay(delayInSeconds, delayedFunction);
+  waitForDelay2(delayInSeconds, delayedFunction2);
 
 
   
