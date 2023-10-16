@@ -92,7 +92,7 @@ const { info } = Astro.props as Props;
 </style>
 
 <script>
-  function delayedFunction2() {
+  function LogInWrapperFunctions() {
     console.log("LogInWrapper functions executed.");
 
     //grab all user info
@@ -105,34 +105,22 @@ const { info } = Astro.props as Props;
       //logged in
       console.log("Logged In");
       elements.forEach(element => {
-        //target all instances of ModalWrapper
         element.classList.add("currentlyLoggedIn"); 
       });
     }else{
       //logged out
       console.log("Logged Out");
       elements.forEach(element => {
-        //target all instances of ModalWrapper
         element.classList.add("currentlyLoggedOut"); 
         setTimeout(() => {
           window.location.href = "/";
         }, 5000); //time in ms
       });
     }
-
-    
-
+    //end
   }
 
-  function waitForDelay2(seconds, callback) {
-    setTimeout(callback, seconds * 1000);
-  }
-
-  const delayInSeconds = 2; // Change this to the desired delay in seconds
-  waitForDelay2(delayInSeconds, delayedFunction2);
-
-
-  
-
-
+  setTimeout(() => {
+    LogInWrapperFunctions();
+  }, 2000); //time in ms
 </script>
