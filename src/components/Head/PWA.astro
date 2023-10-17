@@ -1,0 +1,16 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import { pwaInfo } from 'virtual:pwa-info';
+
+const { heading, body } = Astro.props as Props;
+---
+
+<!-- Vite PWA code | temp disable for other updates-->
+<script src="/src/pwa.ts"></script>
+{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+<link rel="mask-icon" href="/favicon.png" color="#76004B" />
+<meta name="msapplication-TileColor" content="#76004B" />
+<meta name="theme-color" content="#76004B" />
