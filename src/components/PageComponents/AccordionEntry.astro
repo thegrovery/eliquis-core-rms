@@ -1,0 +1,181 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+import { Icon } from 'astro-icon'
+
+export interface Props {
+  icon?: 'puzzle-piece' | 'question-mark' | 'check-list';
+}
+
+const { question, icon, answer } = Astro.props as Props;
+---
+
+<div class='AccordionEntry' 
+  style={`--box-icon-url: url('/tutorial/${icon}.svg');`}
+  onclick="toggleAccordion()"  
+>
+  <div class='inner'>
+
+    <div class='question'>
+      {question ? 
+          <h3>{question}</h3>
+        :
+          <h3>[ ===AccordionEntry Question Placeholder=== ]</h3>
+      }
+      <div class="accordianButton" >
+        <span class="plus"><Icon name="ic:baseline-plus"/></span>
+        <span class="minus"><Icon name="ic:baseline-minus"/></span>
+      </div>
+    </div>
+    
+    <div class="answer">
+      <slot />
+    </div>
+
+  </div>
+</div>
+
+<style lang="scss">
+        
+  .AccordionEntry {
+    :global(.answer-title) {
+      margin: .5em 0 1em;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--custom-maroon);
+
+    }
+     position: relative;
+     transition: all .1s ease-in;
+     margin-bottom: 2rem;
+     padding-block: 2rem;
+     padding-inline-start: 2rem;
+     padding-inline-end: 6rem;
+     &:hover, &:active {
+      border: 1px solid var(--custom-maroon-90);
+      box-shadow: -2px 2px 0px var(--custom-maroon-90);
+     }
+     border: 1px solid var(--custom-maroon-50);
+     box-shadow: -2px 2px 0px var(--custom-maroon-50);
+     /* box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
+       -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle); */
+     background-color: var(--theme-bg-gradient-top);
+
+      .question{
+        cursor: pointer;
+        h3{
+          font-size: 1.2rem;
+          max-width: 100%;
+          margin: 0;
+          color: var(--custom-maroon);
+        }
+        
+        .accordianButton{
+          width: 3rem;
+          height: 3rem;
+          border-radius: 100%;
+          background-color: var(--custom-maroon);
+          color: var(--custom-white);
+          position: absolute;
+          top: 1.25rem;
+          inset-inline-end: 1.25rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .plus{
+            display: block;
+          }
+          .minus{
+            display: none;
+          }
+          [astro-icon] {
+              color: white;
+              /* OR */
+              fill: white;
+              width: 2rem;
+              height: auto;
+              position: relative;
+              top: 0.2rem;
+          }
+        }
+        &:hover{
+          h3{
+            text-decoration: none;
+          }
+        }
+      }
+      .answer{
+        // padding-inline-start: .7rem; 
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.15s linear;
+        
+      }
+      .answer ul {
+        margin-bottom: 1rem;
+      }
+      &.active{
+        border: 1px solid var(--custom-maroon);
+        box-shadow: -2px 2px 0px var(--custom-maroon);
+        .answer{
+          margin-top: 1rem;
+          max-height: 400px;
+          
+          ul {
+            margin-bottom: 1.5rem;
+          }
+        }
+        .accordianButton{
+          background-color: var(--custom-dark-blue);
+          .plus{
+            display: none;
+          }
+          .minus{
+            display: block;
+          }
+        }
+      }
+  }
+  .answer ul {
+    margin: 1rem 0;
+
+  }
+  @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
+    (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
+    /*.AccordionEntry::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      inset-inline-end: 0.5rem;
+      width: 5rem;
+      height: 5rem;
+      background-color: var(--theme-divider);
+      -webkit-mask: var(--box-icon-url) no-repeat center center / 100%;
+      mask: var(--box-icon-url) no-repeat center center / 100%;
+    }*/
+  }
+
+</style>
+
+<script type="text/javascript">
+    function toggleAccordion(buttonElement) {
+        if (window.getSelection().toString() !== '') {
+          // Text is being selected, do not toggle accordion
+          return;
+        }
+        /*const contentElement = buttonElement.nextElementSibling;
+        contentElement.classList.toggle('active');*/
+        var onClickThis = event.currentTarget;
+        var parentElement = onClickThis.closest(".AccordionEntry");
+        var contentElement = parentElement.querySelector(".answer");
+
+        parentElement.classList.toggle('active');
+        if (contentElement.style.maxHeight) {
+            contentElement.style.maxHeight = null;
+        } else {
+            contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+        }
+    }
+
+    function accordionCloseAll() {
+
+    }
+</script>
