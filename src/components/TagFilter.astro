@@ -5,9 +5,9 @@ import Button from '~/components/Button.astro';
 ---
 
 <div>
-    <Button variant="small outline active" data-tag="all">All</Button>
+    <Button variant="mini outline active" data-tag="all">All</Button>
     {Astro.props.tags.map((tag) => (
-      <Button variant="small outline" data-tag={tag}>{tag}</Button>
+      <Button variant="mini outline" data-tag={tag}>{tag}</Button>
     ))}
   </div>
 
