@@ -101,8 +101,11 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		justify-content: flex-end;
+		@media (min-width: 80em) {
+			flex-direction: row;
+		}
 		a {
-			@media (min-width: 50em) {
+			@media (min-width: 80em) {
 				max-width: 50%;
 			}
 			text-decoration: none; 
@@ -183,7 +186,8 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
+		/* flex-wrap: wrap; */
 		width: auto;
 		gap: 1rem;
 		margin-bottom: 1.5rem;
