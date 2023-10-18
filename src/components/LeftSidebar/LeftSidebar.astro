@@ -1,11 +1,9 @@
 ---
-import Sponsors from './Sponsors.astro';
 import { removeLeadingSlash, removeTrailingSlash } from '../../util';
 import { getNav } from '../../util/getNav';
 import { useTranslations } from '../../i18n/util';
 import SidebarContent from './SidebarContent.astro';
 import SidebarToggleTabGroup from '../TabGroup/SidebarToggleTabGroup';
-import CommunityMenu from '../RightSidebar/CommunityMenu.astro';
 import ThemeToggleButton from '../Header/ThemeToggleButton';
 import { getPageCategory } from '~/util/getPageCategory';
 
@@ -69,18 +67,14 @@ if (isReference) {
 			sidebarSections={apiSections}
 			currentPageMatch={currentPageMatch}
 		/>
-		<!-- <li>
-			<CommunityMenu hideOnLargerScreens={true} />
-		</li> -->
+		
 		<li style="text-align: center;">
 			<ThemeToggleButton
 				client:visible
 				labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
 			/>
 		</li>
-		<!-- <li>
-			<Sponsors />
-		</li> -->
+		
 	</ul>
 </nav>
 
