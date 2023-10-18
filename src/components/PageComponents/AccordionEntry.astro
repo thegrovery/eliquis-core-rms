@@ -107,7 +107,12 @@ const { question, icon, answer } = Astro.props as Props;
         max-height: 0px;
         overflow: hidden;
         transition: 0.15s linear;
-        
+        :global(h4) {
+            margin-top: 1em;
+        }
+        :global(.content-wrap h4) {
+            margin-top: 0; 
+        }
       }
       .answer ul {
         margin-bottom: 1rem;

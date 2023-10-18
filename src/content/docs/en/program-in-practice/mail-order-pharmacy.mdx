@@ -5,41 +5,48 @@ i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PharmacistIcon from '~/components/SVGs/PharmacistIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+## Potential considerations:
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<AccordionEntry 
+	
+	question="Does patient know they may be eligible for reimbursement?"
+	
+>
+Mail orders require the patient to pay full OOP price for the
+medication and then request a rebate for reimbursement.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-## Toolkit pages are powered by Markdown
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+</div>
+<h4>For patients using mail order or any non-participating retail pharmacy,
+please call McKesson at [1-866-279-4730](tel:1-866-279-4730) to request a patient rebate
+form, or go to patientrebateonline.com to download a form</h4>
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
+<ol>
+<li>Follow the rebate program steps.</li>
+</ol>
 
-## Basic Heading
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Mail Order Pharmacy']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-
-## What is a Brand Toolkit?
-
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
-
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
+</AccordionEntry>
 
