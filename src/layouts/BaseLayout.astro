@@ -16,6 +16,7 @@ import { pwaInfo } from 'virtual:pwa-info';
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
 import LogInWrapper from '~/components/DynamicContent/LogInWrapper.astro';
+import PWA from '~/components/Head/PWA.astro';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
 import ReloadPrompt from '~/components/ReloadPrompt.astro';
@@ -53,6 +54,9 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<HeadSEO content={content} canonicalURL={canonicalURL} />
 		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
 			<HeadAnalytics/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_PWA=="true" &&
+			<PWA/>
 		}
 		
 		<SessionManager/>
@@ -143,14 +147,7 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			}
 		</style>
 
-		<!-- Vite PWA code | temp disable for other updates-->
-			<script src="/src/pwa.ts"></script>
-			{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-			<link rel="icon" href="/favicon.png" type="image/png" />
-	    	<link rel="apple-touch-icon" href="/favicon.png" />
-	    	<link rel="mask-icon" href="/favicon.png" color="#76004B" />
-	    	<meta name="msapplication-TileColor" content="#76004B" />
-	    	<meta name="theme-color" content="#76004B" />
+			
 
 	    	
 	</head>
