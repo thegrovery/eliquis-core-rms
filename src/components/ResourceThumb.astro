@@ -2,7 +2,6 @@
 // ResourceThumb.astro
 import { Icon } from 'astro-icon'
 ---
-
 <div class="thumbnail-wrapper">
     <div class="thumbnail">
         <div class="thumb-icon-wrap">
@@ -11,6 +10,8 @@ import { Icon } from 'astro-icon'
                     <img src={Astro.props.imgSrc} alt="Resource thumbnail 1" />
                     {Astro.props.imgSrc2 && <img src={Astro.props.imgSrc2} alt="Resource thumbnail 2" />}
                 </div>
+            ) : Astro.props.icon ? (
+                <Icon name={Astro.props.icon} />
             ) : (
                 <Icon name="carbon:image" />
             )}
@@ -59,7 +60,7 @@ import { Icon } from 'astro-icon'
         // border-radius: 28px;
         [astro-icon] {
             font-size: 3em;
-            color: var(--theme-accent);
+            color: var(--custom-white);
         }
         .image-container {
             display: flex;

@@ -19,16 +19,11 @@ import { Icon } from 'astro-icon'
 </a>
   
   <style type="scss">
-    
-   .resource-link {
+  
+  .resource-link {
     text-decoration: none !important;  
-    &:hover, &:focus {
-      
-      p {
-        text-decoration: none;  
-      }
-    }
   }
+  .resource-link:hover p, .resource-link:focus p { text-decoration: none;}
     .icon-container {
         /* background-color: var(--theme-bg-gradient);
         background-color: var(--theme-dim-lighter); */
@@ -76,9 +71,10 @@ import { Icon } from 'astro-icon'
         border-color: var(--custom-maroon);
         background-color: var(--theme-bg-gradient-top);
         box-shadow: -2px 2px 0px var(--custom-maroon);
-        h4 {
-          color: var(--custom-maroon);
-        }
+       
+    }
+    .resource-block:hover h4, .resource-block:focus h4 {
+      color: var(--custom-maroon);
     }
     .resource-block h4 {
         margin: 0rem 0 .5rem;

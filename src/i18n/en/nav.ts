@@ -9,7 +9,7 @@
  */
 export default [
 
-	//LEARN TAB
+	/* LEARN TAB */
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
 		{ text: 'Introduction | Main', slug: 'introduction', key: 'introduction' },
 		{ text: 'How to use E360 Field Force Navigator', slug: 'introduction/how-to-use-e360-ffn', key: 'how-to-use-e360-ffn' },
@@ -22,7 +22,7 @@ export default [
 		{ text: 'How 1-855-ELIQUIS Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },
 		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
 		{ text: 'Provider Expresses That Patient Unable To Get Prescription Filled', slug: 'program-in-practice/provider-expresses-that-patient-unable-to-get-prescription-filled', key: 'provider-expresses-that-patient-unable-to-get-prescription-filled' },
-		{ text: 'Pharmacist Says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) And CHAMPUS Patients Are Not Eligible For Copay Assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance', key: 'pharmacist-says-medicare-medicaid-dod-tricare-veterans-affairs-va-and-champus-patients-are-not-eligible-for-copay-assistance' },
+		{ text: 'Pharmacist says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) and CHAMPUS Patients are not eligible For co-pay assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-va-champus-patients-are-not-eligible-for-co-pay-assistance' },
 		{ text: 'Co-Pay Backdate Request', slug: 'program-in-practice/co-pay-backdate-request', key: 'co-pay-backdate-request' },
 		{ text: 'Provider Expresses That Patient Unaware Of Co-pay Program And/or Hasn’t Been Using Co-pay Card', slug: 'program-in-practice/provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card', key: 'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card' },
 		{ text: 'Mail-Order Pharmacy', slug: 'program-in-practice/mail-order-pharmacy', key: 'mail-order-pharmacy' },
@@ -49,7 +49,16 @@ export default [
 		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },*/
 
 
-	//RESOURCES TAB
+	/* RESOURCES TAB */
+
+	{ text: 'Internal Resources', header: true, type: 'api', key: 'internal-resources' },
+		{ text: 'Internal Resources Overview', slug: 'internal-resources/internal-resources-overview', key: 'internal-resources/internal-resources-overview' },
+		{ text: 'Collateral Materials', slug: 'internal-resources/about-eliquis-360-support', key: 'internal-resources/about-eliquis-360-support' },
+		{ text: 'Digital Collateral', slug: 'internal-resources/how-to-use-e360-playbook', key: 'internal-resources/how-to-use-e360-playbook' },
+		{ text: 'Eliquis 360 Patient Support Services FAQ', slug: 'internal-resources/eliquis-360-patient-support-services-faq', key: 'internal-resources/eliquis-360-patient-support-services-faq' },
+		{ text: 'Track II Training Deck', slug: 'internal-resources/track-ii-training-deck', key: 'internal-resources/track-ii-training-deck' },
+
+
 	{ text: 'External Resources', header: true, type: 'api', key: 'external-resources' },
 		{ text: 'External Resources Overview', slug: 'external-resources/external-resources-overview', key: 'external-resources/external-resources-overview' },
 		{ text: 'Websites', slug: 'external-resources/websites', key: 'external-resources/websites' },
@@ -57,13 +66,9 @@ export default [
 		{ text: 'Forms', slug: 'external-resources/forms', key: 'external-resources/forms' },
 		{ text: 'Other/Additional Support', slug: 'external-resources/additional-support', key: 'external-resources/additional-support' },
 
-	{ text: 'Rep Resources', header: true, type: 'api', key: 'rep-resources' },
-		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook', key: 'rep-resources/how-to-use-e360-playbook' },
-		{ text: 'About ELIQUIS 360 Support', slug: 'rep-resources/about-eliquis-360-support', key: 'rep-resources/about-eliquis-360-support' },
-		{ text: 'How To Use E360 Playbook 2.0 (CORE RMS)', slug: 'rep-resources/how-to-use-e360-playbook-alt', key: 'rep-resources/how-to-use-e360-playbook-alt' },
-		{ text: 'Eliquis 360 Patient Support Services', slug: 'rep-resources/eliquis-360-patient-support-services', key: 'rep-resources/eliquis-360-patient-support-services' },
-		{ text: 'Track II Training Deck', slug: 'rep-resources/track-ii-training-deck', key: 'rep-resources/track-ii-training-deck' },
 
+
+		
 	/*{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
 		{ text: 'Forms', slug: 'misc-resources/forms', key: 'misc-resources/forms' },
 		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },*/

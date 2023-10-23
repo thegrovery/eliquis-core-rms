@@ -1,0 +1,64 @@
+---
+title: Call 1-855-ELIQUIS (1-855-354-7847)
+description: 1-855-ELIQUIS can help patients and providers with common access issues. 
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import PlaceholderContent from '~/components/PlaceholderContent.astro'
+import { Icon } from 'astro-icon'
+import ResourceDetails from '~/components/ResourceDetails.astro'
+import ResourceThumb from '~/components/ResourceThumb.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+import PhoneInfographic from '~/components/PageComponents/PhoneInfographic.astro'
+
+{/* Pull Resource Data and Related Resources Script */}
+import resources from '~/data/resources.json';
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+export const resource = resources.resources.find(resource => resource.title === "Call 1-855-ELIQUIS (1-855-354-7847)");
+
+<div class="details_wrapper">
+	<div class="left-col">
+		### Preview Resource
+		<ResourceThumb 
+			 imgSrc={resource.imageSrc}
+    		 icon={resource.icon} 
+		/>
+	</div>
+
+	<div class="right-col">
+		### Version Details
+		<ResourceDetails 
+			author={resource.author} 
+			lastModified={resource.lastModified} 
+			tags={resource.tags.join(", ")} 
+			icon={resource.icon}
+		/>
+
+		### Description
+		<p> {resource.longDescription} </p>
+
+		
+
+		### BMS Resource Link
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+
+		### Pfizer Resource Link
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+
+	</div>
+</div>
+
+## How 1-855-ELIQUIS Works
+<PhoneInfographic />
+
+## Related Resources
+{/* use tag name or resource title below */}
+<div class="resource-card-container">
+  {getRelatedResources(['Other'], ['placeholder']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
+</div>
