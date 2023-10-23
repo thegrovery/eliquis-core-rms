@@ -14,7 +14,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+        "RelatedResources": {
+            "tags": ["Websites"],
+            "titles": []
+        }
       },
       {
         "resourceType": "external",
@@ -30,7 +34,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+        "RelatedResources": {
+          "tags": ["Websites"],
+          "titles": []
+        } 
       },
       {
         "resourceType": "external",
@@ -46,7 +54,11 @@
         "author": "E360 Support",
         "lastModified": "06/2021",
         "BMSResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
-        "PfizerResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login"
+        "PfizerResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
+        "RelatedResources": {
+          "tags": ["Websites"],
+          "titles": []
+        } 
       },
       {
         "resourceType": "external",
@@ -62,7 +74,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
-        "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support"
+        "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+        "RelatedResources": {
+          "tags": [],
+          "titles": ["Co-Pay Card Lookup Tool"]
+        } 
       },
       {
         "resourceType": "external",
@@ -78,7 +94,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
-        "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support"
+        "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+        "RelatedResources": {
+          "tags": [],
+          "titles": ["Co-Pay and Free Trial Offers Eligibility"]
+        } 
       },
       {
         "resourceType": "external",
@@ -94,7 +114,11 @@
         "author": "E360 Support",
         "lastModified": "07/2023",
         "BMSResourceLink": "https://www.patientrebateonline.com/",
-        "PfizerResourceLink": "https://www.patientrebateonline.com/"
+        "PfizerResourceLink": "https://www.patientrebateonline.com/",
+        "RelatedResources": {
+          "tags": [],
+          "titles": []
+        } 
       },
       {
         "resourceType": "external",
@@ -110,7 +134,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2REAU",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2REAU"
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2REAU",
+        "RelatedResources": {
+          "tags": ["Downloads"],
+          "titles": []
+        } 
       },
       {
         "resourceType": "external",
@@ -126,7 +154,11 @@
         "author": "E360 Support",
         "lastModified": "03/2023",
         "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2gEAE",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2gEAE"
+        "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2gEAE",
+        "RelatedResources": {
+          "tags": ["Downloads"],
+          "titles": []
+        } 
       },
       {
         "resourceType": "external",
@@ -142,7 +174,11 @@
         "author": "E360 Support",
         "lastModified": "09/2021",
         "BMSResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
-        "PfizerResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf"
+        "PfizerResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
+        "RelatedResources": {
+          "tags": [],
+          "titles": ["Medication Guidelines"]
+        } 
       },
       {
         "resourceType": "external",
@@ -158,8 +194,92 @@
         "author": "E360 Support",
         "lastModified": "09/2021",
         "BMSResourceLink": "https://packageinserts.bms.com/medguide/medguide_eliquis.pdf",
-        "PfizerResourceLink": "https://packageinserts.bms.com/medguide/medguide_eliquis.pdf"
-      }
+        "PfizerResourceLink": "https://packageinserts.bms.com/medguide/medguide_eliquis.pdf",
+        "RelatedResources": {
+          "tags": [],
+          "titles": ["Full Prescribing Information"]
+        } 
+      },
+      {
+        "resourceType": "external",
+        "imageSrc": "/images/resources/eliquis-request-samples_thumb.png",
+        "icon": "ph:clipboard",
+        "title": "Request Samples",
+        "description": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers.",
+        "longDescription": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers. Call 1-855-ELIQUIS (354-7847) or click below to see if you are eligible to have samples delivered to your office.",
+        "tags": ["Forms"],
+        "viewDetailsButtonText": "View Details",
+        "shareButtonText": "Share",
+        "resourceDetailsLink": "/external-resources/forms/request-samples",
+        "author": "E360 Support",
+        "lastModified": "09/2021",
+        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/resources#request-samples",
+        "PfizerResourceLink": "https://www.pfizerpro.com/request-samples",
+        "RelatedResources": {
+          "tags": [],
+          "titles": ["Full Prescribing Information"]
+        } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "",
+      "icon": "ph:phone",
+      "title": "Call 1-855-ELIQUIS (1-855-354-7847)",
+      "description": "1-855-ELIQUIS can help patients and providers with common access issues.",
+      "longDescription": "1-855-ELIQUIS can help patients and providers with common access issues. Callers will be routed to the appropriate support option depending on the issue.",
+      "tags": ["Other"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/additional-support/1-855-eliquis",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "tel:1-855-354-7847",
+      "PfizerResourceLink": "tel:1-855-354-7847",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Eliquis 360 Support Website"]
+      } 
+  },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-elise_thumb.png",
+      "icon": "ph:chat",
+      "title": "ELISE Eliquis Digital Assistant",
+      "description": "1-855-ELIQUIS can help patients and providers with common access issues.",
+      "longDescription": "1-855-ELIQUIS can help patients and providers with common access issues. Callers will be routed to the appropriate support option depending on the issue.",
+      "tags": ["Other"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/additional-support/elise-eliquis-digital-assistant",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
+      "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
+      "RelatedResources": {
+        "tags": ["Other"],
+        "titles": []
+      } 
+  },
+  {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/copay-patientsupportfaq.png",
+      "icon": "ph:question",
+      "title": "Eliquis 360 Patient Support Services FAQ",
+      "description": "This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.",
+      "longDescription": "This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.",
+      "tags": ["E360 Patient Support Services FAQ"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "RelatedResources": {
+        "tags": ["Other"],
+        "titles": []
+      } 
+  }
     ]
   }
   
