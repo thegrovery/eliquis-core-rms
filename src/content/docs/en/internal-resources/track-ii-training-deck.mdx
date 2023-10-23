@@ -1,45 +1,61 @@
 ---
 title: Track II Training Deck
-description: A basic intro to Astro.
+description: This Track II Training deck has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.
 i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import PlaceholderContent from '~/components/PlaceholderContent.astro'
+import { Icon } from 'astro-icon'
+import ResourceDetails from '~/components/ResourceDetails.astro'
+import ResourceThumb from '~/components/ResourceThumb.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
+{/* Pull Resource Data and Related Resources Script */}
+import resources from '~/data/resources.json';
+import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+export const resource = resources.resources.find(resource => resource.title === "Track II Training Deck");
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<div class="details_wrapper">
+	<div class="left-col">
+		### Preview Resource
+		<ResourceThumb 
+			imgSrc={resource.imageSrc} 
+		/>
+	</div>
 
-## Toolkit pages are powered by Markdown
+	<div class="right-col">
+		### Version Details
+		<ResourceDetails 
+			author={resource.author} 
+			lastModified={resource.lastModified} 
+			tags={resource.tags.join(", ")} 
+			icon={resource.icon}
+		/>
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+		### Description
+		<div> {resource.description} </div>
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+		### BMS Resource Link
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
+		### Pfizer Resource Link
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
 
-## Basic Heading
+	</div>
+</div>
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
-
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-
-## What is a Brand Toolkit?
-
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
-
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
-
+## Related Resources
+{/* use tag name or resource title below */}
+<div class="resource-card-container">
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>

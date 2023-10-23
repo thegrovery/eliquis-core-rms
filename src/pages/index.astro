@@ -55,7 +55,7 @@ import Button from '~/components/Button.astro';
 					<div slot="loggedIn">
 						<p class="small">You're logged in.  Currently logged in as: <UserInfo info="email"/></p>
 						<div class="button-wrap">
-							<Button style="min-width: 300px; justify-content: center" variant="secondary" onClick="netlifyIdentity.logout();">Log out</Button>
+							<Button variant="secondary" onClick="netlifyIdentity.logout();">Log out</Button>
 							<Button variant="primary" href="/en/introduction">Enter Site</Button>
 						</div>
 					</div>
@@ -64,7 +64,7 @@ import Button from '~/components/Button.astro';
 						<p class="small">You're logged out</p>
 						<div class="button-wrap">
 							<Button variant="secondary" onClick="netlifyIdentity.open('login');">Login</Button>
-							<Button variant="secondary" onClick="netlifyIdentity.open('signup');">Sign up</Button>
+							<Button variant="primary" onClick="netlifyIdentity.open('signup');">Sign up</Button>
 
 						</div>
 					</div>

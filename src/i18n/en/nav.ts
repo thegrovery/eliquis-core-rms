@@ -34,27 +34,13 @@ export default [
 		{ text: 'FTO Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/fto-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'fto-terms-and-conditions-and-eligibility-requirements-for-patients' },
 		{ text: 'Master T&Cs', slug: 'terms-and-conditions/master-terms-and-conditions', key: 'master-terms-and-conditions' },
 
-	/*{ text: 'Page Templates', header: true, type: 'learn', key: 'pageTemplates' },
-		{ text: 'Basic Page Template', slug: 'page-templates/basic-page-template', key: 'page-templates/basic-page-template' },
-		{ text: 'Component Page Template', slug: 'page-templates/component-page-template', key: 'page-templates/component-page-template' },
-		{ text: 'Video Page Template', slug: 'page-templates/video-page-template', key: 'page-templates/video-page-template' },
-		{ text: 'Directory Page Template', slug: 'page-templates/directory-page-template', key: 'page-templates/directory-page-template' },
-		{ text: 'Resource Page Template', slug: 'page-templates/resource-page-template', key: 'page-templates/resource-page-template' },
-		{ text: 'Tutorial Page Template', slug: 'page-templates/tutorial-page-template/1-step-1', key: 'page-templates/tutorial-page-template/1-step-1' },
-		{ text: 'Tutorial Page Template - New', slug: 'page-templates/tutorial-alt/step-1', key: 'page-templates/tutorial-alt/step-1' },*/
-
-	/*{ text: 'Misc.', header: true, type: 'learn', key: 'tutorials' },
-		{ text: 'Our Brand Partners', slug: 'our-brand-partners', key: 'our-brand-partners' },
-		{ text: 'Recent Achievements', slug: 'recent-achievements', key: 'recent-achievements' },
-		{ text: 'FAQ’s', slug: 'faqs', key: 'faqs' },*/
-
 
 	/* RESOURCES TAB */
 
 	{ text: 'Internal Resources', header: true, type: 'api', key: 'internal-resources' },
 		{ text: 'Internal Resources Overview', slug: 'internal-resources/internal-resources-overview', key: 'internal-resources/internal-resources-overview' },
-		{ text: 'Collateral Materials', slug: 'internal-resources/about-eliquis-360-support', key: 'internal-resources/about-eliquis-360-support' },
-		{ text: 'Digital Collateral', slug: 'internal-resources/how-to-use-e360-playbook', key: 'internal-resources/how-to-use-e360-playbook' },
+		{ text: 'Collateral Materials', slug: 'internal-resources/collateral-materials', key: 'internal-resources/collateral-materials' },
+		{ text: 'Digital Collateral', slug: 'internal-resources/digital-collateral', key: 'internal-resources/digital-collateral' },
 		{ text: 'Eliquis 360 Patient Support Services FAQ', slug: 'internal-resources/eliquis-360-patient-support-services-faq', key: 'internal-resources/eliquis-360-patient-support-services-faq' },
 		{ text: 'Track II Training Deck', slug: 'internal-resources/track-ii-training-deck', key: 'internal-resources/track-ii-training-deck' },
 
@@ -68,8 +54,4 @@ export default [
 
 
 
-		
-	/*{ text: 'Misc.', header: true, type: 'api', key: 'misc-resources' },
-		{ text: 'Forms', slug: 'misc-resources/forms', key: 'misc-resources/forms' },
-		{ text: 'Templates', slug: 'misc-resources/templates', key: 'misc-resources/templates' },*/
 ] as const;
