@@ -1,6 +1,6 @@
 ---
-title: Call 1-855-ELIQUIS (1-855-354-7847)
-description: 1-855-ELIQUIS can help patients and providers with common access issues. 
+title: ELISE Eliquis Digital Assistant
+description: Elise virtual assistant. Here to help you find information on certain ELIQUIS topics.
 i18nReady: true
 type: base
 ---
@@ -12,20 +12,18 @@ import { Icon } from 'astro-icon'
 import ResourceDetails from '~/components/ResourceDetails.astro'
 import ResourceThumb from '~/components/ResourceThumb.astro'
 import ResourceCard from '~/components/ResourceCard.astro'
-import PhoneInfographic from '~/components/PageComponents/PhoneInfographic.astro'
 
 {/* Pull Resource Data and Related Resources Script */}
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Call 1-855-ELIQUIS (1-855-354-7847)");
+export const resource = resources.resources.find(resource => resource.title === "ELISE Eliquis Digital Assistant");
 
 <div class="details_wrapper">
 	<div class="left-col">
 		### Preview Resource
 		<ResourceThumb 
-			 imgSrc={resource.imageSrc}
-    		 icon={resource.icon} 
+			imgSrc={resource.imageSrc} 
 		/>
 	</div>
 
@@ -39,9 +37,7 @@ export const resource = resources.resources.find(resource => resource.title === 
 		/>
 
 		### Description
-		<p> {resource.longDescription} </p>
-
-		
+		<div> {resource.description} </div>
 
 		### BMS Resource Link
 		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
@@ -52,13 +48,10 @@ export const resource = resources.resources.find(resource => resource.title === 
 	</div>
 </div>
 
-## How 1-855-ELIQUIS Works
-<PhoneInfographic />
-
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['Other'], ['placeholder']).map(relatedResource => (
+  {getRelatedResources(['Other'], ['']).map(relatedResource => (
     <ResourceCard {...relatedResource} />
   ))}
 </div>
