@@ -5,5 +5,11 @@ i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
+
+<Progresstracker client:visible />
 
 Need content for this section.
+
+<Checkbox client:visible pageIndex={10} />

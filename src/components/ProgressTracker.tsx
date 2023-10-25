@@ -10,7 +10,26 @@ const ProgressTracker: React.FC = () => {
 
     // Dynamic import of MDX files
     const mdxFiles = import.meta.glob('./../content/docs/en/program-in-practice/*.mdx');
-    const totalPages = Object.keys(mdxFiles).length; // Determine total pages
+
+    // Filter out the "index" page and determine total pages
+    const validPages = Object.keys(mdxFiles).filter(page => !page.includes('index.mdx'));
+
+    const totalPages = validPages.length;
+
+    // Define the mapping of page order to their slugs (excluding 'index')
+    const pageOrderToSlugMapping = [
+        'about-program-in-practice',
+        'how-1-855-eliquis-works',
+        'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs',
+        'provider-expresses-that-patient-unable-to-get-prescription-filled',
+        'pharmacist-says-medicare-medicaid-dod-tricare-va-champus-patients-are-not-eligible-for-co-pay-assistance',
+        'co-pay-backdate-request',
+        'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card',
+        'mail-order-pharmacy',
+        'e-sign',
+        'digital-assistant'
+    ];
+
 
     useEffect(() => {
         const handleStorageChange = () => {
@@ -30,13 +49,15 @@ const ProgressTracker: React.FC = () => {
 
     return (
         <div className="progress-tracker">
-            <p>Progress: {readPages.length}/{totalPages}</p>
-            {Array.from({ length: totalPages }).map((_, index) => (
-                <span key={index} className={readPages.includes(index + 1) ? 'read' : ''}>
+        <p>Progress: {readPages.length}/{totalPages}</p>
+        {Array.from({ length: totalPages }).map((_, index) => (
+            <a href={`/program-in-practice/${pageOrderToSlugMapping[index]}`} key={index}>
+                <span className={readPages.includes(index + 1) ? 'read' : ''}>
                     {readPages.includes(index + 1) ? '✔' : index + 1}
-                </span>            
-            ))}
-        </div>
+                </span>
+            </a>  
+        ))}
+    </div>
     );
 };
 

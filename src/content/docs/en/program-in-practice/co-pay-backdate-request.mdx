@@ -13,7 +13,10 @@ import IconBox from '~/components/PageComponents/IconBox.astro'
 import getRelatedResources from '~/components/getRelatedResources'
 import ResourceBlock from '~/components/ResourceBlock.astro'
 import InlineGlossary from '~/components/InlineGlossary.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
 
+<Progresstracker client:visible />
 
 ## Potential considerations:
 
@@ -48,3 +51,6 @@ ELIQUIS 360 Support.
 
 
 </AccordionEntry>
+
+
+<Checkbox client:visible pageIndex={6} />

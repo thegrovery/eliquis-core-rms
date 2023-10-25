@@ -4,11 +4,21 @@
     align-items: center;
     justify-content: space-between;
     padding: 1em;
-    border: 1px solid var(--custom-maroon-50);
+    border: 1px solid var(--custom-grey-1-50);
     background-color: var(--custom-white);
     border-radius: 6px;
     p {
         margin-right: auto;
+        line-height: 1.4;
+    }
+    a {
+        text-decoration: none;
+        
+        &:hover {
+            span {
+                border-color: var(--custom-orange);
+            }
+        }
     }
 }
 
@@ -19,6 +29,7 @@
         width: 50px;
         height: 50px;
     }
+    transition: all .1s ease-in;
     border-radius: 50%;
     background-color: var(--custom-white);
     border: 1px solid var(--custom-orange-50);
@@ -29,6 +40,7 @@
 
 .progress-tracker span.read {
     background-color: var(--custom-orange);
+    border: 1px solid var(--custom-orange-50);
     color: var(--custom-white);
 }
 
@@ -38,14 +50,16 @@
 
 .checkbox-container {
     position: relative;
-    
+    border-radius: 6px;
     border: 1px solid var(--custom-maroon-50);
     background-color: var(--custom-white);
-    box-shadow: -2px 2px 0px var(--custom-maroon-50);
+    transition: all .1s ease-in;
+
+    /* box-shadow: -2px 2px 0px var(--custom-maroon-50); */
     transition: all .1s ease-in;
     &:hover {
-        border: 1px solid var(--custom-maroon);
-        box-shadow: -2px 2px 0px var(--custom-maroon);
+        border: 1px solid var(--custom-maroon-75);
+        /* box-shadow: -2px 2px 0px var(--custom-maroon); */
         label {
             color: var(--theme-text);
         }
@@ -82,6 +96,15 @@
     background-color: #fff;
     box-shadow: -2px 2px 0px var(--custom-grey-1-50);
 }
+
+.checkbox-container label:active::before {
+    box-shadow: 1px -1px 0px var(--custom-grey-1-50);
+    top: calc(50% + 1px); /* This will make it look like it's being pressed down */
+}
+.checkbox-container input[type='checkbox']:checked + label:active::after {
+    transform: translateY(-50%) translateY(1px);
+}
+
 
 /* Custom appearance when checked */
 .checkbox-container input[type='checkbox']:checked + label::before {

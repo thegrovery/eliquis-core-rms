@@ -12,7 +12,10 @@ import PatientIcon from '~/components/SVGs/PatientIcon.astro'
 import IconBox from '~/components/PageComponents/IconBox.astro'
 import getRelatedResources from '~/components/getRelatedResources'
 import ResourceBlock from '~/components/ResourceBlock.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
 
+<Progresstracker client:visible />
 
 ## Potential considerations:
 
@@ -103,3 +106,6 @@ reimbursement through a backdate request.</h4>
 
 
 </AccordionEntry>
+
+
+<Checkbox client:visible pageIndex={7} />

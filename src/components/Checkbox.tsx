@@ -3,9 +3,11 @@ import './ProgressTracker.scss';
 
 interface CheckboxProps {
     pageIndex: number;
+    labelText?: string;  // <-- Added this line to include the optional labelText prop
+
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ pageIndex }) => {
+const Checkbox: React.FC<CheckboxProps> = ({ pageIndex, labelText }) => {
     const [isChecked, setIsChecked] = useState<boolean>(() => {
         const readPages = localStorage.getItem('readPages');
         const storedPages = readPages ? JSON.parse(readPages) : [];
@@ -55,7 +57,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ pageIndex }) => {
         <div className="checkbox-container">
             <input type="checkbox" id={`checkbox-${pageIndex}`} checked={isChecked} onChange={handleCheck} />
             <label htmlFor={`checkbox-${pageIndex}`}>
-                Yes, I've read this content and want to continue on.
+                {labelText || "Yes, I've read this content and want to continue on."}  {/* Use the labelText prop or the fallback text */}
             </label>
         </div>
     );
