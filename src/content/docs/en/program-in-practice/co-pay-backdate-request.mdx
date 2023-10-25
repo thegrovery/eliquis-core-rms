@@ -5,41 +5,46 @@ i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PharmacistIcon from '~/components/SVGs/PharmacistIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
+import InlineGlossary from '~/components/InlineGlossary.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+## Potential considerations:
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<AccordionEntry 
+	
+	question="Did patient pay full price for medication, not realizing
+they were eligible for Co-Pay Assistance?"
+	
+>
+Patients who have a Co-Pay Card or who are eligible for
+Co-Pay Assistance can request reimbursement through
+ELIQUIS 360 Support.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-## Toolkit pages are powered by Markdown
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+</div>
+<h4>Call <a href="tel:+1855ELIQUIS">1-855-ELIQUIS</a> to request a <InlineGlossary text="BR" />.</h4>
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
 
-## Basic Heading
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
-
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-
-## What is a Brand Toolkit?
-
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
-
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
-
+</AccordionEntry>

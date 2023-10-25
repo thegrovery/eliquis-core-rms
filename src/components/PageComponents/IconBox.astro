@@ -1,0 +1,48 @@
+---
+// Import the astro-icon library
+import { Icon } from 'astro-icon';
+
+// Define the properties for your component
+export interface Props {
+  SvgComponent?: typeof Astro.Component;
+  icon?: string;
+  text: string;
+}
+const { SvgComponent, icon, text } = Astro.props as Props;
+---
+
+<div class="iconbox">
+  <div class="iconwrap">
+    { SvgComponent ? <SvgComponent /> : (icon ? <Icon name={icon} /> : null) }
+  </div>
+  <span>{text}</span>
+</div>
+
+<style lang="scss">
+    :global(.iconbox-wrapper) {
+        display: flex;
+    }
+  .iconbox {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--custom-maroon);
+      gap: 1em;
+      padding: .5em 1.5em .5em .5em;
+      margin: 0 1em 1em 0;
+      .iconwrap {
+          background-color: var(--custom-dark-blue);
+          border-radius: 100%;
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            height: 30px;
+          }
+      }
+      span {
+          font-family: var(--font-heading);
+      }
+  }
+</style>

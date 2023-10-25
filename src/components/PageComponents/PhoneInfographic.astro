@@ -1,0 +1,124 @@
+---
+import IVRIcon from '~/components/SVGs/IVRIcon.astro'
+import SupportIcon from '~/components/SVGs/SupportIcon.astro'
+import DownArrowIcon from '~/components/SVGs/DownArrowIcon.astro'
+
+---
+
+<div class="infographic-wrap">
+
+    <div class="icon-unit">
+        <div class="iconWrap"><IVRIcon /></div> 
+        <div class="icon-text-wrap">
+            <h3>IVR</h3>
+            <div class="time">24/7</div>
+            When callers contact <a href="+1855ELIQUIS">1-855-ELIQUIS</a> they will initially be connected to the automated response system. Callers can choose to activate cards through the system, or they can opt to speak to a live representative. 
+        </div>
+    </div>
+
+    <div class="iconWrap"><DownArrowIcon /></div>
+
+    <div class="orange-wrap">
+        <div class="icon-unit">
+            <div class="iconWrap"><SupportIcon /></div> 
+            <div class="icon-text-wrap">
+                <h3>LASH</h3>
+                <div class="time">Monday – Friday, 8 AM – 8 PM ET</div>
+                When a caller chooses the option from the IVR to speak with a live representative, they will be connected to the main call center that handles card activations and questions, FTO assistance, benefits reviews, and general support questions.         </div>
+        </div>
+        <div class="textWrap">OR</div>
+        <div class="icon-unit">
+            <div class="iconWrap"><SupportIcon /></div> 
+            <div class="icon-text-wrap">
+                <h3>Conduent</h3>
+                
+                When callers wish to speak with a live representative after LASH hours or on weekends, they will be routed to after hours/weekend representatives who can assist with card activations and general support only. If Conduent is not able to assist, callers will be instructed to call back the next business day during LASH hours.            </div>
+        </div>
+    </div>
+
+    <div class="iconWrap"><DownArrowIcon /></div>
+
+    <div class="icon-unit">
+        <div class="iconWrap"><SupportIcon /></div> 
+        <div class="icon-text-wrap">
+            <h3>LASH</h3>
+            <div class="time">Monday – Friday, 8 AM – 8 PM ET</div>
+            When a caller chooses the option from the IVR to speak with a live representative, they will be connected to the main call center that handles card activations and questions, FTO assistance, benefits reviews, and general support questions.         </div>
+    </div>
+
+</div>
+
+
+<style lang="scss">
+    :global(.infographic-wrap .orange-wrap svg) {
+        fill: var(--custom-orange);
+    }
+    :global(.infographic-wrap svg) {
+        fill: var(--custom-maroon);
+    }
+    .infographic-wrap {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        .iconWrap {
+            margin: 1em 1em;
+            
+        }
+        .textWrap {
+            height: 100%;
+            display: flex;
+            align-self: center;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+        }
+        .orange-wrap {
+            flex-direction: column;
+            .icon-unit {
+                @media (min-width: 72em) {
+                    max-width: 45%;
+                }
+                max-width: 100%;
+            }
+            @media (min-width: 72em) {
+                flex-direction: row;
+            }
+            .iconWrap {
+                margin: .25em .5em;
+            }
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--custom-orange-50);
+            border: 1px solid var(--custom-orange);
+            border-radius: 12px;
+            padding: 1em;
+            svg {
+                color: var(--custom-orange);
+                fill: var(--custom-orange) !important;
+            }
+            h3 {
+                color: var(--custom-orange);
+            }
+        }
+        .icon-unit {
+            display: flex;
+            gap: 1em;
+            @media (min-width: 72em) {
+                max-width: 50%;
+                margin: 1em;
+            }
+            max-width: 100%;
+            margin: .5em;
+            .icon-text-wrap {
+                .time {
+                    font-family: var(--font-heading);
+                }
+                h3 {
+                    margin: 0;
+                }
+            }
+        }       
+    }
+    
+
+</style>

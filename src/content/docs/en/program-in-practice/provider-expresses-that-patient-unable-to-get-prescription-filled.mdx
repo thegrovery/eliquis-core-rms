@@ -1,45 +1,146 @@
 ---
-title: Provider Expresses That Patient Unable To Get Prescription Filled
+title: Provider expresses that patient unable to get prescription filled
 description: A basic intro to Astro.
 i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PharmacistIcon from '~/components/SVGs/PharmacistIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+## Potential considerations:
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<AccordionEntry 
+	
+	question="Has the prescription been NDC blocked under the recent CVS/Zinc formulary change?"
+	
+>
+    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-## Toolkit pages are powered by Markdown
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
+    </div>
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+<h4>Is this a CVS Caremark Value Plan/Zinc patient?</h4>
+1. Did patient receive an ELIQUIS $10 Co-Pay Extend Card from their provider?
+Did the patient activate the card by calling **[1-855-ELIQUIS](tel:1-855-ELIQUIS)**?
+2. Pharmacist to trigger Prior Authorization (PA) for HCP to fill out before the
+plan will provide coverage for ELIQUIS.
+3. Is Pharmacist waiting for PA approval? Patient does not need to wait for
+approval to have prescription filled unless mandated by the pharmacy.
+4. Patients who already have an existing Co-Pay Card can continue to use it.
+They should request a PA from their provider at next fill.
+<br />
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
+</div>
+<h4>How should ELIQUIS $10 Co-Pay Extend Card claims be processed at the pharmacy?</h4>
+Pharmacists should be instructed to file claims in the secondary position with “OCC3*” or “OCC8*” when the primary rejects with rejection code 70 or 75.
+<br />
+<small>Note: There are “other coverage codes” common to this scenario, which are required in most
+systems when filing the claim.</small>
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
 
-## Basic Heading
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility', 'Co-Pay Card Lookup Tool']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+</AccordionEntry>
 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+<AccordionEntry 
+	
+	question="Is this a hospital discharge scenario?"
+	
+>
+<ul>
+<li>Did the patient receive a pre-activated Free Trial Offer Card (PAFTO)?</li>
+<li>Was the patient prescribed a starter pack prior to discharge?</li>
+<li>Will the patient be able to afford Eliquis after their FTO?</li>
+</ul>
+    
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-## What is a Brand Toolkit?
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider}" />
+    <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
+    </div>
 
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
+<h4>Refer to hospital case manager</h4>
+1. Did the patient receive a PAFTO, either printed or digitally via Virtual
+Resource Program URL? Has the patient been informed what the copay
+card is, how to enroll, and how to use it? Are weekend staff aware of
+available resources and providing them to ELIQUIS patients at discharge,
+as well as meds to beds program?
+2. Was the patient prescribed a starter pack? Alternatively, the case manager
+or discharge nurse has the option to add pharmacy instructions within the
+EHR via an eRx note. The pharmacy can then dispense 74 pills if a starter
+pack is not available.
+3. The case manager can explain the benefit review process to help patients
+understand their co-pay and assistance options.
+<br />
 
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
 
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['NVAF Hospital Discharge Kit & Discharge Planning Checklist', 'VTE Hospital Discharge Kit & Discharge Planning Checklist']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+
+
+</AccordionEntry>
+
+<AccordionEntry 
+	
+	question="Is this a pharmacy-specific issue?"
+	
+>
+<ul>
+<li>Does the pharmacy have a starter pack?</li>
+<li>Is the patient able to afford their post FTO fill?</li>
+</ul>
+    
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
+    </div>
+
+<h4>Refer to pharmacist</h4>
+
+1. If a starter pack is unavailable, pharmacy may dispense 74 pills if it is
+written on the script.
+2. Pharmacist can refer the patient to call **[1-855-ELIQUIS](tel:1-855-ELIQUIS)** for a benefits review
+to discuss their prescription cost saving options.
+<br />
+
+ {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+
+</AccordionEntry>

@@ -13,9 +13,20 @@ const { announcement, icon } = Astro.props as Props;
 <div class='AnnouncementBlock' style={`--box-icon-url: url('/tutorial/${icon?icon:"check-list"}.svg');`}>
   <div class="header">
     <div class="icon">
-      <Icon name="simple-line-icons:speech" />
+      <svg id="Group_1957" data-name="Group 1957" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34.186" height="34.185" viewBox="0 0 34.186 34.185">
+        <defs>
+          <clipPath id="clip-path">
+            <rect id="Rectangle_204" data-name="Rectangle 204" width="34.186" height="34.185" transform="translate(0 0)" fill="none"/>
+          </clipPath>
+        </defs>
+        <g id="Announcements" data-name="Group 1957" clip-path="url(#clip-path)">
+          <path id="Path_983" data-name="Path 983" d="M30.767,0H3.419a3.414,3.414,0,0,0-3.4,3.419L0,34.185l6.837-6.837h23.93a3.429,3.429,0,0,0,3.419-3.419V3.419A3.428,3.428,0,0,0,30.767,0" fill="#fff"/>
+          <rect id="Rectangle_202" data-name="Rectangle 202" width="3.417" height="10.255" transform="translate(15.383 5.128)" fill="#f26937"/>
+          <rect id="Rectangle_203" data-name="Rectangle 203" width="3.417" height="3.42" transform="translate(15.383 18.8)" fill="#f26937"/>
+        </g>
+      </svg>      
     </div>
-    <h2>Announcements</h2>
+    <h3>Announcements</h3>
   </div>
   <div class="content">
     <AnnouncementsContent text={announcement}/>
@@ -30,7 +41,7 @@ const { announcement, icon } = Astro.props as Props;
      padding-inline-start: 2rem;
      padding-inline-end: 2rem;
      border: 1px solid var(--custom-maroon);
-     box-shadow: -0.5rem 0.5rem 0 -1px var(--custom-maroon);
+     box-shadow: -0.5rem 0.5rem 0 -1px var(--custom-maroon-90);
      background-color: var(--theme-bg);
 
       .header{
@@ -43,6 +54,7 @@ const { announcement, icon } = Astro.props as Props;
         .icon{
           width: 4rem;
           height: 4rem;
+          min-width: 65px;
           border-radius:100%;
           background-color: var(--custom-dark-blue);
           display: flex;
@@ -56,7 +68,7 @@ const { announcement, icon } = Astro.props as Props;
           }
         }
 
-        h2{
+        h2,h3{
           margin-top: 0px;
           margin-bottom: 0px;
         }

@@ -101,18 +101,29 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		justify-content: flex-end;
+		@media (min-width: 80em) {
+			flex-direction: row;
+		}
 		a {
-			@media (min-width: 50em) {
+			@media (min-width: 80em) {
 				max-width: 50%;
 			}
 			text-decoration: none; 
-			color: var(--custom-teal-90);
-			border-color: var(--custom-teal-50);
-			box-shadow: 0px 1px 2px var(--custom-dark-blue-50);
+			color: var(--custom-maroon);
+			.copy {
+				
+				.name {
+					font-family: var(--font-heading);
+				}
+			}
+			border: 1px solid var(--custom-maroon-50);
+     	 	box-shadow: -2px 2px 0px var(--custom-maroon-50);
+			background-color: var(--theme-bg-gradient-top);
+			transition: all .1s ease-in;
 			&:hover {
-				color: var(--custom-teal);
-				border-color: var(--custom-teal-90);
-				box-shadow: 0px 1px 2px var(--custom-dark-blue-90);
+				color: var(--custom-maroon);
+				border-color: var(--custom-maroon-90);
+				box-shadow: -2px 2px 0px var(--custom-maroon-90);
 			}
 		}
 	}
@@ -175,7 +186,8 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
+		/* flex-wrap: wrap; */
 		width: auto;
 		gap: 1rem;
 		margin-bottom: 1.5rem;

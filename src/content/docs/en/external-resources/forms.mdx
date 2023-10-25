@@ -1,0 +1,21 @@
+---
+title: Forms
+description: View our form resources which can be found publicly.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+import TagFilter from '~/components/TagFilter.astro'
+
+import resources from '~/data/resources.json'
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+View our form resources which can be found publicly below. These materials can only be shared externally.
+
+<div class="resource-card-container">
+  {getRelatedResources(['Forms']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
+</div>
+

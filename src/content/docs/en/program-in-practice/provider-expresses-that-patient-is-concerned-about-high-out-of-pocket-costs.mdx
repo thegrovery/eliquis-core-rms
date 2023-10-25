@@ -1,45 +1,146 @@
 ---
 title: Provider Expresses That Patient Is Concerned About High Out Of Pocket Costs
-description: A basic intro to Astro.
+description: As an ELIQUIS field representative, there will be times when questions about the ELIQUIS 360 Support program will arise with customers.
 i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+## Potential considerations:
 
-## Toolkit pages are powered by Markdown
+As an ELIQUIS field representative, there will be times when questions about the ELIQUIS 360 Support program will arise with customers. The following are common questions/scenarios and recommended responses to help you more confidently guide your customers. In most cases, the best resolution may be to refer the customer to [1-855-ELIQUIS](tel:1-855-ELIQUIS).
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
 
-## Basic Heading
+<AccordionEntry 
+	
+	question="Is the patient enrolled in ELIQUIS 360 Support?"
+	
+>
+    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    </div>
+    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Medication Guidelines', 'Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+</AccordionEntry>
 
-## What is a Brand Toolkit?
+<AccordionEntry 
+	
+	question="Is this a deductible issue?"
+	
+>
+    Depending on the time of year, patients may not have met their plan deductible. For 2022, the deductible can be up to $420 before co-pay/co-insurance kicks in. This applies to eligible, commercially insured patients ONLY. Patients can call 1-855-ELIQUIS for further explanation.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    </div>
+    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
+    
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+</AccordionEntry>
 
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
+
+<AccordionEntry 
+	
+	question="Is this a coverage gap issue?"
+	
+>
+    Depending on the time of year, some Medicare patients may enter the coverage gap. Patients think they will be paying full price for their drugs but that is not always the case. This applies to Medicare Part D patients ONLY.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    </div>
+    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
+    
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+</AccordionEntry>
+
+<AccordionEntry 
+	
+	question="Has the patient enrolled in Co-Pay Assistance?"
+	
+>
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+	<div class="iconbox-wrapper">
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    </div>
+Eligible, commercially insured patients can request Co-Pay Cards from their healthcare provider, or they can enroll, download and/or print one from ELIQUIS.com. Co-Pay Cards can be activated at ELIQUIS.com or by calling 1-855-ELIQUIS
+<br />
+<small>\*Does not apply to ELIQUIS $10 Co-Pay Extend Cards – Only standard copay cards can be registered for and activated via web, and these patients must utilize 1-855-ELIQUIS for activation support.</small>
+
+{/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+</AccordionEntry>
+
+<AccordionEntry 
+	
+	question="Is patient ineligible for Co-Pay Assistance or have they maxed the annual benefit?"
+	
+>
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+	<div class="iconbox-wrapper">
+
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    </div>
+ELIQUIS 360 Support representatives can help patients better understand their coverage and determine what other financial support options they may have available to them.
+
+{/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Eliquis 360 Support Website']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+</AccordionEntry>
 

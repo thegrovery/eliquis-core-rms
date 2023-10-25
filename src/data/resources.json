@@ -1,37 +1,324 @@
 {
-    "resources": [
-      {
-        "resourceType": "internal",
-        "imageSrc": "/images/resources/e360support-website_thumb.png",
-        "icon": "fluent:style-guide-24-regular",
-        "title": "Eliquis 360 Support Website",
-        "description": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
-        "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
-        "tags": ["Websites"],
-        "viewDetailsButtonText": "View Details",
-        "shareButtonText": "Share",
-        "resourceDetailsLink": "/online-resources/websites/e360-support-website",
-        "author": "E360 Support",
-        "lastModified": "03/2023",
-        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
-      },
-      {
-        "resourceType": "internal",
-        "imageSrc": "/images/resources/fingertip-formulary_thumb.png",
-        "icon": "fluent:style-guide-24-regular",
-        "title": "Fingertip Formulary Website",
-        "description": "Find ELIQUIS coverage information in your area",
-        "longDescription": "Find ELIQUIS coverage information in your area​​",
-        "tags": ["Websites"],
-        "viewDetailsButtonText": "View Details",
-        "shareButtonText": "Share",
-        "resourceDetailsLink": "/online-resources/websites/fingertip-formulary",
-        "author": "E360 Support",
-        "lastModified": "03/2023",
-        "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
-        "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup"
+  "resources": [
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/e360support-website_thumb.png",
+      "icon": "mdi:web",
+      "title": "Eliquis 360 Support Website",
+      "description": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
+      "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/e360-support-website",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+      "RelatedResources": {
+          "tags": ["Websites"],
+          "titles": []
       }
-    ]
-  }
-  
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/fingertip-formulary_thumb.png",
+      "icon": "mdi:web",
+      "title": "Fingertip Formulary Website",
+      "description": "Find ELIQUIS coverage information in your area",
+      "longDescription": "Find ELIQUIS coverage information in your area​​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/fingertip-formulary",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
+      "RelatedResources": {
+        "tags": ["Websites"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis360providerportal_thumb.png",
+      "icon": "mdi:web",
+      "title": "Online Support Provider Portal Website",
+      "description": "Initiate a Benefits Review, get PA and appeals assistance, and get help locating plan-specific forms and track status of active Tiering and Formulary exception requests",
+      "longDescription": "ELIQUIS 360 Support offers services and programs that provide help with prescription insurance benefits reviews and case management assistance to patients prescribed Eliquis.​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/online-support-provider-portal-website",
+      "author": "E360 Support",
+      "lastModified": "06/2021",
+      "BMSResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
+      "PfizerResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
+      "RelatedResources": {
+        "tags": ["Websites"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-copay-card_thumb.png",
+      "icon": "mdi:web",
+      "title": "Co-Pay and Free Trial Offers Eligibility",
+      "description": "Resource for finding eligibility for a Co-pay Card",
+      "longDescription": "Resource for finding eligibility for a Co-pay Card​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/copay-and-fto-eligibility",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+      "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Co-Pay Card Lookup Tool"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "",
+      "icon": "mdi:web",
+      "title": "Co-Pay Card Lookup Tool",
+      "description": "Co-Pay Card Lookup Tool",
+      "longDescription": "Co-Pay Card Lookup Tool​​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/copay-card-lookup-tool",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+      "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Co-Pay and Free Trial Offers Eligibility"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/mail-order-pharmacy_thumb.png",
+      "icon": "mdi:web",
+      "title": "Mail Order Pharmacy",
+      "description": "Patient rebate online refers to a service provided by McKesson that allows patients to claim rebates or refunds for medical expenses such as mail order pharmacy",
+      "longDescription": "For patients using mail order or any non-participating retail pharmacy, please call McKesson at 1-866-279-4730 to request a patient rebate form, or go to patientrebateonline.com to download a form and follow the rebate program steps.​​",
+      "tags": ["Websites"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/websites/mail-order-pharmacy",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://www.patientrebateonline.com/",
+      "PfizerResourceLink": "https://www.patientrebateonline.com/",
+      "RelatedResources": {
+        "tags": [],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pn7qiEAA",
+      "icon": "ph:download",
+      "title": "NVAF Hospital Discharge Kit & Discharge Planning Checklist",
+      "description": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.",
+      "longDescription": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.​",
+      "tags": ["Downloads"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/downloads/nvaf-hospital-discharge-kit",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2REAU",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2REAU",
+      "RelatedResources": {
+        "tags": ["Downloads"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pn7qTEAQ",
+      "icon": "ph:download",
+      "title": "VTE Hospital Discharge Kit & Discharge Planning Checklist",
+      "description": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.",
+      "longDescription": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.",
+      "tags": ["Downloads"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/downloads/vte-hospital-discharge-kit",
+      "author": "E360 Support",
+      "lastModified": "03/2023",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2gEAE",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pnZ2gEAE",
+      "RelatedResources": {
+        "tags": ["Downloads"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-pi_thumb.png",
+      "icon": "ph:download",
+      "title": "Full Prescribing Information",
+      "description": "ELIQUIS (Apixaban) full prescribing information pdf download",
+      "longDescription": "ELIQUIS® FULL PRESCRIBING INFORMATION (apixaban) package inserts PDF download",
+      "tags": ["Downloads"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/downloads/full-prescribing-information",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
+      "PfizerResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Medication Guidelines"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-medguide_thumb.png",
+      "icon": "ph:download",
+      "title": "Medication Guidelines",
+      "description": "ELIQUIS (Apixaban) medication guidelines pdf download",
+      "longDescription": "MEDICATION GUIDE ELIQUISÒ (ELL eh kwiss) (apixaban) tablets",
+      "tags": ["Downloads"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/downloads/medication-guidelines",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "https://packageinserts.bms.com/medguide/medguide_eliquis.pdf",
+      "PfizerResourceLink": "https://packageinserts.bms.com/medguide/medguide_eliquis.pdf",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Full Prescribing Information"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-request-samples_thumb.png",
+      "icon": "ph:clipboard",
+      "title": "Request Samples",
+      "description": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers.",
+      "longDescription": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers. Call 1-855-ELIQUIS (354-7847) or click below to see if you are eligible to have samples delivered to your office.",
+      "tags": ["Forms"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/forms/request-samples",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/resources#request-samples",
+      "PfizerResourceLink": "https://www.pfizerpro.com/request-samples",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Full Prescribing Information"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "",
+      "icon": "ph:phone",
+      "title": "Call 1-855-ELIQUIS (1-855-354-7847)",
+      "description": "1-855-ELIQUIS can help patients and providers with common access issues.",
+      "longDescription": "1-855-ELIQUIS can help patients and providers with common access issues. Callers will be routed to the appropriate support option depending on the issue.",
+      "tags": ["Other"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/additional-support/1-855-eliquis",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "tel:1-855-354-7847",
+      "PfizerResourceLink": "tel:1-855-354-7847",
+      "RelatedResources": {
+        "tags": [],
+        "titles": ["Eliquis 360 Support Website"]
+      } 
+    },
+    {
+      "resourceType": "external",
+      "imageSrc": "/images/resources/eliquis-elise_thumb.png",
+      "icon": "ph:chat",
+      "title": "ELISE Eliquis Digital Assistant",
+      "description": "Elise virtual assistant. Here to help you find information on certain ELIQUIS topics.",
+      "longDescription": "Elise virtual assistant. Here to help you find information on certain ELIQUIS topics.",
+      "tags": ["Other"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/external-resources/additional-support/elise-eliquis-digital-assistant",
+      "author": "E360 Support",
+      "lastModified": "09/2021",
+      "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
+      "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
+      "RelatedResources": {
+        "tags": ["Other"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/copay-patientsupportfaq.png",
+      "icon": "ph:question",
+      "title": "Eliquis 360 Patient Support Services FAQ",
+      "description": "This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.",
+      "longDescription": "This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.",
+      "tags": ["E360 Patient Support Services FAQ"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "RelatedResources": {
+        "tags": ["Other"],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "",
+      "icon": "ph:download",
+      "title": "Track II Training Deck",
+      "description": "Track II Training Deck NEED DESCRIPTION CONTENT",
+      "longDescription": "Track II Training Deck NEED DESCRIPTION CONTENT",
+      "tags": ["Track II Training Deck"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/track-ii-training-deck",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "RelatedResources": {
+        "tags": [],
+        "titles": []
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/field-training-playbook.png",
+      "icon": "ph:strategy-fill",
+      "title": "Field Sales Playbook",
+      "description": "The ELIQUIS 360 Support Program Field Training Playbook. Working together for patient access to ELIQUIS®",
+      "longDescription": "This playbook has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Support patient support program that frequently arise during customer visits.",
+      "tags": ["Digital Collateral"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "RelatedResources": {
+        "tags": ["Other"],
+        "titles": []
+      } 
+    }
+  ]
+}

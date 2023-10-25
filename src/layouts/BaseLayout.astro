@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer.astro';
 import HeadCommon from '../components/HeadCommon.astro';
 import Header from '../components/Header/Header.astro';
 import HeadSEO from '../components/HeadSEO.astro';
-import HeadAnalytics from '../components/HeadAnalytics.astro';
+import HeadAnalytics from '~/components/HeadAnalytics.astro';
 import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro';
 import { normalizeLangTag } from '../i18n/bcp-normalize';
 import { rtlLanguages } from '../i18n/languages';
@@ -16,6 +16,7 @@ import { pwaInfo } from 'virtual:pwa-info';
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
 import LogInWrapper from '~/components/DynamicContent/LogInWrapper.astro';
+import PWA from '~/components/Head/PWA.astro';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
 import ReloadPrompt from '~/components/ReloadPrompt.astro';
@@ -25,6 +26,7 @@ import FeedbackModal from '~/components/PopUps/FeedbackModal.astro';
 import SearchModal from '~/components/PopUps/SearchModal.astro';
 import VideoModal from '~/components/PopUps/VideoModal.astro';
 import AnnouncementModal from '~/components/PopUps/AnnouncementModal.astro';
+import ChatWidget from '~/components/Widgets/ChatWidget.astro';
 
 export interface Props {
 	content: CollectionEntry<'docs'>['data'];
@@ -50,7 +52,13 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 	<head>
 		<HeadCommon />
 		<HeadSEO content={content} canonicalURL={canonicalURL} />
-		<HeadAnalytics/>
+		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
+			<HeadAnalytics/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_PWA=="true" &&
+			<PWA/>
+		}
+		
 		<SessionManager/>
 		<title set:html={formatTitle(content)} />
 		<style>
@@ -139,24 +147,16 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			}
 		</style>
 
-		<!-- Vite PWA code | temp disable for other updates-->
-			<script src="/src/pwa.ts"></script>
-			{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-			<link rel="icon" href="/favicon.png" type="image/png" />
-	    	<link rel="apple-touch-icon" href="/favicon.png" />
-	    	<link rel="mask-icon" href="/favicon.png" color="#76004B" />
-	    	<meta name="msapplication-TileColor" content="#76004B" />
-	    	<meta name="theme-color" content="#76004B" />
+			
 
 	    	
 	</head>
 
 	<body>
-		<SplashAnimation/>
 		<Header currentPage={currentPage} />
 		<main class="layout">
 			
-				<LogInWrapper>
+			<LogInWrapper>
 			
 				<aside id="left-sidebar" class="sidebar">
 					<slot name="primary-sidebar">
@@ -175,7 +175,7 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 					
 				</div>
 			
-				</LogInWrapper>
+			</LogInWrapper>
 			
 		</main>
 		<div class="main-column">
@@ -193,19 +193,10 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		<!-- <ReloadPrompt /> -->
 		
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
-			<!--Start of Tawk.to Script-->
-			<script type="text/javascript">
-				var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-				(function(){
-				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-				s1.async=true;
-				s1.src='https://embed.tawk.to/64d29c33cc26a871b02e17b8/1h7bb4alq';
-				s1.charset='UTF-8';
-				s1.setAttribute('crossorigin','*');
-				s0.parentNode.insertBefore(s1,s0);
-				})();
-			</script>
-			<!--End of Tawk.to Script-->
+			<ChatWidget/>
+		}
+		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
+			<SplashAnimation/>
 		}
 		
 	</body>
