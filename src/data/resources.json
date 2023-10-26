@@ -256,12 +256,12 @@
       "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
       "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/savings-and-support?cid=sem_1235136&ovl=isi&gclid=EAIaIQobChMIo8r9yoGygAMVFbrICh2meQnMEAAYASABEgKzVPD_BwE&gclsrc=aw.ds",
       "RelatedResources": {
-        "tags": ["Other"],
-        "titles": []
+        "tags": [],
+        "titles": ["Call 1-855-ELIQUIS (1-855-354-7847)", "Eliquis 360 Support Website"]
       } 
     },
     {
-      "resourceType": "internal",
+      "resourceType": "internal training use only",
       "imageSrc": "/images/resources/copay-patientsupportfaq.png",
       "icon": "ph:question",
       "title": "Eliquis 360 Patient Support Services FAQ",
@@ -281,7 +281,7 @@
       } 
     },
     {
-      "resourceType": "internal",
+      "resourceType": "internal training use only",
       "imageSrc": "",
       "icon": "ph:download",
       "title": "Track II Training Deck",
@@ -301,7 +301,7 @@
       } 
     },
     {
-      "resourceType": "internal",
+      "resourceType": "internal training use only",
       "imageSrc": "/images/resources/field-training-playbook.png",
       "icon": "ph:strategy-fill",
       "title": "Field Sales Playbook",
@@ -310,14 +310,14 @@
       "tags": ["Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/eliquis-field-training-playbook",
       "author": "E360 Support",
       "lastModified": "07/2023",
       "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
       "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
       "RelatedResources": {
-        "tags": ["Other"],
-        "titles": []
+        "tags": [],
+        "titles": ["Track II Training Deck"]
       } 
     }
   ]
