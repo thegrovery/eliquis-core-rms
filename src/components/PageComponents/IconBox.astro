@@ -25,9 +25,15 @@ const { SvgComponent, icon, text } = Astro.props as Props;
   .iconbox {
       display: flex;
       align-items: center;
+      flex-direction: column;
+      @media (min-width: 52em) {
+        flex-direction: row;
+        padding: .5em 1.5em .5em .5em;
+        gap: 1em;
+      }
       border: 1px solid var(--custom-maroon);
-      gap: 1em;
-      padding: .5em 1.5em .5em .5em;
+      gap: .5em;
+      padding: .5em .5em .5em .5em;
       margin: 0 1em 1em 0;
       .iconwrap {
           background-color: var(--custom-dark-blue);
