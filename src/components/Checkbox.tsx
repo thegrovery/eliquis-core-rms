@@ -3,7 +3,7 @@ import './ProgressTracker.scss';
 
 interface CheckboxProps {
     pageIndex: number;
-    labelText?: string;  // <-- Added this line to include the optional labelText prop
+    labelText?: string;  // optional labelText prop
 
 }
 
@@ -22,8 +22,8 @@ const Checkbox: React.FC<CheckboxProps> = ({ pageIndex, labelText }) => {
         const storedPages = localStorage.getItem('readPages');
         const readPages = storedPages ? JSON.parse(storedPages) : [];
 
-        console.log('isChecked state:', isChecked);  // <-- Add this line
-        console.log('readPages:', readPages);        // <-- Add this line
+        console.log('isChecked state:', isChecked);  // <-- log state
+        console.log('readPages:', readPages);        // <-- log readPages
 
         if (readPages.includes(pageIndex)) {
             const newPages = readPages.filter((p: number) => p !== pageIndex);
@@ -31,7 +31,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ pageIndex, labelText }) => {
         } else {
             localStorage.setItem('readPages', JSON.stringify([...readPages, pageIndex]));
         }
-        console.log('Local Storage after update:', localStorage.getItem('readPages'));  // <-- Add this line
+        console.log('Local Storage after update:', localStorage.getItem('readPages'));  // log after state
 
         // After updating the localStorage in Checkbox
         const event = new Event('readPageUpdated');

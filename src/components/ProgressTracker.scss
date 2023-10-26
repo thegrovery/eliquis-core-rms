@@ -1,15 +1,33 @@
 .progress-tracker {
     display: flex;
-    gap: .5em;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em;
-    border: 1px solid var(--custom-grey-1-50);
-    background-color: var(--custom-white);
-    border-radius: 6px;
+    gap: .25em;
+    padding: 1em .5em;
     p {
         margin-right: auto;
         line-height: 1.4;
+        display: none;
+    }
+    @media (min-width: 52em) {
+        padding: 1em;
+        gap: .5em;
+        p {
+            display: block;
+        }
+    }
+    align-items: center;
+    justify-content: space-between;
+   
+    border: 1px solid var(--custom-grey-1-50);
+    background-color: var(--custom-white-50);
+    border-radius: 6px;
+    
+    margin: 0 0 2em 0; /* Bottom Space */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    &::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
     }
     a {
         text-decoration: none;
@@ -25,7 +43,7 @@
 .progress-tracker span {
     width: 30px;
     height: 30px;
-    @media (min-width: 50em) {
+    @media (min-width: 52em) {
         width: 50px;
         height: 50px;
     }
@@ -45,20 +63,20 @@
 }
 
 .checkbox-container {
-    margin-top: 20px;
+    margin-top: 2em /* Top Space */;
 }
 
 .checkbox-container {
     position: relative;
     border-radius: 6px;
-    border: 1px solid var(--custom-maroon-50);
-    background-color: var(--custom-white);
+    border: 1px solid var(--custom-grey-1-50);
+    background-color: var(--custom-white-50);
     transition: all .1s ease-in;
 
     /* box-shadow: -2px 2px 0px var(--custom-maroon-50); */
     transition: all .1s ease-in;
     &:hover {
-        border: 1px solid var(--custom-maroon-75);
+        border: 1px solid var(--custom-maroon-50);
         /* box-shadow: -2px 2px 0px var(--custom-maroon); */
         label {
             color: var(--theme-text);
@@ -72,7 +90,7 @@
     width: 100%;
     padding-left: 4em; /* Space for custom checkbox */
     display: inline-block;
-    line-height: 25px; /* Adjust as needed */
+    line-height: 1.4; /* Adjust as needed */
     font-family: var(--font-heading);
     color: var(--theme-text-light);
 }
@@ -115,12 +133,12 @@
 
 /* Checkbox tick (check) using Unicode character */
 .checkbox-container input[type='checkbox']:checked + label::after {
-    content: '✔';
+    /* Replace with encoded SVG */
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 19.303 13.741"><path id="Icon_feather-check" data-name="Icon feather-check" d="M22.475,9,11.148,20.326,6,15.178" transform="translate(-4.586 -7.586)" fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>');
     position: absolute;
     top: 50%;
-    left: calc(1em + 8px); /* Adjust as needed */
+    left: calc(1em + 6px); /* Adjust left position as needed */
     transform: translateY(-50%);
-    font-size: 16px; /* Adjust as needed */
-    color: #fff;
+    color: var(--custom-white);
     
 }
