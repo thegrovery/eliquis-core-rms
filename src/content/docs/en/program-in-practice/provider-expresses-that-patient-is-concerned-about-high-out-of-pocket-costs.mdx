@@ -12,11 +12,15 @@ import PatientIcon from '~/components/SVGs/PatientIcon.astro'
 import IconBox from '~/components/PageComponents/IconBox.astro'
 import getRelatedResources from '~/components/getRelatedResources'
 import ResourceBlock from '~/components/ResourceBlock.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
+
+<Progresstracker client:visible />
 
 
 ## Potential considerations:
 
-As an ELIQUIS field representative, there will be times when questions about the ELIQUIS 360 Support program will arise with customers. The following are common questions/scenarios and recommended responses to help you more confidently guide your customers. In most cases, the best resolution may be to refer the customer to [1-855-ELIQUIS](tel:1-855-ELIQUIS).
+As an ELIQUIS field representative, there will be times when questions about the ELIQUIS 360 Support program will arise with customers. The following are common questions/scenarios and recommended responses to help you more confidently guide your customers. In most cases, the best resolution may be to refer the customer to **[1-855-ELIQUIS](tel:1-855-ELIQUIS)**.
 
 
 
@@ -144,3 +148,4 @@ ELIQUIS 360 Support representatives can help patients better understand their co
     </div>
 </AccordionEntry>
 
+<Checkbox client:visible pageIndex={3} />

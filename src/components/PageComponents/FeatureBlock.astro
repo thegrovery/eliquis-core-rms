@@ -18,10 +18,15 @@ const { image, title, description } = Astro.props as Props;
 
 
 <style lang="scss">
+    
 :global(.feature-wrapper) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+
+    @media (min-width: 768px) { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
 }
 
 .feature-block {

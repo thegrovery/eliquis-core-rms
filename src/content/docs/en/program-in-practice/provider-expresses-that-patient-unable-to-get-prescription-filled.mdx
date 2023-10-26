@@ -12,6 +12,11 @@ import PatientIcon from '~/components/SVGs/PatientIcon.astro'
 import IconBox from '~/components/PageComponents/IconBox.astro'
 import getRelatedResources from '~/components/getRelatedResources'
 import ResourceBlock from '~/components/ResourceBlock.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
+
+<Progresstracker client:visible />
+
 
 
 ## Potential considerations:
@@ -144,3 +149,5 @@ to discuss their prescription cost saving options.
     </div>
 
 </AccordionEntry>
+
+<Checkbox client:visible pageIndex={4} />
