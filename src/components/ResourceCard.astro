@@ -75,7 +75,7 @@ import { Icon } from 'astro-icon'
     }
   }
   
-  @media (max-width: 1200px) {
+  @media (max-width: 800px) {
     .resource-card-container {
       grid-template-columns: 1fr; /* On very small screens, we only want one column */
     }
@@ -95,17 +95,17 @@ import { Icon } from 'astro-icon'
       padding: 0.25rem 0;
       color: var(--custom-white);
       text-transform: uppercase;
-      letter-spacing: .1rem;
+      letter-spacing: .075rem;
       font-family: var(--font-heading);
       &.internal {
-        background-color: var(--custom-orange);  
+        background-color: var(--custom-maroon);  
       }
       &.external {
         background-color: var(--custom-dark-blue);  
       }
     }
     .image-container {
-        background-color: var(--custom-grey-1-20);
+        background-color: var(--custom-grey-1-50);
         position: relative;
         width: 100%;
         height: 8rem;

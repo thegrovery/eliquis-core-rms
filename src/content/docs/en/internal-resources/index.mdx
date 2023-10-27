@@ -1,0 +1,29 @@
+---
+title: Internal Resources Overview
+description: These materials can only be shared internally.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+import TagFilter from '~/components/TagFilter.astro'
+
+
+import resources from '~/data/resources.json'
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+
+View our internal resources below. These materials can only be shared internally.
+
+## Filter External Materials
+
+<div class="tag-filter-container">
+	<TagFilter tags={['Collateral Materials', 'Digital Collateral', 'E360 Patient Support Services FAQ', 'Track II Training Deck']} />
+</div>
+
+
+<div class="resource-card-container">
+  {getRelatedResources(['Collateral Materials', 'Digital Collateral', 'E360 Patient Support Services FAQ', 'Track II Training Deck']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
+</div>

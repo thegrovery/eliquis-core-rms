@@ -1,0 +1,57 @@
+---
+title: Eliquis 360 Patient Support Services FAQ
+description: This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import ContributorList from '~/components/ContributorList.astro'
+import PackageManagerTabs from '~/components/tabs/PackageManagerTabs.astro'
+import PlaceholderContent from '~/components/PlaceholderContent.astro'
+import { Icon } from 'astro-icon'
+import ResourceDetails from '~/components/ResourceDetails.astro'
+import ResourceThumb from '~/components/ResourceThumb.astro'
+import ResourceCard from '~/components/ResourceCard.astro'
+
+{/* Pull Resource Data and Related Resources Script */}
+import resources from '~/data/resources.json';
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+export const resource = resources.resources.find(resource => resource.title === "Eliquis 360 Patient Support Services FAQ");
+
+<div class="details_wrapper">
+	<div class="left-col">
+		### Preview Resource
+		<ResourceThumb 
+			imgSrc={resource.imageSrc} 
+		/>
+	</div>
+
+	<div class="right-col">
+		### Version Details
+		<ResourceDetails 
+			author={resource.author} 
+			lastModified={resource.lastModified} 
+			tags={resource.tags.join(", ")} 
+			icon={resource.icon}
+		/>
+
+		### Description
+		<div> {resource.description} </div>
+
+		### BMS Resource Link
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+
+		### Pfizer Resource Link
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+
+	</div>
+</div>
+
+## Related Resources
+{/* use tag name or resource title below */}
+<div class="resource-card-container">
+  {getRelatedResources([''], ['Medication Guidelines']).map(relatedResource => (
+    <ResourceCard {...relatedResource} />
+  ))}
+</div>

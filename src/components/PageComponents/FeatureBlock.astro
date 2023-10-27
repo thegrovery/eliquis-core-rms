@@ -1,0 +1,56 @@
+---
+export interface Props {
+  image: string;
+  title: string;
+  description: string;
+}
+const { image, title, description } = Astro.props as Props;
+---
+<div class="feature-block">
+    <div class="feature-image-wrap">
+        <div class="feature-image" style={`background-image: url(${image})`}></div>
+    </div>
+    <div class="feature-content">
+        <div class="feature-title"><h3>{title}</h3></div>
+        <div class="feature-description"><p>{description}</p></div>
+    </div>
+</div>
+
+
+<style lang="scss">
+    
+:global(.feature-wrapper) {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+
+    @media (min-width: 768px) { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+.feature-block {
+   background-color: var(--custom-white);
+    .feature-content {
+        padding: 1em;
+    }
+    border: 1px solid var(--custom-maroon-50);
+/*     &:hover, &:focus {
+        border: 1px solid var(--custom-maroon);
+    } */
+}
+.feature-image-wrap {
+    overflow: hidden;
+    border-bottom: 1px solid var(--custom-maroon-50);
+}
+.feature-title {
+    margin-top: .5em;
+}
+.feature-image {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+ transform: rotate(3deg) scale(1.05);
+}
+
+</style>

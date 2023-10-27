@@ -1,0 +1,71 @@
+---
+title: Pharmacist says Medicare, Medicaid, DOD, TRICARE, VA, and CHAMPUS Patients are not eligible for co-pay assistance
+description: Verify to see if this is a commercial patient with pharmacy benefit.
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PharmacistIcon from '~/components/SVGs/PharmacistIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
+
+<Progresstracker client:visible />
+
+## Potential considerations:
+
+<AccordionEntry 
+	
+	question="Verify to see if this is a commercial patient
+with pharmacy benefit"
+	
+>
+If patient is not commercially insured and has Medicare
+Part D as their primary insurance, they are not eligible
+for Co-Pay Assistance under the terms of the ELIQUIS
+360 Support program. If a patient believes they have
+commercial insurance but the pharmacy isn’t able to
+process Co-Pay Cards, then consider the actions listed
+to the right.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+	<div class="iconbox-wrapper">
+    {/* <IconBox SvgComponent={ProviderIcon} text="Provider" /> */}
+    <IconBox SvgComponent={PatientIcon} text="Patient" />
+    <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
+    </div>
+
+<h4>Does the pharmacy have correct insurance information?</h4>
+<h4>Is it up to date?</h4>
+Have patient confirm their information with pharmacy.
+<br />
+<br />
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
+<IconBox SvgComponent={ProviderIcon} text="Provider" />
+</div>
+<h4>Call <a href="tel:+1855ELIQUIS">1-855-ELIQUIS</a> to request a BR.</h4>
+<small>Note: There are “other coverage codes” common to this scenario, which are required in most
+systems when filing the claim.</small>
+
+
+
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility', 'Co-Pay Card Lookup Tool']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+
+
+</AccordionEntry>
+
+
+<Checkbox client:visible pageIndex={5} />

@@ -1,16 +1,25 @@
 ---
 // ResourceThumb.astro
 import { Icon } from 'astro-icon'
----
+import resources from '~/data/resources.json';  
 
+// Extracts the resource data using the provided image source
+const currentResource = resources.resources.find(r => r.imageSrc === Astro.props.imgSrc);
+
+---
 <div class="thumbnail-wrapper">
     <div class="thumbnail">
+       <!-- Display the resource type bar -->
+       <div class={`type-bar ${currentResource?.resourceType}`}>{currentResource?.resourceType}</div>
+        
         <div class="thumb-icon-wrap">
             {Astro.props.imgSrc ? (
                 <div class="image-container">
                     <img src={Astro.props.imgSrc} alt="Resource thumbnail 1" />
                     {Astro.props.imgSrc2 && <img src={Astro.props.imgSrc2} alt="Resource thumbnail 2" />}
                 </div>
+            ) : Astro.props.icon ? (
+                <Icon name={Astro.props.icon} />
             ) : (
                 <Icon name="carbon:image" />
             )}
@@ -40,6 +49,22 @@ import { Icon } from 'astro-icon'
     </style>
     
 <style lang="scss">
+    .type-bar {
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      padding: 0.25rem 0;
+      color: var(--custom-white);
+      text-transform: uppercase;
+      letter-spacing: .15rem;
+      font-family: var(--font-heading);
+      &.internal {
+        background-color: var(--custom-maroon);  
+      }
+      &.external {
+        background-color: var(--custom-dark-blue);  
+      }
+    }
     .thumbnail-wrapper {
         .thumbnail {
             // height: 400px;
@@ -59,7 +84,7 @@ import { Icon } from 'astro-icon'
         // border-radius: 28px;
         [astro-icon] {
             font-size: 3em;
-            color: var(--theme-accent);
+            color: var(--custom-white);
         }
         .image-container {
             display: flex;

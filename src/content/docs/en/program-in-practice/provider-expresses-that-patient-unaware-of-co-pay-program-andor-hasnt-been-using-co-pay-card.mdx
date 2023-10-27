@@ -1,45 +1,111 @@
 ---
-title: Provider Expresses That Patient Unaware Of Co-Pay Program Andor Hasnt Been Using Co-Pay Card
+title: Provider expresses that patient unaware of co-pay program and/or hasn't been using co-pay card
 description: A basic intro to Astro.
 i18nReady: true
 type: base
 ---
 import Button from '~/components/Button.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro'
+import ProviderIcon from '~/components/SVGs/ProvidersIcon.astro'
+import PharmacistIcon from '~/components/SVGs/PharmacistIcon.astro'
+import PatientIcon from '~/components/SVGs/PatientIcon.astro'
+import IconBox from '~/components/PageComponents/IconBox.astro'
+import getRelatedResources from '~/components/getRelatedResources'
+import ResourceBlock from '~/components/ResourceBlock.astro'
+import Progresstracker from '~/components/ProgressTracker';
+import Checkbox from '~/components/Checkbox';
 
-When editing toolkit pages, you only have to focus on the inner page content - the part you're reading right now.  Everything else like the sidebars to the left and right, or the header and footer - they're handled elsewhere for you.
+<Progresstracker client:visible />
 
-To make a new page, simply make a copy of this file with a new name.  The subfolder you place the file in will determine it's URL path.
+## Potential considerations:
 
-To add/remove a page from the left sidebar nav, edit the file: `src/i18n/en/nav.ts`
+<AccordionEntry 
+	
+	question="Is this a CVS Caremark Value Plan/Zinc patient?"
+	
+>
+Patients who have a Co-Pay Card or who are eligible for
+Co-Pay Assistance can request reimbursement through
+ELIQUIS 360 Support.
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
-## Toolkit pages are powered by Markdown
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
+<IconBox SvgComponent={ProviderIcon} text="Provider" />
 
-Markdown is sort of like Word docs for coders - everything is plain text and easily readable, plus some extra features.  Formatting like headings, lists, text treatments, etc are all done using simple things like dashes and hashtags.  You just write plain, intuitive text and the website code handles everything else for you.  No worrying about setting fonts, font sizes, colors, etc - everything is kept consistent by the website's styling code.
+</div>
+<h4>CVS Caremark Value Plan/Zinc patients that have no card</h4>
+1. HCP can initiate a PA.
+2. Patient can call [1-855-ELIQUIS](tel:1-855-ELIQUIS) to activate an ELIQUIS $10 Co-Pay Extend
+Card which can be used once PA is completed.
+<br />
+<br />
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
+<IconBox SvgComponent={ProviderIcon} text="Provider" />
 
-Markdown can be used by coders, marketers, designers, and even your clients - it's that easy! 
+</div>
 
-:::tip[ANNOUNCEMENTS]
-**Block Quote Element** - Use this element for calling out specific things.  
-:::
+<h4>CVS Caremark Value Plan/Zinc patients that already have card
+(received letter, completed Benefits Review, or spoke to physician)</h4>
 
-## Basic Heading
+1. Patient should continue to use their current Co-Pay Card.
+2. Patient should request a PA from their provider before their next fill and
+they can continue to use their current card like they have in the past.
 
-Markdown headings are automatically added to the right sidebar navigation and can be used as links.
+<br />
+<br />
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
 
-**Basic paragraph section** | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</div>
+<h4>Call [1-855-ELIQUIS](tel:1-855-ELIQUIS) to see if patient is eligible for Co-Pay assistance or
+reimbursement through a backdate request.</h4>
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
 
-Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 
-## What is a Brand Toolkit?
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility','Co-Pay Card Lookup Tool']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
 
-Use your brand toolkit as a central repository for important information for your employees and your clients.  Make your toolkit the authoritative source for any resources your brand needs to get the job done.
 
-- Informational pages & articles
-- Directory pages with links to outside resources
-- Services pages with outside resources embedded into the toolkit
-- Tutorial pages for keeping employees up to date
-- Brand styleguides & assets
-- News and updates
+</AccordionEntry>
 
+
+<AccordionEntry 
+	
+	question="All other patients"
+	
+>
+
+    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
+
+<div class="iconbox-wrapper">
+<IconBox SvgComponent={PatientIcon} text="Patient" />
+
+
+</div>
+<h4>Call [1-855-ELIQUIS](tel:1-855-ELIQUIS) to see if patient is eligible for Co-Pay assistance or
+reimbursement through a backdate request.</h4>
+
+
+
+    {/* use tag name or resource title below */}
+    <div class="resource-block-container">
+    <br />
+    <h3>Related Resources</h3>
+    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility','Co-Pay Card Lookup Tool']).map(relatedResource => (
+        <ResourceBlock {...relatedResource} />
+    ))}
+    </div>
+
+
+</AccordionEntry>
+
+
+<Checkbox client:visible pageIndex={7} />

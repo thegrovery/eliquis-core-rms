@@ -1,0 +1,148 @@
+.progress-tracker {
+    display: flex;
+    gap: .25em;
+    padding: 1em .5em;
+    p {
+        margin-right: auto;
+        line-height: 1.4;
+        display: none;
+    }
+    @media (min-width: 52em) {
+        padding: 1em;
+        gap: .5em;
+        p {
+            display: block;
+        }
+    }
+    align-items: center;
+    justify-content: space-between;
+   
+    border: 1px solid var(--custom-grey-1-50);
+    background-color: var(--custom-white-50);
+    border-radius: 6px;
+    
+    margin: 0 0 2em 0; /* Bottom Space */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS devices */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    &::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
+    }
+    a {
+        text-decoration: none;
+        
+        &:hover {
+            span {
+                border-color: var(--custom-orange);
+            }
+        }
+    }
+}
+
+.progress-tracker span {
+    width: 30px;
+    height: 30px;
+    @media (min-width: 30em) {
+        width: 40px;
+        height: 40px;
+    }
+    @media (min-width: 52em) {
+        width: 50px;
+        height: 50px;
+    }
+    transition: all .1s ease-in;
+    border-radius: 50%;
+    background-color: var(--custom-white);
+    border: 1px solid var(--custom-orange-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-tracker span.read {
+    background-color: var(--custom-orange);
+    border: 1px solid var(--custom-orange-50);
+    color: var(--custom-white);
+}
+
+.checkbox-container {
+    margin-top: 2em /* Top Space */;
+}
+
+.checkbox-container {
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid var(--custom-grey-1-50);
+    background-color: var(--custom-white-50);
+    transition: all .1s ease-in;
+
+    /* box-shadow: -2px 2px 0px var(--custom-maroon-50); */
+    transition: all .1s ease-in;
+    &:hover {
+        border: 1px solid var(--custom-maroon-50);
+        /* box-shadow: -2px 2px 0px var(--custom-maroon); */
+        label {
+            color: var(--theme-text);
+        }
+    }
+}
+
+.checkbox-container label {
+    cursor: pointer;
+    padding: 2em 1em;
+    width: 100%;
+    padding-left: 4em; /* Space for custom checkbox */
+    display: inline-block;
+    line-height: 1.4; /* Adjust as needed */
+    font-family: var(--font-heading);
+    color: var(--theme-text-light);
+}
+
+.checkbox-container input[type='checkbox'] {
+    display: none; /* Hide the default checkbox */
+}
+
+/* Custom checkbox appearance */
+.checkbox-container label::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left:1em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
+    border: 2px solid var(--custom-grey-1);
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff;
+    box-shadow: -2px 2px 0px var(--custom-grey-1-50);
+}
+
+.checkbox-container label:active::before {
+    box-shadow: 1px -1px 0px var(--custom-grey-1-50);
+    top: calc(50% + 1px); /* This will make it look like it's being pressed down */
+}
+.checkbox-container input[type='checkbox']:checked + label:active::after {
+    transform: translateY(-50%) translateY(1px);
+}
+
+
+/* Custom appearance when checked */
+.checkbox-container input[type='checkbox']:checked + label::before {
+    background-color: var(--custom-orange); /* Change to desired color */
+    border-color: var(--custom-orange-50); /* Change to desired color */
+    box-shadow: -2px 2px 0px var(--custom-orange-50);
+}
+
+/* Checkbox tick (check) using Unicode character */
+.checkbox-container input[type='checkbox']:checked + label::after {
+    /* Replace with encoded SVG */
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" viewBox="0 0 19.303 13.741"><path id="Icon_feather-check" data-name="Icon feather-check" d="M22.475,9,11.148,20.326,6,15.178" transform="translate(-4.586 -7.586)" fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>');
+    position: absolute;
+    top: 50%;
+    left: calc(1em + 6px); /* Adjust left position as needed */
+    transform: translateY(-50%);
+    color: var(--custom-white);
+    
+}
