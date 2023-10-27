@@ -39,10 +39,10 @@ export const resource = resources.resources.find(resource => resource.title === 
 		<div> {resource.description} </div>
 
 		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Visit this resource</Button>
 
 		### Pfizer Resource Link
-		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Visit this resource</Button>
 
 	</div>
 </div>
@@ -50,7 +50,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['Websites'], ['placeholder']).map(relatedResource => (
-    <ResourceCard {...relatedResource} />
-  ))}
+	{ 
+		getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+		getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+		<ResourceCard {...relatedResource} />
+		))
+		: <p>No resources found</p>
+	}
 </div>

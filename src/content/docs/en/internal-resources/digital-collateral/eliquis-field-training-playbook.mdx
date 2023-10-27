@@ -1,6 +1,6 @@
 ---
-title: Medication Guide
-description: Download ELIQUIS Medication Guide PDF.
+title: Field Sales Playbook
+description: The ELIQUIS 360 Support Program Field Training Playbook. Working together for patient access to ELIQUIS®
 i18nReady: true
 type: base
 ---
@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Medication Guide");
+export const resource = resources.resources.find(resource => resource.title === "Field Sales Playbook");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -51,11 +51,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-	{ 
-		getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
-		getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
-		<ResourceCard {...relatedResource} />
-		))
-		: <p>No resources found</p>
-	}
-</div>
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>
