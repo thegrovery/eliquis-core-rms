@@ -40,9 +40,7 @@ const t = useTranslations(Astro);
 		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
 			<HeadAnalytics/>
 		}
-		{import.meta.env.PUBLIC_FEATURE_PWA=="true" &&
-			
-		}
+		
 		<script src="/src/pwa.ts"></script>
 			<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
