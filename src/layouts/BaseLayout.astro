@@ -57,9 +57,10 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		}
 		{import.meta.env.PUBLIC_FEATURE_PWA=="true" &&
 			<script src="/src/pwa.ts"></script>
-			{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+
 			<PWA/>
 		}
+		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		
 		<SessionManager/>
 		<title set:html={formatTitle(content)} />
