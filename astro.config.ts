@@ -64,6 +64,7 @@ export default defineConfig({
       globPatterns: [
       	'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
       ],
+      maximumFileSizeToCacheInBytes: 5000000,
     },
     devOptions: {
       enabled: true,
