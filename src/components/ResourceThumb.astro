@@ -25,6 +25,7 @@ const currentResource = resources.resources.find(r => r.imageSrc === Astro.props
             )}
         </div>
     </div>
+    <span class="code">{currentResource?.veevaCode}</span>
 </div>
 <style type="scss" is:global>
     .details_wrapper {
@@ -64,6 +65,10 @@ const currentResource = resources.resources.find(r => r.imageSrc === Astro.props
       &.external {
         background-color: var(--custom-dark-blue);  
       }
+    }
+    .code {
+        font-size: var(--theme-text-sm);
+        padding: 1em 0;
     }
     .thumbnail-wrapper {
         .thumbnail {
