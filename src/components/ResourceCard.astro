@@ -186,18 +186,19 @@ import { Icon } from 'astro-icon'
     }
     .resource-card .tags {
       /* styles for the tags container */
-      font-size: .75rem;
+      font-size: var(--theme-text-xs);
       margin: .25rem 0;
     }
   
     .resource-card .tag {
       /* styles for individual tags */
-      text-transform: uppercase;
+      // text-transform: uppercase;
       color: var(--custom-white);
       padding: 2px 10px;
       border-radius: 12px;
       background-color: var(--custom-orange);
-      margin: 0 .5rem 0 0;
+      margin: 0 .5rem 0.25em 0;
+      display: inline-block;
     }
   
     .details-btn {
