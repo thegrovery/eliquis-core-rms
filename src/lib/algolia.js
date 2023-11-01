@@ -12,6 +12,11 @@ const path = require("path");
 const matter = require("gray-matter");
 const removeMd = require("remove-markdown");
 
+// Function to strip import statements and similar code
+const stripCodeContent = (content) => {
+  return content.replace(/import .+?;?(\n|$)/g, '');
+};
+
 // Function to get the size of an object in bytes
 const sizeof = obj => {
   return Buffer.from(JSON.stringify(obj)).length;
@@ -44,10 +49,8 @@ const readFilesRecursively = (directory) => {
 
 const directoryPath = "./src/content/docs/en";
 const filenames = readFilesRecursively(directoryPath).filter(filename => {
-  return path.extname(filename) === '.mdx'; // Check for markdown files
+  return path.extname(filename) === '.mdx' && !filename.endsWith('index.mdx'); // Exclude index.mdx files
 });
-
-console.log('Filenames:', filenames); // Log the filenames
 
 const splitContentByHeadings = (content, title) => {
   const splitByH2 = content.split(/##\s+/).slice(1);
@@ -57,7 +60,6 @@ const splitContentByHeadings = (content, title) => {
     lvl0: splitByH2[0] || null,
     lvl1: title,
     lvl2: splitByH3[0] || null,
-    // Add more levels if needed
   };
 };
 
@@ -72,15 +74,18 @@ const data = filenames.map(filename => {
     const urlSlug = relativePath.replace(/\.mdx$/, '');
     const url = `/${urlSlug}`;
 
+    const parentFolderName = path.dirname(relativePath).split(path.sep).pop().replace(/-/g, ' ');
+
     const object = {
       objectID: frontmatter.slug,
       title: frontmatter.title,
-      content: removeMd(content).replace(/\n/g, ""),
+      description: frontmatter.description || '', // Include the description
+      content: removeMd(stripCodeContent(content)).replace(/\n/g, ""), // Strip code content and then remove Markdown
       url: url,
-      ...levels  // spread the levels into the object
+      folder: parentFolderName,
+      ...levels
     };
 
-    // Truncate the content of the object if it exceeds Algolia's size limit
     const truncatedObject = truncateToFit(object);
 
     console.log('Truncated Object:', truncatedObject);
@@ -91,9 +96,8 @@ const data = filenames.map(filename => {
   }
 }).filter(Boolean);
 
-console.log('Data:', data); // Log the data
+console.log('Data:', data); 
 
-// Send the dataset in JSON format
 client
   .initIndex(process.env.ALGOLIA_INDEX_NAME)
   .saveObjects(data, { autoGenerateObjectIDIfNotExist: true })
