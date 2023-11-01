@@ -33,7 +33,7 @@ Current active dev branches:
 * run 'npm install'
 * run 'npm run dev' (start and serve commands are the same as this by default, customize them if you need to)
 
-<br/>
+<br />
 
 ### Initial Server Deploy, Updating Test/Staging Server
 This site uses Netlify's auto-deploy functions.  Every time you push to your main or staging branch, Netlify will do a new deploy.  
@@ -42,20 +42,20 @@ Since this site is being shown to potential clients, try to always push to the `
 
 `feature--update > staging > main`
 
-<br/>
+<br />
 
 ### Git Guidelines - Branching & Merging
 Try to keep all updates isolated to their own branch, and then open a pull request (PR) when you're ready to push the update live.  This will keep the git timeline clean and allow for easier collaboration.
 
 All branches should follow the naming scheme of `category--subject`, for example: `template--basic-page-template`, `package--astro-icon`, or `component--MasterComponent`.  
 
-<br/>
+<br />
 
 >**Avoiding Merge Errors**: 
 >
 >Before you open your PR, re-merge `main` into your branch to get any updates that have happened in the meantime, and then run `pnpm run build` to make sure your updates build properly.  
 
-<br/>
+<br />
 
 ### Feature Controls & Keys
 Major features can be turned off and on from the `.env` file at the project's root.  Feature Control variables should follow the naming scheme of `PUBLIC_FEATURE_NAME` and only be set to 'true' or 'false'.  The associated feature's component should then be wrapped in an IF statement as shown below.
@@ -83,14 +83,14 @@ When you start the project, check in with the team for the following:
 * Legal copy/links
 * Social links
 
-<br/>
+<br />
 
 ### Code Libraries
 * Framework: [Astro Docs](https://github.com/withastro/docs)
 * Icons: [astro-icon](https://github.com/natemoo-re/astro-icon#readme)
 * Sliders/Carousels: [swiper](https://swiperjs.com/)
 
-<br/>
+<br />
 
 ## Markdown Syntax Guide
 * https://www.markdownguide.org/basic-syntax/#overview
@@ -113,6 +113,48 @@ Run the following command from root:
 ```
 	node src/lib/algolia.js
 ```
+
+## Adding Resources 
+All resources are included and updated using the **resources.json** file in this location: ```src/data/resources.json```
+
+### Resource Object Structure
+
+Each resource in the `resources.json` file has the following attributes:
+
+| Attribute              | Description                                                                                  | Example Value                                                      |
+|------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| `resourceType`         | The type of the resource.                                                                    | `"internal"`                                                       |
+| `imageSrc`             | Path to the resource's image.                                                                | `"/images/resources/benefits-review-guide.png"`                    |
+| `veevaCode`            | Unique code for the resource.                                                                | `"432-US-2200481"`                                                 |
+| `icon`                 | Icon associated with the resource.                                                           | `"ph:download"`                                                    |
+| `title`                | The title of the resource.                                                                   | `"Benefits Review Guide"`                                          |
+| `description`          | A brief description of the resource.                                                         | `"Benefits Review Guide Download"`                                 |
+| `longDescription`      | A longer description of the resource.                                                        | `"Benefits Review Guide Download"`                                 |
+| `tags`                 | Tags associated with the resource.                                                           | `["Digital Collateral","Collateral Materials"]`                    |
+| `viewDetailsButtonText`| Text for the 'View Details' button.                                                          | `"View Details"`                                                   |
+| `shareButtonText`      | Text for the 'Share' button.                                                                 | `"Share"`                                                          |
+| `resourceDetailsLink`  | Link to the detailed resource page.                                                          | `"/internal-resources/digital-collateral/benefits-review-guide"`   |
+| `author`               | Author of the resource.                                                                      | `"E360 Support"`                                                   |
+| `lastModified`         | Last modified date of the resource.                                                          | `"01/2022"`                                                        |
+| `BMSResourceLink`      | Link to the resource for BMS.                                                                | `"#"`                                                              |
+| `PfizerResourceLink`   | Link to the resource for Pfizer.                                                             | `"#"`                                                              |
+| `RelatedResources`     | Object containing related resources information. You may use a tag to display all resources with the same tag or title to display a specific resource                                            | `{"tags": [""], "titles": ["HCP Sell Sheet"]}`                     |
+
+This structure allows for easy modification and addition of new resources. Resources added here will automatically generate resource "cards" and "blocks", which appear in the Program in Practice section.
+
+### Resource Details Pages
+
+Currently Resource Detail pages are generated semi-manually. This will be updated in the future!  The process is the following: 
+
+Duplicate a page matching the title of any added resource within the ```resources.json``` file. Using the example from above: **Benefits Review Guide** should create a page within the folder: ```/internal-resources/digital-collateral/benefits-review-guide.mdx```
+
+Within that mdx page ensure to update the following: 
+* Frontmatter: Update title and description
+* Update the following line: ```export const resource = resources.resources.find(resource => resource.title === "PAGE TITLE HERE");```
+
+Everything else within the file now will pull the props data from the ```resources.json``` file! In the future we can automatically generate this file as well however current attempts have been breaking the following: ```RightSidebar.astro``` displays empty TOC content.
+
+
 
 
 ### Articles / Documentation for later
