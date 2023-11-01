@@ -14,8 +14,8 @@ export default [
 		{ text: 'Introduction | Main', slug: 'introduction', key: 'introduction' },
 		{ text: 'How to use E360 Field Force Navigator', slug: 'introduction/how-to-use-e360-ffn', key: 'how-to-use-e360-ffn' },
 		{ text: 'About ELIQUIS 360 Support', slug: 'introduction/about-eliquis-360', key: 'about-eliquis-360' },
-		{ text: 'Frequently Asked Questions', slug: 'faqs', key: 'faqs' },
-		{ text: 'Glossary of Terms', slug: 'glossary', key: 'glossary' },
+		{ text: 'Frequently Asked Questions', slug: 'introduction/faqs', key: 'faqs' },
+		{ text: 'Glossary of Terms', slug: 'introduction/glossary', key: 'glossary' },
 
 	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
 		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },
