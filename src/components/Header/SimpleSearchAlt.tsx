@@ -8,7 +8,7 @@ const Search = () => {
     const [errorMessage, setErrorMessage] = useState(null);
 
     const searchClient = algoliasearch('2GVEXS0MRV', '8fea0ba951ba77e336ffa5ab144f0ecd');
-    const index = searchClient.initIndex('core-eliquis');
+    const index = searchClient.initIndex('core-eliquis-new');
 
     // Function to clear the query
     const clearQuery = () => {
@@ -19,8 +19,8 @@ const Search = () => {
         return JSON.parse(localStorage.getItem('recentSearches') || '[]');
     });
 
-    const saveSearchToRecent = (title: string, url: string) => {
-        const newRecentSearch = { title, url };
+    const saveSearchToRecent = (title: string, url: string, folder: string) => {
+        const newRecentSearch = { title, url, folder };
         const newRecentSearches = [newRecentSearch, ...recentSearches].filter((item, index, self) => 
             index === self.findIndex((t) => (t.title === item.title && t.url === item.url))
         ).slice(0, 5);
@@ -28,8 +28,8 @@ const Search = () => {
         localStorage.setItem('recentSearches', JSON.stringify(newRecentSearches));
     };
     
-    const handleLinkClick = (title: string, url: string) => {
-        saveSearchToRecent(title, url);
+    const handleLinkClick = (title: string, url: string, folder: string) => {
+        saveSearchToRecent(title, url, folder);
     };
 
     const highlightText = (text, highlight) => {
@@ -61,13 +61,13 @@ const Search = () => {
         return JSON.parse(localStorage.getItem('favorites') || '[]');
     });
 
-    const toggleFavorite = (title: string, url: string) => {
+    const toggleFavorite = (title: string, url: string, folder: string) => {
         if (favorites.some(fav => fav.title === title)) {
             const newFavorites = favorites.filter(fav => fav.title !== title);
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
         } else {
-            const newFavorites = [{title, url}, ...favorites];
+            const newFavorites = [{title, url, folder}, ...favorites];
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
         }
@@ -102,12 +102,15 @@ const Search = () => {
     const displayFavorites = favorites.map(item => (
         <li class='simpleSearch_item recent'>
             <span 
-                onClick={() => toggleFavorite(item.title, item.url)}
+                onClick={() => toggleFavorite(item.title, item.url, item.folder)}
                 class='favoriteToggle'
             >
                 {favorites.some(fav => fav.title === item.title) ? selectedStar : unselectedStar}
             </span>
-            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url)}>
+            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder)}>
+                <div className='hit-folder'>
+                    {item.folder && item.folder !== '.' ? item.folder : ''}
+                </div>
                 {item.title}
             </a>
         </li>
@@ -116,12 +119,15 @@ const Search = () => {
     const displayRecent = filteredRecentSearches.map(item => (
         <li class='simpleSearch_item recent'>
             <span 
-                onClick={() => toggleFavorite(item.title, item.url)}
+                onClick={() => toggleFavorite(item.title, item.url, item.folder)}
                 class='favoriteToggle'
             >
             {favorites.some(fav => fav.title === item.title) ? selectedStar : unselectedStar}
             </span>
-            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url)}>
+            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder)}>
+                <div className='hit-folder'>
+                    {item.folder && item.folder !== '.' ? item.folder : ''}
+                </div>
                 {item.title}
             </a>
             {/* Adding a delete button here */}
@@ -146,18 +152,23 @@ const Search = () => {
                 {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
                 {displayRecent}
                 {hits.length > 0 && <li><h2>Results</h2></li>}
-                {hits.map(hit => (
-                <li className='simpleSearch_item'>
-                    <span 
-                    onClick={() => toggleFavorite(hit.title, hit.url)}
-                    className='favoriteToggle'
-                    >
-                    {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
-                    </span>
-                    <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url)}>
-                    {highlightText(hit.title, query)}
-                    </a>
-                </li>
+                {hits
+                .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
+                .map(hit => (
+                    <li className='simpleSearch_item'>
+                        <span 
+                        onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
+                        className='favoriteToggle'
+                        >
+                        {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
+                        </span>
+                        <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
+                        <div className='hit-folder'>
+                            {hit.folder && hit.folder !== '.' ? hit.folder : ''}
+                        </div>
+                        {highlightText(hit.title, query)}
+                        </a>
+                    </li>
                 ))}
             </ul>
             {hits.length === 0 && filteredRecentSearches.length === 0 && favorites.length === 0 && (
