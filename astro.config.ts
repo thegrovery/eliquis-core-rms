@@ -31,8 +31,8 @@ export default defineConfig({
   mdx(), 
   AstroPWA({
     mode: 'development',
-    base: '/',
-    scope: '/',
+    base: '/dist',
+    scope: '/dist',
     includeAssets: ['favicon.svg'],
     registerType: 'autoUpdate',
     manifest: {
@@ -60,16 +60,16 @@ export default defineConfig({
     },
     workbox: {
       navigateFallback: '/offline',
-      globDirectory: '/',
+      globDirectory: '/dist',
       globPatterns: [
-      	'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,html}',
+      	'**/*.{js,css,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
       ],
       maximumFileSizeToCacheInBytes: 5000000,
     },
-    devOptions: {
+    /*devOptions: {
       enabled: true,
       navigateFallbackAllowlist: [/^\/offline/],
-    },
+    },*/
   }),
 	prefetch({
     //prefetch options
