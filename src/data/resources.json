@@ -23,6 +23,7 @@
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/fingertip-formulary_thumb.png",
+      "veevaCode": "432-US-2200105",
       "icon": "mdi:web",
       "title": "Fingertip Formulary Website",
       "description": "Find ELIQUIS coverage information in your area",
@@ -44,6 +45,7 @@
       "resourceType": "external",
       "imageSrc": "/images/resources/eliquis360providerportal_thumb.png",
       "icon": "mdi:web",
+      "veevaCode": "432-US-2200481",
       "title": "Online Support Provider Portal Website",
       "description": "Initiate a Benefits Review, get PA and appeals assistance, and get help locating plan-specific forms and track status of active Tiering and Formulary exception requests",
       "longDescription": "ELIQUIS 360 Support offers services and programs that provide help with prescription insurance benefits reviews and case management assistance to patients prescribed Eliquis.​",
@@ -53,7 +55,7 @@
       "resourceDetailsLink": "/external-resources/websites/online-support-provider-portal-website",
       "author": "E360 Support",
       "lastModified": "06/2021",
-      "BMSResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
+      "BMSResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login/?ec=302&startURL=%2FBMSprovider%2Fs%2F",
       "PfizerResourceLink": "https://www.eliquis360providerportal.com/BMSprovider/s/login",
       "RelatedResources": {
         "tags": ["Websites"],
@@ -282,12 +284,12 @@
     },
     {
       "resourceType": "internal",
-      "imageSrc": "",
+      "imageSrc": "/images/resources/track2trainingdeck.png",
       "icon": "ph:download",
       "title": "Track II Training Deck",
-      "description": "Track II Training Deck NEED DESCRIPTION CONTENT",
-      "longDescription": "Track II Training Deck NEED DESCRIPTION CONTENT",
-      "tags": ["Track II Training Deck"],
+      "description": "ELIQUIS 360 Support Track 2.0",
+      "longDescription": "ELIQUIS 360 Support Track 2.0",
+      "tags": ["Track II Training Deck", "Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
       "resourceDetailsLink": "/internal-resources/track-ii-training-deck",
@@ -303,6 +305,7 @@
     {
       "resourceType": "internal",
       "imageSrc": "/images/resources/field-training-playbook.png",
+      "veevaCode": "432-US-2300133",
       "icon": "ph:strategy-fill",
       "title": "Field Sales Playbook",
       "description": "The ELIQUIS 360 Support Program Field Training Playbook. Working together for patient access to ELIQUIS®",
@@ -310,14 +313,77 @@
       "tags": ["Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/eliquis-field-training-playbook",
       "author": "E360 Support",
       "lastModified": "07/2023",
-      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
-      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "BMSResourceLink": "https://sites.bms.com/:b:/r/teams/us-cv/Documents/E360/BMS529%20Eliquis%20360%20Support%20Playbook%20iPDF_RD6_Final.pdf?csf=1&web=1",
+      "PfizerResourceLink": "https://sites.bms.com/:b:/r/teams/us-cv/Documents/E360/BMS529%20Eliquis%20360%20Support%20Playbook%20iPDF_RD6_Final.pdf?csf=1&web=1",
       "RelatedResources": {
         "tags": ["Other"],
         "titles": []
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/drdiscussion.png",
+      "veevaCode": "432-US-2200019",
+      "icon": "healthicons:group-discussion-meeting-outline",
+      "title": "Doctor Discussion Guide",
+      "description": "Create a PERSONALIZED DISCUSSION GUIDE Go to your appointment prepared to discuss the questions that matter to you.",
+      "longDescription": "Create a PERSONALIZED DISCUSSION GUIDE Go to your appointment prepared to discuss the questions that matter to you.",
+      "tags": ["Digital Collateral"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/doctor-discussion-guide",
+      "author": "E360 Support",
+      "lastModified": "07/2023",
+      "BMSResourceLink": "https://www.eliquis.bmscustomerconnect.com/afib/ask-your-doctor#AfibGuide",
+      "PfizerResourceLink": "https://www.eliquis.bmscustomerconnect.com/vte/talk-to-your-doctor#VteGuide",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Field Sales Playbook"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/hcpsellsheet.png",
+      "veevaCode": "432-US-2101701",
+      "icon": "ph:download",
+      "title": "HCP Sell Sheet",
+      "description": "Working Together for Patient Access to ELIQUIS",
+      "longDescription": "Working Together for Patient Access to ELIQUIS",
+      "tags": ["Digital Collateral","Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/hcp-sell-sheet",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "#",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Benefits Review Guide"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/benefits-review-guide.png",
+      "veevaCode": "432-US-2200481",
+      "icon": "ph:download",
+      "title": "Benefits Review Guide",
+      "description": "Benefits Review Guide Download",
+      "longDescription": "Benefits Review Guide Download",
+      "tags": ["Digital Collateral","Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/benefits-review-guide",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "#",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["HCP Sell Sheet"]
       } 
     }
   ]

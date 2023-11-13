@@ -12,8 +12,9 @@ import PatientIcon from '~/components/SVGs/PatientIcon.astro'
 import IconBox from '~/components/PageComponents/IconBox.astro'
 import getRelatedResources from '~/components/getRelatedResources'
 import ResourceBlock from '~/components/ResourceBlock.astro'
-import Progresstracker from '~/components/ProgressTracker';
-import Checkbox from '~/components/Checkbox';
+import Progresstracker from '~/components/ProgressTracker'
+import Checkbox from '~/components/Checkbox'
+import InlineGlossary from '~/components/InlineGlossary.astro'
 
 <Progresstracker client:visible />
 
@@ -28,10 +29,12 @@ with pharmacy benefit"
 If patient is not commercially insured and has Medicare
 Part D as their primary insurance, they are not eligible
 for Co-Pay Assistance under the terms of the ELIQUIS
-360 Support program. If a patient believes they have
+360 Support program. 
+<br />
+If a patient believes they have
 commercial insurance but the pharmacy isn’t able to
-process Co-Pay Cards, then consider the actions listed
-to the right.
+process Co-Pay Cards, then consider the actions listed below.
+
     <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
 	<div class="iconbox-wrapper">
@@ -59,7 +62,7 @@ systems when filing the claim.</small>
     <div class="resource-block-container">
     <br />
     <h3>Related Resources</h3>
-    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility', 'Co-Pay Card Lookup Tool']).map(relatedResource => (
+    {getRelatedResources([''], ['Call 1-855-ELIQUIS (1-855-354-7847)','Co-Pay Card Lookup Tool']).map(relatedResource => (
         <ResourceBlock {...relatedResource} />
     ))}
     </div>

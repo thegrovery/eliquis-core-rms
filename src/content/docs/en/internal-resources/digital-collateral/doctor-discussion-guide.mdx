@@ -1,6 +1,6 @@
 ---
-title: Track II Training Deck
-description: ELIQUIS 360 Support Track 2.0 Training deck has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.
+title: Doctor Discussion Guide
+description: Create a PERSONALIZED DISCUSSION GUIDE Go to your appointment prepared to discuss the questions that matter to you.
 i18nReady: true
 type: base
 ---
@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Track II Training Deck");
+export const resource = resources.resources.find(resource => resource.title === "Doctor Discussion Guide");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -39,11 +39,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 		### Description
 		<div> {resource.description} </div>
 
-		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		### AFIB Customers
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Visit AFIB Discussion Guide</Button>
 
-		### Pfizer Resource Link
-		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		### DVT Customers
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Visit DVT Discussion Guide</Button>
 
 	</div>
 </div>
