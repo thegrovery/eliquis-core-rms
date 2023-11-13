@@ -22,7 +22,8 @@ export default defineConfig({
   site: 'https://grovery-core-toolkit-staging.netlify.app/',
   integrations: [AutoImport({
     imports: [asideAutoImport, codeSnippetAutoImport]
-  }), preact({
+  }), 
+  preact({
     compat: true
   }), 
   sitemap(), 
