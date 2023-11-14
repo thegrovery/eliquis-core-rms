@@ -1,7 +1,6 @@
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
 import { defineConfig } from 'astro/config';
-import AstroPWA from '@vite-pwa/astro';
 import AutoImport from 'astro-auto-import';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -14,16 +13,18 @@ import { rehypei18nAutolinkHeadings } from './plugins/rehype-i18n-autolink-headi
 import { rehypeTasklistEnhancer } from './plugins/rehype-tasklist-enhancer';
 import { remarkFallbackLang } from './plugins/remark-fallback-lang';
 import { theme } from './syntax-highlighting-theme';
+
+/*===== Extra Features =====*/
 import prefetch from "@astrojs/prefetch";
 import serviceWorker from "astrojs-service-worker";
+import AstroPWA from '@vite-pwa/astro';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://grovery-core-toolkit-staging.netlify.app/',
   integrations: [AutoImport({
     imports: [asideAutoImport, codeSnippetAutoImport]
-  }), 
-  preact({
+  }), preact({
     compat: true
   }), 
   sitemap(), 
@@ -31,6 +32,40 @@ export default defineConfig({
   astroCodeSnippets(), 
   mdx(), 
   serviceWorker(),
+  AstroPWA({
+    mode: 'development',
+    base: '/',
+    scope: '/',
+    includeAssets: ['favicon.svg'],
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Eliqus Field Force Navigator',
+      short_name: 'FFN',
+      theme_color: '#76004B',
+      icons: [
+        {
+          src: 'pwa-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: 'pwa-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+        {
+          src: 'pwa-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable',
+        },
+      ],
+    },
+    devOptions: {
+      enabled: true,
+      navigateFallbackAllowlist: [/^\/offline/],
+    },
+  }),
 	prefetch({
     //prefetch options
 	 }),
