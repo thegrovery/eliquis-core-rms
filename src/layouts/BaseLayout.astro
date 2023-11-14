@@ -11,12 +11,14 @@ import { rtlLanguages } from '../i18n/languages';
 import { useTranslations } from '../i18n/util';
 import { getLanguageFromURL } from '../util';
 import { getPageCategory } from '../util/getPageCategory';
-import { pwaInfo } from 'virtual:pwa-info';
 
-import SplashAnimation from '../components/SplashAnimation.astro';
+/* App-like Components*/
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
 import LogInWrapper from '~/components/DynamicContent/LogInWrapper.astro';
 import PWA from '~/components/Head/PWA.astro';
+import { pwaInfo } from 'virtual:pwa-info';
+import LogInFunctions from '~/components/DynamicContent/LogInFunctions.astro';
+import SplashAnimation from '../components/SplashAnimation.astro';
 
 /* Popups/Modals/Lightboxes/Dialogs/etc */
 import ReloadPrompt from '~/components/ReloadPrompt.astro';
@@ -27,6 +29,7 @@ import SearchModal from '~/components/PopUps/SearchModal.astro';
 import VideoModal from '~/components/PopUps/VideoModal.astro';
 import AnnouncementModal from '~/components/PopUps/AnnouncementModal.astro';
 import ChatWidget from '~/components/Widgets/ChatWidget.astro';
+import OfflineStatusWidget from '~/components/Widgets/OfflineStatusWidget.astro';
 
 export interface Props {
 	content: CollectionEntry<'docs'>['data'];
@@ -184,20 +187,26 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			</slot>
 		</div>
 
+		<!-- ===== Popups, Widgets, Banners, etc. ===== -->
 		<QRCodeModal/>
 		<OptionsModal/> 
 		<FeedbackModal/>
 		<VideoModal/>
 		<AnnouncementModal/>
 		<SearchModal/>
+		<OfflineStatusWidget/>
 		<!-- <ReloadPrompt /> -->
-		
+
 		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
 			<ChatWidget/>
 		}
 		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
 			<SplashAnimation/>
 		}
+		<!-- ===== END Popups, Widgets, Banners, etc. ===== -->
 		
+		<!-- ===== JS Functions ===== -->
+		<LogInFunctions/>
+		<!-- ===== END JS Functions ===== -->
 	</body>
 </html>

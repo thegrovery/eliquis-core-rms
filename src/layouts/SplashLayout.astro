@@ -76,6 +76,8 @@ const t = useTranslations(Astro);
 			</article>
 		</main>
 		<Footer />
+
+		<!-- ===== Popups, Widgets, Banners, etc. ===== -->
 		<QRCodeModal/>
 		<OptionsModal/> 
 		<FeedbackModal/>
@@ -89,5 +91,6 @@ const t = useTranslations(Astro);
 		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
 			<SplashAnimation/>
 		}
+		<!-- ===== END Popups, Widgets, Banners, etc. ===== -->
 	</body>
 </html>
