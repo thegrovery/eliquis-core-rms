@@ -57,7 +57,7 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		}
 		
 		<script src="/src/pwa.ts"></script>
-			<PWA/>
+		<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		
 		<SessionManager/>

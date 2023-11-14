@@ -60,11 +60,10 @@ export default defineConfig({
       ],
     },
     workbox: {
+      registerType: 'autoUpdate',
       navigateFallback: '/offline',
       globDirectory: '/dist',
-      globPatterns: [
-      	'**/*.{js,css,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
-      ],
+      globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
       maximumFileSizeToCacheInBytes: 5000000,
     },
     /*devOptions: {
