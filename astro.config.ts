@@ -70,9 +70,9 @@ export default defineConfig({
       navigateFallbackAllowlist: [/^\/offline/],
     },
   }),
-	/*prefetch({
+	prefetch({
     //prefetch options
-	 }),*/
+	 }),
   ],
   markdown: {
     syntaxHighlight: 'shiki',
