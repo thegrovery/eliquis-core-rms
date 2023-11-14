@@ -11,127 +11,12 @@ const { info } = Astro.props as Props;
 
 <div class="LogInWrapper">
 
-  <div class="placeholder">
-    <!-- <LoadingBlock/> -->
-    <p>Checking Permissions...</p>
-    <LoadingBar/>
-  </div>
+  
   
   <div class="loggedIn">
     <slot/>
   </div>
 
-  <div class="loggedOut">
-    <h1>You are currently logged out.</h1>
-    <p>
-      To view this content, please log in or request an account from your manager.
-      <br/>
-      Redirecting you to the home page in 5 seconds. 
-    </p>
-    
-  </div>
-
-</div>
-
-<style lang="scss">
-  .LogInWrapper{
-    .placeholder{display: flex;}
-    .loggedIn{
-      display: none;
-      /*transform: translate3D(0, 3rem, 0);
-      transition: 0.25s;
-      transition-delay: 1s;
-      transition-property: transform;*/
-    }
-    .loggedOut{
-      display: none;
-      /*transform: translate3D(0, 3rem, 0);
-      transition: 0.25s;
-      transition-delay: 1s;
-      transition-property: transform;*/
-    }
-
-    &.currentlyLoggedIn{
-      .placeholder{display: none;}
-      .loggedIn{
-        display: block; 
-       /*transform: translate3D(0, 0rem, 0);*/
-      }
-      .loggedOut{
-        display: none; 
-       /*transform: translate3D(0, 0rem, 0);*/
-      }
-    }
-    &.currentlyLoggedOut{
-      .placeholder{display: none;}
-      .loggedIn{
-        display: none;
-        /*transform: translate3D(0, 0rem, 0);*/
-      }
-      .loggedOut{
-        display: flex;
-        /*transform: translate3D(0, 0rem, 0);*/
-      }
-    }
-
-    .placeholder{
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 85vh;
-      padding: 15vh 2rem 0;
-    }
-    &.currentlyLoggedOut .loggedOut{
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content:center;
-      align-items: center;
-    }
-  }
-</style>
-<script type="text/javascript">
-  console.log("LogInWrapper functions started.");
-  function LogInWrapperFunctions() {
-    setTimeout(() => {
-      console.log("LogInWrapper functions triggered.");
-      console.log("LogInWrapper functions executed.");
-
-      //grab all user info
-      var loggedIn = SessionManager.getItem('loggedIn');
-      var user = netlifyIdentity.currentUser();
-      console.log("Netlify Login Status: ",loggedIn);
-      console.log(loggedIn);
-      var elements = document.querySelectorAll('.LogInWrapper');
-
-      if( loggedIn == true){
-        //logged in
-        console.log("Logged In");
-        elements.forEach(element => {
-          element.classList.add("currentlyLoggedIn"); 
-        });
-      }else if(user != null){
-        //logged in
-        console.log("Logged In");
-        elements.forEach(element => {
-          element.classList.add("currentlyLoggedIn"); 
-        });
-      } else {
-        //logged out
-        console.log("Logged Out");
-        elements.forEach(element => {
-          element.classList.add("currentlyLoggedOut"); 
-          setTimeout(() => {
-            window.location.href = "/";
-          }, 5000); //time in ms
-        });
-      }
-      //end
-    }, 2000); //time in ms
-    
-  }
-
   
 
-  LogInWrapperFunctions();
-</script>
+</div>
