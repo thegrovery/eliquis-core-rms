@@ -14,8 +14,8 @@ import { rehypei18nAutolinkHeadings } from './plugins/rehype-i18n-autolink-headi
 import { rehypeTasklistEnhancer } from './plugins/rehype-tasklist-enhancer';
 import { remarkFallbackLang } from './plugins/remark-fallback-lang';
 import { theme } from './syntax-highlighting-theme';
-
 import prefetch from "@astrojs/prefetch";
+import serviceWorker from "astrojs-service-worker";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,46 +30,7 @@ export default defineConfig({
   astroAsides(), 
   astroCodeSnippets(), 
   mdx(), 
-  AstroPWA({
-    mode: 'development',
-    base: '/',
-    scope: '/',
-    includeAssets: ['favicon.svg'],
-    registerType: 'autoUpdate',
-    manifest: {
-      name: 'Eliqus Field Force Navigator',
-      short_name: 'FFN',
-      theme_color: '#76004B',
-      icons: [
-        {
-          src: 'pwa-192x192.png',
-          sizes: '192x192',
-          type: 'image/png',
-        },
-        {
-          src: 'pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-        },
-        {
-          src: 'pwa-512x512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'any maskable',
-        },
-      ],
-    },
-    workbox: {
-      navigateFallback: '/offline',
-      globDirectory: '/',
-      globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
-      maximumFileSizeToCacheInBytes: 5000000,
-    },
-    devOptions: {
-      enabled: true,
-      navigateFallbackAllowlist: [/^\/offline/],
-    },
-  }),
+  serviceWorker(),
 	prefetch({
     //prefetch options
 	 }),

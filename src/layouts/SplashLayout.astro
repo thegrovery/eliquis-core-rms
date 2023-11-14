@@ -40,12 +40,7 @@ const t = useTranslations(Astro);
 		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
 			<HeadAnalytics/>
 		}
-		
-		<!-- PWA Code -->
-		<script src="/src/pwa.ts"></script>
-		<PWA/>
-		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-		<!-- END PWA Code -->
+	
 
 		<SessionManager />
 		<title>{`${title} | ${t('site.title')}`}</title>

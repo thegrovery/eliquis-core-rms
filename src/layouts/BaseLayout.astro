@@ -11,7 +11,7 @@ import { rtlLanguages } from '../i18n/languages';
 import { useTranslations } from '../i18n/util';
 import { getLanguageFromURL } from '../util';
 import { getPageCategory } from '../util/getPageCategory';
-import { pwaInfo } from 'virtual:pwa-info';
+//import { pwaInfo } from 'virtual:pwa-info';
 
 import SplashAnimation from '../components/SplashAnimation.astro';
 import SessionManager from '~/components/DynamicContent/SessionManager.astro';
@@ -56,12 +56,7 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			<HeadAnalytics/>
 		}
 		
-		<!-- PWA Code -->
-		<script src="/src/pwa.ts"></script>
-		<PWA/>
-		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-		<!-- END PWA Code -->
-		
+
 		<SessionManager/>
 		<title set:html={formatTitle(content)} />
 		<style>
