@@ -1,0 +1,18 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+//DOCS: https://github.com/netlify/netlify-identity-widget/tree/master
+
+import LoadingText from '~/components/DynamicContent/LoadingText.astro';
+
+const { info } = Astro.props as Props;
+---
+
+<div class="IfLoggedInDisabled">
+  
+  <div class="loggedIn">
+    <slot name="loggedIn"/>
+  </div>
+
+</div>
+

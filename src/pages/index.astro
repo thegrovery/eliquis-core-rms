@@ -27,6 +27,7 @@ import SplashLayout from '../layouts/SplashLayout.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 import NavBlock from '~/components/NavBlock.astro';
 import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import IfLoggedInDisabled from '~/components/DynamicContent/IfLoggedInDisabled.astro';
 import UserInfo from '~/components/DynamicContent/UserInfo.astro';
 import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
 import SimpleButton from '~/components/Buttons/SimpleButton.astro';
@@ -50,7 +51,7 @@ import Button from '~/components/Button.astro';
 				</p>
 				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
 				
-				<IfLoggedIn>
+				<IfLoggedInDisabled>
 					
 					<div slot="loggedIn">
 						<p class="small">You're logged in.  Currently logged in as: <UserInfo info="email"/></p>
