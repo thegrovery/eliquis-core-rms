@@ -55,12 +55,14 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		{import.meta.env.PUBLIC_FEATURE_ANALYTICS=="true" &&
 			<HeadAnalytics/>
 		}
-		
+
+		<!-- App-like Code -->
+		<SessionManager/>
 		<script src="/src/pwa.ts"></script>
 		<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+		<!-- END App-like Code -->
 		
-		<SessionManager/>
 		<title set:html={formatTitle(content)} />
 		<style>
 			body{
@@ -148,9 +150,6 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			}
 		</style>
 
-			
-
-	    	
 	</head>
 
 	<body>
