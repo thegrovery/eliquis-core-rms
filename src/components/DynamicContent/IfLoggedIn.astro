@@ -48,16 +48,19 @@ const { info } = Astro.props as Props;
     console.log("IfLoggedIn functions executed.");
 
     //grab all user info
-    var user = netlifyIdentity.currentUser();
-    console.log("Netlify User Info: ",user);
+    var loggedIn = SessionManager.getItem('loggedIn');
+    console.log("Netlify Login Status: ",loggedIn);
     var elements = document.querySelectorAll('.IfLoggedIn');
 
-    if( user === null){
+    if( loggedIn == 'true'){
       //logged out
       console.log("Logged Out");
       elements.forEach(element => {
         //target all instances of ModalWrapper
         element.classList.add("currentlyLoggedOut"); 
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 5000); //time in ms
       });
     }else{
       //logged in
@@ -78,9 +81,4 @@ const { info } = Astro.props as Props;
 
   const delayInSeconds = 2; // Change this to the desired delay in seconds
   waitForDelay(delayInSeconds, delayedFunction);
-
-
-  
-
-
 </script>
