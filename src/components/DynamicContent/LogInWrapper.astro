@@ -106,19 +106,19 @@ const { info } = Astro.props as Props;
 
       if( loggedIn == true){
         //logged in
-        console.log("Logged In");
+        console.log("LogInWrapper --- Logged In | cookie");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
       }else if(user != null){
         //logged in
-        console.log("Logged In");
+        console.log("LogInWrapper --- Logged In | direct");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
       } else {
         //logged out
-        console.log("Logged Out");
+        console.log("LogInWrapper --- Logged Out");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedOut"); 
           setTimeout(() => {
