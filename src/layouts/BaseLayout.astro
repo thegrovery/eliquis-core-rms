@@ -56,9 +56,11 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			<HeadAnalytics/>
 		}
 		
+		<!-- PWA Code -->
 		<script src="/src/pwa.ts"></script>
 		<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+		<!-- END PWA Code -->
 		
 		<SessionManager/>
 		<title set:html={formatTitle(content)} />

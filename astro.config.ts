@@ -60,16 +60,15 @@ export default defineConfig({
       ],
     },
     workbox: {
-      registerType: 'autoUpdate',
       navigateFallback: '/offline',
       globDirectory: '/dist',
-      globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+      globPatterns: ['**/*.{js,css,html}'],
       maximumFileSizeToCacheInBytes: 5000000,
     },
-    /*devOptions: {
+    devOptions: {
       enabled: true,
       navigateFallbackAllowlist: [/^\/offline/],
-    },*/
+    },
   }),
 	prefetch({
     //prefetch options

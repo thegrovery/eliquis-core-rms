@@ -41,10 +41,12 @@ const t = useTranslations(Astro);
 			<HeadAnalytics/>
 		}
 		
+		<!-- PWA Code -->
 		<script src="/src/pwa.ts"></script>
-			<PWA/>
+		<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-		
+		<!-- END PWA Code -->
+
 		<SessionManager />
 		<title>{`${title} | ${t('site.title')}`}</title>
 		<style>
