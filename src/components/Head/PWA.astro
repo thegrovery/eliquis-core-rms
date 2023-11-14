@@ -15,11 +15,13 @@ const { heading, body } = Astro.props as Props;
 <meta name="theme-color" content="#76004B" />
 
 <script type="text/javascript">
-async function persistData() {
-  if (navigator.storage && navigator.storage.persist) {
-    const result = await navigator.storage.persist();
-    console.log(`Data persisted: ${result}`);
-} else {
-	console.log(`Data not persistent`);
-}
+	async function persistData() {
+	  if (navigator.storage && navigator.storage.persist) {
+	    const result = await navigator.storage.persist();
+	    console.log(`Data persisted: ${result}`);
+		} else {
+			console.log(`Data not persistent`);
+		}
+	}
+	persistData();
 </script>
