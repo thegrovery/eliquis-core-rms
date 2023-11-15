@@ -1,7 +1,6 @@
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
 import { defineConfig } from 'astro/config';
-import AstroPWA from '@vite-pwa/astro';
 import AutoImport from 'astro-auto-import';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -15,25 +14,28 @@ import { rehypeTasklistEnhancer } from './plugins/rehype-tasklist-enhancer';
 import { remarkFallbackLang } from './plugins/remark-fallback-lang';
 import { theme } from './syntax-highlighting-theme';
 
+/*===== Extra Features =====*/
 import prefetch from "@astrojs/prefetch";
+import serviceWorker from "astrojs-service-worker";
+import AstroPWA from '@vite-pwa/astro';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://grovery-core-toolkit-staging.netlify.app/',
   integrations: [AutoImport({
     imports: [asideAutoImport, codeSnippetAutoImport]
-  }), 
-  preact({
+  }), preact({
     compat: true
   }), 
   sitemap(), 
   astroAsides(), 
   astroCodeSnippets(), 
   mdx(), 
+  serviceWorker(),
   AstroPWA({
     mode: 'development',
-    base: '/dist',
-    scope: '/dist',
+    base: '/',
+    scope: '/',
     includeAssets: ['favicon.svg'],
     registerType: 'autoUpdate',
     manifest: {
@@ -59,22 +61,14 @@ export default defineConfig({
         },
       ],
     },
-    workbox: {
-      navigateFallback: '/offline',
-      globDirectory: '/dist',
-      globPatterns: [
-      	'**/*.{js,css,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
-      ],
-      maximumFileSizeToCacheInBytes: 5000000,
-    },
-    /*devOptions: {
+    devOptions: {
       enabled: true,
       navigateFallbackAllowlist: [/^\/offline/],
-    },*/
+    },
   }),
-	prefetch({
+	/*prefetch({
     //prefetch options
-	 }),
+	 }),*/
   ],
   markdown: {
     syntaxHighlight: 'shiki',

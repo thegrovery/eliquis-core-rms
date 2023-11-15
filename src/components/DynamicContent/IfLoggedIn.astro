@@ -43,44 +43,45 @@ const { info } = Astro.props as Props;
   }
 </style>
 
-<script>
-  function delayedFunction() {
-    console.log("IfLoggedIn functions executed.");
+<script type="text/javascript">
+  console.log("IfLoggedIn functions started.");
+  function LogInWrapperFunctions() {
+    setTimeout(() => {
+      console.log("IfLoggedIn functions triggered.");
+      console.log("IfLoggedIn functions executed.");
 
-    //grab all user info
-    var user = netlifyIdentity.currentUser();
-    console.log("Netlify User Info: ",user);
-    var elements = document.querySelectorAll('.IfLoggedIn');
+      //grab all user info
+      var loggedIn = SessionManager.getItem('loggedIn');
+      var user = netlifyIdentity.currentUser();
+      
+      var elements = document.querySelectorAll('.IfLoggedIn');
 
-    if( user === null){
-      //logged out
-      console.log("Logged Out");
-      elements.forEach(element => {
-        //target all instances of ModalWrapper
-        element.classList.add("currentlyLoggedOut"); 
-      });
-    }else{
-      //logged in
-      console.log("Logged In");
-      elements.forEach(element => {
-        //target all instances of ModalWrapper
-        element.classList.add("currentlyLoggedIn"); 
-      });
-    }
-
+      if( loggedIn == true){
+        //logged in
+        console.log("IfLoggedIn --- Logged In | cookie");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedIn"); 
+        });
+      }else if(user != null){
+        //logged in
+        console.log("IfLoggedIn --- Logged In | direct");
+        console.log(user);
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedIn"); 
+        });
+      } else {
+        //logged out
+        console.log("IfLoggedIn --- Logged Out");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedOut"); 
+        });
+      }
+      //end
+    }, 2000); //time in ms
     
-
   }
-
-  function waitForDelay(seconds, callback) {
-    setTimeout(callback, seconds * 1000);
-  }
-
-  const delayInSeconds = 2; // Change this to the desired delay in seconds
-  waitForDelay(delayInSeconds, delayedFunction);
-
 
   
 
-
+  LogInWrapperFunctions();
 </script>

@@ -41,9 +41,12 @@ const t = useTranslations(Astro);
 			<HeadAnalytics/>
 		}
 		
+		<!-- App-like Code -->
+		<SessionManager/>
 		<script src="/src/pwa.ts"></script>
-			<PWA/>
+		<PWA/>
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+		<!-- END App-like Code -->
 		
 		<SessionManager />
 		<title>{`${title} | ${t('site.title')}`}</title>
@@ -73,6 +76,8 @@ const t = useTranslations(Astro);
 			</article>
 		</main>
 		<Footer />
+
+		<!-- ===== Popups, Widgets, Banners, etc. ===== -->
 		<QRCodeModal/>
 		<OptionsModal/> 
 		<FeedbackModal/>
@@ -86,5 +91,6 @@ const t = useTranslations(Astro);
 		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
 			<SplashAnimation/>
 		}
+		<!-- ===== END Popups, Widgets, Banners, etc. ===== -->
 	</body>
 </html>

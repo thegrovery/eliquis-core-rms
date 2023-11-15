@@ -27,6 +27,7 @@ import SplashLayout from '../layouts/SplashLayout.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 import NavBlock from '~/components/NavBlock.astro';
 import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import IfLoggedInDisabled from '~/components/DynamicContent/IfLoggedInDisabled.astro';
 import UserInfo from '~/components/DynamicContent/UserInfo.astro';
 import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
 import SimpleButton from '~/components/Buttons/SimpleButton.astro';
@@ -44,7 +45,8 @@ import Button from '~/components/Button.astro';
 			
 			<div class="cell border">
 				
-				<p class="welcome-intro">Explore our newly launched platform to navigate through a variety of resources, program practices, and online support tailored to assist you effectively.
+				<p class="welcome-intro">
+					Explore our newly launched platform to navigate through a variety of resources, program practices, and online support tailored to assist you effectively.
 
 					Your feedback is valuable! If you have suggestions for new scenarios or improvements, please use our feedback form to help us enhance the platform continuously.
 				</p>

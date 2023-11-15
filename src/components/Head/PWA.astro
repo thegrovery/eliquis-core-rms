@@ -7,9 +7,21 @@ const { heading, body } = Astro.props as Props;
 
 <!-- Vite PWA code | temp disable for other updates-->
 <!-- <script src="/src/pwa.ts"></script> -->
-<!-- <Fragment set:html={pwaInfo.webManifest.linkTag} /> -->
+<!-- <Fragment set:html={pwaInfo.webManifest.linkTag} />  -->
 <link rel="icon" href="/favicon.png" type="image/png" />
 <link rel="apple-touch-icon" href="/favicon.png" />
 <link rel="mask-icon" href="/favicon.png" color="#76004B" />
 <meta name="msapplication-TileColor" content="#76004B" />
 <meta name="theme-color" content="#76004B" />
+
+<script type="text/javascript">
+	async function persistData() {
+	  if (navigator.storage && navigator.storage.persist) {
+	    const result = await navigator.storage.persist();
+	    console.log(`Data persisted: ${result}`);
+		} else {
+			console.log(`Data not persistent`);
+		}
+	}
+	persistData();
+</script>

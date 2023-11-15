@@ -1,0 +1,67 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import Button from '~/components/Button.astro'
+import { Icon } from 'astro-icon'
+
+const { heading, body } = Astro.props as Props;
+---
+
+<div id="OfflineStatusNotice">
+    <div>
+        <Icon name="uiw:warning" /> OFFLINE
+    </div>
+    <p>
+        Looks like you're not currently connected to the internet.  
+        <br/><br/>
+        You should still be able to browse this site, but you won't be able to access outside resources until you have internet access again.
+    </p>
+</div>
+
+<style lang="scss">
+    #OfflineStatusNotice{
+        $color: #76004B;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        border: 1px solid $color;
+        background-color: white;
+        width: 10rem;
+        padding: 1em;
+        
+        opacity: 0;
+        pointer-events: none;
+
+        &.active{
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        [astro-icon] {
+            color: $color;
+            fill: $color;
+        }
+        p{
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+    }
+</style>
+
+<script type="text/javascript">
+    // Select the div you want to modify
+    var myDiv = document.getElementById('OfflineStatusNotice');
+        
+    // Detect when the user goes offline
+    window.addEventListener('offline', function() {
+        // Add the 'active' class to the div
+        myDiv.classList.add('active');
+    });
+
+        // Detect when the user goes offline
+    window.addEventListener('online', function() {
+        // Add the 'active' class to the div
+        myDiv.classList.remove('active');
+    });
+
+</script>

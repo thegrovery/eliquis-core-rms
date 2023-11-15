@@ -1,5 +1,5 @@
 # README
-
+  
 ## Project-Specific Notes
 * Project-specific notes go here.
 
@@ -89,6 +89,7 @@ When you start the project, check in with the team for the following:
 * Framework: [Astro Docs](https://github.com/withastro/docs)
 * Icons: [astro-icon](https://github.com/natemoo-re/astro-icon#readme)
 * Sliders/Carousels: [swiper](https://swiperjs.com/)
+* Offline Service Worker: [astrojs-service-worker](https://github.com/tatethurston/astrojs-service-worker)
 
 <br />
 
@@ -114,7 +115,7 @@ Run the following command from root:
 	node src/lib/algolia.js
 ```
 
-## Adding Resources 
+## Adding Resources
 All resources are included and updated using the **resources.json** file in this location: ```src/data/resources.json```
 
 ### Resource Object Structure
