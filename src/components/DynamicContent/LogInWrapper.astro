@@ -99,9 +99,10 @@ const { info } = Astro.props as Props;
 
       //grab all user info
       var loggedIn = SessionManager.getItem('loggedIn');
-      //var user = netlifyIdentity.currentUser();
       console.log("Netlify Login Status: ",loggedIn);
       console.log(loggedIn);
+      //var user = netlifyIdentity.currentUser();
+      
       var elements = document.querySelectorAll('.LogInWrapper');
 
       if( loggedIn == true){
@@ -110,12 +111,12 @@ const { info } = Astro.props as Props;
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
-      }else if(netlifyIdentity.currentUser() != null){
+      /*}else if(user != null){
         //logged in
         console.log("LogInWrapper --- Logged In | direct");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
-        });
+        });*/
       } else {
         //logged out
         console.log("LogInWrapper --- Logged Out");
