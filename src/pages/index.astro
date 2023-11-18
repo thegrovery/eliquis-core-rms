@@ -41,54 +41,51 @@ import Button from '~/components/Button.astro';
 	<div class="content-wrapper">
 		
 		<div class="content">
-			<h1>Welcome</h1>
+			
 			
 			<div class="cell border">
-				
+				<h1>Welcome</h1>
 				<p class="welcome-intro">
 					Explore our newly launched platform to navigate through a variety of resources, program practices, and online support tailored to assist you effectively.
 
 					Your feedback is valuable! If you have suggestions for new scenarios or improvements, please use our feedback form to help us enhance the platform continuously.
 				</p>
 				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
+			</div>
+			
+			<div class="cell flexCenter">
 				
 				<IfLoggedIn>
-					
 					<div slot="loggedIn">
-						<p class="small">You're logged in.  Currently logged in as: <UserInfo info="email"/></p>
+						<p>
+							You're currently logged in as: <strong><UserInfo info="email"/></strong>
+							<br/>
+							Click below to enter the site, or to log out.
+						</p>
+						<br/>
 						<div class="button-wrap">
-							<Button variant="secondary" onClick="netlifyIdentity.logout();">Log out</Button>
-							<Button variant="primary" href="/en/introduction">Enter Site</Button>
+							<Button variant="secondary wide" href="/en/introduction">Enter Site</Button>
+							<Button variant="primary wide" onClick="netlifyIdentity.logout();">Log out</Button>
 						</div>
 					</div>
 
 					<div slot="loggedOut">
-						<p class="small">You're logged out</p>
+						<p>
+							You're currently logged out.  Click below to log in.
+							<br/>
+							If you do not currently have an account, contact your manager to get started.
+						</p>
+						<br/>
 						<div class="button-wrap">
-							<Button variant="secondary" onClick="netlifyIdentity.open('login');">Login</Button>
-							<Button variant="primary" onClick="netlifyIdentity.open('signup');">Sign up</Button>
-
+							<Button variant="secondary wide" onClick="netlifyIdentity.open('login');">Log In</Button>
+							<!-- <Button variant="primary" onClick="netlifyIdentity.open('signup');">Sign up</Button> -->
 						</div>
 					</div>
 					
-					
-
 				</IfLoggedIn>
 
-				
 			</div>
-			
-			<!-- <div class="cell">
-				<NavBlock
-					icon="gala:brochure"  
-					title="Getting Started" 
-					description="Learn how to use CORE and where to find the information you need." 
-					viewDetailsButtonText="Explore Resources" 
-					width="half" 
-					resourceDetailsLink="/en/getting-started/" 
-				/>
-			</div> -->
-
+			<!-- end cell | cell layout -->
 		</div>
 	</div>
 </SplashLayout>
@@ -100,7 +97,7 @@ import Button from '~/components/Button.astro';
 	.content-wrapper {
 		width: 100%;
 		height: 100%;
-		max-width: var(--page-width-2);
+		max-width: var(--page-width-1);
 		display: flex;
 		justify-content: flex-start;
 		
@@ -114,19 +111,39 @@ import Button from '~/components/Button.astro';
 			height: 100%;
 			margin-inline: auto;
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 			/* overflow-x: hidden; */
 			// max-width: 80vw;
-			@media (min-width: 50em) {
-				// max-width: 50vw;
+			
+			.cell{
+				width: 50%;
+				padding: 1rem;
+				&.border{
+					border-right: solid 1px var(--theme-text);
+				}
+				&.flexCenter{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
 			}
-			margin-right: auto;
-			.loading-wrapper {
-				margin-bottom: 1.5rem;
+
+			@media (max-width: 800px) {
+				display: flex;
+				flex-direction: column;
+
+				.cell{
+					width: 100%;
+					padding: 1rem;
+					&.border{
+						border-right: none;
+						border-bottom: solid 1px var(--theme-text);
+					}
+					
+				}
 			}
-			h1 {
-				// font-size: 3.5rem;
-			}
+
 			.welcome-intro {
 				margin-bottom: 1.5em;
 				padding-right: 10%;
@@ -134,18 +151,12 @@ import Button from '~/components/Button.astro';
 					padding-right: 20%;
 				}	
 			}
-			.small {
-				font-size: .9rem;
-				margin-bottom: 1.5em;
+
+			.button-wrap{
+				display: flex;
+				flex-direction: column;
 			}
-			.button-wrap {
-				// display: flex;
-				// flex-direction: column;
-			}
-			.button {
-				// width: 300px;
-				justify-content: center;
-			}
+
 		}
 	}
 	

@@ -24,6 +24,7 @@ export let href; // optional href prop
 /* Global Btn Style */
   .button {
     display: inline-flex;
+    justify-content: center;
     cursor: pointer;
 	  margin: 8px 0;
     margin-right: 4px;
@@ -49,7 +50,11 @@ export let href; // optional href prop
   }
   .button.small {
     padding: 12px 28px;
-    
+  }
+  .button.wide {
+    padding: 12px 28px;
+    width: 100%;
+    max-width: 250px;
   }
   .button:hover {
     text-decoration: none;
