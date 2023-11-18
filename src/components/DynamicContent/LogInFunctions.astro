@@ -12,7 +12,7 @@ const { info } = Astro.props as Props;
 <script>
   //delay functions so there's no refresh loop 
   //on initial login event on page load.
-    function delayedFunction() {
+    setTimeout(() => {
       console.log("Netlify Login -- LogInFunctions ready"),
       netlifyIdentity.on('login', user => 
         console.log("Netlify Login -- 'login' event"),
@@ -22,15 +22,8 @@ const { info } = Astro.props as Props;
         console.log("Netlify Login -- 'logout' event"),
         location.reload()
       );
+    }, 5000); //time in ms
 
-    }
-
-    function waitForDelay(seconds, callback) {
-      setTimeout(callback, seconds * 1000);
-    }
-
-    const delayInSeconds = 5 // Change this to the desired delay in seconds
-    waitForDelay(delayInSeconds, delayedFunction);
 </script>
 
 <script type="text/javascript">
