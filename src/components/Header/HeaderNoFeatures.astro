@@ -1,0 +1,226 @@
+---
+import SkipToContent from './SkipToContent.astro';
+import SidebarToggle from './SidebarToggle';
+import LanguageSelect from './LanguageSelect';
+import Search from './Search.astro';
+import ThemeToggleButton from './ThemeToggleButton';
+import FeedbackButton from '~/components/Buttons/FeedbackButton.astro';
+import OptionsButton from './OptionsButton.astro';
+import AnnouncementButton from '~/components/Buttons/AnnouncementButton.astro';
+import Logo from '~/components/SVGs/Logo.astro';
+
+//disclaimer
+import TopBarDisclaimer from './TopBarDisclaimer.astro';
+
+// import SimpleSearch from './SimpleSearch';
+import SearchButton from '../Buttons/SearchButton.astro';
+
+import { getLanguageFromURL } from '../../util';
+import { getDocSearchStrings, useTranslations } from '../../i18n/util';
+
+const { currentPage } = Astro.props;
+const lang = currentPage && getLanguageFromURL(currentPage);
+const docsearchStrings = getDocSearchStrings(Astro);
+const t = useTranslations(Astro);
+---
+
+<header>
+	<TopBarDisclaimer />
+	<div class="header-content">
+	<SkipToContent />
+		<nav class="nav-wrapper" aria-label={t('navbar.a11yTitle')}>
+			<div dir="ltr" lang="en" class="logo flex">
+				<ul>
+					<li>
+						<a class="logo" href="/introduction">
+							<Logo/>					  
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			{import.meta.env.PUBLIC_FEATURE_GLOBAL_ANNOUNCEMENTS=="true" &&
+				<AnnouncementButton/>
+			}
+
+			{import.meta.env.PUBLIC_FEATURE_FEEDBACK=="true" &&
+				<FeedbackButton/>
+			}
+
+			{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+				<ThemeToggleButton
+					client:visible
+					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+					isInsideHeader={true}
+				/>
+			}
+			
+			<!-- {import.meta.env.PUBLIC_FEATURE_SEARCH=="true" &&
+				<Search {lang} labels={docsearchStrings} />
+			} -->
+			<!-- <SimpleSearch client:idle /> -->
+			
+			<!-- <SearchButton />
+			<OptionsButton/> -->
+			
+			<SidebarToggle client:idle />
+		</nav>
+	</div>
+</header>
+
+<style type="scss">
+	header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		height: var(--theme-navbar-height);
+		z-index: 11;
+		padding: 0 0 1.2rem 0;
+		backdrop-filter: blur(10px);
+		&:before {
+			content:'';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: block;
+			opacity: .92;
+			z-index: -1;
+			background-color: var(--theme-navbar-bg);
+			
+		}
+		.header-content {
+			display: flex;
+			align-items: center;
+			justify-content: left;
+			overflow: visible;
+		}
+	}
+
+	ul,
+	li {
+		all: inherit;
+		flex-grow: 0;
+	}
+
+	.nav-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.75rem;
+		width: 100%;
+		padding-inline: var(--min-spacing-inline);
+	}
+
+	/* If the device is likely to show a scrollbar gutter, reserve space for it */
+	@media (hover: hover) {
+		.nav-wrapper {
+			max-width: calc(100vw - 1.1rem);
+		}
+	}
+
+	.logo {
+		display: flex;
+		justify-content: flex-start;
+		font-size: 1rem;
+		flex-grow: 1;
+		flex-shrink: 0;
+		font-weight: 600;
+		line-height: 1;
+		color: hsla(var(--color-base-white), 100%, 1);
+		text-decoration: none !important;
+		gap: 0.5em;
+	}
+
+	:global([dir='rtl']) .logo {
+		justify-content: flex-end;
+	}
+
+	.logo a {
+		padding: 0.5em 0.25em;
+		margin: -0.5em -0.25em;
+	}
+
+	/* Logo height as image -- still commented out above btw */
+	.logo img {
+		height: 60px;
+	}
+	/* Logo as inline svg */
+	.logo svg {
+		height: 60px;
+		width: auto;
+		display: block;
+		color: var(--theme-accent);
+	}
+	/* increase logo size on tablet & desktop */
+	@media (min-width: 600px) {
+		.logo svg {
+		height: 80px;
+		}
+	}
+	.logo .hover {
+		opacity: 0;
+	}
+	.logo a {
+		transition: transform 180ms ease-out;
+	}
+
+	.logo a:hover,
+	.logo a:focus {
+		opacity: 1;
+		/*transform: translateY(-2px);*/
+	}
+
+	.logo a:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	.logo h1 {
+		font: inherit;
+		color: inherit;
+		margin: 0;
+	}
+
+	.astro {
+		overflow: hidden;
+		width: 41px;
+	}
+
+	.docs {
+		display: none;
+	}
+
+	@media (min-width: 20em) {
+		.docs {
+			display: inherit;
+			max-width: 80px;
+		}
+	}
+
+	@media (min-width: 23.5em) {
+		.docs {
+			max-width: none;
+		}
+		.nav-wrapper {
+			gap: .65rem;
+		}
+	}
+
+	@media (min-width: 50em) {
+		header {
+			padding: 0 0 1.5rem 0;
+		}
+		.astro {
+			width: auto;
+		}
+	}
+
+	@media (forced-colors: active) {
+		.text {
+			fill: LinkText;
+		}
+		.docs-path {
+			fill: ActiveText;
+		}
+	}
+</style>

@@ -2,6 +2,7 @@
 import Footer from '../components/Footer/Footer.astro';
 import HeadCommon from '../components/HeadCommon.astro';
 import Header from '../components/Header/Header.astro';
+import HeaderNoFeatures from '../components/Header/HeaderNoFeatures.astro';
 import { normalizeLangTag } from '../i18n/bcp-normalize';
 import { rtlLanguages } from '../i18n/languages';
 import { useTranslations } from '../i18n/util';
@@ -69,7 +70,7 @@ const t = useTranslations(Astro);
 	</head>
 
 	<body>
-		<Header />
+		<HeaderNoFeatures />
 		<main class="layout splash-layout">
 			<article>
 				<slot />
@@ -85,9 +86,9 @@ const t = useTranslations(Astro);
 		<AnnouncementModal/>
 		<SearchModal />
 		<LogInFunctions/>
-		{import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
+		<!-- {import.meta.env.PUBLIC_FEATURE_CHAT=="true" &&
 			<ChatWidget/>
-		}
+		} -->
 		{import.meta.env.PUBLIC_FEATURE_SPLASH_ANIMATION=="true" &&
 			<SplashAnimation/>
 		}
