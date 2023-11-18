@@ -12,11 +12,9 @@ const { info } = Astro.props as Props;
     setTimeout(() => {
       console.log("Netlify Login -- LogInFunctions ready"),
       netlifyIdentity.on('login', user => 
-        console.log("Netlify Login -- 'login' event"),
         location.reload()
       );
       netlifyIdentity.on('logout', () => 
-        console.log("Netlify Login -- 'logout' event"),
         location.reload()
       );
     }, 5000); //time in ms
