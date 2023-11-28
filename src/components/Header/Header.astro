@@ -6,6 +6,7 @@ import Search from './Search.astro';
 import ThemeToggleButton from './ThemeToggleButton';
 import FeedbackButton from '~/components/Buttons/FeedbackButton.astro';
 import OptionsButton from './OptionsButton.astro';
+import LogInOutButton from '~/components/Buttons/LogInOutButton.astro';
 import AnnouncementButton from '~/components/Buttons/AnnouncementButton.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 
@@ -32,7 +33,7 @@ const t = useTranslations(Astro);
 			<div dir="ltr" lang="en" class="logo flex">
 				<ul>
 					<li>
-						<a class="logo" href="/introduction">
+						<a class="logo" href="/en/introduction">
 							<Logo/>					  
 						</a>
 					</li>
@@ -61,7 +62,8 @@ const t = useTranslations(Astro);
 			<!-- <SimpleSearch client:idle /> -->
 			
 			<SearchButton />
-			<OptionsButton/>
+			<LogInOutButton />
+			<!-- <OptionsButton/> -->
 			
 			<SidebarToggle client:idle />
 		</nav>
