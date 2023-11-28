@@ -165,6 +165,14 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 					}
 				}
 			}
+
+			
+			@media (min-width: 72em) {
+				.main-column.noRightSidebar {
+					margin-inline-end: 0;
+				}
+			}
+			
 		</style>
 
 	</head>
@@ -195,7 +203,7 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 			</LogInWrapper>
 			
 		</main>
-		<div class="main-column">
+		<div class={rightSidebar ? "main-column " : "main-column noRightSidebar"}>
 			<slot name="footer">
 				<Footer />
 			</slot>
