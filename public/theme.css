@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5 {
 ::backdrop {
 	color-scheme: light;
 	--theme-accent: var(--custom-dark-blue);
-	--theme-accent-secondary: hsla(var(--custom-maroon), 1);
+	--theme-accent-secondary: var(--custom-maroon);
 	--theme-dim: hsla(var(--color-gray-70), 1);
 	--theme-dim-light: hsla(var(--color-gray-80), 1);
 	--theme-dim-lighter: hsla(var(--color-gray-90), 1);
