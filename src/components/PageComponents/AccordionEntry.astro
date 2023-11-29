@@ -11,7 +11,7 @@ const { question, icon, answer } = Astro.props as Props;
 
 <div class='AccordionEntry' 
   style={`--box-icon-url: url('/tutorial/${icon}.svg');`}
-  onclick="toggleAccordion()"  
+   
 >
   <div class='inner'>
 
@@ -21,7 +21,7 @@ const { question, icon, answer } = Astro.props as Props;
         :
           <h3>[ ===AccordionEntry Question Placeholder=== ]</h3>
       }
-      <div class="accordianButton" >
+      <div class="accordianButton" onclick="toggleAccordion()" >
         <span class="plus"><Icon name="ic:baseline-plus"/></span>
         <span class="minus"><Icon name="ic:baseline-minus"/></span>
       </div>
@@ -60,7 +60,7 @@ const { question, icon, answer } = Astro.props as Props;
      background-color: var(--theme-bg-gradient-top);
 
       .question{
-        cursor: pointer;
+        //cursor: pointer;
         h3{
           font-size: 1.2rem;
           max-width: 100%;
@@ -80,6 +80,7 @@ const { question, icon, answer } = Astro.props as Props;
           display: flex;
           justify-content: center;
           align-items: center;
+          cursor: pointer;
           .plus{
             display: block;
           }
@@ -181,6 +182,6 @@ const { question, icon, answer } = Astro.props as Props;
     }
 
     function accordionCloseAll() {
-
+      //close all accordians first, then open
     }
 </script>
