@@ -18,6 +18,13 @@
   :global(.flex-row .SearchButton) {
     width: 90%;
   }
+	:global(:root.theme-dark)  {
+    .SearchButton {
+      svg path {
+        fill: var(--custom-orange) !important;
+      }
+    }
+  }
   .SearchButton {
       position: relative;
       border: 1px solid var(--custom-accent-1-50);

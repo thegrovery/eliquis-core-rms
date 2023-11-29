@@ -18,7 +18,9 @@
     justify-content: space-between;
    
     border: 1px solid var(--custom-grey-1-50);
-    background-color: var(--custom-white-50);
+    // background-color: var(--custom-white-50);
+    background-color: var(--theme-bg-gradient-top);
+
     border-radius: 6px;
     
     margin: 0 0 2em 0; /* Bottom Space */
@@ -53,7 +55,8 @@
     }
     transition: all .1s ease-in;
     border-radius: 50%;
-    background-color: var(--custom-white);
+    background-color: var(--custom-white-10);
+    /* background-color: var(--custom-white); */
     border: 1px solid var(--custom-orange-50);
     display: flex;
     align-items: center;
@@ -74,7 +77,8 @@
     position: relative;
     border-radius: 6px;
     border: 1px solid var(--custom-grey-1-50);
-    background-color: var(--custom-white-50);
+    /* background-color: var(--custom-white-50); */
+    background-color: var(--theme-bg-gradient-top);
     transition: all .1s ease-in;
 
     /* box-shadow: -2px 2px 0px var(--custom-maroon-50); */
