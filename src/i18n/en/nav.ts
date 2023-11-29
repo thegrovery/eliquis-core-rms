@@ -23,14 +23,14 @@ export default [
 		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
 		{ text: 'Provider Expresses That Patient Unable To Get Prescription Filled', slug: 'program-in-practice/provider-expresses-that-patient-unable-to-get-prescription-filled', key: 'provider-expresses-that-patient-unable-to-get-prescription-filled' },
 		{ text: 'Pharmacist says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) and CHAMPUS Patients are not eligible For co-pay assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-va-champus-patients-are-not-eligible-for-co-pay-assistance' },
-		{ text: 'Co-Pay Backdate Request', slug: 'program-in-practice/co-pay-backdate-request', key: 'co-pay-backdate-request' },
+		{ text: 'Co-pay Backdate Request', slug: 'program-in-practice/co-pay-backdate-request', key: 'co-pay-backdate-request' },
 		{ text: 'Provider Expresses That Patient Unaware Of Co-pay Program And/or Hasn’t Been Using Co-pay Card', slug: 'program-in-practice/provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card', key: 'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card' },
 		{ text: 'Mail-Order Pharmacy', slug: 'program-in-practice/mail-order-pharmacy', key: 'mail-order-pharmacy' },
 /* 		{ text: 'E-Sign', slug: 'program-in-practice/e-sign', key: 'e-sign' },
 		{ text: 'Digital Assistant', slug: 'program-in-practice/digital-assistant', key: 'digital-assistant' },
  */
 	{ text: 'Terms & Conditions', header: true, type: 'learn', key: 'terms-and-conditions' },
-		{ text: 'Co-Pay Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/co-pay-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'co-pay-terms-and-conditions-and-eligibility-requirements-for-patients' },
+		{ text: 'Co-pay Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/co-pay-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'co-pay-terms-and-conditions-and-eligibility-requirements-for-patients' },
 		{ text: 'FTO Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/fto-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'fto-terms-and-conditions-and-eligibility-requirements-for-patients' },
 		{ text: 'Master T&Cs', slug: 'terms-and-conditions/master-terms-and-conditions', key: 'master-terms-and-conditions' },
 
