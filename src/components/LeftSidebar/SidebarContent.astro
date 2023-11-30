@@ -58,7 +58,58 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 	))
 }
 
+<script is:inline>
+	const updateCheckmarks = () => {
+    const readPages = JSON.parse(localStorage.getItem('readPages') || '[]');
+
+	  // Mapping slugs to indexes
+	  const slugToIndexMap = {
+		'about-program-in-practice': 1,
+        'how-1-855-eliquis-works': 2,
+        'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs': 3,
+        'provider-expresses-that-patient-unable-to-get-prescription-filled': 4,
+        'pharmacist-says-medicare-medicaid-dod-tricare-va-champus-patients-are-not-eligible-for-co-pay-assistance': 5,
+        'co-pay-backdate-request': 6,
+        'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card': 7,
+        'mail-order-pharmacy': 8,
+        'e-sign': 9,
+        'digital-assistant': 10
+	  };
+  
+	  const links = document.querySelectorAll('.nav-link a');
+  
+	  links.forEach(link => {
+      const slug = new URL(link.href).pathname.split('/').filter(Boolean).pop();
+      const pageIndex = slugToIndexMap[slug];
+      const checkmarkSpan = '<span class="checkmark">✓</span>';
+
+      if (pageIndex && readPages.includes(pageIndex)) {
+        if (!link.innerHTML.includes('checkmark')) {
+          link.innerHTML += checkmarkSpan; // Append the checkmark span
+        }
+      } else {
+        link.innerHTML = link.innerHTML.replace(checkmarkSpan, ''); // Remove checkmark span
+      }
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', updateCheckmarks);
+  window.addEventListener('readPageUpdated', updateCheckmarks);
+</script>
+  
+  
+
 <style lang="scss">
+	:global(.checkmark) {
+		background-color: var(--custom-orange);
+		color: var(--custom-white);
+		width: 18px;
+		height: 18px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 1em;
+	}
 	.nav-group {
 		margin-bottom: 1rem;
 	}
@@ -122,7 +173,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		&[aria-current='page'],
 		&[data-current-parent='true'] {
 			color: var(--theme-text);
-			background-color: var(--custom-tan-20);
+			background-color: var(--custom-tan-25);
 			
 			font-weight: 500;
 			/* Indicates the current page for forced colors users in older browsers */
