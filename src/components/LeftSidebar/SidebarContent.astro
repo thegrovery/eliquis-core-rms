@@ -41,15 +41,17 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 				</summary>
 				<ul>
 					{section.children.map(({ slug, text, isFallback }) => (
-						<li class="nav-link">
-							<a
-								href={`${Astro.site?.pathname}${lang}/${slug}/`}
-								aria-current={`${currentPageMatch.endsWith(slug) ? 'page' : 'false'}`}
-								data-current-parent={`${isSubPage(currentPageMatch, slug) ? 'true' : 'false'}`}
-								rel="prefetch"
-							>
-								<Fragment set:html={text} /> <!-- {isFallback && <sup class="fallback">EN</sup>} -->
-							</a>
+						<li class={
+						`nav-link ${section.key === 'program-in-practice' ? 'program-in-practice-link' : ''}`
+						}>
+						<a
+							href={`${Astro.site?.pathname}${lang}/${slug}/`}
+							aria-current={`${currentPageMatch.endsWith(slug) ? 'page' : 'false'}`}
+							data-current-parent={`${isSubPage(currentPageMatch, slug) ? 'true' : 'false'}`}
+							rel="prefetch"
+						>
+							<span class="nav-text"><Fragment set:html={text} /></span>
+						</a>
 						</li>
 					))}
 				</ul>
@@ -104,12 +106,14 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		background-color: var(--custom-orange);
 		color: var(--custom-white);
 		width: 18px;
+		min-width: 18px;
 		height: 18px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 1em;
 	}
+	
 	.nav-group {
 		margin-bottom: 1rem;
 	}
@@ -151,7 +155,34 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 			color: var(--custom-white)
 		}
 	}
-
+	.nav-link {
+		&.program-in-practice-link {
+			
+			a {
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 18px;
+					height: 18px;
+					right: 0.8em;
+					background-color: var(--theme-bg-offset);
+					border-radius: 1.5em;
+					z-index: -1;
+				}
+				/* border: 1px solid var(--custom-maroon-25);
+				margin: .25em 0; */
+				padding: 0.5rem .75rem;
+				border-radius: .25em;
+				display: flex;
+				justify-content: space-between;
+				// background-color: var(--theme-bg-gradient-top);
+			}
+			a span.nav-text {
+				width: 85%;
+			}
+		}
+	}
 	.nav-link a {
 		margin: 1px;
 		padding: 0.5rem 2rem;
