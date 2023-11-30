@@ -106,12 +106,15 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		justify-content: flex-end;
-		@media (min-width: 80em) {
-			flex-direction: row;
+		flex-direction: row;
+		@media (max-width: 600px) {
+			padding-left: 1rem;
 		}
 		a {
-			@media (min-width: 80em) {
+			max-width: 50%;
+			@media (max-width: 80em) {
 				max-width: 50%;
+				flex-direction: column;
 			}
 			text-decoration: none; 
 			color: var(--custom-maroon);
