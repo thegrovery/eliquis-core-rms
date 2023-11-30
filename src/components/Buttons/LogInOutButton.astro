@@ -50,29 +50,16 @@ const { videoLink, text } = Astro.props as Props;
       background-color: var(--theme-code-inline-bg);
       cursor: pointer;
       font-size: 1rem;
-      padding: 0.25em 0.5em;
+      padding: 0.65em 1.5em;
       line-height: calc(1 / var(--theme-text-xs));
+      min-height: 36px;
       [astro-icon] {
         color: var(--theme-text);
       }
       &:hover{
         background-color: var(--custom-accent-2-10);
       }
-      min-height: 36px;
-      span {
-        display: none;
-        /* color: var(--theme-text-lighter); */
-      }
-      @media (min-width: 800px) {
-        //padding: 0.65em 1.5em 0.65em 0.75em;
-        padding: 0.65em 1.5em;
-        span {
-          display: block;
-        }
-        svg {
-          margin: 0 10px 0 0;
-        }
-      }
+      
       .LogInOutButton_inner {
         display: flex;
         align-items: center;
@@ -85,38 +72,12 @@ const { videoLink, text } = Astro.props as Props;
           opacity: 1;
         }
       }
+
+      //Hide on mobile
+      @media (max-width: 800px) {
+        display: none;
+      }
   }
 
 </style>
 
-<script type="text/javascript">
- 
-  //add notification dot if conditions are met
-  function buttonNotificationOn(){
-    var targetElement = document.querySelector(".AnnouncementButton");
-    targetElement.setAttribute("data-notification","true");
-    SessionManager().setItem('AnnouncementsNotification', 'true');
-  }
-
-  //remove notification dot
-  function buttonNotificationOff(){
-    event.currentTarget.setAttribute("data-notification","false");
-  }
-
-  //open announcement modal
-  function modalOpenAnnouncement(){
-    var targetElement = document.querySelector(".ModalWrapper[data-modal='announcement']");
-    targetElement.classList.add("active");
-  }
-
-  //RUN FUNCTIONS
-  const sessionVar = SessionManager.getItem('AnnouncementsNotification');
-
-  console.log(sessionVar);
-  if (sessionVar == false){
-    //nothing
-  } else {
-    console.log("sessionVar !== 'false'");
-    buttonNotificationOn();
-  }
-</script>
