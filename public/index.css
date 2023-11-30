@@ -124,7 +124,7 @@ h2 {
 
 :is(h2):not(:first-child),
 .heading-wrapper:not(:first-child):is(.level-h2) {
-	margin-top: 2.8rem;
+	margin-top: 2rem;
 }
 
 :is(h3, h4):not(:first-child),
@@ -156,7 +156,7 @@ h1 {
 
 @media (min-width: 37.75em) {
 	h1 {
-		font-size: 3rem; /* 48px */
+		font-size: 2.6rem; /* 48px */
 	}
 }
 
