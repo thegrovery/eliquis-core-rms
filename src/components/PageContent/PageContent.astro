@@ -4,6 +4,7 @@ import { rtlLanguages } from '../../i18n/languages';
 import { getLanguageFromURL } from '../../util';
 import FallbackNotice from '../FallbackNotice.astro';
 import ArticleNavigationButton from './ArticleNavigationButton.astro';
+import ArticleNavigationButtonPlaceholder from './ArticleNavigationButtonPlaceholder.astro';
 import { Breadcrumbs } from "astro-breadcrumbs";
 import 'astro-breadcrumbs/breadcrumbs.css';
 
@@ -79,7 +80,10 @@ const manualTitle = content.manualTitle;
 			(previous || next) && (
 				<aside class="next-previous-nav">
 					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
-					{next && <ArticleNavigationButton rel="next" item={next} />}
+					{next 
+						?	<ArticleNavigationButton rel="next" item={next} />
+						: 	<ArticleNavigationButtonPlaceholder rel="next" item={next} />
+					}
 				</aside>
 			)
 		}

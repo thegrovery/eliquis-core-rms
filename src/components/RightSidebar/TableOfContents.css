@@ -44,7 +44,7 @@
 	/* backdrop-filter: blur(3px); */
 	/* background: var(--theme-bg-gradient-top); */
 	-webkit-tap-highlight-color: transparent;
-	backdrop-filter: blur(10px);
+	/* backdrop-filter: blur(10px); */
 }
 .toc-mobile-header:before{
 	content: '';
@@ -55,7 +55,7 @@
 	height: 100%;
 	background: var(--theme-bg-gradient-top);
 	
-	opacity: .92;
+	opacity: 1;
 }
 .toc-mobile-header-content {
 	display: flex;
