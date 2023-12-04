@@ -19,21 +19,22 @@ const { SvgComponent, icon, text } = Astro.props as Props;
 </div>
 
 <style lang="scss">
-    :global(.iconbox-wrapper) {
-        display: flex;
-    }
+  :global(.iconbox-wrapper) {
+      display: flex;
+      margin-top: .5em;
+  }
   .iconbox {
       display: flex;
       align-items: center;
       flex-direction: column;
       @media (min-width: 52em) {
         flex-direction: row;
-        padding: .5em 1.5em .5em .5em;
-        gap: 1em;
+        padding: .5em 1.5em .5em 0em;
+        gap: .75em;
       }
-      border: 1px solid var(--custom-maroon-50);
+      /* border: 1px solid var(--custom-maroon-50); */
       gap: .5em;
-      padding: .5em .5em .5em .5em;
+      padding: .5em .5em .5em 0em;
       margin: 0 1em 1em 0;
       .iconwrap {
           background-color: var(--custom-dark-blue);
@@ -49,6 +50,7 @@ const { SvgComponent, icon, text } = Astro.props as Props;
       }
       span {
           font-family: var(--font-heading);
+          color: var(--theme-text-lighter);
       }
   }
 </style>
