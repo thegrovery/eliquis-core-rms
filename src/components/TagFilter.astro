@@ -1,54 +1,148 @@
 ---
-import { Astro } from 'astro';
-import Button from '~/components/Button.astro';
+// This is the frontmatter section where you can import other components or scripts if needed
 
+import Button from '~/components/Button.astro';
+import Icon from 'astro-icon';
 ---
 
-<div>
-    <Button variant="mini outline active" data-tag="all">All</Button>
-    {Astro.props.tags.map((tag) => (
-      <Button variant="mini outline" data-tag={tag}>{tag}</Button>
-    ))}
+
+  <!-- Buttons for desktop -->
+  <div class="button-group">
+      <Button variant="mini outline active" data-tag="all">All</Button>
+      {Astro.props.tags.map((tag) => (
+        <Button variant="mini outline" data-tag={tag}>{tag}</Button>
+      ))}
+  </div>
+  
+  <!-- Dropdown for mobile -->
+  <div class="select-wrapper">
+    <select class="tag-dropdown">
+      <option value="" disabled selected>Select filter here</option>
+      <option value="all">All</option>
+      {Astro.props.tags.map((tag) => (
+        <option value={tag}>{tag}</option>
+      ))}
+    </select>
+    <Icon name="mdi:chevron-down" class="select-icon" />
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buttons = document.querySelectorAll('.tag-filter-container .button');
-      const cards = document.querySelectorAll('.resource-card-container .resource-card');
-  
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const tag = button.dataset.tag.toLowerCase();
-  
-          // Remove the "active" class from all buttons
-          buttons.forEach(button => {
-            button.classList.remove('active');
-          });
-  
-          // Add the "active" class to the selected button
-          button.classList.add('active');
-  
-          if (tag === 'all') {
-            cards.forEach(card => {
-              card.style.display = 'block';
-            });
-          } else {
-            cards.forEach(card => {
-              const cardTags = card.dataset.tags.split(',').map(tag => tag.toLowerCase());
-  
-              if (cardTags.includes(tag)) {
-                card.style.display = 'block';
-              } else {
-                card.style.display = 'none';
-              }
-            });
-          }
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.button-group .button');
+    const dropdown = document.querySelector('.tag-dropdown');
+    const cards = document.querySelectorAll('.resource-card-container .resource-card');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tag = button.dataset.tag.toLowerCase();
+
+        // Remove the "active" class from all buttons
+        buttons.forEach(button => {
+          button.classList.remove('active');
         });
+
+        // Add the "active" class to the selected button
+        button.classList.add('active');
+
+        if (tag === 'all') {
+          cards.forEach(card => {
+            card.style.display = 'block';
+          });
+        } else {
+          cards.forEach(card => {
+            const cardTags = card.dataset.tags.split(',').map(tag => tag.toLowerCase());
+
+            if (cardTags.includes(tag)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        }
       });
     });
-  </script>
+
+    // Dropdown event listener
+    if (dropdown) {
+        dropdown.addEventListener('change', (event) => {
+            const tag = event.target.value.toLowerCase();
+            filterCards(tag);
+        });
+    }
+
+    function filterCards(tag) {
+        if (tag === 'all') {
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        } else {
+            cards.forEach(card => {
+                const cardTags = card.dataset.tags.split(',').map(tag => tag.toLowerCase());
+                if (cardTags.includes(tag)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    }
+
+  });
+</script>
   
   
-  
-  
-  
+<style>
+  @media screen and (max-width: 72em) { /* Adjust max-width as needed */
+    .button-group {
+        display: none;
+    }
+    .tag-dropdown {
+        display: inline-block;
+    }
+  }
+
+  @media screen and (min-width: 72em) {
+    .tag-dropdown, .select-icon {
+        display: none;
+    }
+  }
+
+  .select-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 8px 0 1em;
+
+  }
+
+  .tag-dropdown {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    min-width: 300px;
+    padding: 14px 20px;
+    font-family: var(--theme-heading);
+    /* font-size: 1em; */
+    color: var(--custom-orange);
+    background-color: transparent;
+    border: 1px solid var(--custom-orange);
+    border-radius: 1.5em;
+    /* Other styling for your select */
+  }
+  .tag-dropdown:focus-visible {
+    outline: 1px solid var(--custom-orange);
+    
+  }
+
+  .select-icon {
+    position: absolute;
+    right: 10px; /* Adjust as necessary */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--custom-orange);
+    pointer-events: none; /* Ensures the icon doesn't interfere with the dropdown functionality */
+  }
+
+</style>
+
+
