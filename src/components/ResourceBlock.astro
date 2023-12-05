@@ -44,6 +44,12 @@ import { Icon } from 'astro-icon'
     .resource-block p {
       text-decoration: none;
     }
+    :global(:root.theme-dark) {
+      .resource-block {
+        border: 1px solid var(--custom-orange-50);
+        box-shadow: -2px 2px 0px var(--custom-orange-50);
+      }
+    }
     .resource-block {
       /* styles for the card container */
       /* background-color: var(--theme-code-inline-bg); */
@@ -57,7 +63,7 @@ import { Icon } from 'astro-icon'
       box-shadow: -2px 2px 0px var(--custom-maroon-50);
       transition: all 150ms ease-in-out;
       animation: fadeInUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      margin: 1em 0;
+      margin: 1em .25em;
       .resource-block-inner {
         padding: 1rem;
         display: flex;
@@ -72,14 +78,14 @@ import { Icon } from 'astro-icon'
       }
     }
     .resource-block:hover,.resource-block:focus {
-        border-color: var(--custom-maroon);
+        border-color: var(--theme-accent-secondary);
         background-color: var(--theme-bg-gradient-top);
-        box-shadow: -2px 2px 0px var(--custom-maroon);
+        box-shadow: -2px 2px 0px var(--theme-accent-secondary);
        
     }
-    .resource-block:hover h4, .resource-block:focus h4 {
-      color: var(--custom-maroon);
-    }
+    /* .resource-block:hover h4, .resource-block:focus h4 {
+      color: var(--theme-accent);
+    } */
     .resource-block h4 {
         margin: 0rem 0 .5rem;
     }

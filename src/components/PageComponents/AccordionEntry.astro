@@ -17,11 +17,11 @@ const { question, icon, answer } = Astro.props as Props;
 
     <div class='question'>
       {question ? 
-          <h3>{question}</h3>
+          <h3 onclick="toggleAccordion(event)">{question}</h3>
         :
-          <h3>[ ===AccordionEntry Question Placeholder=== ]</h3>
+          <h3 onclick="toggleAccordion(event)">[ ===AccordionEntry Question Placeholder=== ]</h3>
       }
-      <div class="accordianButton" onclick="toggleAccordion()" >
+      <div class="accordianButton" onclick="toggleAccordion(event)" >
         <span class="plus"><Icon name="ic:baseline-plus"/></span>
         <span class="minus"><Icon name="ic:baseline-minus"/></span>
       </div>
@@ -35,14 +35,25 @@ const { question, icon, answer } = Astro.props as Props;
 </div>
 
 <style lang="scss">
-        
-  .AccordionEntry {
-    :global(.answer-title) {
+  :global(.AccordionEntry .answer-title) {
       margin: .5em 0 1em;
       padding: 1rem 0;
-      border-bottom: 2px solid var(--custom-maroon);
+      border-bottom: 2px solid var(--theme-accent-secondary);
 
+    }     
+    
+  :global(:root.theme-dark) {
+    .AccordionEntry {
+      &:hover, &:active {
+      border: 1px solid var(--custom-orange-90);
+      box-shadow: -2px 2px 0px var(--custom-orange-90);
+     }
+     border: 1px solid var(--custom-orange-50);
+     box-shadow: -2px 2px 0px var(--custom-orange-50);
     }
+  }  
+  .AccordionEntry {
+    
      position: relative;
      transition: all .1s ease-in;
      margin-bottom: 2rem;
@@ -65,14 +76,15 @@ const { question, icon, answer } = Astro.props as Props;
           font-size: 1.2rem;
           max-width: 100%;
           margin: 0;
-          color: var(--custom-maroon);
+          color: var(--theme-accent-secondary);
+          cursor: pointer;
         }
         
         .accordianButton{
           width: 3rem;
           height: 3rem;
           border-radius: 100%;
-          background-color: var(--custom-maroon);
+          background-color: var(--theme-accent-secondary);
           color: var(--custom-white);
           position: absolute;
           top: 1.25rem;
@@ -109,7 +121,7 @@ const { question, icon, answer } = Astro.props as Props;
         overflow: hidden;
         transition: 0.15s linear;
         :global(h4) {
-            margin-top: 1em;
+            margin-top: 0em;
         }
         :global(.content-wrap h4) {
             margin-top: 0; 
@@ -130,7 +142,7 @@ const { question, icon, answer } = Astro.props as Props;
           }
         }
         .accordianButton{
-          background-color: var(--custom-dark-blue);
+          background-color: var(--theme-accent);
           .plus{
             display: none;
           }
@@ -140,9 +152,9 @@ const { question, icon, answer } = Astro.props as Props;
         }
       }
   }
-  .answer ul {
+  :global(.answer ul, .answer ol) {
     margin: 1rem 0;
-
+    padding: 0 0 0 1.5em;
   }
   @supports (mask: var(--box-icon-url) no-repeat center bottom / 100%) or
     (-webkit-mask: var(--box-icon-url) no-repeat center bottom / 100%) {
@@ -162,15 +174,15 @@ const { question, icon, answer } = Astro.props as Props;
 </style>
 
 <script type="text/javascript">
-    function toggleAccordion(buttonElement) {
+    function toggleAccordion(event) {
         if (window.getSelection().toString() !== '') {
           // Text is being selected, do not toggle accordion
           return;
         }
-        /*const contentElement = buttonElement.nextElementSibling;
-        contentElement.classList.toggle('active');*/
-        var onClickThis = event.currentTarget;
-        var parentElement = onClickThis.closest(".AccordionEntry");
+
+        event.stopPropagation(); // Prevents event bubbling if nested elements are clicked
+
+        var parentElement = event.currentTarget.closest(".AccordionEntry");
         var contentElement = parentElement.querySelector(".answer");
 
         parentElement.classList.toggle('active');
@@ -180,6 +192,7 @@ const { question, icon, answer } = Astro.props as Props;
             contentElement.style.maxHeight = contentElement.scrollHeight + "px";
         }
     }
+
 
     function accordionCloseAll() {
       //close all accordians first, then open

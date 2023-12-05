@@ -35,7 +35,16 @@ const { question, number, icon, answer } = Astro.props as Props;
 </div>
 
 <style lang="scss">
-
+:global(:root.theme-dark) {
+    .FaqEntry {
+      &:hover, &:active {
+      border: 1px solid var(--custom-orange-90);
+      box-shadow: -2px 2px 0px var(--custom-orange-90);
+     }
+     border: 1px solid var(--custom-orange-50);
+     box-shadow: -2px 2px 0px var(--custom-orange-50);
+    }
+  }  
   .FaqEntry {
      position: relative;
      transition: all .1s ease-in;
@@ -67,7 +76,7 @@ const { question, number, icon, answer } = Astro.props as Props;
           width: 3rem;
           height: 3rem;
           border-radius: 100%;
-          background-color: var(--custom-maroon);
+          background-color: var(--theme-accent-secondary);
           color: var(--custom-white);
           position: absolute;
           top: 1.25rem;
@@ -117,7 +126,7 @@ const { question, number, icon, answer } = Astro.props as Props;
           }
         }
         .accordianButton{
-          background-color: var(--custom-dark-blue);
+          background-color: var(--theme-accent);
           .plus{
             display: none;
           }
