@@ -5,8 +5,8 @@
       "imageSrc": "/images/resources/e360support-website_thumb.png",
       "icon": "mdi:web",
       "title": "Eliquis 360 Support Website",
-      "description": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals to access comprehensive resources on ELIQUIS® (apixaban)",
-      "longDescription": "The Eliquis HCP Website serves as a centralized hub for Healthcare Professionals (HCPs) to access comprehensive resources on ELIQUIS® (apixaban), including its indications for reducing risks associated with stroke, deep vein thrombosis, and pulmonary embolism. The site also provides detailed efficacy and safety data, dosing guidelines, formulary lookup, and various professional and patient resources like co-pay & free trial offers, sample requests, and hospital discharge resources, enabling HCPs to better understand and discuss ELIQUIS® with their patients​1​",
+      "description": "Eliquis's HCP Website, a valuable resource to l enable HCP's to learn about ELIQUIS® its indications and resources.",
+      "longDescription": "Eliquis's HCP Website, a valuable resource to l enable HCP's to learn about ELIQUIS® its indications and resources.",
       "tags": ["Websites"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
@@ -16,8 +16,8 @@
       "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp",
       "PfizerResourceLink": "https://www.eliquis.com/eliquis/hcp/formulary-lookup",
       "RelatedResources": {
-          "tags": ["Websites"],
-          "titles": []
+          "tags": [""],
+          "titles": ["Fingertip Formulary Website","Online Support Provider Portal Website"]
       }
     },
     {
@@ -84,10 +84,10 @@
     },
     {
       "resourceType": "external",
-      "imageSrc": "",
+      "imageSrc": "/images/resources/copaycard-lookuptool.png",
       "icon": "mdi:web",
       "title": "Co-Pay Card Lookup Tool",
-      "description": "Co-Pay Card Lookup Tool",
+      "description": "Search for your co-pay card ID or activate a free trial offer",
       "longDescription": "Co-Pay Card Lookup Tool​​",
       "tags": ["Websites"],
       "viewDetailsButtonText": "View Details",
@@ -349,10 +349,10 @@
       "imageSrc": "/images/resources/hcpsellsheet.png",
       "veevaCode": "432-US-2101701",
       "icon": "ph:download",
-      "title": "HCP Sell Sheet",
+      "title": "HCP Sell Sheet Digital Download",
       "description": "Working Together for Patient Access to ELIQUIS",
       "longDescription": "Working Together for Patient Access to ELIQUIS",
-      "tags": ["Digital Collateral","Collateral Materials"],
+      "tags": ["Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
       "resourceDetailsLink": "/internal-resources/digital-collateral/hcp-sell-sheet",
@@ -362,7 +362,7 @@
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],
-        "titles": ["Benefits Review Guide"]
+        "titles": ["Benefits Review Guide", "HCP Sell Sheet"]
       } 
     },
     {
@@ -373,10 +373,10 @@
       "title": "Benefits Review Guide",
       "description": "Benefits Review Guide Download",
       "longDescription": "Benefits Review Guide Download",
-      "tags": ["Digital Collateral","Collateral Materials"],
+      "tags": ["Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/internal-resources/digital-collateral/benefits-review-guide",
+      "resourceDetailsLink": "/internal-resources/digital-collaterals/benefits-review-guide",
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "#",
@@ -384,6 +384,300 @@
       "RelatedResources": {
         "tags": [""],
         "titles": ["HCP Sell Sheet"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200019.png",
+      "veevaCode": "432-US-2200019",
+      "icon": "ph:download",
+      "title": "English Co-pay Brochure",
+      "description": "Order English Co-pay Brochure",
+      "longDescription": "Order English Co-pay Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/english-co-pay-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=818267&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["English FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200105.png",
+      "veevaCode": "432-US-2200105",
+      "icon": "gala:brochure",
+      "title": "English FTO Brochure",
+      "description": "Order English FTO Brochure",
+      "longDescription": "Order English FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/english-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=856749&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["English Co-pay Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200035_temp.png",
+      "veevaCode": "432-US-2200035",
+      "icon": "gala:brochure",
+      "title": "English Pre-activated FTO Brochure",
+      "description": "Order English Pre-activated FTO Brochure",
+      "longDescription": "Order English Pre-activated FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/english-pre-activated-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=828625&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["English Co-pay Brochure", "English FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2100694.png",
+      "veevaCode": "432-US-2100694",
+      "icon": "gala:brochure",
+      "title": "Spanish FTO Brochure",
+      "description": "Order Spanish FTO Brochure",
+      "longDescription": "Order Spanish FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/spanish-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=798723&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Spanish Pre-activated FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200113.png",
+      "veevaCode": "432-US-2200113",
+      "icon": "gala:brochure",
+      "title": "Spanish Pre-activated FTO Brochure",
+      "description": "Order Spanish Pre-activated FTO Brochure",
+      "longDescription": "Order Spanish Pre-activated FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/spanish-pre-activated-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=855588&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Spanish FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200290.png",
+      "veevaCode": "432-US-2200290",
+      "icon": "gala:brochure",
+      "title": "Russian Pre-activated FTO Brochure",
+      "description": "Order Russian Pre-activated FTO Brochure",
+      "longDescription": "Order Russian Pre-activated FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/russian-pre-activated-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901834&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200285.png",
+      "veevaCode": "432-US-2200285",
+      "icon": "gala:brochure",
+      "title": "Arabic Pre-activated FTO Brochure",
+      "description": "Order Arabic Pre-activated FTO Brochure",
+      "longDescription": "Order Arabic Pre-activated FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/arabic-pre-activated-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901819&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200288.png",
+      "veevaCode": "432-US-2200288",
+      "icon": "gala:brochure",
+      "title": "Chinese Pre-activated FTO Brochure",
+      "description": "Order Chinese Pre-activated FTO Brochure",
+      "longDescription": "Order Chinese Pre-activated FTO Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/chinese-pre-activated-fto-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901820&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200501.png",
+      "veevaCode": "432-US-2200501",
+      "icon": "gala:brochure",
+      "title": "Benefits Review Carrier",
+      "description": "Order Benefits Review Carrier",
+      "longDescription": "Order Benefits Review Carrier",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/benefits-review-carrier",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=948587&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200499.png",
+      "veevaCode": "432-US-2200499",
+      "icon": "gala:brochure",
+      "title": "Coverage Assistance Brochure",
+      "description": "Order Coverage Assistance Brochure",
+      "longDescription": "Order Coverage Assistance Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/coverage-assistance-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=969070&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200225.png",
+      "veevaCode": "432-US-2200225",
+      "icon": "gala:brochure",
+      "title": "Summary of Benefits Flashcard QRG",
+      "description": "Order Summary of Benefits Flashcard QRG",
+      "longDescription": "Order Summary of Benefits Flashcard QRG",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/summary-of-benefits-flashcard-qrg",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=969070&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": [""]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200503.png",
+      "veevaCode": "432-US-2200503",
+      "icon": "gala:brochure",
+      "title": "HCP Sell Sheet",
+      "description": "Order HCP Sell Sheet printed resource",
+      "longDescription": "Order HCP Sell Sheet printed resource",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/hcp-sell-sheet",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=944653&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["HCP Sell Sheet Digital Download"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2100705.png",
+      "veevaCode": "432-US-2100705",
+      "icon": "gala:brochure",
+      "title": "Brochure Holder",
+      "description": "Order Brochure Holder printed resource",
+      "longDescription": "Order Brochure Holder printed resource",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/brochure-holder",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=771638&adminFlag=true",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["English FTO Brochure","English Pre-activated FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
+      "imageSrc": "/images/resources/caregiver-brochure.png",
+      "veevaCode": "432-US-2300443",
+      "icon": "gala:brochure",
+      "title": "Caregiver Brochure",
+      "description": "Helpful information for caring for your loved one",
+      "longDescription": "Helpful information for caring for your loved one",
+      "tags": ["Digital Collateral"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/caregiver-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      "BMSResourceLink": "/pdfs/432-US-2300346_ELQ_E360_Caregiver_Broch_23_P0601650_V0_01_RS.original.pdf",
+      "PfizerResourceLink": "#",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Benefits Review Guide","HCP Sell Sheet Digital Download"]
       } 
     }
   ]
