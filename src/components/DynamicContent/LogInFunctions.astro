@@ -11,14 +11,14 @@ const { info } = Astro.props as Props;
 <script type="text/javascript">
   //function vars
   var functionsDelay = 3000; //time in ms
-  console.log(location);
-  console.log(location.href);
-  console.log(location.origin);
+  //console.log(location);
+  //console.log(location.href);
+  //console.log(location.origin);
 
   //delay functions so there's no refresh loop 
   //on initial login event on page load.
   setTimeout(() => {
-    console.log("Netlify Login -- LogInFunctions ready")
+    //console.log("Netlify Login -- LogInFunctions ready")
     
     //Refresh on log in - basic version
     /*netlifyIdentity.on('login', user => 
@@ -29,12 +29,12 @@ const { info } = Astro.props as Props;
     //If current page is equal to base url, ie is this currently the home page?
     //extra slash "/" on href gets trimmed off for comparison
     if(location.href.slice(0, -1) == location.origin){
-      console.log("index page -- login redirect")
+      //console.log("index page -- login redirect")
       netlifyIdentity.on('login', user => 
         location.replace("/en/introduction")
       );
     } else{
-      console.log("normal login reload")
+      //console.log("normal login reload")
       netlifyIdentity.on('login', user => 
         location.reload()
       );
