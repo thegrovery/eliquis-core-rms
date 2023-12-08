@@ -207,3 +207,31 @@ const manualTitle = content.manualTitle;
 	}
 	
 </style>
+
+<script type="text/javascript">
+	
+	/* ======================================== */ 
+	//      Check if ProgressTracker elements are 
+	//		present and not checked
+	/* ======================================== */
+	function checkForProgressTracker() {
+		var target = document.querySelector(".progressTrackerCheckbox input");
+		if(target.checked){
+			return(true);
+		}else{
+			return(false);
+		}
+	}
+	
+	/* ======================================== */ 
+	//      Run Functions
+	/* ======================================== */
+	setTimeout(() => {
+		if(checkForProgressTracker() == false){
+			console.log("progress tracker element exists and is unchecked");
+			var target = document.querySelector("[data-locked][rel='next']");
+			target.setAttribute("data-locked","true");
+		}
+		console.log(checkForProgressTracker());
+	}, 2500); //time in ms
+</script>
