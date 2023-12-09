@@ -23,7 +23,7 @@ const categories = [
 const instanceId = Math.round(Math.random() * 10e9).toString(36);
 ---
 
-<form id="feedback-fish-form">
+<form id="feedback-fish-form" onsubmit="manualPreventDefault();">
 	<!-- <h1><UIString key="feedback.formTitle" /></h1> -->
 	<fieldset class="category-options">
 		<legend class="sr-only"><UIString key={'feedback.categoryGroupLabel'} /></legend>
@@ -98,6 +98,12 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	</p>
 </div>
 
+<script is:inline>
+	function manualPreventDefault(e){
+		console.log("manualPreventDefault called");
+		e.preventDefault();
+	}
+</script>
 
 <script>
 	const openBtn = document.querySelector<HTMLButtonElement>('button[data-open-modal]')!;
