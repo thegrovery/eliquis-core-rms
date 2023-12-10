@@ -23,7 +23,7 @@ const categories = [
 const instanceId = Math.round(Math.random() * 10e9).toString(36);
 ---
 
-<form id="feedback-fish-form" onsubmit="manualPreventDefault();" method="dialog">
+<form id="feedback-fish-form" onsubmit="return false" method="dialog">
 	<!-- <h1><UIString key="feedback.formTitle" /></h1> -->
 	<fieldset class="category-options">
 		<legend class="sr-only"><UIString key={'feedback.categoryGroupLabel'} /></legend>
