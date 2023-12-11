@@ -23,7 +23,7 @@ const categories = [
 const instanceId = Math.round(Math.random() * 10e9).toString(36);
 ---
 
-<form id="feedback-fish-form" onsubmit="manualPreventDefault();">
+<form id="feedback-fish-form-custom" onsubmit="">
 	<!-- <h1><UIString key="feedback.formTitle" /></h1> -->
 	<fieldset class="category-options">
 		<legend class="sr-only"><UIString key={'feedback.categoryGroupLabel'} /></legend>
@@ -84,44 +84,7 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	}
 </script>
 
-<script>
-	const submitBtn = document.querySelector<HTMLButtonElement>('button[type="submit"]')!;
-	const form = document.querySelector('#feedback-fish-form')!;
-	const success = document.querySelector<HTMLDivElement>('div.success-pane')!;
 
-	const showSuccess = (show: boolean) => {
-		form.hidden = show;
-		success.hidden = !show;
-		if (show) success.focus();
-	};
-
-	form.addEventListener('submit', async (event) => {
-		console.log("form.addEventListener start");
-		event.preventDefault();
-		// Disable submit button while submitting to guard against re-submits.
-		submitBtn.disabled = true;
-		try {
-			const res = await fetch('https://api.feedback.fish/feedback', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					projectId: import.meta.env.PUBLIC_KEY_FEEDBACK,
-					text: form.text.value,
-					category: form.category.value,
-					metadata: { url: location.pathname.replace(/\/$/, '') },
-				}),
-			});
-			if (!res.ok) throw new Error(res.statusText);
-			const data = await res.json();
-			if (data.error) throw new Error(data.error);
-		} catch (e) {
-			console.error('Error submitting feedback form\n', e);
-		}
-		showSuccess(true);
-		submitBtn.disabled = false;
-		form.reset();
-	});
-</script>
 
 <style>
 	feedback-form {
