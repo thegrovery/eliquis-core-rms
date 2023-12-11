@@ -51,7 +51,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['Websites'], ['placeholder']).map(relatedResource => (
-    <ResourceCard {...relatedResource} />
-  ))}
-</div>
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>

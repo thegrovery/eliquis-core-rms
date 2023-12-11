@@ -83,7 +83,7 @@ systems when filing the claim.</small>
     <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
 
 	<div class="iconbox-wrapper">
-    <IconBox SvgComponent={ProviderIcon} text="Provider}" />
+    <IconBox SvgComponent={ProviderIcon} text="Provider" />
     <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
     </div>
 
@@ -150,4 +150,8 @@ to discuss their prescription cost saving options.
 
 </AccordionEntry>
 
-<Checkbox client:visible pageIndex={4} />
+<Checkbox 
+    client:visible 
+    pageIndex={4} 
+    navLock="true" 
+/>

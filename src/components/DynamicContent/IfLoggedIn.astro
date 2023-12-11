@@ -44,11 +44,11 @@ const { info } = Astro.props as Props;
 </style>
 
 <script type="text/javascript">
-  console.log("IfLoggedIn functions started.");
+  //console.log("IfLoggedIn functions started.");
   function LogInWrapperFunctions() {
     setTimeout(() => {
-      console.log("IfLoggedIn functions triggered.");
-      console.log("IfLoggedIn functions executed.");
+      //console.log("IfLoggedIn functions triggered.");
+      //console.log("IfLoggedIn functions executed.");
 
       //grab all user info
       var loggedIn = SessionManager.getItem('loggedIn');
@@ -58,20 +58,20 @@ const { info } = Astro.props as Props;
 
       if( loggedIn == true){
         //logged in
-        console.log("IfLoggedIn --- Logged In | cookie");
+        //console.log("IfLoggedIn --- Logged In | cookie");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
       }else if(user != null){
         //logged in
-        console.log("IfLoggedIn --- Logged In | direct");
-        console.log(user);
+        //console.log("IfLoggedIn --- Logged In | direct");
+        //console.log(user);
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
       } else {
         //logged out
-        console.log("IfLoggedIn --- Logged Out");
+        //console.log("IfLoggedIn --- Logged Out");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedOut"); 
         });

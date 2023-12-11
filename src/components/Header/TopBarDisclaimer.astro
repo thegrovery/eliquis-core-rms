@@ -1,15 +1,17 @@
 ---
 // TopBarDisclaimer.astro
+
+import Headroom from "headroom.js";
 ---
 
 
   
-<div class="disclaimer">
+<div class="disclaimer" id="TopBarDisclaimer">
 FOR BMS/PFE INTERNAL TRAINING USE ONLY - DO NOT DUPLICATE, DISTRIBUTE, OR USE WHEN DETAILING
 </div>
 
 
-<style> 
+<style lang="scss"> 
     .disclaimer {
         min-height: 36px;
         background-color: var(--custom-maroon);
@@ -22,6 +24,15 @@ FOR BMS/PFE INTERNAL TRAINING USE ONLY - DO NOT DUPLICATE, DISTRIBUTE, OR USE WH
         font-size: 105%;
         line-height: 1.2;
         padding: 5px 10px;
-        margin-bottom: 1.25em;
+        //margin-bottom: 1.25em;
+        transition: 0.25s ease-in-out;
+
+         /*&.headroom--not-top{
+           position: relative;
+            top: -50px;
+            display: none;
+        } */
     }
 </style>
+
+

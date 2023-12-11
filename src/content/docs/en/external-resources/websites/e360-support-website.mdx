@@ -1,6 +1,6 @@
 ---
 title: Eliquis 360 Support Website
-description: Use this page for things like embedded tools like forms and login portals
+description: Eliquis's HCP Website, a valuable resource to l enable HCP's to learn about ELIQUIS® its indications and resources.
 i18nReady: true
 type: base
 ---
@@ -40,18 +40,22 @@ export const resource = resources.resources.find(resource => resource.title === 
 		<div> {resource.description} </div>
 
 		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Visit Website</Button>
 
-		### Pfizer Resource Link
+		{/* ### Pfizer Resource Link
 		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
-
+ */}
 	</div>
 </div>
 
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources(['Websites'], ['placeholder']).map(relatedResource => (
-    <ResourceCard {...relatedResource} />
-  ))}
-</div>
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>

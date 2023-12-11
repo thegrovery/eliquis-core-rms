@@ -4,6 +4,7 @@ import { rtlLanguages } from '../../i18n/languages';
 import { getLanguageFromURL } from '../../util';
 import FallbackNotice from '../FallbackNotice.astro';
 import ArticleNavigationButton from './ArticleNavigationButton.astro';
+import ArticleNavigationButtonPlaceholder from './ArticleNavigationButtonPlaceholder.astro';
 import { Breadcrumbs } from "astro-breadcrumbs";
 import 'astro-breadcrumbs/breadcrumbs.css';
 
@@ -32,7 +33,7 @@ const manualTitle = content.manualTitle;
 		// so we must place fixed UI elements like the mobile TOC here.
 		Astro.slots.has('before-article') && (
 			<>
-				<div class="fixed-mobile-bar" dir={direction}>
+				<div class="fixed-mobile-bar" id="MobileSubNav" dir={direction}>
 					<slot name="before-article" />
 				</div>
 				<div class="spacer" />
@@ -79,7 +80,10 @@ const manualTitle = content.manualTitle;
 			(previous || next) && (
 				<aside class="next-previous-nav">
 					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
-					{next && <ArticleNavigationButton rel="next" item={next} />}
+					{next 
+						?	<ArticleNavigationButton rel="next" item={next} />
+						: 	<ArticleNavigationButtonPlaceholder rel="next" item={next} />
+					}
 				</aside>
 			)
 		}
@@ -89,6 +93,9 @@ const manualTitle = content.manualTitle;
 <style lang="scss" is:global>
 	.c-breadcrumbs {
 		margin-bottom: 1.2rem;
+		svg {
+			max-height: .9rem;
+		}
 		li {
 			&:nth-of-type(2) {
 				display: none;
@@ -102,12 +109,15 @@ const manualTitle = content.manualTitle;
 	}
 	.next-previous-nav {
 		justify-content: flex-end;
-		@media (min-width: 80em) {
-			flex-direction: row;
+		flex-direction: row;
+		@media (max-width: 600px) {
+			padding-left: 1rem;
 		}
 		a {
-			@media (min-width: 80em) {
+			max-width: 50%;
+			@media (max-width: 80em) {
 				max-width: 50%;
+				flex-direction: column;
 			}
 			text-decoration: none; 
 			color: var(--custom-maroon);
@@ -164,6 +174,8 @@ const manualTitle = content.manualTitle;
 		padding: 0 0 1rem 0;
 		border-bottom: 1px solid var(--custom-grey-1-50);
 		margin-bottom: 2rem;
+		font-size: 1.8rem;
+		max-width: 100%;
 	}
 	.content-title :global(.scope) {
 		/* font-weight: 300; */
@@ -195,3 +207,31 @@ const manualTitle = content.manualTitle;
 	}
 	
 </style>
+
+<script type="text/javascript">
+	
+	/* ======================================== */ 
+	//      Check if ProgressTracker elements are 
+	//		present and not checked
+	/* ======================================== */
+	function checkForProgressTracker() {
+		var target = document.querySelector(".progressTrackerCheckbox input");
+		if(target.checked){
+			return(true);
+		}else{
+			return(false);
+		}
+	}
+	
+	/* ======================================== */ 
+	//      Run Functions
+	/* ======================================== */
+	setTimeout(() => {
+		if(checkForProgressTracker() == false){
+			console.log("progress tracker element exists and is unchecked");
+			var target = document.querySelector("[data-locked][rel='next']");
+			target.setAttribute("data-locked","true");
+		}
+		console.log(checkForProgressTracker());
+	}, 4000); //time in ms
+</script>

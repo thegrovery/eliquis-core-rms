@@ -1,0 +1,83 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+
+import { Icon } from 'astro-icon';
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+
+const { videoLink, text } = Astro.props as Props;
+---
+
+<IfLoggedIn>
+          
+  <div slot="loggedIn">
+    <button 
+      class='LogInOutButton' 
+      onClick="netlifyIdentity.logout();"
+      data-notification="false"
+    >
+      <div class="LogInOutButtonInner">
+        <!-- <Icon name=ic:outline-notification-important /> -->
+        <span>Log Out</span>
+      </div>
+    </button>
+  </div>
+
+  <div slot="loggedOut">
+   <button 
+     class='LogInOutButton' 
+     onClick="netlifyIdentity.open();"
+     data-notification="false"
+   >
+     <div class="LogInOutButtonInner">
+       <!-- <Icon name=ic:outline-notification-important /> -->
+       <span>Log In</span>
+     </div>
+   </button>
+  </div>
+  
+</IfLoggedIn>
+
+
+
+<style lang="scss">
+  
+  .LogInOutButton {
+      position: relative;
+      border: 1px solid var(--custom-accent-1-50);
+      border-radius: 1.5rem;
+      /* background-color: transparent; */
+      background-color: var(--theme-code-inline-bg);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.65em 1.5em;
+      line-height: calc(1 / var(--theme-text-xs));
+      min-height: 36px;
+      [astro-icon] {
+        color: var(--theme-text);
+      }
+      &:hover{
+        background-color: var(--custom-accent-2-10);
+      }
+      
+      .LogInOutButton_inner {
+        display: flex;
+        align-items: center;
+      }
+      .notificationWrapper{
+        opacity: 0;
+      }
+      &[data-notification="true"]{
+        .notificationWrapper{
+          opacity: 1;
+        }
+      }
+
+      //Hide on mobile
+      @media (max-width: 800px) {
+        display: none;
+      }
+  }
+
+</style>
+

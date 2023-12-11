@@ -30,13 +30,16 @@ const { announcement, icon } = Astro.props as Props;
   </div>
   <div class="content">
     <AnnouncementsContent text={announcement}/>
+    <p class="subText">
+      For more information and to see past announcements, go to the <a href="/en/announcements">Announcements page > </a>
+    </p>
   </div>  
 </div>
 
 <style lang="scss">
   .AnnouncementBlock {
      position: relative;
-     margin-bottom: 4rem;
+     margin-bottom: 2rem;
      padding-block: 2rem;
      padding-inline-start: 2rem;
      padding-inline-end: 2rem;
@@ -75,6 +78,12 @@ const { announcement, icon } = Astro.props as Props;
       }
       .content{
         
+      }
+      .subText{
+        font-size: 0.85em;
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top: solid 1px;
       }
   }
 
