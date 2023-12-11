@@ -1,0 +1,81 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+import Button from '~/components/Button.astro'
+import { Icon } from 'astro-icon';
+import FeedbackIcon from '../SVGs/FeedbackIcon.astro';
+
+const { heading, body } = Astro.props as Props;
+---
+
+<button class='FeedbackButton' data-feedback-fish>
+  <div class="FeedbackButton_inner">
+    
+    <span>Feedback</span>
+    <FeedbackIcon />
+
+  </div>
+</button>
+
+<style lang="scss">
+  
+  .FeedbackButton {
+      border: 1px solid var(--custom-grey);
+      border-radius: 1.5rem;
+      /* background-color: transparent; */
+      background-color: var(--custom-maroon);
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 0.5em 0.5em;
+      line-height: calc(1 / var(--theme-text-xs));
+      color: var(--custom-white);
+      font-family: var(--font-heading);
+      [astro-icon] {
+        color: var(--custom-white);
+      }
+      transition: all 150ms ease-in;
+      &:focus, &:hover {
+        background-color: var(--custom-maroon-90);
+       /*  box-shadow: 2px 2px 4px var(--custom-grey-1-50);
+        transform: translateY(-2px); */
+      }
+      min-height: 36px;
+      span {
+        display: none;
+        /* color: var(--theme-text-lighter); */
+      }
+      :global(svg) {
+          max-height: 24px;
+          position: relative;
+          /* top: 4px; */
+        }
+      @media (min-width: 50em) {
+        padding: 0.5em 1.25em 0.5em 1.75em;
+        span {
+          margin-right: 10px;
+          display: block;
+        }
+        :global(svg) {
+          max-height: 30px;
+          margin: 0 10px 0 0;
+          // top: 4px;
+        }
+        
+      }
+      .FeedbackButton_inner {
+        display: flex;
+        align-items: center;
+         
+      }
+     
+  }
+
+</style>
+
+<script type="text/javascript">
+  function modalOpenFeedback(){
+    var targetElement = document.querySelector(".ModalWrapper[data-modal='feedback']");
+    targetElement.classList.add("active");
+  }
+</script>
