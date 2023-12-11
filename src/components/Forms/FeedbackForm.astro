@@ -71,20 +71,55 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	</div>
 </form>
 <div class="success-pane" hidden tabindex="-1">
-	<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="#054C62" d="M23 10a2 2 0 0 0-2-2h-6.32l.96-4.57c.02-.1.03-.21.03-.32c0-.41-.17-.79-.44-1.06L14.17 1L7.59 7.58C7.22 7.95 7 8.45 7 9v10a2 2 0 0 0 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2M1 21h4V9H1v12Z"/></svg>
+	<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="#76004B" d="M23 10a2 2 0 0 0-2-2h-6.32l.96-4.57c.02-.1.03-.21.03-.32c0-.41-.17-.79-.44-1.06L14.17 1L7.59 7.58C7.22 7.95 7 8.45 7 9v10a2 2 0 0 0 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2M1 21h4V9H1v12Z"/></svg>
 	<p>
 		<UIString key="feedback.success" />
 	</p>
 </div>
 
-<script is:inline>
-	function manualPreventDefault(e){
-		console.log("manualPreventDefault called");
-		e.preventDefault();
-	}
+
+<!-- Feedback Form Functions -->
+<script type="text/javascript" >
+	document.addEventListener("DOMContentLoaded", function(event){
+	  	console.log("===== feedback form script | point 1 =====")
+	  	var submitBtn = document.querySelector('button[type="submit"]')
+	  	var form = document.querySelector("#feedback-fish-form-custom")
+	  	var success = document.querySelector("div.success-pane")
+
+	  	console.log("===== feedback form script | point 2 =====")
+
+	  	var showSuccess = show => {
+	  	  form.hidden = show
+	  	  success.hidden = !show
+	  	  if (show) success.focus()
+	  	}
+
+	  	console.log("===== feedback form script | point 3 =====")
+
+	  	form.addEventListener('submit', function(e){
+	  		console.log("feedbackFormSubmit start")
+	  		e.preventDefault()
+	  		console.log("e.preventDefault")
+	  		// Disable submit button while submitting to guard against re-submits.
+	  		submitBtn.disabled = true
+	  		fetch("https://api.feedback.fish/feedback", {
+	  		    method: "POST",
+	  		    headers: { "Content-Type": "application/json" },
+	  		    body: JSON.stringify({
+	  		      projectId: '17bc7bf1819ed6',
+	  		      text: form.text.value,
+	  		      category: form.category.value,
+	  		      metadata: { url: location.pathname.replace(/\/$/, "") }
+	  		    })
+	  		  })
+	  	 	console.log("fetch function complete")	
+	  		showSuccess(true)
+	  		submitBtn.disabled = false
+	  		form.reset()
+	  		console.log("post-submit functions complete")	
+	  	});
+	});
 </script>
-
-
 
 <style>
 	feedback-form {
