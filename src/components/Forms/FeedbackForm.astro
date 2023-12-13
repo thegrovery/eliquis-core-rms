@@ -81,12 +81,9 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 <!-- Feedback Form Functions -->
 <script type="text/javascript" >
 	document.addEventListener("DOMContentLoaded", function(event){
-	  	console.log("===== feedback form script | point 1 =====")
 	  	var submitBtn = document.querySelector('button[type="submit"]')
 	  	var form = document.querySelector("#feedback-fish-form-custom")
 	  	var success = document.querySelector("div.success-pane")
-
-	  	console.log("===== feedback form script | point 2 =====")
 
 	  	var showSuccess = show => {
 	  	  form.hidden = show
@@ -94,12 +91,10 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	  	  if (show) success.focus()
 	  	}
 
-	  	console.log("===== feedback form script | point 3 =====")
-
 	  	form.addEventListener('submit', function(e){
-	  		console.log("feedbackFormSubmit start")
+	  		//console.log("feedbackFormSubmit start")
 	  		e.preventDefault()
-	  		console.log("e.preventDefault")
+	  		//console.log("e.preventDefault")
 	  		// Disable submit button while submitting to guard against re-submits.
 	  		submitBtn.disabled = true
 	  		fetch("https://api.feedback.fish/feedback", {
@@ -112,11 +107,11 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	  		      metadata: { url: location.pathname.replace(/\/$/, "") }
 	  		    })
 	  		  })
-	  	 	console.log("fetch function complete")	
+	  	 	//console.log("fetch function complete")	
 	  		showSuccess(true)
 	  		submitBtn.disabled = false
 	  		form.reset()
-	  		console.log("post-submit functions complete")	
+	  		//console.log("post-submit functions complete")	
 	  	});
 	});
 </script>
