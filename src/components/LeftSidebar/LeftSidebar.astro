@@ -69,10 +69,12 @@ if (isReference) {
 		/>
 		
 		<li style="text-align: center;">
-			<ThemeToggleButton
-				client:visible
-				labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-			/>
+			{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+				<ThemeToggleButton
+					client:visible
+					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+				/>
+			}
 		</li>
 		
 	</ul>

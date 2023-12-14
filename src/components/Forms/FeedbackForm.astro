@@ -237,18 +237,17 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	}
 
 	button[type='submit'] {
-		border: 1px solid var(--theme-shade-subtle);
-		background-color: transparent;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		font: inherit;
-		font-size: var(--theme-text-sm);
-		padding: 0.5rem;
-		border-radius: 0.5rem;
-		cursor: pointer;
-		width: auto;
+		border: 1px solid var(--custom-grey);
+		      border-radius: 1.5rem;
+		      /* background-color: transparent; */
+		      background-color: var(--custom-maroon);
+		      cursor: pointer;
+		      font-size: 1rem;
+		      text-transform: uppercase;
+		      padding: 0.5em 1.75em 0.5em 1.75em;
+		      line-height: calc(1 / var(--theme-text-xs));
+		      color: var(--custom-white);
+		      font-family: var(--font-heading);
 	}
 
 	form:invalid button[type='submit'] {
