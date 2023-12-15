@@ -63,7 +63,10 @@ const t = useTranslations(Astro);
 			<!-- <SimpleSearch client:idle /> -->
 			
 			<SearchButton />
-			<LogInOutButton />
+			<div class="desktop-only-buttons">
+				<LogInOutButton />
+			</div>
+			
 			<!-- <OptionsButton/>  -->
 			
 			<SidebarToggle client:idle />
@@ -98,6 +101,14 @@ const t = useTranslations(Astro);
 			justify-content: left;
 			overflow: visible;
 			padding-top: 1.25em;
+		}
+		.desktop-only-buttons{
+			display: block;
+		}
+		@media (max-width: 800px) {
+			.desktop-only-buttons{
+				display: none;
+			}
 		}
 	}
 
@@ -236,113 +247,122 @@ const t = useTranslations(Astro);
 	#MobileSubNav{
 		transition: 0.25s ease-in-out;
 	}
+	#left-sidebar{
+		transition: 0.25s ease-in-out;
+	}
 </style>
 
 <script type="text/javascript">
-    //console.log("===== Headroom script started =====");
-    /*===== VARIABLES =====*/
-    var element = document.querySelector("#header");
-    var bodyElement = document.querySelector("html");
-    var hideElement = document.querySelector('#TopBarDisclaimer');
-    var mobileSubNavElement = document.querySelector('#MobileSubNav');
+	document.addEventListener("DOMContentLoaded", function(e){
+		//console.log("===== Headroom script started =====");
+		    /*===== VARIABLES =====*/
+		    var element = document.querySelector("#header");
+		    var bodyElement = document.querySelector("html");
+		    var hideElement = document.querySelector('#TopBarDisclaimer');
+		    var mobileSubNavElement = document.querySelector('#MobileSubNav');
+		    var leftSidebarElement = document.querySelector('#left-sidebar');
 
-    /*===== SHOW/HIDE FUNCTIONS =====*/
-    function hideElementsOnScroll(){
-    	//// Grabbing the height of the element
-    	var height = hideElement.clientHeight;
-    	var heightFormat = "-" + height + "px"
-    	////update css on main element & adjacent elements
-    	element.style.transform = "translateY("+heightFormat+")";
-    	try {
-    		var mobileSubNavElement = document.querySelector('.fixed-mobile-bar');
-    	  	mobileSubNavElement.style.transform = "translateY("+heightFormat+")";
-    	} catch (error) {
-    		//element is probably hidden
-    	  	//console.error(error);
-    	}
-    	
-    	//re-initiate to account for window size changes
-    	//headroom.init();
-    };
+		    /*===== SHOW/HIDE FUNCTIONS =====*/
+		    function hideElementsOnScroll(){
+		    	//// Grabbing the height of the element
+		    	var height = hideElement.clientHeight;
+		    	var heightFormat = "-" + height + "px"
+		    	////update css on main element & adjacent elements
+		    	element.style.transform = "translateY("+heightFormat+")";
+		    	try {
+		    		var mobileSubNavElement = document.querySelector('.fixed-mobile-bar');
+		    	  	mobileSubNavElement.style.transform = "translateY("+heightFormat+")";
+		    	  	leftSidebarElement.style.transform = "translateY("+heightFormat+")";
+		    	} catch (error) {
+		    		//element is probably hidden
+		    	  	//console.error(error);
+		    	}
+		    	
+		    	//re-initiate to account for window size changes
+		    	//headroom.init();
+		    };
 
-    function unhideElementsOnScroll(){
-    	//Reset all transforms
-    	element.style.transform = "translateY(0px)";
-    	try {
-    		var mobileSubNavElement = document.querySelector('.fixed-mobile-bar');
-    	  	mobileSubNavElement.style.transform = "translateY(0px)";
-    	} catch (error) {
-    	  	//element is probably hidden
-    	}
-    	//re-initiate to account for window size changes
-    	//headroom.init();
-    };
+		    function unhideElementsOnScroll(){
+		    	//Reset all transforms
+		    	element.style.transform = "translateY(0px)";
+		    	try {
+		    		var mobileSubNavElement = document.querySelector('.fixed-mobile-bar');
+		    	  	mobileSubNavElement.style.transform = "translateY(0px)";
+		    	  	leftSidebarElement.style.transform = "translateY(0px)";
+		    	} catch (error) {
+		    	  	//element is probably hidden
+		    	}
+		    	//re-initiate to account for window size changes
+		    	//headroom.init();
+		    };
+		    
+
+		    /*===== HEADROOM OPTIONS =====*/
+		    var options = {
+		    	classes : {
+			        // when element is initialised
+			        initial : "headroom",
+			        // when scrolling up
+			        pinned : "headroom--pinned",
+			        // when scrolling down
+			        unpinned : "headroom--unpinned",
+			        // when above offset
+			        top : "headroom--top",
+			        // when below offset
+			        notTop : "headroom--not-top",
+			        // when at bottom of scroll area
+			        bottom : "headroom--bottom",
+			        // when not at bottom of scroll area
+			        notBottom : "headroom--not-bottom",
+			        // when frozen method has been called
+			        frozen: "headroom--frozen",
+			        // multiple classes are also supported with a space-separated list
+			        pinned: "headroom--pinned foo bar"
+			    },
+			    // element to listen to scroll events on, defaults to `window`
+		    	//scroller : bodyElement,
+		        // vertical offset in px before element is first unpinned
+		        //offset : 0,
+		        // or you can specify offset individually for up/down scroll
+		        offset: {
+		            up: 0,
+		            down: 0
+		        },
+		        // scroll tolerance in px before state changes
+		        tolerance : 0,
+		        // or you can specify tolerance individually for up/down scroll
+		        tolerance : {
+		            up : 0,
+		            down : 0
+		        },
+		        // element to listen to scroll events on, defaults to `window`
+		        //scroller : someElement,
+		        // callback when pinned, `this` is headroom object
+		        onPin : function() {
+		        	unhideElementsOnScroll();
+		        },
+		        // callback when unpinned, `this` is headroom object
+		        onUnpin : function() {
+		        		//console.log("onUnpin fired");
+		        	    hideElementsOnScroll();
+		        },
+		        // callback when above offset, `this` is headroom object
+		        onTop : function() {
+		        	
+		        },
+		        // callback when below offset, `this` is headroom object
+		        onNotTop : function() {
+		        	
+		        },
+		        // callback when at bottom of page, `this` is headroom object
+		        onBottom : function() {},
+		        // callback when moving away from bottom of page, `this` is headroom object
+		        onNotBottom : function() {}
+		    };
+
+		    /*===== RUN FUNCTIONS =====*/
+		    var headroom  = new Headroom(element, options);
+		    headroom.init();
+	});
     
-
-    /*===== HEADROOM OPTIONS =====*/
-    var options = {
-    	classes : {
-	        // when element is initialised
-	        initial : "headroom",
-	        // when scrolling up
-	        pinned : "headroom--pinned",
-	        // when scrolling down
-	        unpinned : "headroom--unpinned",
-	        // when above offset
-	        top : "headroom--top",
-	        // when below offset
-	        notTop : "headroom--not-top",
-	        // when at bottom of scroll area
-	        bottom : "headroom--bottom",
-	        // when not at bottom of scroll area
-	        notBottom : "headroom--not-bottom",
-	        // when frozen method has been called
-	        frozen: "headroom--frozen",
-	        // multiple classes are also supported with a space-separated list
-	        pinned: "headroom--pinned foo bar"
-	    },
-	    // element to listen to scroll events on, defaults to `window`
-    	//scroller : bodyElement,
-        // vertical offset in px before element is first unpinned
-        //offset : 0,
-        // or you can specify offset individually for up/down scroll
-        offset: {
-            up: 0,
-            down: 0
-        },
-        // scroll tolerance in px before state changes
-        tolerance : 0,
-        // or you can specify tolerance individually for up/down scroll
-        tolerance : {
-            up : 0,
-            down : 0
-        },
-        // element to listen to scroll events on, defaults to `window`
-        //scroller : someElement,
-        // callback when pinned, `this` is headroom object
-        onPin : function() {
-        	unhideElementsOnScroll();
-        },
-        // callback when unpinned, `this` is headroom object
-        onUnpin : function() {
-        		//console.log("onUnpin fired");
-        	    hideElementsOnScroll();
-        },
-        // callback when above offset, `this` is headroom object
-        onTop : function() {
-        	
-        },
-        // callback when below offset, `this` is headroom object
-        onNotTop : function() {
-        	
-        },
-        // callback when at bottom of page, `this` is headroom object
-        onBottom : function() {},
-        // callback when moving away from bottom of page, `this` is headroom object
-        onNotBottom : function() {}
-    };
-
-    /*===== RUN FUNCTIONS =====*/
-    var headroom  = new Headroom(element, options);
-    headroom.init();
 </script>

@@ -31,6 +31,7 @@ const { heading, body } = Astro.props as Props;
       line-height: calc(1 / var(--theme-text-xs));
       color: var(--custom-white);
       font-family: var(--font-body);
+      min-height: var(--mobile-nav-button-size);
       [astro-icon] {
         color: var(--custom-white);
       }
@@ -40,7 +41,7 @@ const { heading, body } = Astro.props as Props;
        /*  box-shadow: 2px 2px 4px var(--custom-grey-1-50);
         transform: translateY(-2px); */
       }
-      min-height: 36px;
+     
       span {
         display: none;
         /* color: var(--theme-text-lighter); */
@@ -52,6 +53,7 @@ const { heading, body } = Astro.props as Props;
         }
       @media (min-width: 50em) {
         padding: 0.5em 1.25em 0.5em 1.75em;
+
         span {
           margin-right: 10px;
           display: block;

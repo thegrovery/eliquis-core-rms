@@ -15,12 +15,15 @@ $hamburger-hover-opacity       : 1;
 
 
 #menu-toggle {
-    // display: flex;
+    display: flex;
     //min-height: 36px;
     align-items: center;
+    justify-content:center;
     padding: 0.5em 0.75em 0.5em 0.75em;
     border-radius: .5rem;
     border: 1px solid var(--custom-accent-1-50);
+    height: var(--mobile-nav-button-size);
+    width: var(--mobile-nav-button-size);
     &:hover, &:focus {
         background-color: var(--custom-accent-2-10);
     }
