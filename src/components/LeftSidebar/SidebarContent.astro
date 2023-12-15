@@ -88,9 +88,11 @@ const lang = getLanguageFromURL(Astro.url.pathname);
       if (pageIndex && readPages.includes(pageIndex)) {
         if (!link.innerHTML.includes('checkmark')) {
           link.innerHTML += checkmarkSpan; // Append the checkmark span
+          //link.addClass("unlocked");
         }
       } else {
         link.innerHTML = link.innerHTML.replace(checkmarkSpan, ''); // Remove checkmark span
+        //link.addClass("locked");
       }
     });
   };
