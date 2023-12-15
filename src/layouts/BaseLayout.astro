@@ -155,17 +155,19 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 		</style>
 
 		<style lang="scss">
-			.layout.noRightSidebar{
+			.noRightSidebar{
 				@media (min-width: 72em) {
 					#right-sidebar{
 						display: none;
+					}
+					#MobileSubNav{
+						display:none !important;
 					}
 					.main-column {
 						margin-inline-end: 0;
 					}
 				}
 			}
-
 			
 			@media (min-width: 72em) {
 				.main-column.noRightSidebar {
@@ -177,9 +179,9 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 
 	</head>
 
-	<body>
+	<body class={rightSidebar ? "" : "noRightSidebar"}>
 		<Header currentPage={currentPage} />
-		<main class={rightSidebar ? "layout " : "layout noRightSidebar"}> 
+		<main class="layout"> 
 			
 			<LogInWrapper>
 			

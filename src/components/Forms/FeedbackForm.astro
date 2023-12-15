@@ -81,12 +81,9 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 <!-- Feedback Form Functions -->
 <script type="text/javascript" >
 	document.addEventListener("DOMContentLoaded", function(event){
-	  	console.log("===== feedback form script | point 1 =====")
 	  	var submitBtn = document.querySelector('button[type="submit"]')
 	  	var form = document.querySelector("#feedback-fish-form-custom")
 	  	var success = document.querySelector("div.success-pane")
-
-	  	console.log("===== feedback form script | point 2 =====")
 
 	  	var showSuccess = show => {
 	  	  form.hidden = show
@@ -94,12 +91,10 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	  	  if (show) success.focus()
 	  	}
 
-	  	console.log("===== feedback form script | point 3 =====")
-
 	  	form.addEventListener('submit', function(e){
-	  		console.log("feedbackFormSubmit start")
+	  		//console.log("feedbackFormSubmit start")
 	  		e.preventDefault()
-	  		console.log("e.preventDefault")
+	  		//console.log("e.preventDefault")
 	  		// Disable submit button while submitting to guard against re-submits.
 	  		submitBtn.disabled = true
 	  		fetch("https://api.feedback.fish/feedback", {
@@ -112,11 +107,11 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	  		      metadata: { url: location.pathname.replace(/\/$/, "") }
 	  		    })
 	  		  })
-	  	 	console.log("fetch function complete")	
+	  	 	//console.log("fetch function complete")	
 	  		showSuccess(true)
 	  		submitBtn.disabled = false
 	  		form.reset()
-	  		console.log("post-submit functions complete")	
+	  		//console.log("post-submit functions complete")	
 	  	});
 	});
 </script>
@@ -242,18 +237,17 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	}
 
 	button[type='submit'] {
-		border: 1px solid var(--theme-shade-subtle);
-		background-color: transparent;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		font: inherit;
-		font-size: var(--theme-text-sm);
-		padding: 0.5rem;
-		border-radius: 0.5rem;
-		cursor: pointer;
-		width: auto;
+		border: 1px solid var(--custom-grey);
+		      border-radius: 1.5rem;
+		      /* background-color: transparent; */
+		      background-color: var(--custom-maroon);
+		      cursor: pointer;
+		      font-size: 1rem;
+		      text-transform: uppercase;
+		      padding: 0.5em 1.75em 0.5em 1.75em;
+		      line-height: calc(1 / var(--theme-text-xs));
+		      color: var(--custom-white);
+		      font-family: var(--font-heading);
 	}
 
 	form:invalid button[type='submit'] {
