@@ -150,22 +150,22 @@ h2 {
 }
 
 h1 {
-	font-size: 2.5rem; /* 40px */
+	font-size: 2rem; /* 40px */
 	font-weight: 900;
 }
 
-@media (min-width: 37.75em) {
+/*@media (min-width: 37.75em) {
 	h1 {
-		font-size: 2.6rem; /* 48px */
+		font-size: 2.6rem;
 	}
-}
+}*/
 
 h2 {
-	font-size: 1.875rem; /* 30px */
+	font-size: 1.65rem; /* 30px */
 }
 
 h3 {
-	font-size: 1.5rem; /* 24px */
+	font-size: 1.35rem; /* 24px */
 }
 
 h4 {
@@ -624,4 +624,13 @@ html {
     font-size: 1em;
     width: 1em;
     height: auto;
+}
+
+
+
+.noRightSidebar #MobileSubNav{
+	display:none;
+}
+.noRightSidebar .fixed-mobile-bar{
+	display:none;
 }
