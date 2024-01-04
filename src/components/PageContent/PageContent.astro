@@ -80,9 +80,7 @@ const manualTitle = content.manualTitle;
 			(previous || next) && (
 				<aside class="next-previous-nav">
 					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
-					{next 
-						?	<ArticleNavigationButton rel="next" item={next} />
-						: 	<ArticleNavigationButtonPlaceholder rel="next" item={next} />
+					{next &&	<ArticleNavigationButton rel="next" item={next} />
 					}
 				</aside>
 			)
@@ -110,8 +108,9 @@ const manualTitle = content.manualTitle;
 	.next-previous-nav {
 		justify-content: flex-end;
 		flex-direction: row;
-		@media (max-width: 600px) {
+		@media (max-width: 800px) {
 			padding-left: 1rem;
+			justify-content: center;
 		}
 		a {
 			max-width: 50%;
@@ -174,7 +173,7 @@ const manualTitle = content.manualTitle;
 		padding: 0 0 1rem 0;
 		border-bottom: 1px solid var(--custom-grey-1-50);
 		margin-bottom: 2rem;
-		font-size: 1.8rem;
+		/*font-size: 2rem;*/
 		max-width: 100%;
 	}
 	.content-title :global(.scope) {
@@ -197,6 +196,11 @@ const manualTitle = content.manualTitle;
 	.content > section {
 		margin-bottom: 4rem;
 	}
+	.content h2{
+		
+	}
+
+
 	.next-previous-nav {
 		display: flex;
 		flex-direction: column;
@@ -207,3 +211,34 @@ const manualTitle = content.manualTitle;
 	}
 	
 </style>
+
+<script type="text/javascript">
+	
+	/* ======================================== */ 
+	//      Check if ProgressTracker elements are 
+	//		present and not checked
+	/* ======================================== */
+	function checkForProgressTracker() {
+		var target = document.querySelector(".progressTrackerCheckbox input");
+		if(target.checked){
+			return(true);
+		}else{
+			return(false);
+		}
+	}
+	
+	/* ======================================== */ 
+	//      Run Functions
+	/* ======================================== */
+	setTimeout(() => {
+		if(checkForProgressTracker() == false){
+			console.log("progress tracker element exists and is unchecked");
+			var target = document.querySelector("[data-locked][rel='next']");
+			target.setAttribute("data-locked","true");
+		}
+		console.log(checkForProgressTracker());
+	}, 4000); //time in ms
+	document.addEventListener("DOMContentLoaded", function(e){
+		//runs code after DOM load
+	});
+</script>
