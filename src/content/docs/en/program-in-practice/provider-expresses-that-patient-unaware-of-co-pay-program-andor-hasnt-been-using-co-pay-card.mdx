@@ -19,67 +19,11 @@ import Checkbox from '~/components/Checkbox';
 
 ## Potential considerations:
 
-<AccordionEntry 
-	
-	question="Is this a CVS Caremark Value Plan/Zinc patient?"
-	
->
-Patients who have a Co-Pay Card or who are eligible for
-Co-Pay Assistance can request reimbursement through
-ELIQUIS 360 Support.
-    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
-
-<div class="iconbox-wrapper">
-<IconBox SvgComponent={PatientIcon} text="Patient" />
-<IconBox SvgComponent={ProviderIcon} text="Provider" />
-
-</div>
-<h4>CVS Caremark Value Plan/Zinc patients that have no card</h4>
-1. HCP can initiate a PA.
-2. Patient can call [1-855-ELIQUIS](tel:1-855-ELIQUIS) to activate an ELIQUIS $10 Co-Pay Extend
-Card which can be used once PA is completed.
-<br />
-<br />
-<div class="iconbox-wrapper">
-<IconBox SvgComponent={PatientIcon} text="Patient" />
-<IconBox SvgComponent={ProviderIcon} text="Provider" />
-
-</div>
-
-<h4>CVS Caremark Value Plan/Zinc patients that already have card
-(received letter, completed Benefits Review, or spoke to physician)</h4>
-
-1. Patient should continue to use their current Co-Pay Card.
-2. Patient should request a PA from their provider before their next fill and
-they can continue to use their current card like they have in the past.
-
-<br />
-<br />
-<div class="iconbox-wrapper">
-<IconBox SvgComponent={PatientIcon} text="Patient" />
-
-</div>
-<h4>Call [1-855-ELIQUIS](tel:1-855-ELIQUIS) to see if patient is eligible for Co-Pay assistance or
-reimbursement through a backdate request.</h4>
-
-
-
-    {/* use tag name or resource title below */}
-    <div class="resource-block-container">
-    <br />
-    <h3>Related Resources</h3>
-    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility','Co-Pay Card Lookup Tool']).map(relatedResource => (
-        <ResourceBlock {...relatedResource} />
-    ))}
-    </div>
-
-
-</AccordionEntry>
 
 
 <AccordionEntry 
 	
-	question="All other patients"
+	question="All Patients"
 	
 >
 

@@ -1,6 +1,6 @@
 ---
-title: Medication Guidelines
-description: Download ELIQUIS Medication Guidelines PDF.
+title: Medication Guide
+description: Download ELIQUIS Medication Guide PDF.
 i18nReady: true
 type: base
 ---
@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Medication Guidelines");
+export const resource = resources.resources.find(resource => resource.title === "Medication Guide");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -51,7 +51,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 ## Related Resources
 {/* use tag name or resource title below */}
 <div class="resource-card-container">
-  {getRelatedResources([''], ['Full Prescribing Information']).map(relatedResource => (
-    <ResourceCard {...relatedResource} />
-  ))}
-</div>
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>

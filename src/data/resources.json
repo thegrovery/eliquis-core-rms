@@ -179,15 +179,15 @@
       "PfizerResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
       "RelatedResources": {
         "tags": [],
-        "titles": ["Medication Guidelines"]
+        "titles": ["Medication Guide"]
       } 
     },
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/eliquis-medguide_thumb.png",
       "icon": "ph:download",
-      "title": "Medication Guidelines",
-      "description": "ELIQUIS (Apixaban) medication guidelines pdf download",
+      "title": "Medication Guide",
+      "description": "ELIQUIS (Apixaban) Medication Guide pdf download",
       "longDescription": "MEDICATION GUIDE ELIQUISÒ (ELL eh kwiss) (apixaban) tablets",
       "tags": ["Downloads"],
       "viewDetailsButtonText": "View Details",
