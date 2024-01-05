@@ -9,7 +9,7 @@ export interface Props {
 const { question, icon, answer } = Astro.props as Props;
 ---
 
-<div class='AccordionEntry' 
+<div class='AccordionEntry'  
   style={`--box-icon-url: url('/tutorial/${icon}.svg');`}
    
 >
@@ -135,7 +135,7 @@ const { question, icon, answer } = Astro.props as Props;
         box-shadow: -2px 2px 0px var(--custom-maroon);
         .answer{
           margin-top: 1rem;
-          max-height: 400px;
+          max-height: 1000px;
           
           ul {
             margin-bottom: 1.5rem;
@@ -174,27 +174,62 @@ const { question, icon, answer } = Astro.props as Props;
 </style>
 
 <script type="text/javascript">
-    function toggleAccordion(event) {
-        if (window.getSelection().toString() !== '') {
+  function toggleAccordion(event) {
+      if (window.getSelection().toString() !== '') {
           // Text is being selected, do not toggle accordion
           return;
-        }
+      }
 
-        event.stopPropagation(); // Prevents event bubbling if nested elements are clicked
+      event.stopPropagation(); // Prevents event bubbling if nested elements are clicked
 
-        var parentElement = event.currentTarget.closest(".AccordionEntry");
-        var contentElement = parentElement.querySelector(".answer");
+      var parentElement = event.currentTarget.closest(".AccordionEntry");
+      var contentElement = parentElement.querySelector(".answer");
 
-        parentElement.classList.toggle('active');
-        if (contentElement.style.maxHeight) {
-            contentElement.style.maxHeight = null;
-        } else {
-            contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+      parentElement.classList.toggle('active');
+      
+      if (parentElement.classList.contains('active')) {
+          // Set max height to the scrollHeight to expand the content
+          contentElement.style.maxHeight = contentElement.scrollHeight + "px";
+      } else {
+          // Set max height to null to collapse the content
+          contentElement.style.maxHeight = null;
+      }
+  }
+
+  function setMaxHeight(element) {
+        // Adjust this calculation if needed to account for padding, borders, etc.
+        element.style.maxHeight = element.scrollHeight + "px";
+    }
+
+    function setupAccordions() {
+        // Attach click event listeners to all accordion questions
+        document.querySelectorAll('.AccordionEntry .question').forEach(question => {
+            question.onclick = toggleAccordion;
+        });
+    }
+
+    function openFirstAccordion() {
+        var firstAccordion = document.querySelector(".AccordionEntry");
+        if (firstAccordion) {
+            firstAccordion.classList.add('active');
+            var content = firstAccordion.querySelector(".answer");
+
+            var observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList') {
+                        setMaxHeight(content);
+                        observer.disconnect(); // Stop observing after height is set
+                    }
+                });
+            });
+
+            observer.observe(content, { childList: true, subtree: true });
         }
     }
 
-
-    function accordionCloseAll() {
-      //close all accordians first, then open
-    }
+    // Initialize accordions and open the first one
+    document.addEventListener("DOMContentLoaded", function() {
+        setupAccordions();
+        openFirstAccordion();
+    });
 </script>
