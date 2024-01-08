@@ -68,6 +68,13 @@ const { heading, body } = Astro.props as Props;
 	********************************************/
 		$(document).ready(function(){
 
+			function trimBeforeAt(str) {
+			    var atIndex = str.indexOf('@');
+			    if (atIndex !== -1) {
+			        return str.substring(atIndex + 1);
+			    }
+			    return str; // Return original string if '@' is not found
+			}
 
 			$.fn.eventfire_ready = function(){
 
@@ -80,7 +87,7 @@ const { heading, body } = Astro.props as Props;
 					var evAct = $(this).attr('data-action') 			? $(this).attr('data-action') : '';
 					var evLab = $(this).attr('data-label') 			? $(this).attr('data-label') : '';
 					var evVal = $(this).attr('data-value') 			? $(this).attr('data-value') : '';
-					var userEmail = netlifyIdentity.currentUser().email ? netlifyIdentity.currentUser().email : 'Not Logged In';
+					var userEmail = netlifyIdentity.currentUser().email ? trimBeforeAt(netlifyIdentity.currentUser().email) : 'Not Logged In';
 					var userGroup = netlifyIdentity.currentUser().role ? netlifyIdentity.currentUser().role : 'No User Group';
 
 					try {
