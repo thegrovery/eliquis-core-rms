@@ -85,7 +85,6 @@ const { heading, body } = Astro.props as Props;
     const shouldShow = !sessionStorage.getItem("shownOnce");
 
     if (shouldShow) {
-        console.log("");
         elementToShow.style.display = "block";
         // Mark the element as shown
         sessionStorage.setItem("shownOnce", "true");
@@ -96,7 +95,7 @@ const { heading, body } = Astro.props as Props;
   var searchParams = new URLSearchParams(window.location.search); 
   if(searchParams.has("splash")){
     //allow animation to run
-    console.log("param exists");
+    //console.log("param exists");
     const elementToShow = document.getElementById("SplashAnimation");
     elementToShow.style.display = "block";
   } else {

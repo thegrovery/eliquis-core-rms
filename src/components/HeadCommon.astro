@@ -1,6 +1,8 @@
 ---
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/400-italic.css';
+
+import Analytics from '~/components/Head/Analytics.astro';
 ---
 
 <!-- Global Metadata -->
@@ -21,6 +23,11 @@ import '@fontsource/ibm-plex-mono/400-italic.css';
 
 <!-- Scrollable a11y code helper -->
 <script type="module" src="/make-scrollable-code-focusable.js"></script>
+
+<!-- Analytics -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<Analytics/>
+
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script is:inline>

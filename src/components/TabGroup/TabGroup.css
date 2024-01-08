@@ -1,6 +1,7 @@
 .TabGroup {
 	display: flex;
 	border-bottom: 4px solid var(--theme-divider);
+	background-color: var(--theme-bg);
 }
 
 .TabGroup button:nth-of-type(1) {
