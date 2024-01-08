@@ -204,22 +204,22 @@
     },
     {
       "resourceType": "external",
-      "imageSrc": "/images/resources/eliquis-request-samples_thumb.png",
+      "imageSrc": "/images/resources/benefits-review-form.png",
       "icon": "ph:clipboard",
-      "title": "Request Samples",
-      "description": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers.",
-      "longDescription": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers. Call 1-855-ELIQUIS (354-7847) or click below to see if you are eligible to have samples delivered to your office.",
+      "title": "Benefits Review Form",
+      "description": "Summary of Benefits and Follow-up Support",
+      "longDescription": "Confirm plan coverage, help estimate patient out-of-pocket expenses, and assist with Medicare Part D concerns, plus help with prior authorizations, formulary and tiering exceptions.",
       "tags": ["Forms"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/external-resources/forms/request-samples",
+      "resourceDetailsLink": "/external-resources/forms/benefits-review-form",
       "author": "E360 Support",
       "lastModified": "09/2021",
-      "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/resources#request-samples",
-      "PfizerResourceLink": "https://www.pfizerpro.com/request-samples",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P1Y000011vwqFUAQ",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P1Y000011vwqFUAQ",
       "RelatedResources": {
         "tags": [],
-        "titles": ["Full Prescribing Information"]
+        "titles": ["Full Prescribing Information", "Medication Guide"]
       } 
     },
     {
