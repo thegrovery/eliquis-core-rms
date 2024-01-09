@@ -1,0 +1,129 @@
+---
+// This is the frontmatter section where you can import other components or scripts if needed
+
+
+const { heading, body } = Astro.props as Props;
+---
+
+<script type="text/javascript">
+/********************************************
+*********************************************
+
+	Planet Caravan Studios | Custom Analytics
+
+*********************************************
+********************************************/
+
+	/********************************************
+
+	CONSOLE LOG FUNCTIONS
+		
+	********************************************/
+		$(document).ready(function(){
+			let showConsole = false;
+			var searchParams = new URLSearchParams(window.location.search); 
+			if(searchParams.has("debug")){
+				showConsole = true;
+			} else {
+				console.log("Planet Caravan Analytics running.  Add '?debug' to your URL to show console messages.");
+			}
+
+			$.fn.consoleLogger = function(message) {
+				
+				let style = '\
+					font-size: clamp(14px, 2vw, 20px);\
+					color: black;\
+					border: solid 2px black;\
+					padding: 0.5em 1em;\
+				';
+
+				if(showConsole == true){
+					console.log('%c' + message, style);
+				}else{
+					//don't show console logs
+				}
+			};
+
+		});
+
+		$(document).ready(function() {
+			//console log
+			$('html').consoleLogger("===== Planet Caravan Analytics initialized. =====");
+		});
+
+
+	/********************************************
+
+		GA EVENTS - MAIN 
+
+		Example:
+
+		data-event="GAEvent" data-category="Home" data-label="CTA" data-action="Click" data-value="undefined"
+
+		- 	The above code should be pasted into the opening tag, 
+			as data-attributes, of whatever element you want to 
+			put a click event on.	 The below codes then grabs the 
+			data attributes you've set,	and pipes it through GTM and GA
+
+	********************************************/
+		$(document).ready(function(){
+
+			function trimBeforeAt(str) {
+			    var atIndex = str.indexOf('@');
+			    if (atIndex !== -1) {
+			        return str.substring(atIndex + 1);
+			    }
+			    return str; // Return original string if '@' is not found
+			}
+
+			$.fn.eventfire_ready = function(){
+
+				//$('html').consoleLogger("===== Event Firing primed.  Ready for takeoff. =====");
+				console.log(netlifyIdentity.currentUser().role);
+
+				$("[data-event='GAEvent']").click(function() {
+					//Set vars
+					var evCat = $(this).attr('data-category') 	? $(this).attr('data-category') : '';
+					var evAct = $(this).attr('data-action') 			? $(this).attr('data-action') : '';
+					var evLab = $(this).attr('data-label') 			? $(this).attr('data-label') : '';
+					var evVal = $(this).attr('data-value') 			? $(this).attr('data-value') : '';
+					var userEmail = netlifyIdentity.currentUser().email ? trimBeforeAt(netlifyIdentity.currentUser().email) : 'Not Logged In';
+					var userGroup = netlifyIdentity.currentUser().role ? netlifyIdentity.currentUser().role : 'No User Group';
+
+					try {
+						//Fire event
+						window.dataLayer = window.dataLayer || [];
+						dataLayer.push({
+							'event': 					'GAEvent',
+							'eventCategory': 	evCat,
+							'eventAction': 			evAct,
+							'eventLabel': 			evLab,
+							'eventValue': 			evVal,
+							'userEmail': 				userEmail,
+							'userGroup': 				userGroup,
+						});
+
+						$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"], User Name: ["+evCat+"], User Email: ["+userEmail+"], User Group: ["+userGroup+"]");
+
+					} catch (e) {
+						$('html').consoleLogger("GA Event Error: " + e);
+					}
+				});
+			};
+		});
+
+
+	
+	/********************************************
+
+	Run Fumctions
+		
+	********************************************/
+	$(document).ready(function(){
+		/***** PRIME EVENT FIRING *****/
+			$('html').eventfire_ready();
+
+		/***** URL PARAMETER TAGS *****/
+			//$('html').url_param_tag();
+	});
+</script>
