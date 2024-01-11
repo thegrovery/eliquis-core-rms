@@ -5,6 +5,7 @@ import { useTranslations } from '../../i18n/util';
 import SidebarContent from './SidebarContent.astro';
 import SidebarToggleTabGroup from '../TabGroup/SidebarToggleTabGroup';
 import ThemeToggleButton from '../Header/ThemeToggleButton';
+import LogInOutButton from '~/components/Buttons/LogInOutButton.astro';
 import { getPageCategory } from '~/util/getPageCategory';
 
 export interface Props {
@@ -49,6 +50,22 @@ if (isReference) {
 ---
 
 <nav aria-label={t('leftSidebar.a11yTitle')}>
+	<div class="mobile-nav-buttons">
+		<ul>
+			<li style="text-align: center;">
+				<LogInOutButton />
+			</li>
+
+			<li style="text-align: center;">
+				{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+					<ThemeToggleButton
+						client:visible
+						labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+					/>
+				}
+			</li>
+		</ul>
+	</div>
 	<SidebarToggleTabGroup
 		client:load
 		defaultActiveTab={activeTab}
@@ -68,12 +85,7 @@ if (isReference) {
 			currentPageMatch={currentPageMatch}
 		/>
 		
-		<li style="text-align: center;">
-			<ThemeToggleButton
-				client:visible
-				labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-			/>
-		</li>
+		
 		
 	</ul>
 </nav>
@@ -97,7 +109,7 @@ if (isReference) {
 		width: 100%;
 		height: 100%;
 		font-size: var(--theme-text-sm);
-
+		transition: 0.25s ease-in-out;
 	}
 	.nav-groups {
 		padding-top: 1rem;
@@ -116,7 +128,8 @@ if (isReference) {
 			padding-left: 0rem;
 			padding-right: 0rem;
 			position: fixed;
-			top: calc(var(--theme-navbar-height) + 3.6rem);
+			/*top: calc(var(--theme-navbar-height) + 3.6rem);*/
+			top: 4.5rem;
 			bottom: 0;
 			width: calc(var(--theme-left-sidebar-width) - var(--min-spacing-inline) * 1.6);
 		}
@@ -125,6 +138,17 @@ if (isReference) {
 	@media not screen and (min-width: 50em) {
 		nav :global(.TabGroup) {
 			display: none;
+		}
+	}
+
+	.mobile-nav-buttons{
+		display: none;
+		padding: 0 2rem 1rem;
+	}
+	@media (max-width: 800px) {
+		.mobile-nav-buttons{
+			display: flex;
+			justify-content: flex-end;
 		}
 	}
 </style>

@@ -179,15 +179,15 @@
       "PfizerResourceLink": "https://packageinserts.bms.com/pi/pi_eliquis.pdf",
       "RelatedResources": {
         "tags": [],
-        "titles": ["Medication Guidelines"]
+        "titles": ["Medication Guide"]
       } 
     },
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/eliquis-medguide_thumb.png",
       "icon": "ph:download",
-      "title": "Medication Guidelines",
-      "description": "ELIQUIS (Apixaban) medication guidelines pdf download",
+      "title": "Medication Guide",
+      "description": "ELIQUIS (Apixaban) Medication Guide pdf download",
       "longDescription": "MEDICATION GUIDE ELIQUISÒ (ELL eh kwiss) (apixaban) tablets",
       "tags": ["Downloads"],
       "viewDetailsButtonText": "View Details",
@@ -204,22 +204,22 @@
     },
     {
       "resourceType": "external",
-      "imageSrc": "/images/resources/eliquis-request-samples_thumb.png",
+      "imageSrc": "/images/resources/benefits-review-form.png",
       "icon": "ph:clipboard",
-      "title": "Request Samples",
-      "description": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers.",
-      "longDescription": "Samples of ELIQUIS 2.5 mg and 5 mg tablets are available for eligible prescribers. Call 1-855-ELIQUIS (354-7847) or click below to see if you are eligible to have samples delivered to your office.",
+      "title": "Benefits Review Form",
+      "description": "Summary of Benefits and Follow-up Support",
+      "longDescription": "Confirm plan coverage, help estimate patient out-of-pocket expenses, and assist with Medicare Part D concerns, plus help with prior authorizations, formulary and tiering exceptions.",
       "tags": ["Forms"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/external-resources/forms/request-samples",
+      "resourceDetailsLink": "/external-resources/forms/benefits-review-form",
       "author": "E360 Support",
       "lastModified": "09/2021",
-      "BMSResourceLink": "https://www.eliquis.com/eliquis/hcp/resources#request-samples",
-      "PfizerResourceLink": "https://www.pfizerpro.com/request-samples",
+      "BMSResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P1Y000011vwqFUAQ",
+      "PfizerResourceLink": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P1Y000011vwqFUAQ",
       "RelatedResources": {
         "tags": [],
-        "titles": ["Full Prescribing Information"]
+        "titles": ["Full Prescribing Information", "Medication Guide"]
       } 
     },
     {
@@ -376,7 +376,7 @@
       "tags": ["Digital Collateral"],
       "viewDetailsButtonText": "View Details",
       "shareButtonText": "Share",
-      "resourceDetailsLink": "/internal-resources/digital-collaterals/benefits-review-guide",
+      "resourceDetailsLink": "/internal-resources/digital-collateral/benefits-review-guide",
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "#",
@@ -422,7 +422,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=856749&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=36774",
       "RelatedResources": {
         "tags": [""],
         "titles": ["English Co-pay Brochure"]
@@ -443,7 +443,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=828625&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=35501",
       "RelatedResources": {
         "tags": [""],
         "titles": ["English Co-pay Brochure", "English FTO Brochure"]
@@ -464,7 +464,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=798723&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=34662",
       "RelatedResources": {
         "tags": [""],
         "titles": ["Spanish Pre-activated FTO Brochure"]
@@ -485,7 +485,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=855588&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=36978",
       "RelatedResources": {
         "tags": [""],
         "titles": ["Spanish FTO Brochure"]
@@ -506,7 +506,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901834&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=38611",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -527,7 +527,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901819&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=38598",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -548,7 +548,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=901820&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=38600",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -569,7 +569,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=948587&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=40012",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -590,7 +590,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=969070&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=40661",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -611,7 +611,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=969070&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=36618",
       "RelatedResources": {
         "tags": [""],
         "titles": [""]
@@ -632,7 +632,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=944653&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=39894",
       "RelatedResources": {
         "tags": [""],
         "titles": ["HCP Sell Sheet Digital Download"]
@@ -653,7 +653,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=771638&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=33843",
       "RelatedResources": {
         "tags": [""],
         "titles": ["English FTO Brochure","English Pre-activated FTO Brochure"]

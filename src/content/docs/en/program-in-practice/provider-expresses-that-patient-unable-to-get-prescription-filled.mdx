@@ -23,54 +23,6 @@ import Checkbox from '~/components/Checkbox';
 
 <AccordionEntry 
 	
-	question="Has the prescription been NDC blocked under the recent CVS/Zinc formulary change?"
-	
->
-    The patient may be eligible for Co-Pay Assistance through the ELIQUIS 360 Support program if they are not already enrolled.
-    <h3 class="answer-title">Actions taken by the following may help address concerns:</h3>
-
-	<div class="iconbox-wrapper">
-    <IconBox SvgComponent={ProviderIcon} text="Provider" />
-    <IconBox SvgComponent={PatientIcon} text="Patient" />
-    <IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
-    </div>
-
-<h4>Is this a CVS Caremark Value Plan/Zinc patient?</h4>
-1. Did patient receive an ELIQUIS $10 Co-Pay Extend Card from their provider?
-Did the patient activate the card by calling **[1-855-ELIQUIS](tel:1-855-ELIQUIS)**?
-2. Pharmacist to trigger Prior Authorization (PA) for HCP to fill out before the
-plan will provide coverage for ELIQUIS.
-3. Is Pharmacist waiting for PA approval? Patient does not need to wait for
-approval to have prescription filled unless mandated by the pharmacy.
-4. Patients who already have an existing Co-Pay Card can continue to use it.
-They should request a PA from their provider at next fill.
-<br />
-
-<div class="iconbox-wrapper">
-<IconBox SvgComponent={PharmacistIcon} text="Pharmacist" />
-</div>
-<h4>How should ELIQUIS $10 Co-Pay Extend Card claims be processed at the pharmacy?</h4>
-Pharmacists should be instructed to file claims in the secondary position with “OCC3*” or “OCC8*” when the primary rejects with rejection code 70 or 75.
-<br />
-<small>Note: There are “other coverage codes” common to this scenario, which are required in most
-systems when filing the claim.</small>
-
-
-
-    {/* use tag name or resource title below */}
-    <div class="resource-block-container">
-    <br />
-    <h3>Related Resources</h3>
-    {getRelatedResources([''], ['Co-Pay and Free Trial Offers Eligibility', 'Co-Pay Card Lookup Tool']).map(relatedResource => (
-        <ResourceBlock {...relatedResource} />
-    ))}
-    </div>
-
-
-</AccordionEntry>
-
-<AccordionEntry 
-	
 	question="Is this a hospital discharge scenario?"
 	
 >
@@ -150,8 +102,4 @@ to discuss their prescription cost saving options.
 
 </AccordionEntry>
 
-<Checkbox 
-    client:visible 
-    pageIndex={4} 
-    navLock="true" 
-/>
+<Checkbox client:visible pageIndex={4} />

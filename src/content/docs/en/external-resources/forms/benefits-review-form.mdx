@@ -1,6 +1,6 @@
 ---
-title: Request Samples
-description: This downloadable tool includes two sections, a discharge kit for your patients and a checklist for your discharge planning team.
+title: Benefits Review Form
+description: Confirm plan coverage, help estimate patient out-of-pocket expenses, and assist with Medicare Part D concerns, plus help with prior authorizations, formulary and tiering exceptions.
 i18nReady: true
 type: base
 ---
@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Request Samples");
+export const resource = resources.resources.find(resource => resource.title === "Benefits Review Form");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -49,9 +49,13 @@ export const resource = resources.resources.find(resource => resource.title === 
 </div>
 
 ## Related Resources
-{/* use tag name or resource title below */}
+{/*  tag name or resource title entered in resources.json */}
 <div class="resource-card-container">
-  {getRelatedResources(['Forms'], ['']).map(relatedResource => (
-    <ResourceCard {...relatedResource} />
-  ))}
-</div>
+        { 
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).length > 0 ?
+          getRelatedResources(resource.RelatedResources.tags, resource.RelatedResources.titles).map(relatedResource => (
+            <ResourceCard {...relatedResource} />
+          ))
+          : <p>No resources found</p>
+        }
+    </div>
