@@ -9,13 +9,8 @@ const currentYear = new Date().getFullYear();
 	
 	<ul class="footer-links">
 		<li class="first">
-			© {currentYear} ELIQUIS 360 Support
+			© {currentYear} ELIQUIS 360 Support &nbsp;|&nbsp; <span class="veeva">432-US-2300384 &nbsp;02/24</span>
 		</li>
-<!-- 		<li>
-			<a href="/en/legal/cookie-policy/">
-				Cookie Policy
-			</a>
-		</li> -->
 		<li>
 			<a href="/en/legal/privacy-policy/">
 				<UIString key="footer.privacyPolicy" />
@@ -33,7 +28,9 @@ const currentYear = new Date().getFullYear();
 		text-align: center;
 		color: var(--custom-white);
 		font-size: var(--theme-text-xs);
-		
+		.veeva {
+			white-space: nowrap;
+		}
 	}
 
 	.footer-links {
@@ -44,6 +41,7 @@ const currentYear = new Date().getFullYear();
 		list-style: none;
 		margin: 0 2.5%;
 		padding: 10px;
+		line-height: 1.25;
 		text-align: left;
 		.first {
 			margin-right: auto;
