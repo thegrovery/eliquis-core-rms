@@ -49,6 +49,11 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 							aria-current={`${currentPageMatch.endsWith(slug) ? 'page' : 'false'}`}
 							data-current-parent={`${isSubPage(currentPageMatch, slug) ? 'true' : 'false'}`}
 							rel="prefetch"
+							data-event="GAEvent" 
+							data-category="nav" 
+							data-label={`navLink-[${text}]`} 
+							data-action="Click" 
+							data-value="undefined"
 						>
 							<span class="nav-text"><Fragment set:html={text} /></span>
 						</a>
