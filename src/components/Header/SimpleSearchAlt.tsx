@@ -100,7 +100,7 @@ const Search = () => {
     const filteredRecentSearches = recentSearches.filter(item => !favorites.some(fav => fav.title === item.title));
 
     const displayFavorites = favorites.map(item => (
-        <li class='simpleSearch_item recent'>
+        <li class='simpleSearch_item recent fadeIn'>
             <span 
                 onClick={() => toggleFavorite(item.title, item.url, item.folder)}
                 class='favoriteToggle'
@@ -149,27 +149,27 @@ const Search = () => {
             <ul className='simpleSearch_ul'>
                 {favorites.length > 0 && <li><h2>Favorites</h2></li>}
                 {displayFavorites}
-                {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
-                {displayRecent}
                 {hits.length > 0 && <li><h2>Results</h2></li>}
                 {hits
-                .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
-                .map(hit => (
-                    <li className='simpleSearch_item'>
-                        <span 
-                        onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
-                        className='favoriteToggle'
-                        >
-                        {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
-                        </span>
-                        <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
-                        <div className='hit-folder'>
-                            {hit.folder && hit.folder !== '.' ? hit.folder : ''}
-                        </div>
-                        {highlightText(hit.title, query)}
-                        </a>
-                    </li>
+                    .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
+                    .map(hit => (
+                        <li className='simpleSearch_item fadeIn '>
+                            <span 
+                                onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
+                                className='favoriteToggle'
+                            >
+                                {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
+                            </span>
+                            <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
+                                <div className='hit-folder'>
+                                    {hit.folder && hit.folder !== '.' ? hit.folder : ''}
+                                </div>
+                                {highlightText(hit.title, query)}
+                            </a>
+                        </li>
                 ))}
+                {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
+                {displayRecent}
             </ul>
             {hits.length === 0 && filteredRecentSearches.length === 0 && favorites.length === 0 && (
                 <div className="noResultsMessage">
