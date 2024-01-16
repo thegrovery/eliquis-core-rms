@@ -1,6 +1,6 @@
 ---
-title: Track II Training Deck
-description: ELIQUIS 360 Support Track 2.0 Training deck has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.
+title: Spanish Co-pay Brochure
+description: Order Spanish Co-pay Brochure Printed Resource
 i18nReady: true
 type: base
 ---
@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Track II Training Deck");
+export const resource = resources.resources.find(resource => resource.title === "Spanish Co-pay Brochure");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -39,11 +39,11 @@ export const resource = resources.resources.find(resource => resource.title === 
 		### Description
 		<div> {resource.description} </div>
 
-		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
-
-		{/* ### Pfizer Resource Link
-		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button> */}
+{/* 		### BMS Resource Link
+		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Visit WebOrder</Button>
+ */}
+		### Pfizer Resource Link
+		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Visit Harte Hanks</Button>
 
 	</div>
 </div>
