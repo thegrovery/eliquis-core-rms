@@ -14,6 +14,11 @@ const { item, rel } = Astro.props as Props;
 	rel={rel} 
 	href={new URL(item.link, Astro.site).pathname}
 	data-locked="false"
+	data-event="GAEvent" 
+	data-category="Body" 
+	data-label={`pageNav-${rel}-[${item.text}]`}
+	data-action="Click" 
+	data-value="undefined"
 >
 	{
 		rel === 'prev' && (
