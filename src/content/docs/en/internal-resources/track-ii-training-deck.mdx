@@ -40,10 +40,31 @@ export const resource = resources.resources.find(resource => resource.title === 
 		<div> {resource.description} </div>
 
 		### BMS Resource Link
-		<Button variant="primary" className="details-btn" href={resource.BMSResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button>
+		<Button 
+			variant="primary" 
+			className="details-btn" 
+			href={resource.BMSResourceLink} 
+			target="_blank" 
+			icon="ri:external-link-fill"
+			data-event="GAEvent" 
+			data-category="body" 
+			data-label={'assetDownload-BMS-[' + resource.title + ']'} 
+			data-action="Click" 
+			data-value="undefined"
+		>Download From Source</Button>
 
 		{/* ### Pfizer Resource Link
-		<Button variant="secondary" className="details-btn" href={resource.PfizerResourceLink} target="_blank" icon="ri:external-link-fill">Download From Source</Button> */}
+		<Button 
+			variant="secondary" 
+			className="details-btn" 
+			href={resource.PfizerResourceLink} 
+			target="_blank" 
+			icon="ri:external-link-fill"
+			data-category="body" 
+			data-label={'assetDownload-Pfizer-[' + resource.title + ']'} 
+			data-action="Click" 
+			data-value="undefined"
+		>Download From Source</Button> */}
 
 	</div>
 </div>
