@@ -15,6 +15,11 @@ const { videoLink, text } = Astro.props as Props;
       class='LogInOutButton' 
       onClick="netlifyIdentity.logout();"
       data-notification="false"
+      data-event="GAEvent" 
+      data-category="Header" 
+      data-label="navLogOut" 
+      data-action="Click" 
+      data-value="undefined"
     >
       <div class="LogInOutButtonInner">
         <!-- <Icon name=ic:outline-notification-important /> -->
@@ -28,6 +33,11 @@ const { videoLink, text } = Astro.props as Props;
      class='LogInOutButton' 
      onClick="netlifyIdentity.open();"
      data-notification="false"
+     data-event="GAEvent" 
+      data-category="Header" 
+      data-label="navLogIn" 
+      data-action="Click" 
+      data-value="undefined"
    >
      <div class="LogInOutButtonInner">
        <!-- <Icon name=ic:outline-notification-important /> -->
