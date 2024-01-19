@@ -78,11 +78,10 @@ const manualTitle = content.manualTitle;
 		</section>
 		{
 			(previous || next) && (
-				<aside class="next-previous-nav">
-					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
-					{next &&	<ArticleNavigationButton rel="next" item={next} />
-					}
-				</aside>
+			<aside class={`next-previous-nav ${previous && !next ? 'only-prev' : ''} ${next && !previous ? 'only-next' : ''}`}>
+				{previous && <ArticleNavigationButton rel="prev" item={previous} />}
+				{next && <ArticleNavigationButton rel="next" item={next} />}
+			</aside>
 			)
 		}
 	</article>
@@ -105,23 +104,29 @@ const manualTitle = content.manualTitle;
 			text-transform: capitalize;
 		}
 	}
+
 	.next-previous-nav {
 		display: flex;
-		flex-direction: column;
-		/* flex-wrap: wrap; */
+		flex-direction: row;
 		width: auto;
 		gap: 1rem;
-		flex: 1;
 		margin-bottom: 1.5rem;
-		justify-content: flex-end;
-		flex-direction: row;
+
+		&.only-prev {
+			justify-content: flex-start; /* Align to the left for 'previous' only */
+		}
+
+		&.only-next {
+			justify-content: flex-end; /* Align to the right for 'next' only */
+		}
+
 		@media (max-width: 800px) {
-			/* padding-left: 1rem; */
-			justify-content: center;
+			padding-left: 1rem;
+			justify-content: center; /* Center alignment for small screens */
 		}
 		a {
-			/* max-width: 50%; */
-			@media (min-width: 50em) {
+			max-width: 50%;
+			@media (max-width: 80em) {
 				max-width: 50%;
 				/* flex-direction: column; */
 			}
@@ -187,7 +192,6 @@ const manualTitle = content.manualTitle;
 		/* font-weight: 300; */
 		color: var(--theme-text-lighter);
 	}
-
 	/* Mobile (default styles) */
 	.content {
 		padding-top: calc(var(--theme-navbar-height) - 3.5em); /* Example calculation */
