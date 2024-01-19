@@ -103,6 +103,10 @@ const lang = getLanguageFromURL(Astro.url.pathname);
         link.innerHTML = link.innerHTML.replace(checkmarkSpan, ''); // Remove checkmark span
         
       }
+	   // Unlock the first item
+        if (slug === 'about-program-in-practice') {
+            link.classList.remove("locked");
+        }
     });
   };
 

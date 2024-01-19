@@ -78,11 +78,10 @@ const manualTitle = content.manualTitle;
 		</section>
 		{
 			(previous || next) && (
-				<aside class="next-previous-nav">
-					{previous && <ArticleNavigationButton rel="prev" item={previous} />}
-					{next &&	<ArticleNavigationButton rel="next" item={next} />
-					}
-				</aside>
+			<aside class={`next-previous-nav ${previous && !next ? 'only-prev' : ''} ${next && !previous ? 'only-next' : ''}`}>
+				{previous && <ArticleNavigationButton rel="prev" item={previous} />}
+				{next && <ArticleNavigationButton rel="next" item={next} />}
+			</aside>
 			)
 		}
 	</article>
@@ -105,12 +104,25 @@ const manualTitle = content.manualTitle;
 			text-transform: capitalize;
 		}
 	}
+
 	.next-previous-nav {
-		justify-content: flex-end;
+		display: flex;
 		flex-direction: row;
+		width: auto;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+
+		&.only-prev {
+			justify-content: flex-start; /* Align to the left for 'previous' only */
+		}
+
+		&.only-next {
+			justify-content: flex-end; /* Align to the right for 'next' only */
+		}
+
 		@media (max-width: 800px) {
 			padding-left: 1rem;
-			justify-content: center;
+			justify-content: center; /* Center alignment for small screens */
 		}
 		a {
 			max-width: 50%;
@@ -180,8 +192,34 @@ const manualTitle = content.manualTitle;
 		/* font-weight: 300; */
 		color: var(--theme-text-lighter);
 	}
+	/* Mobile (default styles) */
 	.content {
-		padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+		padding-top: calc(var(--theme-navbar-height) - 3.5em); /* Example calculation */
+	}
+
+	/* Tablet Vertical (600px to 800px) */
+	@media (min-width: 37.5em) { /* 600px/16px = 37.5em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) - 2.5em); /* Adjust as needed */
+		}
+	}
+
+	/* Tablet Horizontal (800px to 1024px) */
+	@media (min-width: 50em) { /* 800px/16px = 50em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) - 2em); /* Adjust as needed */
+		}
+	}
+
+	/* Desktop and above (above 1024px) */
+	@media (min-width: 65em) { /* 1024px/16px = 64em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+		}
+	}
+
+	.content {
+		/* padding-top: calc(var(--theme-navbar-height) - 3.5em); */
 		padding-bottom: var(--doc-padding-block);
 		padding-inline: var(--min-spacing-inline);
 		width: 100%;
@@ -196,20 +234,6 @@ const manualTitle = content.manualTitle;
 	.content > section {
 		margin-bottom: 4rem;
 	}
-	.content h2{
-		
-	}
-
-
-	.next-previous-nav {
-		display: flex;
-		flex-direction: column;
-		/* flex-wrap: wrap; */
-		width: auto;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-	}
-	
 </style>
 
 <script type="text/javascript">

@@ -51,7 +51,9 @@ const { videoLink, text } = Astro.props as Props;
 
 
 <style lang="scss">
-  
+  button span {
+    white-space: nowrap;
+  }
   .LogInOutButton {
       position: relative;
       border: 1px solid var(--custom-accent-1-50);
@@ -60,7 +62,10 @@ const { videoLink, text } = Astro.props as Props;
       background-color: var(--theme-code-inline-bg);
       cursor: pointer;
       font-size: 1rem;
-      padding: 0.65em 1.5em;
+      padding: 0.65em 1em;
+      @media (min-width: 70em) {
+        padding: 0.65em 1.5em;
+      }
       line-height: calc(1 / var(--theme-text-xs));
       min-height: 36px;
       font-family: var(--font-body);

@@ -50,22 +50,7 @@ if (isReference) {
 ---
 
 <nav aria-label={t('leftSidebar.a11yTitle')}>
-	<div class="mobile-nav-buttons">
-		<ul>
-			<li style="text-align: center;">
-				<LogInOutButton />
-			</li>
-
-			<li style="text-align: center;">
-				{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
-					<ThemeToggleButton
-						client:visible
-						labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-					/>
-				}
-			</li>
-		</ul>
-	</div>
+	
 	<SidebarToggleTabGroup
 		client:load
 		defaultActiveTab={activeTab}
@@ -88,6 +73,22 @@ if (isReference) {
 		
 		
 	</ul>
+	<div class="mobile-nav-buttons">
+		<ul>
+			<li style="text-align: center;">
+				<LogInOutButton />
+			</li>
+
+			<li style="text-align: center;">
+				{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+					<ThemeToggleButton
+						client:visible
+						labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+					/>
+				}
+			</li>
+		</ul>
+	</div>
 </nav>
 
 <!-- Preserve sidebar scroll across page loads -->
@@ -143,12 +144,14 @@ if (isReference) {
 
 	.mobile-nav-buttons{
 		display: none;
-		padding: 0 2rem 1rem;
+		padding: 1em 2rem 1rem;
 	}
 	@media (max-width: 800px) {
 		.mobile-nav-buttons{
-			display: flex;
-			justify-content: flex-end;
+			display: block;
+			width: 100%;
+			justify-content: center;
 		}
+		:global(.mobile-nav-buttons button) {width: 100%;}
 	}
 </style>
