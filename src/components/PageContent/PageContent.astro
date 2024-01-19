@@ -106,17 +106,24 @@ const manualTitle = content.manualTitle;
 		}
 	}
 	.next-previous-nav {
+		display: flex;
+		flex-direction: column;
+		/* flex-wrap: wrap; */
+		width: auto;
+		gap: 1rem;
+		flex: 1;
+		margin-bottom: 1.5rem;
 		justify-content: flex-end;
 		flex-direction: row;
 		@media (max-width: 800px) {
-			padding-left: 1rem;
+			/* padding-left: 1rem; */
 			justify-content: center;
 		}
 		a {
-			max-width: 50%;
-			@media (max-width: 80em) {
+			/* max-width: 50%; */
+			@media (min-width: 50em) {
 				max-width: 50%;
-				flex-direction: column;
+				/* flex-direction: column; */
 			}
 			text-decoration: none; 
 			color: var(--custom-maroon);
@@ -180,8 +187,35 @@ const manualTitle = content.manualTitle;
 		/* font-weight: 300; */
 		color: var(--theme-text-lighter);
 	}
+
+	/* Mobile (default styles) */
 	.content {
-		padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+		padding-top: calc(var(--theme-navbar-height) - 3.5em); /* Example calculation */
+	}
+
+	/* Tablet Vertical (600px to 800px) */
+	@media (min-width: 37.5em) { /* 600px/16px = 37.5em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) - 2.5em); /* Adjust as needed */
+		}
+	}
+
+	/* Tablet Horizontal (800px to 1024px) */
+	@media (min-width: 50em) { /* 800px/16px = 50em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) - 2em); /* Adjust as needed */
+		}
+	}
+
+	/* Desktop and above (above 1024px) */
+	@media (min-width: 65em) { /* 1024px/16px = 64em */
+		.content {
+			padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+		}
+	}
+
+	.content {
+		/* padding-top: calc(var(--theme-navbar-height) - 3.5em); */
 		padding-bottom: var(--doc-padding-block);
 		padding-inline: var(--min-spacing-inline);
 		width: 100%;
@@ -196,20 +230,6 @@ const manualTitle = content.manualTitle;
 	.content > section {
 		margin-bottom: 4rem;
 	}
-	.content h2{
-		
-	}
-
-
-	.next-previous-nav {
-		display: flex;
-		flex-direction: column;
-		/* flex-wrap: wrap; */
-		width: auto;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-	}
-	
 </style>
 
 <script type="text/javascript">
