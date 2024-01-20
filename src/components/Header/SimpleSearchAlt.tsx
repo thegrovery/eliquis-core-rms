@@ -26,10 +26,44 @@ const Search = () => {
         ).slice(0, 5);
         setRecentSearches(newRecentSearches);
         localStorage.setItem('recentSearches', JSON.stringify(newRecentSearches));
+
+        try {
+            //Fire event
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event':                    'GAEvent',
+                'eventCategory':    'Search',
+                'eventAction':          'Typing',
+                'eventLabel':           'searchTerm-['+title+']',
+                'eventValue':           'undefined',
+                //'userEmail':                userEmail,
+                //'userGroup':                userGroup,
+            });
+
+        } catch (e) {
+            console.log("GA Event Error: " + e);
+        }
     };
     
     const handleLinkClick = (title: string, url: string, folder: string) => {
         saveSearchToRecent(title, url, folder);
+
+        try {
+            //Fire event
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event':                    'GAEvent',
+                'eventCategory':    'Search',
+                'eventAction':          'Click',
+                'eventLabel':           'searchLinkClick-['+title+']',
+                'eventValue':           'undefined',
+                //'userEmail':                userEmail,
+                //'userGroup':                userGroup,
+            });
+
+        } catch (e) {
+            console.log("GA Event Error: " + e);
+        }
     };
 
     const highlightText = (text, highlight) => {
@@ -66,10 +100,45 @@ const Search = () => {
             const newFavorites = favorites.filter(fav => fav.title !== title);
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
+           //Unfavorite
+           try {
+               //Fire event
+               window.dataLayer = window.dataLayer || [];
+               dataLayer.push({
+                   'event':                    'GAEvent',
+                   'eventCategory':    'Search',
+                   'eventAction':          'Click',
+                   'eventLabel':           'searchUnfavorite-['+title+']',
+                   'eventValue':           'undefined',
+                   //'userEmail':                userEmail,
+                   //'userGroup':                userGroup,
+               });
+
+           } catch (e) {
+               console.log("GA Event Error: " + e);
+           }
         } else {
             const newFavorites = [{title, url, folder}, ...favorites];
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            //Favorite
+            try {
+                //Fire event
+                window.dataLayer = window.dataLayer || [];
+                dataLayer.push({
+                    'event':                    'GAEvent',
+                    'eventCategory':    'Search',
+                    'eventAction':          'Click',
+                    'eventLabel':           'searchFavorite-['+title+']',
+                    'eventValue':           'undefined',
+                    //'userEmail':                userEmail,
+                    //'userGroup':                userGroup,
+                });
+
+            } catch (e) {
+                console.log("GA Event Error: " + e);
+            }
+            
         }
     };
 
