@@ -282,8 +282,8 @@
       "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
       "author": "E360 Support",
       "lastModified": "06/2023",
-      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
-      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "BMSResourceLink": "/docs/Eliquis_360_Support_Co-Pay_and_Reimbursement_Services_FAQ.pdf",
+      "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": ["Other"],
         "titles": []
@@ -366,7 +366,7 @@
       "resourceDetailsLink": "/internal-resources/digital-collateral/hcp-sell-sheet",
       "author": "E360 Support",
       "lastModified": "01/2022",
-      "BMSResourceLink": "#",
+      "BMSResourceLink": "/docs/432-US-2101701_BMS579 E360-HCP-Sell-Sheet-Update_Digital_Final.pdf",
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],
@@ -387,7 +387,7 @@
       "resourceDetailsLink": "/internal-resources/digital-collateral/benefits-review-guide",
       "author": "E360 Support",
       "lastModified": "01/2022",
-      "BMSResourceLink": "#",
+      "BMSResourceLink": "/docs/432-US-2200481_ELQ_E360_Bens_Review_Guide_iPDF_P0388719.pdf",
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],

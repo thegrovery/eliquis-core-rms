@@ -33,7 +33,7 @@ const processedSegments = processText(text);
       }
       return (
         <div>
-          Announcement: <span key={index} set:html={segment.announcementDate} />
+          <span class="whatsnew-date" key={index} set:html={segment.announcementDate} />
           <br/>
           <span key={index} set:html={segment.announcementContent} />
         </div>
@@ -42,5 +42,13 @@ const processedSegments = processText(text);
 </div>
 
 <style>
-
+.whatsnew-date {
+  color: var(--theme-text-lightest);
+  /* background-color: var(--theme-bg-offset);
+  padding: .15em .5em; */
+  font-size: var(--theme-text-xs);
+  border-radius: 3px;
+  margin-bottom: .25em;
+  display: inline-block;
+}
 </style>
