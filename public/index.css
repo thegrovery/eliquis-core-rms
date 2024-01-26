@@ -62,7 +62,7 @@ body::before {
 }
 
 body {
-	color: var(--theme-text);
+	color: var(--theme-text-lighter);
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;

@@ -111,7 +111,12 @@ const manualTitle = content.manualTitle;
 		width: auto;
 		gap: 1rem;
 		margin-bottom: 1.5rem;
-
+		.heading {
+			color: var(--theme-text-lightest);
+		}
+		.name {
+			color: var(--theme-text);
+		}
 		&.only-prev {
 			justify-content: flex-start; /* Align to the left for 'previous' only */
 		}
@@ -131,21 +136,21 @@ const manualTitle = content.manualTitle;
 				flex-direction: column;
 			}
 			text-decoration: none; 
-			color: var(--custom-maroon);
+			color: var(--theme-accent-secondary);
 			.copy {
 				
 				.name {
 					font-family: var(--font-heading);
 				}
 			}
-			border: 1px solid var(--custom-maroon-50);
-     	 	box-shadow: -2px 2px 0px var(--custom-maroon-50);
+			border: 1px solid var(--custom-grey-1-50);
+     	 	box-shadow: -2px 2px 0px var(--grey-1-50);
 			background-color: var(--theme-bg-gradient-top);
 			transition: all .1s ease-in;
 			&:hover {
-				color: var(--custom-maroon);
-				border-color: var(--custom-maroon-90);
-				box-shadow: -2px 2px 0px var(--custom-maroon-90);
+				color: var(--custom-grey-1-90);
+				border-color: var(--custom-grey-1-90);
+				box-shadow: -2px 2px 0px var(--custom-grey-1-50);
 			}
 		}
 	}

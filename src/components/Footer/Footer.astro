@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear();
 	
 	<ul class="footer-links">
 		<li class="first">
-			© {currentYear} ELIQUIS 360 Support &nbsp;|&nbsp; <span class="veeva">432-US-2300384 &nbsp;02/24</span>
+			© {currentYear} THE GROVERY  <!-- <span class="veeva">&nbsp;|&nbsp;432-US-2300384 &nbsp;02/24</span> -->
 		</li>
 		<li>
 			<a 
@@ -28,12 +28,12 @@ const currentYear = new Date().getFullYear();
 
 <style type="scss">
 	footer {
-		background-image: url(/images/footer-wave.svg);
+		/* background-image: url(/images/footer-wave.svg); */
 		background-repeat: no-repeat;
     	background-size: cover;
 		padding: 6rem 0 2rem;
 		text-align: center;
-		color: var(--custom-white);
+		color: var(--theme-text);
 		font-size: var(--theme-text-xs);
 		.veeva {
 			white-space: nowrap;
@@ -57,14 +57,14 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.footer-links a {
-		color: var(--custom-white);
+		color: var(--theme-text);
 		text-decoration: none;
 		
 	}
 
 	.footer-links a:focus,
 	.footer-links a:hover {
-		color: var(--custom-white-90);
+		color: var(--theme-text-lighter);
 		text-decoration: underline;
 	}
 </style>

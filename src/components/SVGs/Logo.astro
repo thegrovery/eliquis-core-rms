@@ -5,7 +5,7 @@ const { heading, body } = Astro.props as Props;
 ---
 
 <div class="logo">
-	<div class="favicon">
+	<div id="CORELOGO" class="favicon">
 		<svg xmlns="http://www.w3.org/2000/svg" width="458.72" height="374.72" viewBox="0 0 458.72 374.72">
 			<clipPath id="clip-path">
 				<rect id="Rectangle_146" data-name="Rectangle 146" width="77" height="77" transform="translate(0 0.001)" fill="none"/>
@@ -39,6 +39,22 @@ const { heading, body } = Astro.props as Props;
 </div>
 
 <style type="scss">
+	/* Logo Dark Theme color changes */
+	html.theme-dark #CORELOGO svg {
+		overflow: visible;
+	}
+	html.theme-dark #CORELOGO path {
+		fill: var(--theme-text);
+	}
+	html.theme-dark #CORELOGO #Path_27326 {
+		fill: var(--theme-text);
+	}
+	html.theme-dark #CORELOGO #Path_27325 {
+		fill: transparent;
+		/* stroke: var(--theme-accent); */
+		stroke: var(--theme-text-lighter);
+		stroke-width: 10px;
+	}
   /* Logo height as image -- still commented out above btw */
 	.logo img {
 		height: 60px;
@@ -87,6 +103,9 @@ const { heading, body } = Astro.props as Props;
 			font-weight: 600;
 			svg {
 				height: 40px;
+				path {
+					fill: var(--theme-text-lighter);
+				}
 			}
 		}
 	}
