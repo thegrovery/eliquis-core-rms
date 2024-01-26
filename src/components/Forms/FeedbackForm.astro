@@ -165,22 +165,22 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 	}
 
 	.category-option input:checked + label {
-		background-color: var(--custom-maroon-25);
-		border-color: var(--custom-maroon-90);
+		background-color: var(--theme-bg-gradient-bottom);
+		border-color: var(--theme-accent-tertiary);
 	}
 
 	dialog *:focus,
 	.category-option input:focus + label {
-		outline: 2px solid var(--theme-accent-secondary);
+		outline: 2px solid var(--theme-accent-tertiary);
 	}
 
 	.category-option svg {
-		color: var(--theme-text);
+		color: var(--theme-text-lighter);
 		width: 2.25rem;
 	}
 
 	textarea {
-		border: 2px solid var(--custom-maroon-90);
+		border: 2px solid var(--theme-accent-tertiary);
 		border-radius: 0.5rem;
 		resize: none;
 		line-height: 1.5;
@@ -203,7 +203,7 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 
 	.submit-buttons p {
 		font-size: var(--theme-text-xs);
-		color: var(--theme-text);
+		color: var(--theme-text-light);
 		font-weight: 600;
 		padding: 0 0.5rem;
 	}
@@ -240,7 +240,7 @@ const instanceId = Math.round(Math.random() * 10e9).toString(36);
 		border: 1px solid var(--custom-grey);
 		      border-radius: 1.5rem;
 		      /* background-color: transparent; */
-		      background-color: var(--custom-maroon);
+		      background-color: var(--theme-accent-tertiary);
 		      cursor: pointer;
 		      font-size: 1rem;
 		      text-transform: uppercase;

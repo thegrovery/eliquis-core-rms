@@ -81,10 +81,10 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
           min-height: 50px;
           border-radius: 3px;
           padding: 5px 12px;
-          border: 2px solid var(--custom-dark-blue);
+          border: 2px solid var(--theme-accent);
           &:focus, &:hover {
-              border-color: var(--custom-maroon);
-              outline: var(--custom-maroon);
+              border-color: var(--theme-accent-tertiary);
+              outline: var(--theme-accent-tertiary);
           }
       }
       .clearButton {
@@ -126,7 +126,7 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
       }
       
       &::-webkit-scrollbar-thumb:hover {
-        background: var(--custom-maroon-90);
+        background: var(--theme-accent-secondary-90);
       }
       */
       z-index: 1;
@@ -168,7 +168,8 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
        svg {
         &:hover {
            path {
-            stroke: var(--custom-maroon) !important;
+            stroke: var(--theme-accent-tertiary);
+            fill: var(--theme-accent-tertiary);
            }
         }
        }

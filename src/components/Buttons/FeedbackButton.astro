@@ -20,6 +20,7 @@ const { heading, body } = Astro.props as Props;
   <div class="FeedbackButton_inner">
     
     <span>Feedback</span>
+    <Icon name="ri:feedback-line" />
     <!-- <FeedbackIcon /> -->
 
   </div>
@@ -31,7 +32,7 @@ const { heading, body } = Astro.props as Props;
       border: 1px solid var(--custom-grey);
       border-radius: 1.5rem;
       /* background-color: transparent; */
-      background-color: var(--custom-green);
+      background-color: var(--theme-accent-secondary);
       cursor: pointer;
       font-size: 1rem;
       text-transform: uppercase;
@@ -43,6 +44,7 @@ const { heading, body } = Astro.props as Props;
       min-height: var(--mobile-nav-button-size);
       [astro-icon] {
         color: var(--custom-white);
+        font-size: 1.5em;
       }
       transition: all 150ms ease-in;
       &:focus, &:hover {

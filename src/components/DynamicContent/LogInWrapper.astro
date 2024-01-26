@@ -5,6 +5,7 @@
 
 import LoadingBlock from '~/components/DynamicContent/LoadingBlock.astro';
 import LoadingBar from '~/components/DynamicContent/LoadingBar.astro';
+import Icon from 'astro-icon';
 
 const { info } = Astro.props as Props;
 ---
@@ -20,21 +21,23 @@ const { info } = Astro.props as Props;
   <div class="loggedIn">
     <slot/>
   </div>
-
+<div class="loggedBox">
   <div class="loggedOut">
+    <Icon name="mdi:alert-outline" />
     <h1>You are currently logged out.</h1>
-    <p>
-      To view this content, please log in or request an account from your manager.
-      <br/>
+    <p style="text-align: center;">To view this content, please log in or request an account from your manager.<br/>
       Redirecting you to the home page in 5 seconds. 
     </p>
-    
   </div>
-
+</div>
 </div>
 
 <style lang="scss">
   .LogInWrapper{
+    [astro-icon] {
+      font-size: 5em;
+      margin: 1em 0 .25em;
+    }
     .placeholder{display: flex;}
     .loggedIn{
       display: none;

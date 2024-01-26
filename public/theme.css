@@ -57,13 +57,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-synthesis: none;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 /* For regular text */
 p {
     font-family: 'Gilroy', sans-serif;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 /* For bold text */
@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5 {
 	--color-base-blue: 212, 100%;
 	--color-base-blue-dark: 191, 72%;
 	--color-base-teal: 172, 80%;
-	--color-base-green: 154, 42%;
+	--color-base-green: 94, 58%;
 	--color-base-orange: 22, 100%;
 	--color-base-purple: 269, 79%;
 	--color-base-red: 351, 100%;
@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5 {
 	--color-orange: var(--color-base-orange), 60%;
 	--theme-accent-opacity: 0.4;
 	--theme-accent: hsla(var(--color-orange), 1);
-	--theme-accent-secondary: hsla(var(--color-geen), 1);
+	--theme-accent-secondary: hsla(var(--color-green), 1);
 	--theme-accent-tertiary: hsla(var(--color-orange), 1);
 	--theme-text-accent: hsla(var(--color-orange), 1);
 	--theme-dim: hsla(var(--color-gray-90), 0.3);

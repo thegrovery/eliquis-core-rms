@@ -26,10 +26,14 @@ import { Icon } from 'astro-icon'
   
     <h3>{Astro.props.title}</h3>
     <p>{Astro.props.description}</p>
-   
-    <Button variant="secondary" className="details-btn mini" href={Astro.props.resourceDetailsLink}>
+   <div class="ButtonWrap">
+    <Button variant="primary" className="details-btn mini" href={Astro.props.resourceDetailsLink}>
       {Astro.props.viewDetailsButtonText}
     </Button>
+    <Button variant="secondary" className="share-btn mini" href={Astro.props.BMSResourceLink}>
+     <Icon name="tabler:download" />
+    </Button>
+  </div>
     <!-- <Button variant="tertiary" className="share-btn mini" href={`mailto:?subject=CORE%20RMS%20Resource&body=${encodeURIComponent(Astro.props.resourceDetailsLink)}`}>
       {Astro.props.shareButtonText}
     </Button> -->
@@ -101,10 +105,10 @@ import { Icon } from 'astro-icon'
       letter-spacing: .075rem;
       font-family: var(--font-heading);
       &.internal {
-        background-color: var(--custom-maroon);  
+        background-color: var(--theme-accent-tertiary);  
       }
       &.external {
-        background-color: var(--custom-dark-blue);  
+        background-color: var(--custom-blue);  
       }
     }
     .image-container {
@@ -154,8 +158,8 @@ import { Icon } from 'astro-icon'
       /* max-width: 31%; */
      /*  padding: 1rem; */
       /* border-radius: 12px; */
-      border: 1px solid var(--custom-maroon-50);
-      box-shadow: -2px 2px 0px var(--custom-maroon-50);
+      border: 1px solid var(--custom-dark-blue-50);
+      box-shadow: -2px 2px 0px var(--custom-dark-blue-50);
       transition: all 150ms ease-in-out;
       animation: fadeInUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       .resource-card-inner {
@@ -167,9 +171,9 @@ import { Icon } from 'astro-icon'
       }
     }
     .resource-card:hover,.resource-card:focus {
-        border-color: var(--custom-maroon);
+        border-color: var(--custom-dark-blue);
         background-color: var(--theme-bg-gradient-top);
-        box-shadow: -2px 2px 0px var(--custom-maroon);
+        box-shadow: -2px 2px 0px var(--custom-dark-blue);
         .image-container {
           opacity: 1;
         }
@@ -205,9 +209,12 @@ import { Icon } from 'astro-icon'
       margin: 0 0rem 0.25em 0;
       display: table-cell;
     }
-  
+  .ButtonWrap {
+    display: flex;
+  }
     .details-btn {
-      width: 100%;
+      /* width: 100%; */
+      flex-grow: 1;
       justify-content: center;
       text-align: center;
       /* styles for the details button */
