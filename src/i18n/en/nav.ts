@@ -11,15 +11,15 @@ export default [
 
 	/* LEARN TAB */
 	{ text: 'Introduction', header: true, type: 'learn', key: 'startHere' },
-		{ text: 'Introduction | Main', slug: 'introduction', key: 'introduction' },
-		{ text: 'How to use E360 Field Force Navigator', slug: 'introduction/how-to-use-e360-ffn', key: 'how-to-use-e360-ffn' },
-		{ text: 'About ELIQUIS 360 Support', slug: 'introduction/about-eliquis-360', key: 'about-eliquis-360' },
+		{ text: 'Introduction', slug: 'introduction', key: 'introduction' },
+		{ text: 'How to use CORE', slug: 'introduction/how-to-use-e360-ffn', key: 'how-to-use-e360-ffn' },
+		{ text: 'About Grovery Support', slug: 'introduction/about-eliquis-360', key: 'about-eliquis-360' },
 		{ text: 'Frequently Asked Questions', slug: 'introduction/faqs', key: 'faqs' },
 		{ text: 'Glossary of Terms', slug: 'introduction/glossary', key: 'glossary' },
 
 	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
 		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },
-		{ text: 'How 1-855-ELIQUIS Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },
+		{ text: 'How 1-800-GROVERY Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },
 		{ text: 'Provider expresses that patient is concerned about high out-of-pocket costs', slug: 'program-in-practice/provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs', key: 'provider-expresses-that-patient-is-concerned-about-high-out-of-pocket-costs ' },
 		{ text: 'Provider Expresses That Patient Unable To Get Prescription Filled', slug: 'program-in-practice/provider-expresses-that-patient-unable-to-get-prescription-filled', key: 'provider-expresses-that-patient-unable-to-get-prescription-filled' },
 		{ text: 'Pharmacist says Medicare, Medicaid, DOD, TRICARE, Veterans Affairs (VA) and CHAMPUS Patients are not eligible For co-pay assistance', slug: 'program-in-practice/pharmacist-says-medicare-medicaid-dod-tricare-va-champus-patients-are-not-eligible-for-co-pay-assistance' },
@@ -39,8 +39,8 @@ export default [
 		{ text: 'Internal Resources Overview', slug: 'internal-resources/internal-resources-overview', key: 'internal-resources/internal-resources-overview' },
 		{ text: 'Collateral Materials', slug: 'internal-resources/collateral-materials', key: 'internal-resources/collateral-materials' },
 		{ text: 'Digital Collateral', slug: 'internal-resources/digital-collateral', key: 'internal-resources/digital-collateral' },
-		{ text: 'Eliquis 360 Patient Support Services FAQ', slug: 'internal-resources/eliquis-360-patient-support-services-faq', key: 'internal-resources/eliquis-360-patient-support-services-faq' },
-		{ text: 'Track II Training Deck', slug: 'internal-resources/track-ii-training-deck', key: 'internal-resources/track-ii-training-deck' },
+		{ text: 'Grovery Patient Support Services FAQ', slug: 'internal-resources/eliquis-360-patient-support-services-faq', key: 'internal-resources/eliquis-360-patient-support-services-faq' },
+		{ text: 'Training Deck', slug: 'internal-resources/track-ii-training-deck', key: 'internal-resources/track-ii-training-deck' },
 
 
 	{ text: 'External Resources', header: true, type: 'api', key: 'external-resources' },
