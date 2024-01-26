@@ -15,6 +15,7 @@
 .TabGroup a {
 	flex: 1;
 	font-family: var(--font-heading);
+	font-weight: 700;
 	justify-content: center;
 	white-space: nowrap;
 	border-radius: 0;
