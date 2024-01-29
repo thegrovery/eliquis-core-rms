@@ -17,6 +17,9 @@ export default [
 		{ text: 'Frequently Asked Questions', slug: 'introduction/faqs', key: 'faqs' },
 		{ text: 'Glossary of Terms', slug: 'introduction/glossary', key: 'glossary' },
 
+	{ text: 'Meeting Prep', header: true, type: 'learn', key: 'meeting-prep' },
+		{ text: 'ASCO Conference', slug: 'meeting-prep/asco-conference', key: 'ASCO-Conference' },
+
 	{ text: 'Program in Practice', header: true, type: 'learn', key: 'program-in-practice' },
 		{ text: 'About Program in Practice', slug: 'program-in-practice/about-program-in-practice', key: 'about-program-in-practice' },
 		{ text: 'How 1-800-GROVERY Works', slug: 'program-in-practice/how-1-855-eliquis-works', key: 'how-1-855-eliquis-works' },

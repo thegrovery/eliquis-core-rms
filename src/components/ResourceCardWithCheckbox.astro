@@ -1,0 +1,23 @@
+---
+// Import the ResourceCard component
+import ResourceCard from './ResourceCard.astro';
+
+// Props passed to the component
+const { resource } = Astro.props;
+---
+
+<div class="resource-card-with-checkbox">
+    
+    <ResourceCard {...resource} />
+
+    <div class="checkbox-container">
+        <input type="checkbox" id={`checkbox-${resource.title}`} />
+        <label for={`checkbox-${resource.title}`}>I've reviewed {resource.title}</label>
+    </div>
+</div>
+
+<style>
+    .checkbox-container {
+        margin: 1em 0 !important;
+    }
+</style>

@@ -7,9 +7,11 @@ import { Icon } from 'astro-icon'
 <a class="resource-link" href={Astro.props.resourceDetailsLink}>
   <div class="resource-block">  
     <div class="resource-block-inner">
-      <div class="icon-container">
-      <Icon name={Astro.props.icon} />
-      </div>
+      <picture>
+        <div class={`image-container ${Astro.props.imageSrc ? '' : 'icon'}`} style={Astro.props.imageSrc ? `background-image: url(${Astro.props.imageSrc});` : ''}>
+          {!Astro.props.imageSrc && <Icon name={Astro.props.icon} />}
+        </div>
+      </picture>
       <div class="content-wrap">
         <h4>{Astro.props.title} ></h4>
         <p>{Astro.props.description}</p>
@@ -19,7 +21,35 @@ import { Icon } from 'astro-icon'
 </a>
   
   <style type="scss">
-  
+  picture {
+    overflow: hidden;
+    display: block;
+    
+  }
+  .content-wrap {
+    width: 100%;
+  }
+  .image-container {
+    background-color: var(--custom-grey-1-50);
+    position: relative;
+    width: 100%;
+    height: 7rem;
+    filter: blur(8px) grayscale(.9) opacity(.75);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: .95;
+    
+    &.icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        [astro-icon] {
+            font-size: 4rem;
+            color: var(--custom-white);
+        }
+    }
+  }
   .resource-link {
     text-decoration: none !important;  
   }
@@ -36,6 +66,9 @@ import { Icon } from 'astro-icon'
         min-width: 65px;
         border-radius: 4rem;
         
+    }
+    .image-container {
+      width: 120px;
     }
     .icon-container [astro-icon] {
         font-size: 3em;

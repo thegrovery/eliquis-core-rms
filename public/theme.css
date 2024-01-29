@@ -201,7 +201,7 @@ h1, h2, h3, h4, h5 {
 	--color-orange: var(--color-base-orange), 60%;
 	--theme-accent-opacity: 0.4;
 	--theme-accent: hsla(var(--color-orange), 1);
-	--theme-accent-secondary: hsla(var(--color-green), 1);
+	--theme-accent-secondary: var(--custom-green);
 	--theme-accent-tertiary: hsla(var(--color-orange), 1);
 	--theme-text-accent: hsla(var(--color-orange), 1);
 	--theme-dim: hsla(var(--color-gray-90), 0.3);

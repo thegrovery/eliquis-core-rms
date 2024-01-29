@@ -7,9 +7,11 @@ import { Icon } from 'astro-icon'
 
   <div class={`resource-card ${Astro.props.width ?? 'third'} ${Astro.props.tags.join(' ')}`} data-tags={Astro.props.tags.join(',')}>  
     <div class={`type-bar ${Astro.props.resourceType}`}>{Astro.props.resourceType}</div>
+    <picture>
     <div class={`image-container ${Astro.props.imageSrc ? '' : 'icon'}`} style={Astro.props.imageSrc ? `background-image: url(${Astro.props.imageSrc});` : ''}>
       {!Astro.props.imageSrc && <Icon name={Astro.props.icon} />}
     </div>
+    </picture>
   <div class="resource-card-inner">
     <div class="tags">
       {Astro.props.tags.map((tag, index) => (
@@ -47,8 +49,8 @@ import { Icon } from 'astro-icon'
 
   .resource-card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* change 3 to the number of columns you want by default */
-    gap: 20px; /* adjust for desired space between cards */
+    grid-template-columns: repeat(4, 1fr); /* change 3 to the number of columns you want by default */
+    gap: 18px; /* adjust for desired space between cards */
   }
   
   .resource-card.third {
@@ -73,6 +75,16 @@ import { Icon } from 'astro-icon'
   }
 }
   @media (max-width: 1400px) {
+    .resource-card-container {
+      grid-template-columns: repeat(3, 1fr); /* On smaller screens, we only want two columns */
+    }
+    .resource-card.half,
+    .resource-card.full {
+      grid-column: span 3;  /* half and full cards take up all the space on small screens */
+    }
+  }
+  
+  @media (max-width: 1100px) {
     .resource-card-container {
       grid-template-columns: repeat(2, 1fr); /* On smaller screens, we only want two columns */
     }
@@ -101,6 +113,8 @@ import { Icon } from 'astro-icon'
       font-weight: bold;
       padding: 0.25rem 0;
       color: var(--custom-white);
+      border-top-right-radius: 6px;
+      border-top-left-radius: 6px;
       text-transform: uppercase;
       letter-spacing: .075rem;
       font-family: var(--font-heading);
@@ -111,11 +125,17 @@ import { Icon } from 'astro-icon'
         background-color: var(--custom-blue);  
       }
     }
+    picture {
+      overflow: hidden;
+      display: block;
+    }
     .image-container {
         background-color: var(--custom-grey-1-50);
         position: relative;
         width: 100%;
         height: 12rem;
+        
+        filter: blur(8px) grayscale(.9) opacity(.75);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
@@ -157,9 +177,9 @@ import { Icon } from 'astro-icon'
       /* margin: 0rem 2% 2% 0rem; */
       /* max-width: 31%; */
      /*  padding: 1rem; */
-      /* border-radius: 12px; */
+      border-radius: 6px;
       border: 1px solid var(--custom-dark-blue-50);
-      box-shadow: -2px 2px 0px var(--custom-dark-blue-50);
+      /* box-shadow: -2px 2px 0px var(--custom-dark-blue-50); */
       transition: all 150ms ease-in-out;
       animation: fadeInUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       .resource-card-inner {
@@ -173,7 +193,7 @@ import { Icon } from 'astro-icon'
     .resource-card:hover,.resource-card:focus {
         border-color: var(--custom-dark-blue);
         background-color: var(--theme-bg-gradient-top);
-        box-shadow: -2px 2px 0px var(--custom-dark-blue);
+       /*  box-shadow: -2px 2px 0px var(--custom-dark-blue); */
         .image-container {
           opacity: 1;
         }
@@ -221,6 +241,9 @@ import { Icon } from 'astro-icon'
     }
   
     .share-btn {
+      [astro-icon] {
+        font-size: 1.6em;
+      }
       /* styles for the share button */
     }
   </style>

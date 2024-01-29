@@ -42,7 +42,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 				<ul>
 					{section.children.map(({ slug, text, isFallback }) => (
 						<li class={
-						`nav-link ${section.key === 'program-in-practice' ? 'program-in-practice-link' : ''}`
+							`nav-link ${section.key === 'program-in-practice' || section.key === 'meeting-prep' ? 'program-in-practice-link' : ''}`	
 						}>
 						<a
 							href={`${Astro.site?.pathname}${lang}/${slug}/`}
@@ -80,7 +80,8 @@ const lang = getLanguageFromURL(Astro.url.pathname);
         'provider-expresses-that-patient-unaware-of-co-pay-program-andor-hasnt-been-using-co-pay-card': 7,
         'mail-order-pharmacy': 8,
         'e-sign': 9,
-        'digital-assistant': 10
+        'digital-assistant': 10,
+		'asco-conference': 11
 	  };
   
 	  const links = document.querySelectorAll('.nav-link a');
@@ -104,7 +105,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
         
       }
 	   // Unlock the first item
-        if (slug === 'about-program-in-practice') {
+        if (slug === 'about-program-in-practice' || slug === 'asco-conference') {
             link.classList.remove("locked");
         }
     });
@@ -159,6 +160,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		font-weight: 600;
 		padding: 0.75rem 2rem;
 		background-color: var(--theme-accent);
+		border-radius: 3px;
 		/* border-radius: 1em 0 0 1em; */
 		svg {
 			path {
@@ -209,18 +211,19 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		width: calc(100% - #{$indent});
 		position: relative;
 		left: $indent;
-
+		border-radius: 3px;
 		/* border-radius: 1em 0 0 1em; */
 
 		&:hover,
 		&:focus {
-			background-color: var(--custom-tan-50);
+			/* background-color: var(--theme-bg-gradient-top); */
+			color: var(--theme-text);
 		}
 
 		&[aria-current='page'],
 		&[data-current-parent='true'] {
 			color: var(--theme-text);
-			background-color: var(--custom-tan-25);
+			/* background-color: var(--theme-bg-gradient-top); */
 			
 			font-weight: 500;
 			/* Indicates the current page for forced colors users in older browsers */

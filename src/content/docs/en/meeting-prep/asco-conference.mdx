@@ -1,0 +1,84 @@
+---
+title: ASCO Conference
+description: Preperations for meetings require the gatherings of various resources
+i18nReady: true
+type: base
+---
+import Button from '~/components/Button.astro'
+import Progresstracker from '~/components/MeetingPrepper';
+import Checkbox from '~/components/Checkbox';
+
+import ResourceCard from '~/components/ResourceCard.astro'
+import ResourceCardWithCheckbox from '~/components/ResourceCardWithCheckbox.astro'
+import AccordionEntry from '~/components/PageComponents/AccordionEntry.astro';
+import { Icon } from 'astro-icon';
+
+{/* Pull Resource Data and Related Resources Script */}
+import resources from '~/data/resources.json';
+import getRelatedResources from '~/components/getRelatedResources.tsx';
+
+{/* <Progresstracker client:visible /> */}
+
+As an Grovery field representative, there will be times when questions about the Grovery 360 Support program will arise with customers. The following are common questions/scenarios and recommended responses to help you more confidently guide your customers. In most cases, the best resolution may be to refer the customer to **[1-855-Grovery](tel:1-855-Grovery)**.
+
+## Common Questions + Recommended Responses
+
+<AccordionEntry 
+	
+	question="Where to start a Benefits Review for a Medicare Part D Customer?"
+	
+>
+If patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D as
+
+</AccordionEntry>
+<AccordionEntry 
+	
+	question="Where do I find patient resources?"
+	
+>
+If patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D as
+
+</AccordionEntry>
+<AccordionEntry 
+	
+	question="How to I complete a Co-pay card backdate request?"
+	
+>
+If patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D asIf patient is not commercially insured and has Medicare
+Part D as
+
+</AccordionEntry>
+
+
+
+
+{/* use tag name or resource title below */}
+   
+
+    <h3>Resources you will need:</h3>
+	Commonly used and publicly available online resources for Grovery field representatives which have been approved for external use
+
+	<div class="resource-card-container">
+    {getRelatedResources([''], ['Eliquis 360 Support Website', 'Track II Training Deck', 'Benefits Review Guide', 'Fingertip Formulary Website']).map(relatedResource => (
+      <ResourceCardWithCheckbox resource={relatedResource} />
+    ))}
+  </div>
+   
+## Once you have reviewed the questions and materials above please proceed. 
+
+
+<Checkbox 
+	client:visible 
+	pageIndex={11} 
+	navLock="false" 
+	labelText="Yes, I've completed my review and gathered the appropriate resources."
+/>
