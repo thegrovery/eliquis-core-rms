@@ -1,0 +1,55 @@
+---
+// NumberedCircle.astro
+const { number } = Astro.props;
+---
+
+<div class="numbered-circle-wrap">
+    <div class="numbered-circle">Step {number}</div>
+</div>
+
+<style lang="scss">
+.numbered-circle-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2px;
+        background-color: var(--theme-text-lighter);
+        width: calc(50% - 100px); // Adjust width based on circle size and desired space
+        z-index: 0;
+    }
+
+    &::before {
+        left: 0;
+        margin-left:10px; // Space from the circle (half of the total space)
+    }
+
+    &::after {
+        right: 0;
+        margin-right: 10px; // Space from the circle (half of the total space)
+    }
+}
+
+.numbered-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--theme-accent);
+    border-radius: 30px;
+    color: white;
+    padding: 0 1em;
+    /* width: 50px; // Circle size */
+    height: 50px; // Circle size
+    font-size: 1.5em;
+    z-index: 1;
+}
+
+</style>
