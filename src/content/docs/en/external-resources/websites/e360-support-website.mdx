@@ -17,7 +17,7 @@ import ResourceCard from '~/components/ResourceCard.astro'
 import resources from '~/data/resources.json';
 import getRelatedResources from '~/components/getRelatedResources.tsx';
 
-export const resource = resources.resources.find(resource => resource.title === "Eliquis 360 Support Website");
+export const resource = resources.resources.find(resource => resource.title === "GROVERY Support Website");
 
 <div class="details_wrapper">
 	<div class="left-col">
@@ -39,7 +39,7 @@ export const resource = resources.resources.find(resource => resource.title === 
 		### Description
 		<div> {resource.description} </div>
 
-		### BMS Resource Link
+		### Resource Link
 		<Button 
 			variant="primary" 
 			className="details-btn" 
@@ -53,7 +53,7 @@ export const resource = resources.resources.find(resource => resource.title === 
 			data-value="undefined"
 		>Visit Website</Button>
 
-		{/* ### Pfizer Resource Link
+		{/* ### Secondary Resource Link
 		<Button 
 			variant="secondary" 
 			className="details-btn" 
