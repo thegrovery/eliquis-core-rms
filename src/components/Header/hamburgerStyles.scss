@@ -24,6 +24,7 @@ $hamburger-hover-opacity       : 1;
     border: 1px solid var(--custom-accent-1-50);
     height: var(--mobile-nav-button-size);
     width: var(--mobile-nav-button-size);
+    background-color: var(--theme-code-inline-bg);
     &:hover, &:focus {
         background-color: var(--custom-accent-2-10);
     }

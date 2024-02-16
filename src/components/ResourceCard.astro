@@ -107,6 +107,11 @@ import { Icon } from 'astro-icon'
   </style>
   
   <style type="scss">
+    :global(:root.theme-dark) {
+      .resource-card {
+        background-color: var(--theme-bg-gradient-bottom);
+      }
+    }
     .type-bar {
       width: 100%;
       text-align: center;
@@ -190,6 +195,7 @@ import { Icon } from 'astro-icon'
         padding: 1rem;
       }
     }
+    
     .resource-card:hover,.resource-card:focus {
         border-color: var(--custom-dark-blue);
         background-color: var(--theme-bg-gradient-top);

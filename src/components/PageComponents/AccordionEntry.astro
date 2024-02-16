@@ -60,12 +60,13 @@ const { question, icon, answer } = Astro.props as Props;
      padding-block: 2rem;
      padding-inline-start: 2rem;
      padding-inline-end: 6rem;
+     border-radius: 6px;
      &:hover, &:active {
-      border: 1px solid var(--custom-maroon-90);
-      box-shadow: -2px 2px 0px var(--custom-maroon-90);
+      border: 1px solid var(--theme-text);
+      box-shadow: -2px 2px 0px var(--theme-text);
      }
-     border: 1px solid var(--custom-maroon-50);
-     box-shadow: -2px 2px 0px var(--custom-maroon-50);
+     border: 1px solid var(--theme-accent);
+     box-shadow: -2px 2px 0px var(--theme-accent);
      /* box-shadow: -0.5rem 0.5rem 0 -1px var(--theme-bg), -0.5rem 0.5rem var(--theme-shade-subtle),
        -1rem 1rem 0 -1px var(--theme-bg), -1rem 1rem var(--theme-shade-subtle); */
      background-color: var(--theme-bg-gradient-top);

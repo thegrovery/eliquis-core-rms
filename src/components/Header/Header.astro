@@ -57,13 +57,7 @@ const t = useTranslations(Astro);
 				<FeedbackButton/>
 			}
 
-			{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
-				<ThemeToggleButton
-					client:visible
-					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-					isInsideHeader={true}
-				/>
-			}
+			
 			
 			<!-- {import.meta.env.PUBLIC_FEATURE_SEARCH=="true" &&
 				<Search {lang} labels={docsearchStrings} />
@@ -71,6 +65,17 @@ const t = useTranslations(Astro);
 			<!-- <SimpleSearch client:idle /> -->
 			
 			<SearchButton />
+
+
+			{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
+				<ThemeToggleButton
+					client:visible
+					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+					isInsideHeader={true}
+				/>
+			}
+
+
 			<div class="desktop-only-buttons">
 				<LogInOutButton />
 			</div>

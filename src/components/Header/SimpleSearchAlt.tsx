@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'preact/hooks';
 import algoliasearch from 'algoliasearch/lite';
 
+
 const Search = () => {
     
     const [query, setQuery] = useState('');
@@ -19,8 +20,8 @@ const Search = () => {
         return JSON.parse(localStorage.getItem('recentSearches') || '[]');
     });
 
-    const saveSearchToRecent = (title: string, url: string, folder: string) => {
-        const newRecentSearch = { title, url, folder };
+    const saveSearchToRecent = (title: string, url: string, folder: string, image: string) => {
+        const newRecentSearch = { title, url, folder, image };
         const newRecentSearches = [newRecentSearch, ...recentSearches].filter((item, index, self) => 
             index === self.findIndex((t) => (t.title === item.title && t.url === item.url))
         ).slice(0, 5);
@@ -45,8 +46,8 @@ const Search = () => {
         }
     };
     
-    const handleLinkClick = (title: string, url: string, folder: string) => {
-        saveSearchToRecent(title, url, folder);
+    const handleLinkClick = (title: string, url: string, folder: string, image: string) => {
+        saveSearchToRecent(title, url, folder, image);
 
         try {
             //Fire event
@@ -73,7 +74,7 @@ const Search = () => {
                 {parts.map((part, i) =>
                 i % 2 === 0
                     ? part
-                    : <span style={{ textDecoration: 'underline', backgroundColor: 'var(--custom-orange-50)' }}>{part}</span>
+                    : <span style={{ textDecoration: 'underline', backgroundColor: 'var(--custom-teal-50)' }}>{part}</span>
                 )}
             </span>
         );
@@ -81,13 +82,13 @@ const Search = () => {
     
     const unselectedStar = (
         <svg xmlns="http://www.w3.org/2000/svg" width="20.728" height="19.786" viewBox="0 0 20.728 19.786">
-            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="none" stroke="var(--theme-accent-tertiary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="none" stroke="var(--theme-accent-secondary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
         </svg>
     );
     
     const selectedStar = (
         <svg xmlns="http://www.w3.org/2000/svg" width="20.728" height="19.786" viewBox="0 0 20.728 19.786">
-            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="var(--theme-accent-tertiary)" stroke="var(--theme-accent-tertiary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            <path id="Icon_feather-star" data-name="Icon feather-star" d="M12.614,3l2.971,6.018,6.643.971-4.807,4.682,1.134,6.615-5.942-3.125L6.673,21.286l1.134-6.615L3,9.989l6.643-.971Z" transform="translate(-2.25 -2.25)" fill="var(--theme-accent-secondary)" stroke="var(--theme-accent-secondary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
         </svg>
     );
 
@@ -95,7 +96,7 @@ const Search = () => {
         return JSON.parse(localStorage.getItem('favorites') || '[]');
     });
 
-    const toggleFavorite = (title: string, url: string, folder: string) => {
+    const toggleFavorite = (title: string, url: string, folder: string, image: string) => {
         if (favorites.some(fav => fav.title === title)) {
             const newFavorites = favorites.filter(fav => fav.title !== title);
             setFavorites(newFavorites);
@@ -118,7 +119,7 @@ const Search = () => {
                console.log("GA Event Error: " + e);
            }
         } else {
-            const newFavorites = [{title, url, folder}, ...favorites];
+            const newFavorites = [{title, url, folder, image}, ...favorites];
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
             //Favorite
@@ -176,12 +177,27 @@ const Search = () => {
             >
                 {favorites.some(fav => fav.title === item.title) ? selectedStar : unselectedStar}
             </span>
-            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder)}>
-                <div className='hit-folder'>
-                    {item.folder && item.folder !== '.' ? item.folder : ''}
+            <a className='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder, item.image)}>
+            <div className='image-container'>
+                {item.image ? (
+                    <div className='hit-image'>
+                        <img src={item.image} alt={item.title} />
+                    </div>
+                ) : (
+                    <div className='placeholder-image'>
+                        <img src={`https://picsum.photos/seed/${item.title}/60/70?grayscale`} alt={item.title} />
+                    </div>
+                )}
+            
+                <div className='hit-content'>
+                    <div className='hit-folder'>
+                        {item.folder && item.folder !== '.' ? item.folder : ''}
+                    </div>
+                    <span>{item.title}</span>
                 </div>
-                {item.title}
+            </div>
             </a>
+
         </li>
     ));
     
@@ -193,11 +209,25 @@ const Search = () => {
             >
             {favorites.some(fav => fav.title === item.title) ? selectedStar : unselectedStar}
             </span>
-            <a class='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder)}>
-                <div className='hit-folder'>
-                    {item.folder && item.folder !== '.' ? item.folder : ''}
+            <a className='full-link' href={item.url} onClick={() => handleLinkClick(item.title, item.url, item.folder, item.image)}>
+            <div className='image-container'>
+                {item.image ? (
+                    <div className='hit-image'>
+                        <img src={item.image} alt={item.title} />
+                    </div>
+                ) : (
+                    <div className='placeholder-image'>
+                        <img src={`https://picsum.photos/seed/${item.title}/60/70?grayscale`} alt={item.title} />
+                    </div>
+                )}
+            
+                <div className='hit-content'>
+                    <div className='hit-folder'>
+                        {item.folder && item.folder !== '.' ? item.folder : ''}
+                    </div>
+                    <span>{item.title}</span>
                 </div>
-                {item.title}
+            </div>
             </a>
             {/* Adding a delete button here */}
             <button class='remove' onClick={() => deleteRecentSearch(item.title)}> × </button>
@@ -220,23 +250,34 @@ const Search = () => {
                 {displayFavorites}
                 {hits.length > 0 && <li><h2>Results</h2></li>}
                 {hits
-                    .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
+                    .filter(hit => !hit.title.toLowerCase().includes('index')) // Exclude index pages
                     .map(hit => (
-                        <li className='simpleSearch_item fadeIn '>
-                            <span 
-                                onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
-                                className='favoriteToggle'
-                            >
-                                {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
-                            </span>
-                            <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
-                                <div className='hit-folder'>
-                                    {hit.folder && hit.folder !== '.' ? hit.folder : ''}
+                        <li className='simpleSearch_item fadeIn'>
+                        <span 
+                            onClick={() => toggleFavorite(hit.title, hit.url, hit.folder, hit.image)}
+                            className='favoriteToggle'
+                        >
+                            {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
+                        </span>
+                        <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder, hit.image)}>
+                            <div class='image-container'>
+                                        {hit.image ? (
+                                <div className='hit-image'>
+                                    <img src={hit.image} alt={hit.title} />
                                 </div>
-                                {highlightText(hit.title, query)}
-                            </a>
+                            ) : (
+                                <div className='placeholder-image'>
+                                    <img src={`https://picsum.photos/seed/${hit.title}/60/70?grayscale`} alt={hit.title} />
+                                </div>
+                            )}
+                                <div className='hit-content'>
+                                    <div className='hit-folder'>{hit.folder && hit.folder !== '.' ? hit.folder : ''}</div>
+                                    {highlightText(hit.title, query)}
+                                </div>
+                            </div>
+                        </a>
                         </li>
-                ))}
+                    ))}
                 {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
                 {displayRecent}
             </ul>

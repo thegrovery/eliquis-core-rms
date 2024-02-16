@@ -1,23 +1,48 @@
 ---
-// Import the ResourceCard component
 import ResourceCard from './ResourceCard.astro';
-
-// Props passed to the component
 const { resource } = Astro.props;
 ---
 
 <div class="resource-card-with-checkbox">
-    
-    <ResourceCard {...resource} />
-
+    <ResourceCard {...resource} class="resource-card" />
     <div class="checkbox-container">
-        <input type="checkbox" id={`checkbox-${resource.title}`} />
+        <input type="checkbox" id={`checkbox-${resource.title}`} onclick="toggleResourceCard(this)" />
         <label for={`checkbox-${resource.title}`}>I've reviewed {resource.title}</label>
     </div>
 </div>
 
+<script>
+function toggleResourceCard(checkbox) {
+    console.log("Function called", checkbox.checked); // Debugging line
+
+  const card = checkbox.closest('.resource-card-with-checkbox').querySelector('.resource-card');
+  if (checkbox.checked) {
+    card.classList.add('deactivated');
+  } else {
+    card.classList.remove('deactivated');
+  }
+}
+</script>
+
 <style>
-    .checkbox-container {
-        margin: 1em 0 !important;
-    }
+.checkbox-container {
+    margin: 1em 0 !important;
+}
+
+.deactivated {
+    /* Style to shade the card or show a checkmark */
+    opacity: 0.5; /* Example of shading */
+    position: relative;
+}
+
+.deactivated::after {
+    /* Style for a checkmark */
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: green; /* Or your preferred color */
+}
 </style>

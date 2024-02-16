@@ -25,7 +25,7 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
 
 <style lang="scss" is:global>
   $fontSize: 1rem;
-  $borderSize: 2px;
+  $borderSize: 1px;
   $color: #454257; 
   .SearchModal {
       .inner{
@@ -104,7 +104,7 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
     & ul.simpleSearch_ul {
       margin: 1em 0;
       overflow: auto;
-      max-height:400px;
+      max-height:60vh;
         h2 {
             font-size: 1.2rem;
             margin-top: 1rem;
@@ -140,6 +140,36 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
         line-height: 1.1;
         position: relative;
         .full-link {
+          .image-container {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            
+            .placeholder-image {
+              border: 1px solid var(--theme-text-lightest);
+              
+            }
+            .placeholder-image, .hit-image {
+              background-color: var(--custom-grey-1-20);
+              padding: .25em 0;
+              font-size: var(--theme-text-xs);
+              min-width: 60px;
+              width: auto;
+              height: 70px;
+              object-fit: contain;
+              overflow: hidden;
+              img {
+                /* filter: blur(3px) opacity(.5) grayscale(.8); */
+                max-width: 60px;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+              }
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
             /* position: absolute; */
             width: 80%;
             height: 100%;
@@ -154,6 +184,9 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
               font-family: var(--font-body);
               font-size: var(--theme-text-xs);
               text-transform: capitalize;
+              margin-bottom: 0.25em;
+              font-weight: 600;
+              color: var(--theme-text-lightest);
             }
             /* z-index: 1; */
         }
@@ -165,23 +198,23 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
             /* Or to change the background color:
             background-color: lightgrey; */
         }
-       svg {
-        &:hover {
-           path {
-            stroke: var(--theme-accent-tertiary);
-            fill: var(--theme-accent-tertiary);
-           }
-        }
+       svg:hover path {
+        
+           
+            stroke: var(--theme-accent-secondary);
+            fill: var(--theme-accent-secondary);
+           
+        
        }
         list-style-type: none;
-        border: 1px solid var(--custom-grey-1-50);
-        box-shadow: 1px 1px 0px var(--custom-grey-1-50);
+        border: 1px solid var(--theme-text-lightest);
+        /* box-shadow: 1px 1px 0px var(--custom-grey-1-50); */
         transition: all .1s ease-out;
         &:hover {
-            border-color: var(--custom-orange);
-            box-shadow: 1px 1px 0px var(--custom-orange);
+            border-color: var(--theme-text);
+            /* box-shadow: 1px 1px 0px var(--custom-orange); */
         }
-        border-radius: 6px;
+        border-radius: 3px;
         padding: 10px 20px 10px 12px;
         margin-bottom: 10px;
         display: flex;
