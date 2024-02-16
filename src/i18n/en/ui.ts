@@ -3,7 +3,7 @@ export default {
 	'a11y.sectionLink': 'Section titled',
 	'navbar.a11yTitle': 'Top',
 	// Site settings
-	'site.title': 'E360 Field Force Navigator',
+	'site.title': 'CORE Resource Management System',
 	'site.description': 'Build faster websites with less client-side JavaScript.',
 	'site.og.imageSrc': '/default-og-image.png?v=1',
 	'site.og.imageAlt':

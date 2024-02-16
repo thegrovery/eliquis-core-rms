@@ -80,12 +80,12 @@ if (isReference) {
 			</li>
 
 			<li style="text-align: center;">
-				{import.meta.env.PUBLIC_FEATURE_DARKMODE=="true" &&
-					<ThemeToggleButton
-						client:visible
-						labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
-					/>
-				}
+				
+				<ThemeToggleButton
+					client:visible
+					labels={{ useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark') }}
+				/>
+				
 			</li>
 		</ul>
 	</div>
@@ -147,11 +147,18 @@ if (isReference) {
 		padding: 1em 2rem 1rem;
 	}
 	@media (max-width: 800px) {
-		.mobile-nav-buttons{
-			display: block;
+		.mobile-nav-buttons {
+			display: flex;
 			width: 100%;
 			justify-content: center;
 		}
-		:global(.mobile-nav-buttons button) {width: 100%;}
+		.mobile-nav-buttons ul {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+		
+		:global(.mobile-nav-buttons .theme-toggle) {margin-top: 0; margin-left: 1em;}
+		:global(.mobile-nav-buttons .LogInOutButton) {min-width: 100%;}
 	}
 </style>
