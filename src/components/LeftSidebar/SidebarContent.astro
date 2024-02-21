@@ -152,7 +152,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		display: block;
 	}
 	.nav-group-title {
-		font-size: 1.2em;
+		font-size: 1.3em;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -202,14 +202,15 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 		margin: 1px;
 		padding: 0.5rem 2rem;
 		// font: inherit;
-		color: var(--theme-text-lighter);
+		color: var(--theme-text);
 		text-decoration: none;
 		display: block;
 		$indent: 0em;
 		width: calc(100% - #{$indent});
 		position: relative;
 		left: $indent;
-
+		font-size: 1.15em;
+		
 		/* border-radius: 1em 0 0 1em; */
 
 		&:hover,
@@ -298,7 +299,7 @@ const lang = getLanguageFromURL(Astro.url.pathname);
 
 
 	.locked{
-		opacity: 0.5;
+		opacity: 0.65;
 		pointer-events: none;
 				/*&:after{
 					content:"";
