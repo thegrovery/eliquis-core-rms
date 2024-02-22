@@ -62,8 +62,10 @@ import {initialize} from "@frontegg/js"
 				    <div id="user-container">
 				    </div>
 				    <br/>
-				    <a fe-state="isAuthenticated" href="/account/logout"><button>Logout</button></a>
-				    <a fe-mode="embedded" fe-state="!isAuthenticated" href="/account/login"><button>Login</button></a>
+				    <a id="logout" fe-state="isAuthenticated"><button>Logout</button></a>
+				    <button id="loginWithRedirect" fe-mode="hosted"  fe-state="!isAuthenticated">
+				        Login With Redirect
+				    </button>
 				</div>
 
 			</div>
@@ -150,38 +152,70 @@ import {initialize} from "@frontegg/js"
 	console.log("===== Frontegg Login  =====");
 	import {initialize} from "@frontegg/js"
 
-	const style = document.createElement('style');
-	style.setAttribute('type', 'text/css');
-	style.innerHTML = '';
-	document.getElementsByTagName('head')[0].appendChild(style);
+const style = document.createElement('style');
+style.setAttribute('type', 'text/css');
+style.innerHTML = '';
+document.getElementsByTagName('head')[0].appendChild(style);
 
 
-	const app = initialize({
-	  contextOptions: {
-	    baseUrl: "https://app-9ozz7s08fcaq.frontegg.com/oauth", //set your Frontegg environment domain and client ID here
-	  },
-	  hostedLoginBox: false
-	})
+const app = initialize({
+  contextOptions: {
+    baseUrl: "https://app-9ozz7s08fcaq.frontegg.com/oauth", //set your Frontegg environment domain and client ID here
+    clientId: '8ea93704-78b2-48f6-b957-3441315d6060'
+  },
+  hostedLoginBox: true
+})
 
-	app.store.subscribe(() => {
-	  const state = app.store.getState();
-	  if (state.auth.user) {
-	    document.getElementById('user-container').innerText = state.auth.user.email;
-	  } else {
-	    document.getElementById('user-container').innerText = 'Not Authenticated'
-	  }
+// Uncomment below code for automatic redirect to login/app
 
-	  document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
+// app.ready(() => {
+
+//   console.log("App is ready");
+//   let unsubscribe = app.store.subscribe(()=>{
+//     const {auth} = app.store.getState();
+
+//     if(!auth.isLoading) {
+//       if (!auth.isAuthenticated) {
+//         app.loginWithRedirect()
+//       }
+//     }
+//   })
+// })
+
+document.getElementById("loginWithRedirect").addEventListener('click', () => {
+  app.loginWithRedirect()
+})
+
+document.getElementById("logout").addEventListener('click', () => {
+  app.logout()
+})
+
+app.store.subscribe(() => {
+  const state = app.store.getState();
+  if (state.auth.user) {
+    document.getElementById('user-container').innerText = state.auth.user.email;
+  } else {
+    document.getElementById('user-container').innerText = 'Not Authenticated'
+  }
+
+  document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
 
 
-	  let styleHtml = ''
-	  if (state.auth.isAuthenticated) {
-	    styleHtml += '[fe-state="isAuthenticated"] { }';
-	    styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
-	  } else {
-	    styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
-	    styleHtml += '[fe-state="!isAuthenticated"] { }';
-	  }
-	  style.innerHTML = styleHtml;
-	})
+  let styleHtml = ''
+  if (state.auth.isAuthenticated) {
+    styleHtml += '[fe-state="isAuthenticated"] { }';
+    styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+  } else {
+    styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
+    styleHtml += '[fe-state="!isAuthenticated"] { }';
+  }
+
+  if(app.options.hostedLoginBox){
+    styleHtml += '[fe-mode="hosted"] { }';
+  } else {
+    styleHtml += '[fe-mode="hosted"] { display: none; }';
+  }
+
+  style.innerHTML = styleHtml;
+})
 </script>
