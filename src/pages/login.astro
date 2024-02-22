@@ -1,0 +1,187 @@
+---
+/*
+NOTE: The following code used to be included in a script tag on the page.
+However, our english translations are now far more developed than any other language.
+We are going to start a process of updating our translations, and can begin to opt-in
+to different language automatic redirects once they hit a certain quality threshold.
+Until then, we'll just only redirect to english for now, with the meta tag below
+
+// WIP: trigger a client-side redirect based on the browser language.
+// A vercel.json redirect is enforced in production, so no user should ever see this page.
+// Remove the vercel.json redirect when this is ready.
+const KNOWN_LANGUAGES = ['bg', 'de', 'en', 'es', 'fi', 'nl', 'pt-br', 'zh-cn', 'zh-tw', 'fr', 'kr', 'da', 'ja', 'pl', 'hu'];
+let newLangWithRegion = (window.navigator.userLanguage || window.navigator.language || 'en-US').substr(0, 5);
+let newLang = newLangWithRegion.substr(0, 2);
+if (KNOWN_LANGUAGES.includes(newLangWithRegion)) {
+	window.location.pathname = '/' + newLangWithRegion + '/getting-started';
+} else if (KNOWN_LANGUAGES.includes(newLang)) {
+	window.location.pathname = '/' + newLang + '/getting-started';
+} else {
+	window.location.pathname = '/en/getting-started';
+}
+
+*/
+
+
+import SplashLayout from '../layouts/SplashLayout.astro';
+import Logo from '~/components/SVGs/Logo.astro';
+import NavBlock from '~/components/NavBlock.astro';
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import IfLoggedInDisabled from '~/components/DynamicContent/IfLoggedInDisabled.astro';
+import UserInfo from '~/components/DynamicContent/UserInfo.astro';
+import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
+import SimpleButton from '~/components/Buttons/SimpleButton.astro';
+import Button from '~/components/Button.astro';
+
+import {initialize} from "@frontegg/js"
+
+---
+
+<!-- <meta http-equiv="refresh" content="0;url=/en/getting-started" /> -->
+    
+
+<SplashLayout title="Welcome">
+	<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/@frontegg/js/umd/frontegg.production.min.js"></script>
+	<div class="content-wrapper">
+		
+		<div class="content">
+			
+			
+			<div class="cell border">
+				<h1>Welcome</h1>
+				<p class="welcome-intro">
+					Welcome to the future of resource management, where simplicity meets limitless potential. Being "in the field" has many challenges, getting access to the tools and information that you need doesn't have to be one of them. We know that having access to the right resources at the right time can make all the difference. That's where the E360 Field Force Navigator App comes in!
+				</p>
+				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
+			</div>
+			
+			<div class="cell flexCenter">
+				
+				<div id="app-root" style="display: none">
+				    <h1>This is Frontegg Integration in Vanilla Javascript </h1>
+				    <div id="user-container">
+				    </div>
+				    <br/>
+				    <a fe-state="isAuthenticated" href="/account/logout"><button>Logout</button></a>
+				    <a fe-mode="embedded" fe-state="!isAuthenticated" href="/account/login"><button>Login</button></a>
+				</div>
+
+			</div>
+			<!-- end cell | cell layout -->
+		</div>
+	</div>
+</SplashLayout>
+
+<style lang="scss">
+	article {
+		width: 100%;
+	}
+	.content-wrapper {
+		width: 100%;
+		height: 100%;
+		max-width: var(--page-width-1);
+		display: flex;
+		justify-content: flex-start;
+		
+		.content {
+			position: relative;
+			z-index: 1;
+			padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+			padding-bottom: var(--doc-padding-block);
+			padding-inline: var(--min-spacing-inline);
+			width: 100%;
+			height: 100%;
+			margin-inline: auto;
+			display: flex;
+			flex-direction: row;
+			/* overflow-x: hidden; */
+			// max-width: 80vw;
+			
+			.cell{
+				width: 50%;
+				padding: 1rem;
+				&.border{
+					border-right: solid 1px var(--theme-text);
+				}
+				&.flexCenter{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+
+			@media (max-width: 800px) {
+				display: flex;
+				flex-direction: column;
+
+				.cell{
+					width: 100%;
+					padding: 1rem;
+					&.border{
+						border-right: none;
+						border-bottom: solid 1px var(--theme-text);
+					}
+					
+				}
+			}
+
+			.welcome-intro {
+				margin-bottom: 1.5em;
+				padding-right: 10%;
+				@media (min-width: 50em) {
+					padding-right: 20%;
+				}	
+			}
+
+			.button-wrap{
+				display: flex;
+				flex-direction: column;
+			}
+
+		}
+	}
+
+</style>
+
+
+
+<script>
+	console.log("===== Frontegg Login  =====");
+	import {initialize} from "@frontegg/js"
+
+	const style = document.createElement('style');
+	style.setAttribute('type', 'text/css');
+	style.innerHTML = '';
+	document.getElementsByTagName('head')[0].appendChild(style);
+
+
+	const app = initialize({
+	  contextOptions: {
+	    baseUrl: "https://app-9ozz7s08fcaq.frontegg.com/oauth", //set your Frontegg environment domain and client ID here
+	  },
+	  hostedLoginBox: false
+	})
+
+	app.store.subscribe(() => {
+	  const state = app.store.getState();
+	  if (state.auth.user) {
+	    document.getElementById('user-container').innerText = state.auth.user.email;
+	  } else {
+	    document.getElementById('user-container').innerText = 'Not Authenticated'
+	  }
+
+	  document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
+
+
+	  let styleHtml = ''
+	  if (state.auth.isAuthenticated) {
+	    styleHtml += '[fe-state="isAuthenticated"] { }';
+	    styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+	  } else {
+	    styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
+	    styleHtml += '[fe-state="!isAuthenticated"] { }';
+	  }
+	  style.innerHTML = styleHtml;
+	})
+</script>
