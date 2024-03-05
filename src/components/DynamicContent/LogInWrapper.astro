@@ -91,18 +91,24 @@ const { info } = Astro.props as Props;
   }
 </style>
 <script type="text/javascript">
-  //console.log("LogInWrapper functions started.");
+  
   function LogInWrapperFunctions() {
     setTimeout(() => {
-      //console.log("LogInWrapper functions triggered.");
-      //console.log("LogInWrapper functions executed.");
-
-      //grab all user info
-      var loggedIn = SessionManager.getItem('loggedIn');
-      //console.log("Netlify Login Status: ",loggedIn);
-      //console.log(loggedIn);
-      //var user = netlifyIdentity.currentUser();
       
+
+      /*===== ===================== =====*/
+      /*===== GRAB LOGGED-IN STATUS =====*/
+      /*===== ===================== =====*/
+        //grab all user info
+        var loggedIn = SessionManager.getItem('loggedIn');
+        //console.log("Netlify Login Status: ",loggedIn);
+        //console.log(loggedIn);
+        //var user = netlifyIdentity.currentUser();
+
+
+      /*===== ============================= =====*/      
+      /*===== SHOW LOGGED IN/OUT CONTAINERS =====*/
+      /*===== ============================= =====*/
       var elements = document.querySelectorAll('.LogInWrapper');
 
       if( loggedIn == true){
