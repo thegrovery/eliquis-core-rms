@@ -30,7 +30,7 @@ export default [
 	{ text: 'Terms & Conditions', header: true, type: 'learn', key: 'terms-and-conditions' },
 		{ text: 'Co-pay Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/co-pay-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'co-pay-terms-and-conditions-and-eligibility-requirements-for-patients' },
 		{ text: 'FTO Terms and Conditions and Eligibility Requirements for Patients', slug: 'terms-and-conditions/fto-terms-and-conditions-and-eligibility-requirements-for-patients', key: 'fto-terms-and-conditions-and-eligibility-requirements-for-patients' },
-		{ text: 'Master T&Cs', slug: 'terms-and-conditions/master-terms-and-conditions', key: 'master-terms-and-conditions' },
+		
 
 
 	/* RESOURCES TAB */

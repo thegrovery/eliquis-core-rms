@@ -8,7 +8,15 @@ import FeedbackIcon from '../SVGs/FeedbackIcon.astro';
 const { heading, body } = Astro.props as Props;
 ---
 
-<button class='FeedbackButton' onclick="modalOpenFeedback();">
+<button 
+  class='FeedbackButton' 
+  onclick="modalOpenFeedback();"
+  data-event="GAEvent" 
+  data-category="Header" 
+  data-label="navFeedback" 
+  data-action="Click" 
+  data-value="undefined"
+>
   <div class="FeedbackButton_inner">
     
     <span>Feedback</span>
@@ -30,7 +38,7 @@ const { heading, body } = Astro.props as Props;
       padding: 0.5em 1em 0.5em 1em;
       line-height: calc(1 / var(--theme-text-xs));
       color: var(--custom-white);
-      font-family: var(--font-body);
+      font-family: var(--font-heading);
       min-height: var(--mobile-nav-button-size);
       [astro-icon] {
         color: var(--custom-white);

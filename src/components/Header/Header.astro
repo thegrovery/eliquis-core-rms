@@ -34,7 +34,15 @@ const t = useTranslations(Astro);
 			<div dir="ltr" lang="en" class="logo flex">
 				<ul>
 					<li>
-						<a class="logo" href="/en/introduction">
+						<a 
+							class="logo" 
+							href="/en/introduction"
+							data-event="GAEvent" 
+							data-category="Header" 
+							data-label="navLogo" 
+							data-action="Click" 
+							data-value="undefined"
+						>
 							<Logo/>					  
 						</a>
 					</li>
@@ -122,7 +130,7 @@ const t = useTranslations(Astro);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.75rem;
+		gap: 0.65rem;
 		width: 100%;
 		padding-inline: var(--min-spacing-inline);
 	}
@@ -217,7 +225,7 @@ const t = useTranslations(Astro);
 			max-width: none;
 		}
 		.nav-wrapper {
-			gap: .65rem;
+			gap: .55rem;
 		}
 	}
 

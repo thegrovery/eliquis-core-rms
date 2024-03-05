@@ -7,6 +7,14 @@ export interface Props {
 }
 
 const { item, rel } = Astro.props as Props;
+
+// Truncate function
+const truncateText = (text, maxLength) => {
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.substr(0, maxLength) + '...';
+};
 ---
 
 <a 
@@ -14,6 +22,11 @@ const { item, rel } = Astro.props as Props;
 	rel={rel} 
 	href={new URL(item.link, Astro.site).pathname}
 	data-locked="false"
+	data-event="GAEvent" 
+	data-category="Body" 
+	data-label={`pageNav-${rel}-[${item.text}]`}
+	data-action="Click" 
+	data-value="undefined"
 >
 	{
 		rel === 'prev' && (
@@ -47,7 +60,7 @@ const { item, rel } = Astro.props as Props;
 		<div class="heading">
 			<UIString key={rel === 'next' ? 'articleNav.nextPage' : 'articleNav.prevPage'} />
 		</div>
-		<div class="name" set:html={item.text} />
+		<div class="name" set:html={truncateText(item.text, 50)} /> {/* Adjust the character limit as needed */}
 	</div>
 </a>
 

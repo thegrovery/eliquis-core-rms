@@ -26,13 +26,13 @@ const { announcement, icon } = Astro.props as Props;
         </g>
       </svg>      
     </div>
-    <h3>Announcements</h3>
+    <h3>What's New</h3>
   </div>
   <div class="content">
     <AnnouncementsContent text={announcement}/>
-    <p class="subText">
+    <!-- <p class="subText">
       For more information and to see past announcements, go to the <a href="/en/announcements">Announcements page > </a>
-    </p>
+    </p> -->
   </div>  
 </div>
 
@@ -84,6 +84,9 @@ const { announcement, icon } = Astro.props as Props;
         margin-top: 1em;
         padding-top: 1em;
         border-top: solid 1px;
+        a {
+          white-space: nowrap;
+        }
       }
   }
 

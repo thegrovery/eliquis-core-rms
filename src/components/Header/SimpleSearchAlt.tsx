@@ -26,10 +26,44 @@ const Search = () => {
         ).slice(0, 5);
         setRecentSearches(newRecentSearches);
         localStorage.setItem('recentSearches', JSON.stringify(newRecentSearches));
+
+        try {
+            //Fire event
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event':                    'GAEvent',
+                'eventCategory':    'Search',
+                'eventAction':          'Typing',
+                'eventLabel':           'searchTerm-['+title+']',
+                'eventValue':           'undefined',
+                //'userEmail':                userEmail,
+                //'userGroup':                userGroup,
+            });
+
+        } catch (e) {
+            console.log("GA Event Error: " + e);
+        }
     };
     
     const handleLinkClick = (title: string, url: string, folder: string) => {
         saveSearchToRecent(title, url, folder);
+
+        try {
+            //Fire event
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event':                    'GAEvent',
+                'eventCategory':    'Search',
+                'eventAction':          'Click',
+                'eventLabel':           'searchLinkClick-['+title+']',
+                'eventValue':           'undefined',
+                //'userEmail':                userEmail,
+                //'userGroup':                userGroup,
+            });
+
+        } catch (e) {
+            console.log("GA Event Error: " + e);
+        }
     };
 
     const highlightText = (text, highlight) => {
@@ -66,10 +100,45 @@ const Search = () => {
             const newFavorites = favorites.filter(fav => fav.title !== title);
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
+           //Unfavorite
+           try {
+               //Fire event
+               window.dataLayer = window.dataLayer || [];
+               dataLayer.push({
+                   'event':                    'GAEvent',
+                   'eventCategory':    'Search',
+                   'eventAction':          'Click',
+                   'eventLabel':           'searchUnfavorite-['+title+']',
+                   'eventValue':           'undefined',
+                   //'userEmail':                userEmail,
+                   //'userGroup':                userGroup,
+               });
+
+           } catch (e) {
+               console.log("GA Event Error: " + e);
+           }
         } else {
             const newFavorites = [{title, url, folder}, ...favorites];
             setFavorites(newFavorites);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            //Favorite
+            try {
+                //Fire event
+                window.dataLayer = window.dataLayer || [];
+                dataLayer.push({
+                    'event':                    'GAEvent',
+                    'eventCategory':    'Search',
+                    'eventAction':          'Click',
+                    'eventLabel':           'searchFavorite-['+title+']',
+                    'eventValue':           'undefined',
+                    //'userEmail':                userEmail,
+                    //'userGroup':                userGroup,
+                });
+
+            } catch (e) {
+                console.log("GA Event Error: " + e);
+            }
+            
         }
     };
 
@@ -100,7 +169,7 @@ const Search = () => {
     const filteredRecentSearches = recentSearches.filter(item => !favorites.some(fav => fav.title === item.title));
 
     const displayFavorites = favorites.map(item => (
-        <li class='simpleSearch_item recent'>
+        <li class='simpleSearch_item recent fadeIn'>
             <span 
                 onClick={() => toggleFavorite(item.title, item.url, item.folder)}
                 class='favoriteToggle'
@@ -149,27 +218,27 @@ const Search = () => {
             <ul className='simpleSearch_ul'>
                 {favorites.length > 0 && <li><h2>Favorites</h2></li>}
                 {displayFavorites}
-                {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
-                {displayRecent}
                 {hits.length > 0 && <li><h2>Results</h2></li>}
                 {hits
-                .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
-                .map(hit => (
-                    <li className='simpleSearch_item'>
-                        <span 
-                        onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
-                        className='favoriteToggle'
-                        >
-                        {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
-                        </span>
-                        <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
-                        <div className='hit-folder'>
-                            {hit.folder && hit.folder !== '.' ? hit.folder : ''}
-                        </div>
-                        {highlightText(hit.title, query)}
-                        </a>
-                    </li>
+                    .filter(hit => !hit.title.toLowerCase().includes('index')) // Add more conditions if needed
+                    .map(hit => (
+                        <li className='simpleSearch_item fadeIn '>
+                            <span 
+                                onClick={() => toggleFavorite(hit.title, hit.url, hit.folder)}
+                                className='favoriteToggle'
+                            >
+                                {favorites.some(fav => fav.title === hit.title) ? selectedStar : unselectedStar}
+                            </span>
+                            <a className='full-link' href={hit.url} onClick={() => handleLinkClick(hit.title, hit.url, hit.folder)}>
+                                <div className='hit-folder'>
+                                    {hit.folder && hit.folder !== '.' ? hit.folder : ''}
+                                </div>
+                                {highlightText(hit.title, query)}
+                            </a>
+                        </li>
                 ))}
+                {filteredRecentSearches.length > 0 && <li><h2>Recent</h2></li>}
+                {displayRecent}
             </ul>
             {hits.length === 0 && filteredRecentSearches.length === 0 && favorites.length === 0 && (
                 <div className="noResultsMessage">

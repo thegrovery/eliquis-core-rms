@@ -3,6 +3,7 @@
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/e360support-website_thumb.png",
+      "veevaCode": "432-US-2300105",
       "icon": "mdi:web",
       "title": "Eliquis 360 Support Website",
       "description": "Eliquis's HCP Website, a valuable resource to l enable HCP's to learn about ELIQUIS® its indications and resources.",
@@ -65,6 +66,7 @@
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/eliquis-copay-card_thumb.png",
+      "veevaCode": "432-US-2200454",
       "icon": "mdi:web",
       "title": "Co-Pay and Free Trial Offers Eligibility",
       "description": "Resource for finding eligibility for a Co-pay Card",
@@ -119,12 +121,13 @@
       "PfizerResourceLink": "https://www.patientrebateonline.com/",
       "RelatedResources": {
         "tags": [],
-        "titles": []
+        "titles": ["Eliquis 360 Support Website"]
       } 
     },
     {
       "resourceType": "external",
       "imageSrc": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pn7qiEAA",
+      "veevaCode": "432-US-2101430",
       "icon": "ph:download",
       "title": "NVAF Hospital Discharge Kit & Discharge Planning Checklist",
       "description": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.",
@@ -145,6 +148,7 @@
     {
       "resourceType": "external",
       "imageSrc": "https://www.eliquis.com/eliquis/servlet/servlet.FileDownload?file=00P4z00001pn7qTEAQ",
+      "veevaCode": "432-US-2101430",
       "icon": "ph:download",
       "title": "VTE Hospital Discharge Kit & Discharge Planning Checklist",
       "description": "This downloadable tool includes two sections: a discharge kit for your patients and a checklist for your discharge planning team.",
@@ -165,6 +169,7 @@
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/eliquis-pi_thumb.png",
+      "veevaCode": "432-US-2101430",
       "icon": "ph:download",
       "title": "Full Prescribing Information",
       "description": "ELIQUIS (Apixaban) full prescribing information pdf download",
@@ -205,6 +210,7 @@
     {
       "resourceType": "external",
       "imageSrc": "/images/resources/benefits-review-form.png",
+      "veevaCode": "432-US-2300106",
       "icon": "ph:clipboard",
       "title": "Benefits Review Form",
       "description": "Summary of Benefits and Follow-up Support",
@@ -265,6 +271,7 @@
     {
       "resourceType": "internal",
       "imageSrc": "/images/resources/copay-patientsupportfaq.png",
+      "veevaCode": "432-US-2100781",
       "icon": "ph:question",
       "title": "Eliquis 360 Patient Support Services FAQ",
       "description": "This FAQ has been created to help ELIQUIS field representatives answer questions about the ELIQUIS 360 Patient Support Program that frequently arise during customer visits.",
@@ -274,9 +281,9 @@
       "shareButtonText": "Share",
       "resourceDetailsLink": "/internal-resources/eliquis-360-patient-support-services-faq",
       "author": "E360 Support",
-      "lastModified": "07/2023",
-      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
-      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "lastModified": "06/2023",
+      "BMSResourceLink": "/docs/432-US-2100781_ELQ_E360_SuppCopayReimbSvc_FAQ_iPDF_P0489337.pdf",
+      "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": ["Other"],
         "titles": []
@@ -285,6 +292,7 @@
     {
       "resourceType": "internal",
       "imageSrc": "/images/resources/track2trainingdeck.png",
+      "veevaCode": "432US1902166-04-01",
       "icon": "ph:download",
       "title": "Track II Training Deck",
       "description": "ELIQUIS 360 Support Track 2.0",
@@ -294,12 +302,12 @@
       "shareButtonText": "Share",
       "resourceDetailsLink": "/internal-resources/track-ii-training-deck",
       "author": "E360 Support",
-      "lastModified": "07/2023",
-      "BMSResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
-      "PfizerResourceLink": "https://drive.google.com/file/d/1sKVdO0fEmxAe-z7jN02v1h5uEBKEcpwN/view?usp=sharing",
+      "lastModified": "06/2020",
+      "BMSResourceLink": "/docs/E360_Track_2-A_Training_Deck-Oct.pptx",
+      "PfizerResourceLink": "",
       "RelatedResources": {
         "tags": [],
-        "titles": []
+        "titles": ["Eliquis 360 Patient Support Services FAQ"]
       } 
     },
     {
@@ -358,7 +366,7 @@
       "resourceDetailsLink": "/internal-resources/digital-collateral/hcp-sell-sheet",
       "author": "E360 Support",
       "lastModified": "01/2022",
-      "BMSResourceLink": "#",
+      "BMSResourceLink": "/docs/432-US-2101701_BMS579 E360-HCP-Sell-Sheet-Update_Digital_Final.pdf",
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],
@@ -379,7 +387,7 @@
       "resourceDetailsLink": "/internal-resources/digital-collateral/benefits-review-guide",
       "author": "E360 Support",
       "lastModified": "01/2022",
-      "BMSResourceLink": "#",
+      "BMSResourceLink": "/docs/432-US-2200481_ELQ_E360_Bens_Review_Guide_iPDF_P0388719.pdf",
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],
@@ -401,7 +409,7 @@
       "author": "E360 Support",
       "lastModified": "01/2022",
       "BMSResourceLink": "https://bmsweborder.com/admin/template/detail.action?templateId=818267&adminFlag=true",
-      "PfizerResourceLink": "#",
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=35325",
       "RelatedResources": {
         "tags": [""],
         "titles": ["English FTO Brochure"]
@@ -451,6 +459,27 @@
     },
     {
       "resourceType": "internal",
+      "imageSrc": "/images/resources/432-US-2200087.png",
+      "veevaCode": "432-US-2200087",
+      "icon": "gala:brochure",
+      "title": "Spanish Co-pay Brochure",
+      "description": "Order Spanish Co-pay Brochure",
+      "longDescription": "Order Spanish Co-pay Brochure",
+      "tags": ["Collateral Materials"],
+      "viewDetailsButtonText": "View Details",
+      "shareButtonText": "Share",
+      "resourceDetailsLink": "/internal-resources/collateral-materials/spanish-copay-brochure",
+      "author": "E360 Support",
+      "lastModified": "01/2022",
+      
+      "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=45121",
+      "RelatedResources": {
+        "tags": [""],
+        "titles": ["Spanish Pre-activated FTO Brochure", "Spanish FTO Brochure"]
+      } 
+    },
+    {
+      "resourceType": "internal",
       "imageSrc": "/images/resources/432-US-2100694.png",
       "veevaCode": "432-US-2100694",
       "icon": "gala:brochure",
@@ -467,7 +496,7 @@
       "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=34662",
       "RelatedResources": {
         "tags": [""],
-        "titles": ["Spanish Pre-activated FTO Brochure"]
+        "titles": ["Spanish Pre-activated FTO Brochure", "Spanish Co-pay Brochure"]
       } 
     },
     {
@@ -488,7 +517,7 @@
       "PfizerResourceLink": "https://promosprime.pfizer.com/oe/Controller?webAction=itemDetail&localInventoryItemId=36978",
       "RelatedResources": {
         "tags": [""],
-        "titles": ["Spanish FTO Brochure"]
+        "titles": ["Spanish FTO Brochure", "Spanish Co-pay Brochure"]
       } 
     },
     {
@@ -673,7 +702,7 @@
       "resourceDetailsLink": "/internal-resources/digital-collateral/caregiver-brochure",
       "author": "E360 Support",
       "lastModified": "01/2022",
-      "BMSResourceLink": "/pdfs/432-US-2300346_ELQ_E360_Caregiver_Broch_23_P0601650_V0_01_RS.original.pdf",
+      "BMSResourceLink": "/docs/432-US-2300346_ELQ_E360_Caregiver_Broch_23_P0601650_V0_01_RS.pdf",
       "PfizerResourceLink": "#",
       "RelatedResources": {
         "tags": [""],

@@ -145,6 +145,7 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
             height: 100%;
             top: 0;
             left: 50px;
+            font-size: 17px;
             display: flex;
             font-family: var(--font-heading);
             flex-direction: column;
@@ -238,6 +239,15 @@ import ModalWrapper from '~/components/PopUps/ModalWrapper.astro';
   .favoriteToggle {
     cursor: pointer;
     margin-right: 8px;
+}
+
+.fadeIn {
+    animation: fadeInAnimation 0.5s;
+}
+
+@keyframes fadeInAnimation {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 </style>
