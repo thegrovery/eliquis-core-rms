@@ -8,13 +8,13 @@
   const SessionManager = {
     setItem: function(key, value) {
       if (typeof value === 'object') {
-        sessionStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(key, JSON.stringify(value));
       } else {
-        sessionStorage.setItem(key, value);
+        localStorage.setItem(key, value);
       }
     },
     getItem: function(key) {
-      const value = sessionStorage.getItem(key);
+      const value = localStorage.getItem(key);
       try {
         return JSON.parse(value);
       } catch (e) {
@@ -22,10 +22,10 @@
       }
     },
     removeItem: function(key) {
-      sessionStorage.removeItem(key);
+      localStorage.removeItem(key);
     },
     clearAll: function() {
-      sessionStorage.clear();
+      localStorage.clear();
       console.log("SessionManager data cleared")
     }
   };
