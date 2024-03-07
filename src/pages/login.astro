@@ -56,12 +56,8 @@ import {initialize} from "@frontegg/js"
 			</div>
 			
 			<div class="cell flexCenter">
-
-				<IfLoggedIn>
-					
-				</IfLoggedIn>
 				
-				<div id="app-root" style="display: none">
+				<div id="app-root">
 				    <h1>This is Frontegg Integration in Vanilla Javascript </h1>
 				    <div id="user-container"></div>
 				    <br/>
@@ -78,16 +74,19 @@ import {initialize} from "@frontegg/js"
 				          
 					<div slot="loggedIn">
 						<p>You are currently logged in.</p>
-						<button 
-							class='LogInOutButton' 
-							id="logout"
-							data-notification="false"
-							data-event="GAEvent" 
-							data-category="Header" 
-							data-label="navLogOut" 
-							data-action="Click" 
-							data-value="undefined"
-						>
+						<a id="logout">
+							<button 
+								class='LogInOutButton' 
+								
+								data-notification="false"
+								data-event="GAEvent" 
+								data-category="Header" 
+								data-label="navLogOut" 
+								data-action="Click" 
+								data-value="undefined"
+							>
+						</a>
+						
 							<div class="LogInOutButtonInner">
 								<!-- <Icon name=ic:outline-notification-important /> -->
 								<span>Log Out</span>
@@ -230,13 +229,7 @@ const app = initialize({
 //   })
 // })
 
-document.getElementById("loginWithRedirect").addEventListener('click', () => {
-  app.loginWithRedirect()
-})
 
-document.getElementById("logout").addEventListener('click', () => {
-  app.logout()
-})
 
 app.store.subscribe(() => {
   const state = app.store.getState();
@@ -244,16 +237,29 @@ app.store.subscribe(() => {
     if (state.auth.user) {
         document.getElementById('user-container').innerText = state.auth.user.email;
         console.log(state.auth.user);
-        SessionManager.setItem('userData', state.auth.user);
-        console.log("USERDATA VAR: " + SessionManager.getItem('userData'));
+        SessionManager.setItem('userData-email', state.auth.user.email);
+        console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
+      }else if(SessionManager.getItem('loggedIn') == 'true') {
+        document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
+        console.log(state.auth.user);
+        SessionManager.setItem('userData-email', state.auth.user.email);
+        console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
       } else {
         document.getElementById('user-container').innerText = 'Not Authenticated'
         SessionManager.setItem('userData', '');
       }
-  }, 2000); //time in ms
+  }, 0); //time in ms
+
+  document.getElementById("loginWithRedirect").addEventListener('click', () => {
+    app.loginWithRedirect()
+  })
+
+  document.getElementById("logout").addEventListener('click', () => {
+    app.logout()
+  })
   
 
-  document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
+  //document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
 
 
 /*Basic Frontegg show/hide code*/
@@ -264,13 +270,20 @@ app.store.subscribe(() => {
     styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
     //Custom site actions
     SessionManager.setItem('loggedIn', 'true');
-    window.location.replace('/en/introduction/');
-  } else if(SessionManager.getItem('loggedIn') == 'true') {
+    //window.location.replace('/en/introduction/');
+  } else if(SessionManager.getItem('loggedIn') == 'true'){
+  		//USER IS LOGGED IN
+  	  styleHtml += '[fe-state="isAuthenticated"] { }';
+  	  styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+  	  //Custom site actions
+  	  //SessionManager.setItem('loggedIn', 'true');
+  	  //window.location.replace('/en/introduction/');
+  } else  {
   	//USER IS LOGGED OUT
     styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
     styleHtml += '[fe-state="!isAuthenticated"] { }';
     //Custom site actions
-    SessionManager.setItem('loggedIn', 'false');
+    //SessionManager.setItem('loggedIn', 'false');
   }
 
   if(app.options.hostedLoginBox){
@@ -281,4 +294,12 @@ app.store.subscribe(() => {
 
   style.innerHTML = styleHtml;
 })
+
+
+if(SessionManager.getItem('loggedIn') == 'true') {
+  document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
+  console.log(state.auth.user);
+  SessionManager.setItem('userData-email', state.auth.user.email);
+  console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
+} else {}
 </script>
