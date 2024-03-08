@@ -1,28 +1,4 @@
 ---
-/*
-NOTE: The following code used to be included in a script tag on the page.
-However, our english translations are now far more developed than any other language.
-We are going to start a process of updating our translations, and can begin to opt-in
-to different language automatic redirects once they hit a certain quality threshold.
-Until then, we'll just only redirect to english for now, with the meta tag below
-
-// WIP: trigger a client-side redirect based on the browser language.
-// A vercel.json redirect is enforced in production, so no user should ever see this page.
-// Remove the vercel.json redirect when this is ready.
-const KNOWN_LANGUAGES = ['bg', 'de', 'en', 'es', 'fi', 'nl', 'pt-br', 'zh-cn', 'zh-tw', 'fr', 'kr', 'da', 'ja', 'pl', 'hu'];
-let newLangWithRegion = (window.navigator.userLanguage || window.navigator.language || 'en-US').substr(0, 5);
-let newLang = newLangWithRegion.substr(0, 2);
-if (KNOWN_LANGUAGES.includes(newLangWithRegion)) {
-	window.location.pathname = '/' + newLangWithRegion + '/getting-started';
-} else if (KNOWN_LANGUAGES.includes(newLang)) {
-	window.location.pathname = '/' + newLang + '/getting-started';
-} else {
-	window.location.pathname = '/en/getting-started';
-}
-
-*/
-
-
 import SplashLayout from '../layouts/SplashLayout.astro';
 import Logo from '~/components/SVGs/Logo.astro';
 import NavBlock from '~/components/NavBlock.astro';
@@ -33,14 +9,9 @@ import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.a
 import SimpleButton from '~/components/Buttons/SimpleButton.astro';
 import Button from '~/components/Button.astro';
 
-import {initialize} from "@frontegg/js"
-
 ---
 
-<!-- <meta http-equiv="refresh" content="0;url=/en/getting-started" /> -->
-    
-
-<SplashLayout title="Welcome">
+<SplashLayout title="User Data">
 	<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/@frontegg/js/umd/frontegg.production.min.js"></script>
 	<div class="content-wrapper">
 		
@@ -48,16 +19,19 @@ import {initialize} from "@frontegg/js"
 			
 			
 			<div class="cell border">
-				<h1>Log Out</h1>
+				<h1>User Data</h1>
 				<p class="welcome-intro">
-					You've been logged out
+					This is a test page showing the relevant user data that can be accessed on this site.
 				</p>
 				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
 			</div>
 			
 			<div class="cell flexCenter">
-
-				<a href="/login">Return to Login</a>
+				
+				<div id="app-root">
+				    <h1>This is Frontegg Integration in Vanilla Javascript </h1>
+				    <button fe-action="open-admin-portal" fe-state="isAuthenticated">Open AdminPortal</button>
+				</div>
 
 			</div>
 			<!-- end cell | cell layout -->
@@ -139,6 +113,23 @@ import {initialize} from "@frontegg/js"
 
 
 
-<script >
+<script>
+	import {initialize} from "@frontegg/js"
 
+	const style = document.createElement('style');
+	style.setAttribute('type', 'text/css');
+	style.innerHTML = '';
+	document.getElementsByTagName('head')[0].appendChild(style);
+
+	const app = initialize({
+	  contextOptions: {
+	    baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
+	    clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
+	  },
+	  hostedLoginBox: true //if you are working in embedded mode remove this one
+	})
+
+	document.querySelector('[fe-action="open-admin-portal"]').addEventListener('click', () => {
+	  app.showAdminPortal()
+	})
 </script>

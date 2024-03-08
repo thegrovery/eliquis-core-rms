@@ -1,0 +1,205 @@
+---
+import SplashLayout from '../../layouts/SplashLayout.astro';
+import Logo from '~/components/SVGs/Logo.astro';
+import NavBlock from '~/components/NavBlock.astro';
+import IfLoggedIn from '~/components/DynamicContent/IfLoggedIn.astro';
+import IfLoggedInDisabled from '~/components/DynamicContent/IfLoggedInDisabled.astro';
+import UserInfo from '~/components/DynamicContent/UserInfo.astro';
+import LoadingPlaceholder from '~/components/DynamicContent/LoadingPlaceholder.astro';
+import SimpleButton from '~/components/Buttons/SimpleButton.astro';
+import Button from '~/components/Button.astro';
+
+import {initialize} from "@frontegg/js"
+
+---
+
+<SplashLayout title="User Data">
+	<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/@frontegg/js/umd/frontegg.production.min.js"></script>
+	<div class="content-wrapper">
+		
+		<div class="content">
+			
+			
+			<div class="cell border">
+				<h1>You're logged in!</h1>
+				<p class="welcome-intro">
+					Good job!  This is where Frontegg sends you when you log in.
+					
+					<br/>
+					
+					<a href="/login">Return to Login</a>
+					<a href="/en/introduction">Enter Site</a>
+					<a href="/user-data">User Data Page</a>
+					<a id="logout">Log Out</a>
+
+				</p>
+				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
+			</div>
+			
+			<div class="cell flexCenter">
+
+				<div>
+					<p>User Data:</p>
+					<ul>
+						<li>
+							<strong>[userDataEmail]: </strong><span data-user-data="userEmail"></span>
+						</li>
+						<li>
+							<strong>[userCallbackCode]: </strong><span data-user-data="userCallbackCode"></span>
+						</li>
+						
+					</ul>
+				</div>
+				
+
+			</div>
+			<!-- end cell | cell layout -->
+		</div>
+	</div>
+</SplashLayout>
+
+<style lang="scss">
+	article {
+		width: 100%;
+	}
+	.content-wrapper {
+		width: 100%;
+		height: 100%;
+		max-width: var(--page-width-1);
+		display: flex;
+		justify-content: flex-start;
+		
+		.content {
+			position: relative;
+			z-index: 1;
+			padding-top: calc(var(--theme-navbar-height) + var(--doc-padding-block));
+			padding-bottom: var(--doc-padding-block);
+			padding-inline: var(--min-spacing-inline);
+			width: 100%;
+			height: 100%;
+			margin-inline: auto;
+			display: flex;
+			flex-direction: row;
+			/* overflow-x: hidden; */
+			// max-width: 80vw;
+			
+			.cell{
+				width: 50%;
+				padding: 1rem;
+				&.border{
+					border-right: solid 1px var(--theme-text);
+				}
+				&.flexCenter{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+			}
+
+			@media (max-width: 800px) {
+				display: flex;
+				flex-direction: column;
+
+				.cell{
+					width: 100%;
+					padding: 1rem;
+					&.border{
+						border-right: none;
+						border-bottom: solid 1px var(--theme-text);
+					}
+					
+				}
+			}
+
+			.welcome-intro {
+				margin-bottom: 1.5em;
+				padding-right: 10%;
+				@media (min-width: 50em) {
+					padding-right: 20%;
+				}	
+			}
+
+			.button-wrap{
+				display: flex;
+				flex-direction: column;
+			}
+
+		}
+	}
+
+</style>
+
+
+
+
+
+
+<script type="text/javascript">
+	
+	
+</script>
+
+<script>
+	console.log("===== Frontegg Login  =====");
+	
+	import {initialize} from "@frontegg/js";
+
+	const app = initialize({
+	  contextOptions: {
+	    baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
+	    clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
+	  },
+	  hostedLoginBox: true
+	})
+	
+	//Login action - initiate login context
+	console.log("===== app.loginWithRedirect()  =====");
+	app.loginWithRedirect()
+
+	app.store.subscribe(() => {
+	  const state = app.store.getState();
+	    if (state.auth.user) {
+
+	        //document.getElementById('user-container').innerText = state.auth.user.email;
+	        console.log(state.auth.user);
+	        SessionManager.setItem('loggedIn', 'true');
+	        SessionManager.setItem('userDataEmail', state.auth.user.email);
+	        SessionManager.setItem('userDataName', state.auth.user.name);
+	        SessionManager.setItem('userDataGroups', state.auth.user.groups);
+	        SessionManager.setItem('userDataRoles', state.auth.user.roles);
+
+	        //set email in text
+	        var userDataEmail = SessionManager.getItem('userDataEmail');
+	        var userEmailElement = document.querySelector('[data-user-data="userEmail"]');
+	        userEmailElement.innerHTML = userDataEmail;
+
+	      }else if(SessionManager.getItem('loggedIn') == 'true') {
+	        
+	        //document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
+	        console.log(state.auth.user);
+	        console.log('========== logged in via cookie ==========');
+
+	      } else {
+	        //not logged in
+	      }
+	});
+
+	document.getElementById("loginWithRedirect").addEventListener('click', () => {
+	    app.loginWithRedirect()
+	  })
+/*===== ======================== =====*/
+/*===== Grab callback code value =====*/
+/*===== ======================== =====*/
+	function getURLParameterValue(paramName) {
+	  const urlParams = new URLSearchParams(window.location.search);
+	  return urlParams.get(paramName);
+	}
+	// Example usage:
+	// Assuming the URL is "http://example.com/?param1=value1&param2=value2"
+	const paramValue = getURLParameterValue('code');
+	console.log(paramValue); // Outputs: value1
+
+	var userCallbackCodeEl = document.querySelector('[data-user-data="userCallbackCode"]');
+	userCallbackCodeEl.innerHTML = paramValue;
+</script>

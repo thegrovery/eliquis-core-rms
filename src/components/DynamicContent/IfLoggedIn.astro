@@ -51,25 +51,25 @@ const { info } = Astro.props as Props;
       //console.log("IfLoggedIn functions executed.");
 
       //grab all user info
-      var loggedIn = SessionManager.getItem('loggedIn');
-      //var user = netlifyIdentity.currentUser();
+      var loggedIn = SessionManager.getItem('loggedIn').toString();
+      var user = SessionManager.getItem('userDataEmail');
       
       var elements = document.querySelectorAll('.IfLoggedIn');
 
-      if( loggedIn == true){
+      if( loggedIn == 'true'){
         //logged in
         console.log("IfLoggedIn --- Logged In | cookie");
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
-      }else if(user != null){
+      }/*else if(user != null){
         //logged in
         console.log("IfLoggedIn --- Logged In | direct");
         console.log(user);
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
-      } else {
+      } */else {
         //logged out
         console.log("IfLoggedIn --- Logged Out");
         elements.forEach(element => {

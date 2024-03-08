@@ -55,9 +55,9 @@ import {initialize} from "@frontegg/js"
 				<!-- <p class="small">The below section reacts to whether or not you are logged in.</p> -->
 			</div>
 			
-			<div class="cell flexCenter">
+			<div id="app-root" class="cell flexCenter">
 				
-				<div id="app-root">
+				<!-- <div>
 				    <h1>This is Frontegg Integration in Vanilla Javascript </h1>
 				    <div id="user-container"></div>
 				    <br/>
@@ -68,30 +68,19 @@ import {initialize} from "@frontegg/js"
 				        Login With Redirect
 				    </button>
 
-				</div>
+				</div> -->
 
-				<IfLoggedIn>
-				          
+				<p id="userNameVar">#userNameVar</p>
+				<IfLoggedIn>					
 					<div slot="loggedIn">
-						<p>You are currently logged in.</p>
+						<div>You are currently logged in.</div>
+						<a href="/en/introduction">Enter Site</a>
+						<a href="/user-data">User Data Page</a>
 						<a id="logout">
-							<button 
-								class='LogInOutButton' 
-								
-								data-notification="false"
-								data-event="GAEvent" 
-								data-category="Header" 
-								data-label="navLogOut" 
-								data-action="Click" 
-								data-value="undefined"
-							>
+							<span>Log Out</span>
 						</a>
 						
-							<div class="LogInOutButtonInner">
-								<!-- <Icon name=ic:outline-notification-important /> -->
-								<span>Log Out</span>
-							</div>
-						</button>
+							
 					</div>
 
 					<div slot="loggedOut">
@@ -199,107 +188,124 @@ import {initialize} from "@frontegg/js"
 	console.log("===== Frontegg Login  =====");
 	import {initialize} from "@frontegg/js"
 
-const style = document.createElement('style');
-style.setAttribute('type', 'text/css');
-style.innerHTML = '';
-document.getElementsByTagName('head')[0].appendChild(style);
+	const style = document.createElement('style');
+	style.setAttribute('type', 'text/css');
+	style.innerHTML = '';
+	document.getElementsByTagName('head')[0].appendChild(style);
 
 
-const app = initialize({
-  contextOptions: {
-    baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
-    clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
-  },
-  hostedLoginBox: true
-})
+	const app = initialize({
+	  contextOptions: {
+	    baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
+	    clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
+	  },
+	  hostedLoginBox: true
+	})
 
-// Uncomment below code for automatic redirect to login/app
+	app.store.subscribe(() => {
+	  const state = app.store.getState();
+	  setTimeout(() => {
+	    if (state.auth.user) {
 
-// app.ready(() => {
-
-//   console.log("App is ready");
-//   let unsubscribe = app.store.subscribe(()=>{
-//     const {auth} = app.store.getState();
-
-//     if(!auth.isLoading) {
-//       if (!auth.isAuthenticated) {
-//         app.loginWithRedirect()
-//       }
-//     }
-//   })
-// })
+	        //document.getElementById('user-container').innerText = state.auth.user.email;
+	        console.log(state.auth.user);
+	        SessionManager.setItem('loggedIn', 'true');
+	        SessionManager.setItem('userDataEmail', state.auth.user.email);
+	        SessionManager.setItem('userDataName', state.auth.user.name);
+	        SessionManager.setItem('userDataGroups', state.auth.user.groups);
+	        SessionManager.setItem('userDataRoles', state.auth.user.roles);
 
 
+	      }else if(SessionManager.getItem('loggedIn') == 'true') {
+	        
+	        //document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
+	        console.log(state.auth.user);
+	        console.log('========== logged in via cookie ==========');
 
-app.store.subscribe(() => {
-  const state = app.store.getState();
-  setTimeout(() => {
-    if (state.auth.user) {
-        document.getElementById('user-container').innerText = state.auth.user.email;
-        console.log(state.auth.user);
-        SessionManager.setItem('userData-email', state.auth.user.email);
-        console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
-      }else if(SessionManager.getItem('loggedIn') == 'true') {
-        document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
-        console.log(state.auth.user);
-        SessionManager.setItem('userData-email', state.auth.user.email);
-        console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
-      } else {
-        document.getElementById('user-container').innerText = 'Not Authenticated'
-        SessionManager.setItem('userData', '');
-      }
-  }, 0); //time in ms
+	      } else {
+	        
+	        //not logged in
 
-  document.getElementById("loginWithRedirect").addEventListener('click', () => {
-    app.loginWithRedirect()
-  })
-
-  document.getElementById("logout").addEventListener('click', () => {
-    app.logout()
-  })
-  
-
-  //document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
+	      }
+	  }, 0); //time in ms
 
 
-/*Basic Frontegg show/hide code*/
-  let styleHtml = ''
-  if (state.auth.isAuthenticated) {
-  	//USER IS LOGGED IN
-    styleHtml += '[fe-state="isAuthenticated"] { }';
-    styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
-    //Custom site actions
-    SessionManager.setItem('loggedIn', 'true');
-    //window.location.replace('/en/introduction/');
-  } else if(SessionManager.getItem('loggedIn') == 'true'){
-  		//USER IS LOGGED IN
-  	  styleHtml += '[fe-state="isAuthenticated"] { }';
-  	  styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
-  	  //Custom site actions
-  	  //SessionManager.setItem('loggedIn', 'true');
-  	  //window.location.replace('/en/introduction/');
-  } else  {
-  	//USER IS LOGGED OUT
-    styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
-    styleHtml += '[fe-state="!isAuthenticated"] { }';
-    //Custom site actions
-    //SessionManager.setItem('loggedIn', 'false');
-  }
+/*===== ======= =====*/
+/*===== ACTIONS =====*/
+/*===== ======= =====*/
+	  document.getElementById("loginWithRedirect").addEventListener('click', () => {
+	    app.loginWithRedirect()
+	  })
 
-  if(app.options.hostedLoginBox){
-    styleHtml += '[fe-mode="hosted"] { }';
-  } else {
-    styleHtml += '[fe-mode="hosted"] { display: none; }';
-  }
+	  document.getElementById("logout").addEventListener('click', () => {
+	  	console.log("logout button clicked");
+	    SessionManager.setItem('loggedIn', 'false');
+	    SessionManager.setItem('userDataEmail', 'X');
+	    SessionManager.setItem('userDataName', 'X');
+	    SessionManager.setItem('userDataGroups', 'X');
+	    SessionManager.setItem('userDataRoles', 'X');
+	    app.logout()
+	    window.location.href = '/login'
+	  })
+	  
 
-  style.innerHTML = styleHtml;
-})
+	  //document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
 
 
-if(SessionManager.getItem('loggedIn') == 'true') {
-  document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
-  console.log(state.auth.user);
-  SessionManager.setItem('userData-email', state.auth.user.email);
-  console.log("USERDATA VAR: " + SessionManager.getItem('userData-email'));
-} else {}
+	/*Basic Frontegg show/hide code*/
+	  let styleHtml = ''
+	  if (state.auth.isAuthenticated) {
+	  	//USER IS LOGGED IN - via login function
+	    //styleHtml += '[fe-state="isAuthenticated"] { }';
+	    //styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+	    //Custom site actions
+	    SessionManager.setItem('loggedIn', 'true');
+	    SessionManager.setItem('userDataEmail', state.auth.user.email);
+	    SessionManager.setItem('userDataName', state.auth.user.name);
+	    SessionManager.setItem('userDataGroups', state.auth.user.groups);
+	    SessionManager.setItem('userDataRoles', state.auth.user.roles);
+
+	    window.location.replace('/en/introduction/');
+	  } else if(SessionManager.getItem('loggedIn') == 'true'){
+	  		//USER IS LOGGED IN - via cookie
+	  	  //styleHtml += '[fe-state="isAuthenticated"] { }';
+	  	  //styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+	  	  //Custom site actions
+	  	  //SessionManager.setItem('loggedIn', 'true');
+	  	  //window.location.replace('/en/introduction/');
+	  } else  {
+	  	//USER IS LOGGED OUT
+	    //styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
+	    //styleHtml += '[fe-state="!isAuthenticated"] { }';
+	    //Custom site actions
+	    //SessionManager.setItem('loggedIn', 'false');
+	  }
+
+	  /*if(app.options.hostedLoginBox){
+	    styleHtml += '[fe-mode="hosted"] { }';
+	  } else {
+	    styleHtml += '[fe-mode="hosted"] { display: none; }';
+	  }*/
+
+	  style.innerHTML = styleHtml;
+	})
+
+
+
+</script>
+
+<script >
+	console.log(SessionManager.getItem('loggedIn'));
+	document.querySelector('#userNameVar').innerHTML  =  "LINE 299: "+SessionManager.getItem('userDataEmail');
+	
+
+	if(SessionManager.getItem('loggedIn').toString() == 'true') {
+	  console.log("========== LOGIN DETECTED ==========");
+	  console.log(state.auth.user);
+	  SessionManager.setItem('userDataEmail', state.auth.user.email);
+	  console.log("USERDATA VAR: " + SessionManager.getItem('userDataEmail'));
+	  
+	} else {
+		
+	}
 </script>
