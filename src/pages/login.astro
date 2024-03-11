@@ -72,13 +72,12 @@ import {initialize} from "@frontegg/js"
 
 				<p id="userNameVar">#userNameVar</p>
 				<IfLoggedIn>					
+
 					<div slot="loggedIn">
 						<div>You are currently logged in.</div>
-						<a href="/en/introduction">Enter Site</a>
-						<a href="/user-data">User Data Page</a>
-						<a id="logout">Log Out</a>
-						
-							
+						<a href="/en/introduction">Enter Site</a> <br/>
+						<a href="/user-data">User Data Page</a> <br/>
+						<a id="logout">Log Out</a>							
 					</div>
 
 					<div slot="loggedOut">
@@ -182,115 +181,7 @@ import {initialize} from "@frontegg/js"
 
 
 
-<script>
-	console.log("===== Frontegg Login  =====");
-	import {initialize} from "@frontegg/js"
 
-	const style = document.createElement('style');
-	style.setAttribute('type', 'text/css');
-	style.innerHTML = '';
-	document.getElementsByTagName('head')[0].appendChild(style);
-
-
-	const app = initialize({
-	  contextOptions: {
-	    baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
-	    clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
-	  },
-	  hostedLoginBox: true
-	})
-
-	app.store.subscribe(() => {
-	  const state = app.store.getState();
-	  setTimeout(() => {
-	    if (state.auth.user) {
-
-	        //document.getElementById('user-container').innerText = state.auth.user.email;
-	        console.log(state.auth.user);
-	        SessionManager.setItem('loggedIn', 'true');
-	        SessionManager.setItem('userDataEmail', state.auth.user.email);
-	        SessionManager.setItem('userDataName', state.auth.user.name);
-	        SessionManager.setItem('userDataGroups', state.auth.user.groups);
-	        SessionManager.setItem('userDataRoles', state.auth.user.roles);
-
-
-	      }else if(SessionManager.getItem('loggedIn') == 'true') {
-	        
-	        //document.getElementById('user-container').innerText =  SessionManager.getItem('userData-email');
-	        console.log(state.auth.user);
-	        console.log('========== logged in via cookie ==========');
-
-	      } else {
-	        
-	        //not logged in
-
-	      }
-	  }, 0); //time in ms
-
-
-/*===== ======= =====*/
-/*===== ACTIONS =====*/
-/*===== ======= =====*/
-	  document.getElementById("loginWithRedirect").addEventListener('click', () => {
-	    app.loginWithRedirect()
-	  })
-
-	  document.getElementById("logout").addEventListener('click', () => {
-	  	console.log("logout button clicked");
-	    SessionManager.setItem('loggedIn', 'false');
-	    SessionManager.setItem('userDataEmail', 'X');
-	    SessionManager.setItem('userDataName', 'X');
-	    SessionManager.setItem('userDataGroups', 'X');
-	    SessionManager.setItem('userDataRoles', 'X');
-	    app.logout()
-	    window.location.href = '/login'
-	  })
-	  
-
-	  //document.getElementById('app-root').style.display = state.auth.isLoading ? 'hidden' : 'block'
-
-
-	/*Basic Frontegg show/hide code*/
-	  let styleHtml = ''
-	  if (state.auth.isAuthenticated) {
-	  	//USER IS LOGGED IN - via login function
-	    //styleHtml += '[fe-state="isAuthenticated"] { }';
-	    //styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
-	    //Custom site actions
-	    SessionManager.setItem('loggedIn', 'true');
-	    SessionManager.setItem('userDataEmail', state.auth.user.email);
-	    SessionManager.setItem('userDataName', state.auth.user.name);
-	    SessionManager.setItem('userDataGroups', state.auth.user.groups);
-	    SessionManager.setItem('userDataRoles', state.auth.user.roles);
-
-	    window.location.replace('/en/introduction/');
-	  } else if(SessionManager.getItem('loggedIn') == 'true'){
-	  		//USER IS LOGGED IN - via cookie
-	  	  //styleHtml += '[fe-state="isAuthenticated"] { }';
-	  	  //styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
-	  	  //Custom site actions
-	  	  //SessionManager.setItem('loggedIn', 'true');
-	  	  //window.location.replace('/en/introduction/');
-	  } else  {
-	  	//USER IS LOGGED OUT
-	    //styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
-	    //styleHtml += '[fe-state="!isAuthenticated"] { }';
-	    //Custom site actions
-	    //SessionManager.setItem('loggedIn', 'false');
-	  }
-
-	  /*if(app.options.hostedLoginBox){
-	    styleHtml += '[fe-mode="hosted"] { }';
-	  } else {
-	    styleHtml += '[fe-mode="hosted"] { display: none; }';
-	  }*/
-
-	  style.innerHTML = styleHtml;
-	})
-
-
-
-</script>
 
 <script >
 	console.log(SessionManager.getItem('loggedIn'));
