@@ -56,7 +56,7 @@ const { info } = Astro.props as Props;
       
       var elements = document.querySelectorAll('.IfLoggedIn');
 
-      if( loggedIn == 'true'){
+      if( loggedIn == 'true' ){
         //logged in
         console.log("IfLoggedIn --- Logged In | cookie");
         elements.forEach(element => {
@@ -69,7 +69,13 @@ const { info } = Astro.props as Props;
         elements.forEach(element => {
           element.classList.add("currentlyLoggedIn"); 
         });
-      } */else {
+      }*/else if(loggedIn == null ){
+        //logged in
+        console.log("IfLoggedIn --- Logged Out");
+        elements.forEach(element => {
+          element.classList.add("currentlyLoggedOut"); 
+        });
+      }else {
         //logged out
         console.log("IfLoggedIn --- Logged Out");
         elements.forEach(element => {

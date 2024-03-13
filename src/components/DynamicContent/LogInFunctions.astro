@@ -7,7 +7,9 @@
 const { info } = Astro.props as Props;
 ---
 
-<!--  -->
+<!-- ===================== -->
+<!-- old netlify login code -->
+<!-- ===================== -->
 <script type="text/javascript">
   //function vars
   var functionsDelay = 3000; //time in ms
@@ -58,8 +60,104 @@ const { info } = Astro.props as Props;
   );
 </script>
 
+
+<!-- =================================== -->
+<!-- ===== Frontegg Login Functions ===== -->
+<!-- =================================== -->
+
+<script>
+  console.log("===== Frontegg Login  =====");
+
+  /*===== import =====*/
+    import {initialize} from "@frontegg/js"
+
+  /*===== initialize Frontegg instance =====*/
+    const app = initialize({
+      contextOptions: {
+        baseUrl: "https://app-60w042yz5etg.frontegg.com", //set your Frontegg environment domain and client ID here
+        clientId: '22400201-214c-4be4-aa17-d66b72a2cce1'
+      },
+      hostedLoginBox: true
+    })
+
+  /*===== access Frontegg data =====*/
+    app.store.subscribe(() => {
+      const state = app.store.getState();
+      setTimeout(() => {
+        if (state.auth.user) {
+            //logged in via Frontegg instance
+            //document.getElementById('user-container').innerText = state.auth.user.email;
+            console.log(state.auth.user);
+            if (state.auth.isAuthenticated) {
+              //USER IS LOGGED IN - via login function
+              //styleHtml += '[fe-state="isAuthenticated"] { }';
+              //styleHtml += '[fe-state="!isAuthenticated"] { display: none; }';
+              //Custom site actions
+              setLogin();
+              window.location.replace('/en/introduction/');
+            }  else  {
+              //USER IS LOGGED OUT
+              //styleHtml += '[fe-state="isAuthenticated"] { display: none; }';
+              //styleHtml += '[fe-state="!isAuthenticated"] { }';
+              //Custom site actions
+              //SessionManager.setItem('loggedIn', 'false');
+            }
+
+          }else if(SessionManager.getItem('loggedIn') == 'true') {
+            
+            //already logged in via cookie
+
+          } else {
+            
+            //not logged in
+
+          }
+      }, 0); //time in ms
+
+      /*===== ======= =====*/
+      /*===== ACTIONS =====*/
+      /*===== ======= =====*/
+          document.getElementById("loginWithRedirect").addEventListener('click', () => {
+            console.log("login button click");
+            app.loginWithRedirect()
+          })
+
+          document.getElementById("logout").addEventListener('click', () => {
+            console.log("logout button clicked");
+            clearLogin();
+            app.logout()
+            window.location.href = '/login'
+          })
+
+    });
+
+
+
+    
+
+</script>
+
+
 <script type="text/javascript">
   
+  function clearLogin(){
+    SessionManager.setItem('loggedIn', 'false');
+    SessionManager.setItem('userDataEmail', 'logged_out');
+    SessionManager.setItem('userDataName', 'logged_out');
+    SessionManager.setItem('userDataGroups', 'logged_out');
+    SessionManager.setItem('userDataRoles', 'logged_out');
+    //app.logout()
+    window.location.href = '/login'
+  }
 
+  function setLogin(){
+    SessionManager.setItem('loggedIn', 'true');
+    SessionManager.setItem('userDataEmail', state.auth.user.email);
+    SessionManager.setItem('userDataName', state.auth.user.name);
+    SessionManager.setItem('userDataGroups', state.auth.user.groups);
+    SessionManager.setItem('userDataRoles', state.auth.user.roles);
+    //app.logout()
+    window.location.href = '/login'
+  }
   
 </script>
