@@ -51,8 +51,9 @@ const { info } = Astro.props as Props;
       //console.log("IfLoggedIn functions executed.");
 
       //grab all user info
+      console.log(SessionManager.getItem('loggedIn'));
       var loggedIn = SessionManager.getItem('loggedIn').toString();
-      var user = SessionManager.getItem('userDataEmail');
+      //var user = SessionManager.getItem('userDataEmail');
       
       var elements = document.querySelectorAll('.IfLoggedIn');
 
